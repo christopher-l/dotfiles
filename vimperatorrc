@@ -1,0 +1,4 @@
+set defsearch=g
+hi StatusLine color:black
+"set nosb
+map d :bdelete -s lastactive <C-m>
