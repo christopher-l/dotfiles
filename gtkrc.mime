@@ -1,0 +1,32 @@
+##################
+#      GTK       #
+##################
+
+include "/usr/share/themes/oxygen-gtk/gtk-2.0/gtkrc"
+
+
+##################
+#     FONTS      #
+##################
+
+#style "myfont"
+#{
+#   font_name = "Myriad Web 9"
+#}
+#widget_class "*" style "myfont"
+#gtk-font-name = "Myriad Web 9"
+monospace-font-name = "Monospace 18"
+
+
+##################
+#     ICONS      #
+##################
+
+gtk-icon-theme-name = "oxygen"
+
+
+##################
+#    TOOLBARS    #
+##################
+
+gtk-toolbar-style   = GTK_TOOLBAR_ICONS
