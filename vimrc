@@ -5,17 +5,21 @@ Bundle "ragtag.vim"
 map <F8> :NERDTreeToggle<CR>
 map <F9> :TlistToggle<CR>
 let NERDTreeDirArrows=0
-"set ts=3
-"set sw=3
-"set cindent
-"set et
 
-colo fewcolors
+filetype plugin indent on
+set grepprg=grep\ -nH\ $*
+let g:tex_flavor = "latex"
+let g:Tex_DefaultTargetFormat = 'pdf'
 
 set mouse=nv
-"map <LeftMouse>      <C-RightMouse>
-"map <RightMouse>     <C-RightMouse>
-"map <MiddleMouse>    <C-RightMouse>
-"map <S-LeftMouse>    <LeftMouse>
-"map <S-RightMouse>   <RightMouse>
-"map <S-MiddleMouse>  <MiddleMouse>
+set aw      "autowrite
+set bg=dark "background
+set nu      "number
+set ts=4    "tabstop
+set sw=4    "shiftwidth
+set et      "expandtab
+set wildmenu
+set pt=<F2> "pastetoggle
+"set cindent
+
+colo fewcolors
