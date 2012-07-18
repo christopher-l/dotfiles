@@ -1,0 +1,27 @@
+open_with gwenview
+open_with 
+cd .config/
+delete seriously? y
+bc
+bd
+! okular
+okular
+search config
+search .con
+cd /home/chris/.config/ranger
+grep exif
+tmux
+tmux_new_window 
+tmux new
+shell tmux new-window
+shell
+open_with okular
+open_with evince
+open_with kate &
+open_with -r kate
+open_with -d kate
+open_with kate
+open_with d kate
+open_with kate d
+open_with pdflatex
+
