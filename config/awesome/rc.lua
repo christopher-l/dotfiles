@@ -1,15 +1,9 @@
--- Standard awesome library
 require("awful")
 require("awful.autofocus")
 require("awful.rules")
--- Theme handling library
 require("beautiful")
--- Notification library
 require("naughty")
--- Fancy stuff
 require("vicious")
---local scratch = require("scratch")
---require("revelation")
 
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
@@ -38,7 +32,6 @@ end
 
 
 -- Themes
---beautiful.init("/usr/share/awesome/themes/default/theme.lua")
 beautiful.init("/home/chris/.config/awesome/zenburn.lua")
 
 -- Defaults

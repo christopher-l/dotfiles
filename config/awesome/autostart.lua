@@ -8,7 +8,7 @@ function run_once(cmd)
 end
 
 
-awful.util.spawn_with_shell("sleep 5 && xsetroot -cursor_name left_ptr")
+--awful.util.spawn_with_shell("sleep 5 && xsetroot -cursor_name left_ptr")
 awful.util.spawn_with_shell("xset r rate 250 30")
 -- "/etc/X11/xorg.conf.d/10-synaptics.conf"
 --awful.util.spawn_with_shell("synclient TouchpadOff=1")
