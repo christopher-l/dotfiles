@@ -3,9 +3,6 @@
 export PATH=$PATH:/home/chris/bin
 export _JAVA_AWT_WM_NONREPARENTING=1
 
-alias gm='gnatmake -W -Wall -gnato -gnat2012'
-
-
 # Search ASCII-string from multiple files in the currect working directory
 # E.g.
 # search "foobar" "*.html"
