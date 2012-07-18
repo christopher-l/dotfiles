@@ -17,7 +17,7 @@ let g:colors_name="fewcolors"
         hi Statement    ctermfg=none      ctermbg=none cterm=bold      term=bold
         hi Comment      ctermfg=LightBlue ctermbg=none cterm=italic    term=none
         hi Constant     ctermfg=Red       ctermbg=none
-        hi Identifier   ctermfg=LightBlue ctermbg=none cterm=bold      term=bold
+        hi Identifier   ctermfg=Green     ctermbg=none cterm=bold      term=bold
         hi Type         ctermfg=Green     ctermbg=none
         hi Folded       ctermfg=Green     ctermbg=none cterm=underline term=none
         hi Special      ctermfg=none      ctermbg=none cterm=bold      term=bold

@@ -11,6 +11,7 @@ set grepprg=grep\ -nH\ $*
 let g:tex_flavor = "latex"
 let g:Tex_DefaultTargetFormat = 'pdf'
 
+set tm=1    "timeoutlen
 set mouse=nv
 set aw      "autowrite
 set bg=dark "background
@@ -23,3 +24,8 @@ set pt=<F2> "pastetoggle
 "set cindent
 
 colo fewcolors
+
+if $TERM =~ 'screen-256color'
+    set t_so=[7m
+    set t_ZH=[3m
+endif
