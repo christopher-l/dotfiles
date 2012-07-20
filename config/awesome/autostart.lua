@@ -18,7 +18,7 @@ awful.util.spawn_with_shell("xmodmap $HOME/.Xmodmap")
 
 
 run_once("pidgin")
-run_once("urxvt -T irssi -pe -tabbed -e irssi")
+-- run_once("urxvt -T irssi -pe -tabbed -e irssi")
 run_once("dropboxd")
 run_once("syndaemon -t -k -i 1 -d")
 --run_once("nm-applet")

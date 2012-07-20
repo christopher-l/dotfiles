@@ -1,0 +1,11 @@
+#source-file ~/.tmux.conf
+new-session -s main
+new-window -n root -t 0 -d 'sudo su'
+set-window-option -t 0 allow-rename off
+
+new-window -n ssh -t 2 -d
+set-window-option -t 2 allow-rename off
+
+new-window -n irssi -t 3 -d irssi
+set-window-option -t 3 allow-rename off
+#set-window-option -t 3 monitor-activity on
