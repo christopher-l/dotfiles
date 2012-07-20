@@ -11,7 +11,7 @@ set grepprg=grep\ -nH\ $*
 let g:tex_flavor = "latex"
 let g:Tex_DefaultTargetFormat = 'pdf'
 
-set tm=1    "timeoutlen
+set tm=500  "timeoutlen
 set mouse=nv
 set aw      "autowrite
 set bg=dark "background
