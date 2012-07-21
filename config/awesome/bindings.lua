@@ -82,10 +82,10 @@ globalkeys = awful.util.table.join(
         naughty.notify({ text = "Touchpad " .. (state == "1" and "on" or "off") })
     end),
     awful.key({ }, "XF86AudioLowerVolume", function ()
-        awful.util.spawn("pactl -- set-sink-volume 0 -10%")
+        awful.util.spawn("pactl -- set-sink-volume 0 -5%")
         vicious.force({ volumewidget, }) end),
     awful.key({ }, "XF86AudioRaiseVolume", function ()
-        awful.util.spawn("pactl -- set-sink-volume 0 +10%") 
+        awful.util.spawn("pactl -- set-sink-volume 0 +5%") 
         vicious.force({ volumewidget, }) end),
     awful.key({ }, "XF86Launch1", function () awful.util.spawn("xset dpms force off") end)
 )
