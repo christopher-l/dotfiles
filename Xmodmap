@@ -1,4 +1,4 @@
-keysym Menu = Super_L Super_R Menu
+keysym Menu = Super_L Super_R
 keysym Caps_Lock  = Escape Caps_Lock
 clear Lock
 add Lock = Scroll_Lock
