@@ -66,6 +66,9 @@ awful.rules.rules = {
     { rule       = { class = "Evolution" },
       properties = { tag = tags[1][3] },
     },
+    { rule       = { class = "Claws-mail" },
+      properties = { tag = tags[1][3] },
+    },
     { rule       = { class = "Plugin-container" },
       callback  = function (c) c.maximized_horizontal = true c.focus = true end
     },

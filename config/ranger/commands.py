@@ -1018,9 +1018,26 @@ class grep(Command):
 			action.extend(f.path for f in self.fm.env.get_selection())
 			self.fm.execute_command(action, flags='p')
 
-class loadmarked(Command):
+def _getmarked(fm):
+    """
+    return marked files, concatenated with spaces
+    """
+
+    marked_files = fm.env.cwd.get_selection()
+    return " ".join(['"'+f.path+'"' for f in marked_files])
+
+class marked_vim(Command):
+    """
+    load selected files in to seperate vim window
+    """
+
     def execute(self):
-        """ load selected files in to seperate vim window """
-        marked_files = self.fm.env.cwd.get_selection()
-        files = " ".join([f.path for f in marked_files])
-        self.fm.execute_command('tmux new-window \'vim ' + files + '\'')
+        self.fm.execute_command('tmux new-window \'vim ' + _getmarked(self.fm) + '\'')
+
+class marked_send(Command):
+    """
+    send selected files via mail using claws mail
+    """
+
+    def execute(self):
+        self.fm.execute_command('claws-mail --attach ' + _getmarked(self.fm))
