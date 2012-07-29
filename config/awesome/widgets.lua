@@ -5,7 +5,7 @@ separator = widget({ type = "textbox" })
 separator.text = " | "
 
 space_s = widget({ type = "textbox" })
-space_s.text = "  "
+space_s.text = " "
 
 -- Date
 datewidget = widget({ type = "textbox" })

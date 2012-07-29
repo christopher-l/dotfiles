@@ -1,6 +1,6 @@
 # Created by newuser for 4.3.12
 
-export PATH=$PATH:/home/chris/bin
+export PATH=/home/chris/bin:$PATH
 export _JAVA_AWT_WM_NONREPARENTING=1
 
 # Search ASCII-string from multiple files in the currect working directory
