@@ -1,4 +1,4 @@
-#source-file ~/.tmux.conf
+source-file ~/.tmux.conf
 new-session -s main
 new-window -n root -t 0 -d 'sudo su'
 set-window-option -t 0 allow-rename off

@@ -6,3 +6,7 @@ noremap h 5h
 noremap j 5j
 noremap k 5k
 noremap l 5l
+
+"colorscheme zenburn
+
+set newtab=all
