@@ -107,7 +107,8 @@ channels = (
   { name = "#irssi"; chatnet = "ircnet"; autojoin = "No"; },
   { name = "silc"; chatnet = "silc"; autojoin = "No"; },
   { name = "#maschinenraum"; chatnet = "freenode"; autojoin = "yes"; },
-  { name = "#mediensysteme"; chatnet = "freenode"; autojoin = "yes"; }
+  { name = "#mediensysteme"; chatnet = "freenode"; autojoin = "yes"; },
+  { name = "mediensysteme-offtopic"; chatnet = "freenode"; autojoin = "yes" }
 );
 
 aliases = {
