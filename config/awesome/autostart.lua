@@ -9,8 +9,10 @@ end
 
 
 awful.util.spawn_with_shell("synclient TouchpadOff=1")
+awful.util.spawn_with_shell("xsetroot -cursor_name left_ptr")
 
 run_once("pidgin")
+run_once("urxvt -e irssi")
 --run_once("dropboxd")
 --run_once("syndaemon -t -k -i 1 -d")
 

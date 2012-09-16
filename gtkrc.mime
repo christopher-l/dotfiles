@@ -2,7 +2,7 @@
 #      GTK       #
 ##################
 
-include "/usr/share/themes/oxygen-gtk/gtk-2.0/gtkrc"
+#include "/usr/share/themes/oxygen-gtk/gtk-2.0/gtkrc"
 
 
 ##################
@@ -15,14 +15,14 @@ include "/usr/share/themes/oxygen-gtk/gtk-2.0/gtkrc"
 #}
 #widget_class "*" style "myfont"
 #gtk-font-name = "Myriad Web 9"
-monospace-font-name = "Monospace 18"
+#monospace-font-name = "Monospace 18"
 
 
 ##################
 #     ICONS      #
 ##################
 
-gtk-icon-theme-name = "oxygen"
+#gtk-icon-theme-name = "oxygen"
 
 
 ##################

@@ -3,7 +3,7 @@ require("awful.autofocus")
 require("awful.rules")
 require("beautiful")
 require("naughty")
-require("vicious")
+vicious = require("vicious")
 
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to

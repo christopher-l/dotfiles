@@ -1,5 +1,6 @@
 set defsearch=g
 hi StatusLine color:black
+hi Normal -append font-size:11px
 "set nosb
 map d :bdelete -s lastactive <C-m>
 noremap h 5h
@@ -10,3 +11,15 @@ noremap l 5l
 "colorscheme zenburn
 
 set newtab=all
+
+map <silent> <C-F8> :js toggle_bottombar()<CR>
+
+:js << EOF
+function toggle_bottombar() {
+    var bb = document.getElementById('liberator-bottombar');
+    if (!bb)
+        return;
+    bb.style.height = (bb.style.height == '') ? '0px' : '';
+    bb.style.overflow = (bb.style.height == '') ? '' : 'hidden';
+    }
+EOF
