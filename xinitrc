@@ -32,9 +32,15 @@ fi
 
 xset r rate 250 30
 
-sleep 1 && {
+#sleep 1 && {
 xsetroot -cursor_name left_ptr
-} &
+#} &
+
+trayer --edge top --align right --SetDockType true --SetPartialStrut true --expand true --width 6 --transparent true --alpha 0 --tint 0x000000 --height 16 &
+nm-applet &
+dropboxd &
 
 #exec ck-launch-session dbus-launch awesome
-exec ck-launch-session awesome
+#exec ck-launch-session awesome
+exec ck-launch-session xmonad
+#exec ck-launch-session i3
