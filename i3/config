@@ -82,29 +82,41 @@ bindsym $mod+a focus parent
 # focus the child container
 bindcode $mod+d focus child
 
+# workspace names
+set $ws1 "1: term"
+set $ws2 "2: web"
+set $ws3 "3: mail"
+set $ws4 "4: chat"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
+
 # switch to workspace
-bindsym $mod+1 workspace 1
-bindsym $mod+2 workspace 2
-bindsym $mod+3 workspace 3
-bindsym $mod+4 workspace 4
-bindsym $mod+5 workspace 5
-bindsym $mod+6 workspace 6
-bindsym $mod+7 workspace 7
-bindsym $mod+8 workspace 8
-bindsym $mod+9 workspace 9
-bindsym $mod+0 workspace 10
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
+bindsym $mod+0 workspace $ws10
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace 1
-bindsym $mod+Shift+2 move container to workspace 2
-bindsym $mod+Shift+3 move container to workspace 3
-bindsym $mod+Shift+4 move container to workspace 4
-bindsym $mod+Shift+5 move container to workspace 5
-bindsym $mod+Shift+6 move container to workspace 6
-bindsym $mod+Shift+7 move container to workspace 7
-bindsym $mod+Shift+8 move container to workspace 8
-bindsym $mod+Shift+9 move container to workspace 9
-bindsym $mod+Shift+0 move container to workspace 10
+bindsym $mod+Shift+1 move container to workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6
+bindsym $mod+Shift+7 move container to workspace $ws7
+bindsym $mod+Shift+8 move container to workspace $ws8
+bindsym $mod+Shift+9 move container to workspace $ws9
+bindsym $mod+Shift+0 move container to workspace $ws10
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -114,30 +126,10 @@ bindsym $mod+Shift+r restart
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 # resize window (you can also use the mouse for that)
-mode "resize" {
-        # These bindings trigger as soon as you enter the resize mode
-
-        # Pressing left will shrink the window’s width.
-        # Pressing right will grow the window’s width.
-        # Pressing up will shrink the window’s height.
-        # Pressing down will grow the window’s height.
-        bindsym h resize shrink width 10 px or 1 ppt
-        bindsym j resize grow height 10 px or 1 ppt
-        bindsym k resize shrink height 10 px or 1 ppt
-        bindsym l resize grow width 10 px or 1 ppt
-
-        # same bindings, but for the arrow keys
-        bindsym Left resize shrink width 10 px or 1 ppt
-        bindsym Down resize grow height 10 px or 1 ppt
-        bindsym Up resize shrink height 10 px or 1 ppt
-        bindsym Right resize grow width 10 px or 1 ppt
-
-        # back to normal: Enter or Escape
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-}
-
-bindsym $mod+r mode "resize"
+bindsym $mod+control+h resize shrink width 10 px or 1 ppt
+bindsym $mod+control+j resize grow height 10 px or 1 ppt
+bindsym $mod+control+k resize shrink height 10 px or 1 ppt
+bindsym $mod+control+l resize grow width 10 px or 1 ppt
 
 # Make the currently focused window a scratchpad
 bindsym $mod+Shift+minus move scratchpad
@@ -145,28 +137,34 @@ bindsym $mod+Shift+minus move scratchpad
 # Show the first scratchpad window
 bindsym $mod+minus scratchpad show
 
-# custom keybindings
-bindsym XF86Display exec x-toggle-2nd.sh
-
-#bindsym $mod+F1 move workspace to output LVDS1
-#bindsym $mod+F2 move workspace to output DP1
-#bindsym $mod+F3 move workspace to output HDMI1
-#bindsym $mod+F4 move workspace to output VGA1
-
-bindsym $mod+Mod1+shift+h move workspace to output left
-bindsym $mod+Mod1+shift+j move workspace to output down
-bindsym $mod+Mod1+shift+k move workspace to output up
-bindsym $mod+Mod1+shift+l move workspace to output right
+# switch monitors
+bindsym $mod+F1 focus output LVDS1
+bindsym $mod+F2 focus output DP1
+bindsym $mod+F3 focus output HDMI1
+bindsym $mod+F4 focus output VGA1
 
 bindsym $mod+Mod1+h focus output left
 bindsym $mod+Mod1+j focus output down
 bindsym $mod+Mod1+k focus output up
 bindsym $mod+Mod1+l focus output right
 
-bindsym $mod+control+h resize shrink width 10 px or 1 ppt
-bindsym $mod+control+j resize grow height 10 px or 1 ppt
-bindsym $mod+control+k resize shrink height 10 px or 1 ppt
-bindsym $mod+control+l resize grow width 10 px or 1 ppt
+# move focused workspaces to monitor
+bindsym $mod+shift+F1 move workspace to output LVDS1
+bindsym $mod+shift+F2 move workspace to output DP1
+bindsym $mod+shift+F3 move workspace to output HDMI1
+bindsym $mod+shift+F4 move workspace to output VGA1
+
+bindsym $mod+Mod1+shift+h move workspace to output left
+bindsym $mod+Mod1+shift+j move workspace to output down
+bindsym $mod+Mod1+shift+k move workspace to output up
+bindsym $mod+Mod1+shift+l move workspace to output right
+
+# custom keybindings
+bindsym XF86Display exec x-toggle-2nd.sh
+bindsym XF86TouchpadToggle exec toggletouchpad.sh
+bindsym XF86AudioLowerVolume exec amixer set Master 8%- unmute
+bindsym XF86AudioRaiseVolume exec amixer set Master 8%+ unmute
+bindsym XF86AudioMute exec amixer set Master toggle
 
 # startup applications
 exec nm-applet
