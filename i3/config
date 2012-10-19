@@ -148,6 +148,11 @@ bindsym $mod+Mod1+j focus output down
 bindsym $mod+Mod1+k focus output up
 bindsym $mod+Mod1+l focus output right
 
+bindsym $mod+Mod1+Left focus output left
+bindsym $mod+Mod1+Down focus output down
+bindsym $mod+Mod1+Up focus output up
+bindsym $mod+Mod1+Right focus output right
+
 # move focused workspaces to monitor
 bindsym $mod+shift+F1 move workspace to output LVDS1
 bindsym $mod+shift+F2 move workspace to output DP1
@@ -158,6 +163,11 @@ bindsym $mod+Mod1+shift+h move workspace to output left
 bindsym $mod+Mod1+shift+j move workspace to output down
 bindsym $mod+Mod1+shift+k move workspace to output up
 bindsym $mod+Mod1+shift+l move workspace to output right
+
+bindsym $mod+Mod1+shift+Left move workspace to output left
+bindsym $mod+Mod1+shift+Down move workspace to output down
+bindsym $mod+Mod1+shift+Up move workspace to output up
+bindsym $mod+Mod1+shift+Right move workspace to output right
 
 # custom keybindings
 bindsym XF86Display exec x-toggle-2nd.sh
