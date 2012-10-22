@@ -83,16 +83,16 @@ bindsym $mod+a focus parent
 bindcode $mod+d focus child
 
 # workspace names
-set $ws1 "1: term"
-set $ws2 "2: web"
-set $ws3 "3: mail"
-set $ws4 "4: chat"
-set $ws5 "5"
-set $ws6 "6"
-set $ws7 "7"
-set $ws8 "8"
-set $ws9 "9"
-set $ws10 "10"
+set $ws1 1: term
+set $ws2 2: web
+set $ws3 3: mail
+set $ws4 4: chat
+set $ws5 5
+set $ws6 6
+set $ws7 7
+set $ws8 8
+set $ws9 9
+set $ws10 10
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -105,6 +105,7 @@ bindsym $mod+7 workspace $ws7
 bindsym $mod+8 workspace $ws8
 bindsym $mod+9 workspace $ws9
 bindsym $mod+0 workspace $ws10
+bindsym $mod+Escape workspace back_and_forth
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace $ws1
@@ -169,7 +170,18 @@ bindsym $mod+Mod1+shift+Down move workspace to output down
 bindsym $mod+Mod1+shift+Up move workspace to output up
 bindsym $mod+Mod1+shift+Right move workspace to output right
 
+# workspace assignments
+assign [class="Firefox"] → $ws2
+assign [class="Liferea"] → $ws2
+assign [class="Claws-mail"] → $ws3
+assign [class="Pidgin"] → $ws4
+assign [class="Xchat"] → $ws4
+
+# window rules
+for_window [class="Firefox" instance="Download"] floating enable
+
 # custom keybindings
+bindsym XF86Launch1 exec xset dpms force off
 bindsym XF86Display exec x-toggle-2nd.sh
 bindsym XF86TouchpadToggle exec toggletouchpad.sh
 bindsym XF86AudioLowerVolume exec amixer set Master 8%- unmute
