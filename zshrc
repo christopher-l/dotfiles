@@ -3,6 +3,8 @@
 export PATH=/home/chris/bin:$PATH
 export _JAVA_AWT_WM_NONREPARENTING=1
 
+bindkey -M vicmd v edit-command-line
+
 # Search ASCII-string from multiple files in the currect working directory
 # E.g.
 # search "foobar" "*.html"

@@ -80,7 +80,7 @@ bindsym $mod+space focus mode_toggle
 bindsym $mod+a focus parent
 
 # focus the child container
-bindcode $mod+d focus child
+#bindcode $mod+d focus child
 
 # workspace names
 set $ws1 1: term
@@ -127,10 +127,15 @@ bindsym $mod+Shift+r restart
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 # resize window (you can also use the mouse for that)
-bindsym $mod+control+h resize shrink width 10 px or 1 ppt
-bindsym $mod+control+j resize grow height 10 px or 1 ppt
-bindsym $mod+control+k resize shrink height 10 px or 1 ppt
-bindsym $mod+control+l resize grow width 10 px or 1 ppt
+bindsym $mod+control+h resize shrink width 10 px or 3 ppt
+bindsym $mod+control+j resize grow height 10 px or 3 ppt
+bindsym $mod+control+k resize shrink height 10 px or 3 ppt
+bindsym $mod+control+l resize grow width 10 px or 3 ppt
+
+bindsym $mod+control+Left resize shrink width 10 px or 3 ppt
+bindsym $mod+control+Down resize grow height 10 px or 3 ppt
+bindsym $mod+control+Up resize shrink height 10 px or 3 ppt
+bindsym $mod+control+Right resize grow width 10 px or 3 ppt
 
 # Make the currently focused window a scratchpad
 bindsym $mod+Shift+minus move scratchpad
@@ -174,23 +179,32 @@ bindsym $mod+Mod1+shift+Right move workspace to output right
 assign [class="Firefox"] → $ws2
 assign [class="Liferea"] → $ws2
 assign [class="Claws-mail"] → $ws3
+assign [class="Thunderbird"] → $ws3
 assign [class="Pidgin"] → $ws4
 assign [class="Xchat"] → $ws4
 
 # window rules
 for_window [class="Firefox" instance="Download"] floating enable
+for_window [class="Nautilus" instance="file_progress"] floating enable
+for_window [class="Gnuplot"] floating enable
+for_window [class="Pidgin"] focus
 
 # custom keybindings
 bindsym XF86Launch1 exec xset dpms force off
 bindsym XF86Display exec x-toggle-2nd.sh
+bindsym Mod1+XF86Display exec x-mirror.sh
+bindsym Shift+XF86Display exec x-switch-display.sh
 bindsym XF86TouchpadToggle exec toggletouchpad.sh
 bindsym XF86AudioLowerVolume exec amixer set Master 8%- unmute
 bindsym XF86AudioRaiseVolume exec amixer set Master 8%+ unmute
 bindsym XF86AudioMute exec amixer set Master toggle
 
 # startup applications
-exec nm-applet
+#exec nm-applet
 exec dropboxd
+
+# generel config
+hide_edge_borders both
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)

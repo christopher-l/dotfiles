@@ -1,4 +1,5 @@
 keysym Menu = Super_L Super_R
+!keysym Alt_R = Alt_R ISO_Level3_Shift
 !keysym Caps_Lock  = Escape Caps_Lock
 !clear Lock
 !add Lock = Scroll_Lock

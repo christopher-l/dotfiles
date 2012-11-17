@@ -1,19 +1,19 @@
 Xcursor.theme: Oxygen_White
-Xft.autohint: 1
-Xft.lcdfilter: lcddefault
-Xft.hintstyle: hintfull
-Xft.hinting: 1
-Xft.antialias: 1
-Xft.rgba: rgb
+!Xft.autohint: 1
+!Xft.lcdfilter: lcddefault
+!Xft.hintstyle: hintfull
+!Xft.hinting: 1
+!Xft.antialias: 1
+!Xft.rgba: rgb
 
 URxvt.depth: 32
 URxvt.scrollBar: off
-URxvt.font: xft:monospace:size=9
+URxvt.font: xft:liberationmono:size=10
 URxvt.perl-ext-common:  default,matcher,tabbedex
 !URxvt.perl-ext-common:  default,matcher,tabbedex,vtwheel
-URxvt.urlLauncher:      /usr/bin/firefox
-URxvt.matcher.button:   1
-URxvt.saveLines: 4000
+URxvt.urlLauncher: /usr/bin/firefox
+URxvt.matcher.button: 1
+URxvt.saveLines: 8192
 URxvt.urgentOnBell:  true
 !URxvt.foreground: #f2f2f2
 !URxvt.background: #161917
@@ -35,6 +35,7 @@ URxvt.color12: #729fcf
 URxvt.color13: #ad7fa8
 URxvt.color14: #34e2e2
 URxvt.color15: #eeeeec
+URxvt.colorUL: #729fcf
 
 URxvt.tabbed.tabbar-fg: 2
 URxvt.tabbed.tabbar-bg: 0
