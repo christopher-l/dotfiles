@@ -13,12 +13,13 @@ set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below. ISO 10646 = Unicode
-font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
+#font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
 # The font above is very space-efficient, that is, it looks good, sharp and
 # clear in small sizes. However, if you need a lot of unicode glyphs or
 # right-to-left text rendering, you should instead use pango for rendering and
 # chose an xft font, such as:
-# font xft:DejaVu Sans Mono 10
+# font xft:DejaVu Sans Mono 9
+font xft:Liberation Mono 9
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -80,7 +81,7 @@ bindsym $mod+space focus mode_toggle
 bindsym $mod+a focus parent
 
 # focus the child container
-#bindcode $mod+d focus child
+bindsym $mod+d focus child
 
 # workspace names
 set $ws1 1: term
@@ -180,17 +181,21 @@ assign [class="Firefox"] → $ws2
 assign [class="Liferea"] → $ws2
 assign [class="Claws-mail"] → $ws3
 assign [class="Thunderbird"] → $ws3
+assign [class="Evolution"] → $ws3
 assign [class="Pidgin"] → $ws4
 assign [class="Xchat"] → $ws4
 
 # window rules
+for_window [class="MPlayer"] floating enable
 for_window [class="Firefox" instance="Download"] floating enable
-for_window [class="Nautilus" instance="file_progress"] floating enable
+for_window [instance="file_progress"] floating enable
 for_window [class="Gnuplot"] floating enable
+for_window [class="Xsane"] floating enable
 for_window [class="Pidgin"] focus
 
 # custom keybindings
 bindsym XF86Launch1 exec xset dpms force off
+bindsym XF86ScreenSaver exec i3lock -c 000000
 bindsym XF86Display exec x-toggle-2nd.sh
 bindsym Mod1+XF86Display exec x-mirror.sh
 bindsym Shift+XF86Display exec x-switch-display.sh
@@ -201,10 +206,12 @@ bindsym XF86AudioMute exec amixer set Master toggle
 
 # startup applications
 #exec nm-applet
-exec dropboxd
+#exec dropboxd
 
 # generel config
 hide_edge_borders both
+bindsym $mod+b border toggle
+workspace_layout stacking
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
