@@ -15,6 +15,7 @@ nnoremap <C-F2> :if &go=~#'T'<Bar>set go-=T<Bar>else<Bar>set go+=T<Bar>endif<CR>
 nnoremap <C-F3> :if &go=~#'r'<Bar>set go-=r<Bar>else<Bar>set go+=r<Bar>endif<CR>
 
 " general
+set encoding=utf-8
 set timeoutlen=500 "fix esc delay
 set mouse=nv
 set aw      "autowrite
@@ -38,8 +39,9 @@ map <F11> :s/^/--/<CR>
 map <F12> :s/--//<CR>
 
 " theme
-let g:aldmeris_termcolors = "tango"
-colo aldmeris
+"let g:aldmeris_termcolors = "tango"
+"colo aldmeris
+colo solarized
 
 "if $TERM =~ 'screen-256color'
 "    set t_so=[7m

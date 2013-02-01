@@ -45,4 +45,5 @@ xsetroot -cursor_name left_ptr
 #exec ck-launch-session awesome
 #exec ck-launch-session dbus-launch --exit-with-session xmonad
 #exec ck-launch-session dbus-launch i3
-exec ck-launch-session i3
+#exec ck-launch-session i3
+exec i3

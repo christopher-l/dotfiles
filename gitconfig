@@ -7,3 +7,5 @@
 	branch = auto
 	diff = auto
 	status = auto
+[push]
+	default = simple
