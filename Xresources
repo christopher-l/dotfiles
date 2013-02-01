@@ -77,8 +77,8 @@ URxvt.tabbed.autohide:  yes
 #define S_base03        #002b36
 #define S_base02        #073642
 #define S_base01        #586e75
-#define S_base00        #657b83
-#define S_base0         #839496
+#define S_base00        #839496
+#define S_base0         #A6BBBE
 #define S_base1         #93a1a1
 #define S_base2         #eee8d5
 #define S_base3         #fdf6e3
@@ -93,7 +93,7 @@ URxvt.tabbed.autohide:  yes
 
 *background:            S_base03
 *foreground:            S_base00
-*fading:                40
+*fading:                20
 *fadeColor:             S_base03
 *cursorColor:           S_base1
 *pointerColorBackground:S_base01
