@@ -94,6 +94,18 @@ set $ws7 7
 set $ws8 8
 set $ws9 9
 set $ws10 10
+set $wsf1 F1
+set $wsf2 F2
+set $wsf3 F3
+set $wsf4 F4
+set $wsf5 F5
+set $wsf6 F6
+set $wsf7 F7
+set $wsf8 F8
+set $wsf9 F9
+set $wsf10 F10
+set $wsf11 F11
+set $wsf12 F12
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -106,6 +118,18 @@ bindsym $mod+7 workspace $ws7
 bindsym $mod+8 workspace $ws8
 bindsym $mod+9 workspace $ws9
 bindsym $mod+0 workspace $ws10
+bindsym $mod+F1 workspace $wsf1
+bindsym $mod+F2 workspace $wsf2
+bindsym $mod+F3 workspace $wsf3
+bindsym $mod+F4 workspace $wsf4
+bindsym $mod+F5 workspace $wsf5
+bindsym $mod+F6 workspace $wsf6
+bindsym $mod+F7 workspace $wsf7
+bindsym $mod+F8 workspace $wsf8
+bindsym $mod+F9 workspace $wsf9
+bindsym $mod+F10 workspace $wsf10
+bindsym $mod+F11 workspace $wsf11
+bindsym $mod+F12 workspace $wsf12
 bindsym $mod+Escape workspace back_and_forth
 
 # move focused container to workspace
@@ -119,6 +143,18 @@ bindsym $mod+Shift+7 move container to workspace $ws7
 bindsym $mod+Shift+8 move container to workspace $ws8
 bindsym $mod+Shift+9 move container to workspace $ws9
 bindsym $mod+Shift+0 move container to workspace $ws10
+bindsym $mod+Shift+F1 move container to workspace $wsf1
+bindsym $mod+Shift+F2 move container to workspace $wsf2
+bindsym $mod+Shift+F3 move container to workspace $wsf3
+bindsym $mod+Shift+F4 move container to workspace $wsf4
+bindsym $mod+Shift+F5 move container to workspace $wsf5
+bindsym $mod+Shift+F6 move container to workspace $wsf6
+bindsym $mod+Shift+F7 move container to workspace $wsf7
+bindsym $mod+Shift+F8 move container to workspace $wsf8
+bindsym $mod+Shift+F9 move container to workspace $wsf9
+bindsym $mod+Shift+F10 move container to workspace $wsf10
+bindsym $mod+Shift+F11 move container to workspace $wsf11
+bindsym $mod+Shift+F12 move container to workspace $wsf12
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -144,11 +180,11 @@ bindsym $mod+Shift+minus move scratchpad
 # Show the first scratchpad window
 bindsym $mod+minus scratchpad show
 
-# switch monitors
-bindsym $mod+F1 focus output LVDS1
-bindsym $mod+F2 focus output DP1
-bindsym $mod+F3 focus output HDMI1
-bindsym $mod+F4 focus output VGA1
+## switch monitors
+#bindsym $mod+F1 focus output LVDS1
+#bindsym $mod+F2 focus output DP1
+#bindsym $mod+F3 focus output HDMI1
+#bindsym $mod+F4 focus output VGA1
 
 bindsym $mod+Mod1+h focus output left
 bindsym $mod+Mod1+j focus output down
@@ -160,11 +196,11 @@ bindsym $mod+Mod1+Down focus output down
 bindsym $mod+Mod1+Up focus output up
 bindsym $mod+Mod1+Right focus output right
 
-# move focused workspaces to monitor
-bindsym $mod+shift+F1 move workspace to output LVDS1
-bindsym $mod+shift+F2 move workspace to output DP1
-bindsym $mod+shift+F3 move workspace to output HDMI1
-bindsym $mod+shift+F4 move workspace to output VGA1
+## move focused workspaces to monitor
+#bindsym $mod+shift+F1 move workspace to output LVDS1
+#bindsym $mod+shift+F2 move workspace to output DP1
+#bindsym $mod+shift+F3 move workspace to output HDMI1
+#bindsym $mod+shift+F4 move workspace to output VGA1
 
 bindsym $mod+Mod1+shift+h move workspace to output left
 bindsym $mod+Mod1+shift+j move workspace to output down
