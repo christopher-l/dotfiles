@@ -24,6 +24,8 @@ set nu      "number
 set ts=2    "tabstop
 set sw=2    "shiftwidth
 set et      "expandtab
+set cc=80   "colorcolumn
+"set tw=80   "textwidth
 set wildmenu
 set wildmode=longest,list
 set smartcase
@@ -39,9 +41,12 @@ map <F11> :s/^/--/<CR>
 map <F12> :s/--//<CR>
 
 " theme
+set bg=dark
 "let g:aldmeris_termcolors = "tango"
 "colo aldmeris
+let g:solarized_contrast = "high"
 colo solarized
+call togglebg#map("<F5>")
 
 "if $TERM =~ 'screen-256color'
 "    set t_so=[7m
