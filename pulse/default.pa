@@ -60,8 +60,8 @@ load-module module-detect
 #load-module module-alsa-sink device=hw:0,3 sink_name=hdmi-stereo
 
 # HDMI out intel
-load-module module-alsa-sink device=hdmi:0 sink_name=hdmi
-update-sink-proplist hdmi device.description="Digital Stereo (HDMI)"
+#load-module module-alsa-sink device=hdmi:0 sink_name=hdmi
+#update-sink-proplist hdmi device.description="Digital Stereo (HDMI)"
 
 ### Automatically connect sink and source if JACK server is present
 .ifexists module-jackdbus-detect.so

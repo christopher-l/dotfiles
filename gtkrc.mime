@@ -2,11 +2,9 @@
 #      GTK       #
 ##################
 
-#include "/usr/share/themes/oxygen-gtk/gtk-2.0/gtkrc"
-#include "/usr/share/themes/Adwaita/gtk-2.0/gtkrc"
-#include "/usr/share/themes/FlatStudio/gtk-2.0/gtkrc"
-include "/usr/share/themes/MediterraneanLight/gtk-2.0/gtkrc"
-#include "/usr/share/themes/Faience/gtk-2.0/gtkrc"
+#include "/usr/share/themes/MediterraneanLight/gtk-2.0/gtkrc"
+#include "/usr/share/themes/Numix/gtk-2.0/gtkrc"
+include "/usr/share/themes/Adwaita/gtk-2.0/gtkrc"
 
 
 ##################
@@ -26,7 +24,7 @@ gtk-font-name = "Sans 8"
 #     ICONS      #
 ##################
 
-gtk-icon-theme-name = "my-humanity"
+gtk-icon-theme-name = "oxygen"
 
 
 ##################

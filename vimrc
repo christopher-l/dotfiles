@@ -4,14 +4,22 @@ call pathogen#infect()
 filetype plugin indent on
 let g:tex_flavor = "latex"
 let g:Tex_DefaultTargetFormat = 'pdf'
+let g:Tex_AutoFolding = 0 
 
 """ gvim
-set guicursor+=a:blinkon0
-:set guioptions-=m  "remove menu bar
-:set guioptions-=T  "remove toolbar
-nnoremap <C-F1> :if &go=~#'m'<Bar>set go-=m<Bar>else<Bar>set go+=m<Bar>endif<CR>
-nnoremap <C-F2> :if &go=~#'T'<Bar>set go-=T<Bar>else<Bar>set go+=T<Bar>endif<CR>
-nnoremap <C-F3> :if &go=~#'r'<Bar>set go-=r<Bar>else<Bar>set go+=r<Bar>endif<CR>
+if has("gui_running")
+  set lines=60 columns=120
+  set guifont=Droid\ Sans\ Mono\ 9
+  set guicursor+=a:blinkon0
+  set guioptions-=m  "remove menu bar
+  set guioptions-=T  "remove toolbar
+  nnoremap <C-F1> :if &go=~#'m'<Bar>set go-=m<Bar>else<Bar>set go+=m<Bar>endif<CR>
+  nnoremap <C-F2> :if &go=~#'T'<Bar>set go-=T<Bar>else<Bar>set go+=T<Bar>endif<CR>
+  nnoremap <C-F3> :if &go=~#'r'<Bar>set go-=r<Bar>else<Bar>set go+=r<Bar>endif<CR>
+  set bg=light
+  let g:solarized_contrast = "high"
+  colo solarized
+endif
 
 """ general
 set encoding=utf-8
@@ -20,11 +28,12 @@ set ttm=0
 set mouse=nv
 set aw      "autowrite
 set nu      "number
-set ts=2    "tabstop
-set sw=2    "shiftwidth
+set ts=4    "tabstop
+set sw=4    "shiftwidth
 set et      "expandtab
-set cc=80   "colorcolumn
+"set cc=80   "colorcolumn
 "set tw=80   "textwidth
+set autochdir
 
 """ search
 set incsearch
@@ -40,7 +49,7 @@ set wildmode=longest,list
 """ folding
 nnoremap <space> za
 set foldmethod=indent
-set foldlevel=99
+set foldlevelstart=99
 "set foldminlines=10
 "set foldnestmax=1
 
@@ -56,13 +65,13 @@ noremap! <F1> 
 
 """ theme
 set bg=dark
-let g:solarized_contrast = "high"
-colo solarized
+"let g:solarized_contrast = "high"
+"colo solarized
 
 """ plugins
 let g:ctrlp_match_window_reversed = 0
 let g:ctrlp_working_path_mode = 0
 
-nmap <Leader>e :NERDTreeToggle<CR>
+nmap <Leader>e :NERDTreeFind<CR>
 nmap e :NERDTreeFocus<CR>
-let NERDTreeMouseMode=3
+let NERDTreeMouseMode=2
