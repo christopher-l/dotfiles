@@ -19,7 +19,7 @@ set $mod Mod4
 # right-to-left text rendering, you should instead use pango for rendering and
 # chose an xft font, such as:
 # font xft:DejaVu Sans Mono 9
-font xft:Liberation Mono 9
+font xft:Liberation Mono 8
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
