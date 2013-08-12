@@ -9,16 +9,15 @@ let g:Tex_AutoFolding = 0
 """ gvim
 if has("gui_running")
   set lines=60 columns=120
-  set guifont=Droid\ Sans\ Mono\ 9
+  set guifont=Droid\ Sans\ Mono\ 8
   set guicursor+=a:blinkon0
   set guioptions-=m  "remove menu bar
   set guioptions-=T  "remove toolbar
   nnoremap <C-F1> :if &go=~#'m'<Bar>set go-=m<Bar>else<Bar>set go+=m<Bar>endif<CR>
   nnoremap <C-F2> :if &go=~#'T'<Bar>set go-=T<Bar>else<Bar>set go+=T<Bar>endif<CR>
   nnoremap <C-F3> :if &go=~#'r'<Bar>set go-=r<Bar>else<Bar>set go+=r<Bar>endif<CR>
-  set bg=light
-  let g:solarized_contrast = "high"
-  colo solarized
+  "set bg=light
+  colo molokai
 endif
 
 """ general
@@ -31,7 +30,7 @@ set nu      "number
 set ts=4    "tabstop
 set sw=4    "shiftwidth
 set et      "expandtab
-"set cc=80   "colorcolumn
+set cc=80   "colorcolumn
 "set tw=80   "textwidth
 set autochdir
 
@@ -65,12 +64,17 @@ noremap! <F1> 
 
 """ theme
 set bg=dark
-"let g:solarized_contrast = "high"
-"colo solarized
+colo molokai
 
 """ plugins
 let g:ctrlp_match_window_reversed = 0
 let g:ctrlp_working_path_mode = 0
+
+let Tlist_Compact_Format = 1
+let Tlist_Enable_Fold_Column = 0
+let Tlist_Use_Right_Window = 1
+let Tlist_WinWidth = 60
+nmap <Leader>t :Tlist<CR>
 
 nmap <Leader>e :NERDTreeFind<CR>
 nmap e :NERDTreeFocus<CR>

@@ -39,6 +39,7 @@ xsetroot -cursor_name left_ptr
 
 export DE="kde"
 
+numlockx &
 #nm-applet &
 #dropboxd &
 
