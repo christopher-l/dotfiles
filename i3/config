@@ -218,7 +218,7 @@ bindsym $mod+Mod1+shift+Right move workspace to output right
 
 # workspace assignments
 assign [class="Firefox"] → $ws2
-assign [class="Chromium"] → $ws2
+#assign [class="Chromium"] → $ws2
 assign [class="Liferea"] → $ws2
 assign [class="Claws-mail"] → $ws3
 assign [class="Thunderbird"] → $ws3
