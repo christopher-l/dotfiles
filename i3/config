@@ -230,11 +230,14 @@ assign [class="Xchat"] → $ws4
 for_window [class="MPlayer"] floating enable
 for_window [class="mpv"] floating enable
 for_window [class="Firefox" instance="Download"] floating enable
+for_window [class="Dolphin" title="Copying"] floating enable
+for_window [class="Dolphin" title="Moving"] floating enable
+for_window [class="Dolphin" title="Deleting"] floating enable
 for_window [instance="file_progress"] floating enable
 for_window [class="Gnuplot"] floating enable
 for_window [class="Xsane"] floating enable
+for_window [class="FTL"] floating enable
 for_window [class="Pidgin"] focus
-for_window [title="InfoVisEditor"] floating enable
 
 # custom keybindings
 bindsym XF86Launch1 exec xset dpms force off
@@ -248,6 +251,7 @@ bindsym XF86AudioRaiseVolume exec amixer -D pulse set Master 5%+ unmute && killa
 bindsym XF86AudioMute exec amixer set Master toggle && killall -SIGUSR1 i3status
 #bindsym XF86AudioLowerVolume exec pactl set-sink-volume alsa_output.pci-0000_00_1b.0.analog-stereo -- -6% && amixer set Master unmute && killall -SIGUSR1 i3status
 #bindsym XF86AudioRaiseVolume exec pactl set-sink-volume alsa_output.pci-0000_00_1b.0.analog-stereo -- +6% && amixer set Master unmute && killall -SIGUSR1 i3status
+bindsym XF86WebCam exec gnome-control-center sound
 
 # startup applications
 #exec nm-applet

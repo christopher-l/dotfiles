@@ -19,6 +19,7 @@ set et      "expandtab
 set cc=80   "colorcolumn
 "set tw=80   "textwidth
 set autochdir
+set scrolloff=10
 
 """ search
 set incsearch
@@ -32,7 +33,7 @@ set wildmenu
 set wildmode=longest,list
 
 """ folding
-nnoremap <space> za
+"nnoremap <space> za
 set foldmethod=indent
 set foldlevelstart=99
 "set foldminlines=10
@@ -69,7 +70,8 @@ let NERDTreeMouseMode=2
 """ gvim
 if has("gui_running")
   set lines=60 columns=120
-  set guifont=Droid\ Sans\ Mono\ 8
+  "set guifont=Droid\ Sans\ Mono\ 8
+  set guifont=Hermit\ 8
   set guicursor+=a:blinkon0
   set guioptions-=m  "remove menu bar
   set guioptions-=T  "remove toolbar
