@@ -1,50 +1,35 @@
 call pathogen#infect()
 
-""" latex
-filetype plugin indent on
-let g:tex_flavor = "latex"
-let g:Tex_DefaultTargetFormat = 'pdf'
-let g:Tex_AutoFolding = 0 
-
 """ general
 set encoding=utf-8
-"set timeoutlen=500 "fix esc delay
 set ttm=0
 set mouse=nv
-set aw      "autowrite
+set hidden
 set nu      "number
 set ts=4    "tabstop
 set sw=4    "shiftwidth
 set et      "expandtab
 set cc=80   "colorcolumn
-"set tw=80   "textwidth
-set autochdir
-set scrolloff=10
+set tw=80   "textwidth
+set fo=crqja
+set so=10   "scrolloff
+set list
+set lcs=tab:▸\ 
 
 """ search
 set incsearch
 set smartcase
 set ignorecase
-"set hlsearch
-"nnoremap <ESC> :noh<CR><ESC>
 
 """ menu
 set wildmenu
 set wildmode=longest,list
 
-""" folding
-"nnoremap <space> za
-set foldmethod=indent
-set foldlevelstart=99
-"set foldminlines=10
-"set foldnestmax=1
-
 """ keybindings
-nmap w <C-W>
-nmap h <C-W>h
-nmap j <C-W>j
-nmap k <C-W>k
-nmap l <C-W>l
+nmap <C-h> <C-W>h
+nmap <C-j> <C-W>j
+nmap <C-k> <C-W>k
+nmap <C-l> <C-W>l
 set pastetoggle=<F2>
 noremap <F1> 
 noremap! <F1> 
@@ -52,20 +37,6 @@ noremap! <F1> 
 """ theme
 set bg=dark
 colo molokai
-
-""" plugins
-let g:ctrlp_match_window_reversed = 0
-let g:ctrlp_working_path_mode = 0
-
-let Tlist_Compact_Format = 1
-let Tlist_Enable_Fold_Column = 0
-let Tlist_Use_Right_Window = 1
-let Tlist_WinWidth = 60
-nmap <Leader>t :Tlist<CR>
-
-nmap <Leader>e :NERDTreeFind<CR>
-nmap e :NERDTreeFocus<CR>
-let NERDTreeMouseMode=2
 
 """ gvim
 if has("gui_running")
@@ -81,3 +52,24 @@ if has("gui_running")
   set bg=light
   colo github
 endif
+
+""" rules
+if has("autocmd")
+  autocmd FileType make       setlocal ts=8 sw=8 noet
+  autocmd FileType html       setlocal ts=2 sw=2 et
+  autocmd FileType css        setlocal ts=2 sw=2 et
+  autocmd FileType javascript setlocal ts=4 sw=4 et
+  autocmd FileType c          setlocal ts=4 sw=4 noet
+  autocmd FileType ada        setlocal ts=3 sw=3 et
+  autocmd FileType tex        setlocal ts=2 sw=2 et
+endif
+
+""" browser
+let g:netrw_liststyle=3    " Use tree-mode as default view
+let g:netrw_browse_split=4 " Open file in previous buffer
+let g:netrw_preview=1      " preview window shown in a vertically split
+let g:netrw_winsize=-30
+let g:netrw_banner=0
+let g:netrw_list_hide='\.swp$,\.o$,\.ali$,\.swo$,\*$'
+let g:netrw_sort_sequence='[\/]$,\<core\%(\.\d\+\)\=\>,\.gpr$,\.h$,\.hpp$,\.ads$,\.c$,\.cpp$,\.adb$,\~\=\*$,*,\.obj$,\.info$,\.bak$,\~$'
+map <Leader>e :Vex<CR>
