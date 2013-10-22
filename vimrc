@@ -1,17 +1,17 @@
 call pathogen#infect()
 
 """ general
+filetype plugin indent on
 set encoding=utf-8
 set ttm=0
 set mouse=nv
-set hidden
 set nu      "number
 set ts=4    "tabstop
 set sw=4    "shiftwidth
 set et      "expandtab
 set cc=80   "colorcolumn
 set tw=80   "textwidth
-set fo=crqja
+set fo=crqj
 set so=10   "scrolloff
 set list
 set lcs=tab:▸\ 
@@ -23,7 +23,12 @@ set ignorecase
 
 """ menu
 set wildmenu
-set wildmode=longest,list
+set wildmode=full
+set wildcharm=<Tab>
+set wildignore+=*.o,*.ali
+set wildignorecase
+noremap <Tab> :ls<CR>:b 
+noremap <S-Tab> :e <Tab><C-P>
 
 """ keybindings
 nmap <C-h> <C-W>h
@@ -33,6 +38,7 @@ nmap <C-l> <C-W>l
 set pastetoggle=<F2>
 noremap <F1> 
 noremap! <F1> 
+map <Leader>c :cd %:p:h<CR>
 
 """ theme
 set bg=dark
@@ -66,10 +72,10 @@ endif
 
 """ browser
 let g:netrw_liststyle=3    " Use tree-mode as default view
-let g:netrw_browse_split=4 " Open file in previous buffer
-let g:netrw_preview=1      " preview window shown in a vertically split
+"let g:netrw_browse_split=4 " Open file in previous buffer
+"let g:netrw_preview=1      " preview window shown in a vertically split
 let g:netrw_winsize=-30
-let g:netrw_banner=0
+"let g:netrw_banner=0
 let g:netrw_list_hide='\.swp$,\.o$,\.ali$,\.swo$,\*$'
 let g:netrw_sort_sequence='[\/]$,\<core\%(\.\d\+\)\=\>,\.gpr$,\.h$,\.hpp$,\.ads$,\.c$,\.cpp$,\.adb$,\~\=\*$,*,\.obj$,\.info$,\.bak$,\~$'
 map <Leader>e :Vex<CR>
