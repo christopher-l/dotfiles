@@ -10,13 +10,10 @@ URxvt.depth: 32
 URxvt.scrollBar: off
 URxvt.font: xft:hermit:size=8
 !URxvt.font: xft:droidsansmono:size=8
-!URxvt.perl-ext-common:  tabbedex,vtwheel,matcher
 URxvt.perl-ext-common:  default,url-select,keyboard-select,clipboard
 URxvt.url-select.button: 1
 URxvt.url-select.launcher: /usr/bin/firefox
 URxvt.url-select.underline: true
-!URxvt.matcher.launcher: /usr/bin/firefox
-!URxvt.matcher.button: 1
 URxvt.keysym.M-u: perl:url-select:select_next
 URxvt.keysym.M-Escape: perl:keyboard-select:activate
 URxvt.keysym.M-c:   perl:clipboard:copy
@@ -24,13 +21,6 @@ URxvt.keysym.M-v:   perl:clipboard:paste
 URxvt.keysym.M-C-v: perl:clipboard:paste_escaped
 URxvt.saveLines: 8192
 URxvt.urgentOnBell:  true
-
-URxvt.tabbed.tabbar-fg: 2
-URxvt.tabbed.tabbar-bg: 0
-URxvt.tabbed.tab-fg:    3
-URxvt.tabbed.tab-bg:    0
-URxvt.tabbed.autohide:  yes
-
 
 URxvt.foreground: #f0f0f0
 URxvt.background: #000000
@@ -51,83 +41,3 @@ URxvt.color13: #ad7fa8
 URxvt.color14: #34e2e2
 URxvt.color15: #eeeeec
 URxvt.colorUL: #729fcf
-
-!! Molokai theme
-!URxvt*background: #101010
-!URxvt*foreground: #d0d0d0
-!URxvt*color0: #101010
-!URxvt*color1: #960050
-!URxvt*color2: #66aa11
-!URxvt*color3: #c47f2c
-!URxvt*color4: #30309b
-!URxvt*color5: #7e40a5
-!URxvt*color6: #3579a8
-!URxvt*color7: #9999aa
-!URxvt*color8: #303030
-!URxvt*color9: #ff0090
-!URxvt*color10: #80ff00
-!URxvt*color11: #ffba68
-!URxvt*color12: #5f5fee
-!URxvt*color13: #bb88dd
-!URxvt*color14: #4eb4fa
-!URxvt*color15: #d0d0d0
-
-!URxvt*foreground: #CCCCCC
-!!URxvt*background: #111111
-!URxvt*background: #000000
-!!black
-!*color0: #222222
-!*color8: #666666
-!!red
-!*color1: #E84F4F
-!*color9: #D23D3D
-!!green
-!*color2: #B7CE42
-!*color10: #BDE077
-!!yellow
-!*color3: #FEA63C
-!*color11: #FFE863
-!!blue
-!*color4: #66A9B9
-!*color12: #AACCBB
-!!magenta
-!*color5: #B7416E
-!*color13: #E16A98
-!!cyan
-!*color6: #6D878D
-!*color14: #42717B
-!!white
-!*color7: #CCCCCC
-!*color15: #FFFFFF
-
-!urxvt.cursorColor: #DCDCCC
-!*foreground: #DDEEDD
-!*background: #1C1C1C
-! 
-!!black
-!*color0: #1C1C1C
-!*color8: #4d4d4d
-!!red
-!*color1: #D81860
-!*color9: #F00060
-!!green
-!*color2: #B7CE42
-!*color10: #BDE077
-!!yellow
-!*color3: #FEA63C
-!*color11: #FFE863
-!!blue
-!*color4: #66AABB
-!*color12: #AACCBB
-!!magenta
-!*color5: #9E6FFE
-!*color13: #9E6FFE
-!!cyan
-!*color6: #5E7175
-!*color14: #A3BABF
-!!white
-!*color7: #DDEEDD
-!*color15: #6C887A
-!!magenta
-!*color5: #B7416E
-!*color13: #BB4466

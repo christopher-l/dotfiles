@@ -6,7 +6,8 @@
 #include "/home/chris/.themes/Uncomplicated/gtk-2.0/gtkrc"
 #include "/usr/share/themes/Adwaita/gtk-2.0/gtkrc"
 #include "/usr/share/themes/Numix/gtk-2.0/gtkrc"
-include "/home/chris/.themes/Ambiance/gtk-2.0/gtkrc"
+#include "/home/chris/.themes/Ambiance/gtk-2.0/gtkrc"
+include "/usr/share/themes/Adwaita/gtk-2.0/gtkrc"
 
 
 ##################

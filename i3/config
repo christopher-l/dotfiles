@@ -18,8 +18,8 @@ set $mod Mod4
 # clear in small sizes. However, if you need a lot of unicode glyphs or
 # right-to-left text rendering, you should instead use pango for rendering and
 # chose an xft font, such as:
-# font xft:DejaVu Sans Mono 9
-font xft:Liberation Mono 8
+font xft:DejaVu Sans 8
+#font xft:Liberation Mono 8
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -249,9 +249,11 @@ bindsym XF86TouchpadToggle exec toggletouchpad.sh
 bindsym XF86AudioLowerVolume exec amixer -D pulse set Master 5%- unmute && killall -SIGUSR1 i3status
 bindsym XF86AudioRaiseVolume exec amixer -D pulse set Master 5%+ unmute && killall -SIGUSR1 i3status
 bindsym XF86AudioMute exec amixer set Master toggle && killall -SIGUSR1 i3status
+bindsym XF86AudioMicMute exec amixer set Capture toggle
 #bindsym XF86AudioLowerVolume exec pactl set-sink-volume alsa_output.pci-0000_00_1b.0.analog-stereo -- -6% && amixer set Master unmute && killall -SIGUSR1 i3status
 #bindsym XF86AudioRaiseVolume exec pactl set-sink-volume alsa_output.pci-0000_00_1b.0.analog-stereo -- +6% && amixer set Master unmute && killall -SIGUSR1 i3status
 bindsym XF86WebCam exec gnome-control-center sound
+bindsym Print exec scrot
 
 # startup applications
 #exec nm-applet

@@ -8,4 +8,4 @@
 [push]
 	default = simple
 [merge]
-	tool = vimdiff
+	tool = gvimdiff
