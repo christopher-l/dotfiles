@@ -3,6 +3,7 @@ call pathogen#infect()
 """ general
 filetype plugin indent on
 set encoding=utf-8
+set ff=unix
 set ttm=0
 set mouse=nv
 set hidden
