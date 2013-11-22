@@ -1,0 +1,6 @@
+# use with grml config
+source /usr/share/doc/pkgfile/command-not-found.zsh
+hash -d uni=Documents/Semester_7/
+export _JAVA_AWT_WM_NONREPARENTING=1
+setopt pushdminus
+#export PATH=$PATH:/home/chris/bin
