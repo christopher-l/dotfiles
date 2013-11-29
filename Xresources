@@ -8,8 +8,9 @@ Xcursor.theme: Oxygen_White
 
 URxvt.depth: 32
 URxvt.scrollBar: off
-URxvt.font: xft:hermit:size=8
+!URxvt.font: xft:hermit:size=8
 !URxvt.font: xft:droidsansmono:size=8
+URxvt.font: xft:monospace:size=8
 URxvt.perl-ext-common:  default,url-select,keyboard-select,clipboard
 URxvt.url-select.button: 1
 URxvt.url-select.launcher: /usr/bin/firefox

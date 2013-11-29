@@ -6,7 +6,7 @@ group user
 set guioptions=brTs
 "hi -append FontFixed font-size:12px
 
-autocmd LocationChange cloud.feedly.com :normal! <C-z>
+autocmd LocationChange feedly.com :normal! <C-z>
 set defsearch=dd
 map zt :set go!=T<CR>
 map d :bd<CR>
