@@ -31,7 +31,7 @@ set wildmode=full
 set wildcharm=<Tab>
 set wildignore+=*.o,*.ali
 set wildignorecase
-noremap <Tab> :ls<CR>:b 
+noremap <Leader><Tab> :ls<CR>:b 
 noremap <S-Tab> :e <Tab><C-P>
 
 """ keybindings
