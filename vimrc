@@ -19,6 +19,8 @@ set fo=crqj
 set list
 set lcs=tab:▸\ 
 set autoindent
+set dictionary+=/usr/share/dict/american-english
+set dictionary+=/usr/share/dict/ngerman
 
 """ search
 set incsearch
