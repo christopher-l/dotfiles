@@ -2,11 +2,6 @@
 #      GTK       #
 ##################
 
-#include "/usr/share/themes/MediterraneanWhite/gtk-2.0/gtkrc"
-#include "/home/chris/.themes/Uncomplicated/gtk-2.0/gtkrc"
-#include "/usr/share/themes/Adwaita/gtk-2.0/gtkrc"
-#include "/usr/share/themes/Numix/gtk-2.0/gtkrc"
-#include "/home/chris/.themes/Ambiance/gtk-2.0/gtkrc"
 include "/usr/share/themes/Adwaita/gtk-2.0/gtkrc"
 
 
@@ -27,7 +22,7 @@ gtk-font-name = "Sans 8"
 #     ICONS      #
 ##################
 
-gtk-icon-theme-name = "my-humanity"
+gtk-icon-theme-name = "Adwaita"
 
 
 ##################
