@@ -41,6 +41,10 @@ nmap <C-h> <C-W>h
 nmap <C-j> <C-W>j
 nmap <C-k> <C-W>k
 nmap <C-l> <C-W>l
+nmap <C-Left> <C-W>h
+nmap <C-Down> <C-W>j
+nmap <C-Up> <C-W>k
+nmap <C-Right> <C-W>l
 set pastetoggle=<F2>
 noremap <F1> 
 noremap! <F1> 
@@ -62,8 +66,8 @@ if has("gui_running")
   nnoremap <C-F1> :if &go=~#'m'<Bar>set go-=m<Bar>else<Bar>set go+=m<Bar>endif<CR>
   nnoremap <C-F2> :if &go=~#'T'<Bar>set go-=T<Bar>else<Bar>set go+=T<Bar>endif<CR>
   nnoremap <C-F3> :if &go=~#'r'<Bar>set go-=r<Bar>else<Bar>set go+=r<Bar>endif<CR>
-  set bg=light
-  colo github
+  "set bg=light
+  "colo github
 endif
 
 """ rules
@@ -81,4 +85,14 @@ endif
 """ browser
 let g:netrw_list_hide='\.swp$,\.o$,\.ali$,\.swo$,\*$'
 let g:netrw_sort_sequence='[\/]$,\<core\%(\.\d\+\)\=\>,\.gpr$,\.h$,\.hpp$,\.ads$,\.c$,\.cpp$,\.adb$,\~\=\*$,*,\.obj$,\.info$,\.bak$,\~$'
-map <Leader>e :Ex<CR>
+"map <Leader>e :Ex<CR>
+
+"plugins
+map <Leader>e :NERDTreeFocus<CR>
+let NERDTreeIgnore=['\.swp$', '\.o$', '\.ali$', '\.swo$', '\*$']
+let NERDTreeMouseMode=2
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif "close NT if last window
+
+let g:airline_left_sep=''
+let g:airline_right_sep=''
+"let g:airline_theme='jellybeans'
