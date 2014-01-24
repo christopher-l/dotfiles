@@ -26,6 +26,7 @@ set dictionary+=/usr/share/dict/ngerman
 set incsearch
 set smartcase
 set ignorecase
+set hlsearch
 
 """ menu
 set wildmenu
@@ -50,6 +51,8 @@ noremap <F1> 
 noremap! <F1> 
 map <Leader>c :cd %:p:h<CR>
 map <Leader>ll :!pdflatex --interaction=nonstopmode %<CR>
+noremap <F4> :set hlsearch! hlsearch?<CR>
+nnoremap <silent> <ESC> :noh<CR><ESC>
 
 """ theme
 set bg=dark
@@ -67,7 +70,8 @@ if has("gui_running")
   nnoremap <C-F2> :if &go=~#'T'<Bar>set go-=T<Bar>else<Bar>set go+=T<Bar>endif<CR>
   nnoremap <C-F3> :if &go=~#'r'<Bar>set go-=r<Bar>else<Bar>set go+=r<Bar>endif<CR>
   "set bg=light
-  "colo github
+  colo solarized
+  set laststatus=2
 endif
 
 """ rules
