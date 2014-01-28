@@ -9,6 +9,7 @@ set guioptions=brTs
 autocmd LocationChange feedly.com :normal! <C-z>
 set defsearch=dd
 map zt :set go!=T<CR>
+map zz :set go!=s<CR>
 map d :bd<CR>
 map J <scroll-down>
 map K <scroll-up>

@@ -52,7 +52,7 @@ noremap! <F1> 
 map <Leader>c :cd %:p:h<CR>
 map <Leader>ll :!pdflatex --interaction=nonstopmode %<CR>
 noremap <F4> :set hlsearch! hlsearch?<CR>
-nnoremap <silent> <ESC> :noh<CR><ESC>
+nnoremap <silent> <S-ESC> :noh<CR><ESC>
 
 """ theme
 set bg=dark
@@ -84,6 +84,7 @@ if has("autocmd")
   autocmd FileType ada        setlocal ts=3 sw=3 et fo-=o
   autocmd FileType tex        setlocal ts=2 sw=2 et fo+=t
   autocmd FileType mail       setlocal cc=72 tw=72 fo+=t
+  autocmd FileType vim        setlocal ts=2 sw=2 et
 endif
 
 """ browser
@@ -91,12 +92,18 @@ let g:netrw_list_hide='\.swp$,\.o$,\.ali$,\.swo$,\*$'
 let g:netrw_sort_sequence='[\/]$,\<core\%(\.\d\+\)\=\>,\.gpr$,\.h$,\.hpp$,\.ads$,\.c$,\.cpp$,\.adb$,\~\=\*$,*,\.obj$,\.info$,\.bak$,\~$'
 "map <Leader>e :Ex<CR>
 
-"plugins
+""" plugins
 map <Leader>e :NERDTreeFocus<CR>
 let NERDTreeIgnore=['\.swp$', '\.o$', '\.ali$', '\.swo$', '\*$']
 let NERDTreeMouseMode=2
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif "close NT if last window
 
+"let g:airline_theme='jellybeans'
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
+endif
 let g:airline_left_sep=''
 let g:airline_right_sep=''
-"let g:airline_theme='jellybeans'
+let g:airline_symbols.branch = ''
+let g:airline_symbols.readonly = ''
+let g:airline_section_z = '%3l,%-3c %P'
