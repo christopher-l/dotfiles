@@ -53,15 +53,16 @@ map <Leader>c :cd %:p:h<CR>
 map <Leader>ll :!pdflatex --interaction=nonstopmode %<CR>
 noremap <F4> :set hlsearch! hlsearch?<CR>
 nnoremap <silent> <S-ESC> :noh<CR><ESC>
+map <Leader>bg :let &bg = ( &bg == "dark"? "light" : "dark" )<CR>
 
 """ theme
-set bg=dark
-colo molokai
+set bg=light
+colo github
 
 """ gvim
 if has("gui_running")
   set lines=60 columns=120
-  set guifont=Hermit\ 8
+  set guifont=Monospace\ 8
   set guicursor+=a:blinkon0
   set guioptions-=m  "remove menu bar
   set guioptions-=T  "remove toolbar
@@ -70,7 +71,7 @@ if has("gui_running")
   nnoremap <C-F2> :if &go=~#'T'<Bar>set go-=T<Bar>else<Bar>set go+=T<Bar>endif<CR>
   nnoremap <C-F3> :if &go=~#'r'<Bar>set go-=r<Bar>else<Bar>set go+=r<Bar>endif<CR>
   "set bg=light
-  colo solarized
+  "colo github
   set laststatus=2
 endif
 
@@ -98,7 +99,7 @@ let NERDTreeIgnore=['\.swp$', '\.o$', '\.ali$', '\.swo$', '\*$']
 let NERDTreeMouseMode=2
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif "close NT if last window
 
-"let g:airline_theme='jellybeans'
+let g:airline_theme='sol'
 if !exists('g:airline_symbols')
   let g:airline_symbols = {}
 endif
