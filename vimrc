@@ -56,8 +56,9 @@ nnoremap <silent> <S-ESC> :noh<CR><ESC>
 map <Leader>bg :let &bg = ( &bg == "dark"? "light" : "dark" )<CR>
 
 """ theme
+let base16colorspace=256
 set bg=light
-colo github
+colo base16-default
 
 """ gvim
 if has("gui_running")
@@ -67,6 +68,7 @@ if has("gui_running")
   set guioptions-=m  "remove menu bar
   set guioptions-=T  "remove toolbar
   set guioptions+=c  "use console for simple choices
+  set guioptions-=e  "don't use gui tabs
   nnoremap <C-F1> :if &go=~#'m'<Bar>set go-=m<Bar>else<Bar>set go+=m<Bar>endif<CR>
   nnoremap <C-F2> :if &go=~#'T'<Bar>set go-=T<Bar>else<Bar>set go+=T<Bar>endif<CR>
   nnoremap <C-F3> :if &go=~#'r'<Bar>set go-=r<Bar>else<Bar>set go+=r<Bar>endif<CR>
@@ -99,7 +101,7 @@ let NERDTreeIgnore=['\.swp$', '\.o$', '\.ali$', '\.swo$', '\*$']
 let NERDTreeMouseMode=2
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif "close NT if last window
 
-let g:airline_theme='sol'
+"let g:airline_theme='sol'
 if !exists('g:airline_symbols')
   let g:airline_symbols = {}
 endif

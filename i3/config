@@ -260,7 +260,7 @@ bindsym Mod1+Print exec scrot -s
 # startup applications
 #exec nm-applet
 #exec dropboxd
-exec xautolock -time 30 -locker 'i3lock -c 000000'
+#exec xautolock -time 30 -locker 'i3lock -c 000000'
 
 # generel config
 hide_edge_borders both
