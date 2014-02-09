@@ -21,6 +21,7 @@ set lcs=tab:▸\
 set autoindent
 set dictionary+=/usr/share/dict/american-english
 set dictionary+=/usr/share/dict/ngerman
+set spl=de,en
 
 """ search
 set incsearch
@@ -56,14 +57,14 @@ nnoremap <silent> <S-ESC> :noh<CR><ESC>
 map <Leader>bg :let &bg = ( &bg == "dark"? "light" : "dark" )<CR>
 
 """ theme
-let base16colorspace=256
+"let base16colorspace=256
 set bg=light
-colo base16-default
+colo lucius
 
 """ gvim
 if has("gui_running")
   set lines=60 columns=120
-  set guifont=Monospace\ 8
+  set guifont=Liberation\ Mono\ 8
   set guicursor+=a:blinkon0
   set guioptions-=m  "remove menu bar
   set guioptions-=T  "remove toolbar

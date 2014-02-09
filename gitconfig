@@ -9,3 +9,5 @@
 	default = simple
 [merge]
 	tool = gvimdiff
+[help]
+	autocorrect = -1
