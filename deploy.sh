@@ -55,7 +55,7 @@ fi
 
 
 for arg in "$@" ; do
-    if [[ "$arg" != *_ ]] && [[ "$0" != *"$arg" ]] ; then
+    if [[ "$arg" != _* ]] && [[ "$0" != *"$arg" ]] ; then
         if [[ -e "$arg" ]] ; then
             create_symlink "$arg"
         else
