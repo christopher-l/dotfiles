@@ -44,7 +44,7 @@ function create_symlink () {
 }
 
 if [[ $# -le 0 ]] ; then
-    print_usage "$0"
+    print_usage
     exit
 fi
 
@@ -60,7 +60,7 @@ for arg in "$@" ; do
             create_symlink "$arg"
         else
             echo "$arg: file not found"
-            print_usage "$0"
+            print_usage
             exit
         fi
     fi

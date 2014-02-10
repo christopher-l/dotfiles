@@ -1,21 +1,20 @@
 call pathogen#infect()
+filetype plugin indent on
 
 """ general
-filetype plugin indent on
 set encoding=utf-8
 set ff=unix
 set ttm=0
 set mouse=nv
 set hidden
 set autochdir
-set nu      "number
-set ts=4    "tabstop
-set sw=4    "shiftwidth
-set et      "expandtab
-set cc=80   "colorcolumn
-set tw=80   "textwidth
+set nu
+set ts=4
+set sw=4
+set et
+set cc=80
+set tw=80
 set fo=crqj
-"set so=10   "scrolloff
 set list
 set lcs=tab:▸\ 
 set autoindent
@@ -32,32 +31,25 @@ set hlsearch
 """ menu
 set wildmenu
 set wildmode=full
-set wildcharm=<Tab>
 set wildignore+=*.o,*.ali
 set wildignorecase
-noremap <Leader><Tab> :ls<CR>:b 
-noremap <S-Tab> :e <Tab><C-P>
 
 """ keybindings
-nmap <C-h> <C-W>h
-nmap <C-j> <C-W>j
-nmap <C-k> <C-W>k
-nmap <C-l> <C-W>l
-nmap <C-Left> <C-W>h
-nmap <C-Down> <C-W>j
-nmap <C-Up> <C-W>k
-nmap <C-Right> <C-W>l
+let mapleader=","
 set pastetoggle=<F2>
 noremap <F1> 
 noremap! <F1> 
-map <Leader>c :cd %:p:h<CR>
-map <Leader>ll :!pdflatex --interaction=nonstopmode %<CR>
-noremap <F4> :set hlsearch! hlsearch?<CR>
-nnoremap <silent> <S-ESC> :noh<CR><ESC>
-map <Leader>bg :let &bg = ( &bg == "dark"? "light" : "dark" )<CR>
+nnoremap ,, ,
+nnoremap <Leader>b :ls<CR>:b 
+nnoremap <Leader>w <C-W>
+nnoremap <Leader>c :cd %:p:h<CR>
+nnoremap <Leader>l :!pdflatex --interaction=nonstopmode %<CR>
+nnoremap <silent> <Leader><ESC> :noh<CR><ESC>
+nnoremap <Leader>z :let &bg = ( &bg == "dark"? "light" : "dark" )<CR>
+nnoremap <Leader>s :set spell!<CR>
+nnoremap <Leader>f 1z=
 
 """ theme
-"let base16colorspace=256
 set bg=light
 colo lucius
 
@@ -66,15 +58,11 @@ if has("gui_running")
   set lines=60 columns=120
   set guifont=Liberation\ Mono\ 8
   set guicursor+=a:blinkon0
-  set guioptions-=m  "remove menu bar
-  set guioptions-=T  "remove toolbar
-  set guioptions+=c  "use console for simple choices
-  set guioptions-=e  "don't use gui tabs
-  nnoremap <C-F1> :if &go=~#'m'<Bar>set go-=m<Bar>else<Bar>set go+=m<Bar>endif<CR>
-  nnoremap <C-F2> :if &go=~#'T'<Bar>set go-=T<Bar>else<Bar>set go+=T<Bar>endif<CR>
-  nnoremap <C-F3> :if &go=~#'r'<Bar>set go-=r<Bar>else<Bar>set go+=r<Bar>endif<CR>
-  "set bg=light
-  "colo github
+  set guioptions-=m  " menu bar
+  set guioptions-=T  " tool bar
+  set guioptions+=c  " console for choices
+  set guioptions-=e  " gui tabs
+  nnoremap <F1> :if &go=~#'m'<Bar>set go-=m<Bar>else<Bar>set go+=m<Bar>endif<CR>
   set laststatus=2
 endif
 
@@ -92,20 +80,17 @@ if has("autocmd")
 endif
 
 """ browser
-let g:netrw_list_hide='\.swp$,\.o$,\.ali$,\.swo$,\*$'
-let g:netrw_sort_sequence='[\/]$,\<core\%(\.\d\+\)\=\>,\.gpr$,\.h$,\.hpp$,\.ads$,\.c$,\.cpp$,\.adb$,\~\=\*$,*,\.obj$,\.info$,\.bak$,\~$'
-"map <Leader>e :Ex<CR>
+let g:netrw_list_hide='\.swp$,\.o$,\.ali$,\.swo$'
 
 """ plugins
 map <Leader>e :NERDTreeFocus<CR>
-let NERDTreeIgnore=['\.swp$', '\.o$', '\.ali$', '\.swo$', '\*$']
+let NERDTreeIgnore=['\.swp$', '\.o$', '\.ali$', '\.swo$']
 let NERDTreeMouseMode=2
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif "close NT if last window
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") 
+      \ && b:NERDTreeType == "primary") | q | endif  " close NT if last window
 
 "let g:airline_theme='sol'
-if !exists('g:airline_symbols')
-  let g:airline_symbols = {}
-endif
+let g:airline_symbols = {}
 let g:airline_left_sep=''
 let g:airline_right_sep=''
 let g:airline_symbols.branch = ''
