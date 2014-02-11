@@ -7,7 +7,6 @@ set ff=unix
 set ttm=0
 set mouse=nv
 set hidden
-set autochdir
 set nu
 set ts=4
 set sw=4
@@ -16,7 +15,7 @@ set cc=80
 set tw=80
 set fo=crqj
 set list
-set lcs=tab:▸\ 
+set lcs=tab:▸\ ,trail:_
 set autoindent
 set dictionary+=/usr/share/dict/american-english
 set dictionary+=/usr/share/dict/ngerman
@@ -33,16 +32,23 @@ set wildmenu
 set wildmode=full
 set wildignore+=*.o,*.ali
 set wildignorecase
+set wildcharm=<Tab>
 
 """ keybindings
 let mapleader=","
 set pastetoggle=<F2>
 noremap <F1> 
 noremap! <F1> 
+nnoremap <C-h> <C-W>h
+nnoremap <C-j> <C-W>j
+nnoremap <C-k> <C-W>k
+nnoremap <C-l> <C-W>l
 nnoremap ,, ,
 nnoremap <Leader>b :ls<CR>:b 
-nnoremap <Leader>w <C-W>
-nnoremap <Leader>c :cd %:p:h<CR>
+nnoremap <Leader>v :e %:.:h/<Tab><Left>
+nnoremap <Leader>c :e %:.<Tab>
+nnoremap <Leader>x :set autochdir! autochdir?<CR>
+nnoremap <Leader>d :cd %:p:h<CR>
 nnoremap <Leader>l :!pdflatex --interaction=nonstopmode %<CR>
 nnoremap <silent> <Leader><ESC> :noh<CR><ESC>
 nnoremap <Leader>z :let &bg = ( &bg == "dark"? "light" : "dark" )<CR>
@@ -55,7 +61,7 @@ colo lucius
 
 """ gvim
 if has("gui_running")
-  set lines=60 columns=120
+  "set lines=60 columns=120
   set guifont=Liberation\ Mono\ 8
   set guicursor+=a:blinkon0
   set guioptions-=m  " menu bar
@@ -86,11 +92,13 @@ let g:netrw_list_hide='\.swp$,\.o$,\.ali$,\.swo$'
 map <Leader>e :NERDTreeFocus<CR>
 let NERDTreeIgnore=['\.swp$', '\.o$', '\.ali$', '\.swo$']
 let NERDTreeMouseMode=2
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") 
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType")
       \ && b:NERDTreeType == "primary") | q | endif  " close NT if last window
 
 "let g:airline_theme='sol'
-let g:airline_symbols = {}
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
+endif
 let g:airline_left_sep=''
 let g:airline_right_sep=''
 let g:airline_symbols.branch = ''
