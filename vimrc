@@ -20,6 +20,7 @@ set autoindent
 set dictionary+=/usr/share/dict/american-english
 set dictionary+=/usr/share/dict/ngerman
 set spl=de,en
+set history=1000
 
 """ search
 set incsearch
@@ -54,6 +55,8 @@ nnoremap <silent> <Leader><ESC> :noh<CR><ESC>
 nnoremap <Leader>z :let &bg = ( &bg == "dark"? "light" : "dark" )<CR>
 nnoremap <Leader>s :set spell!<CR>
 nnoremap <Leader>f 1z=
+nnoremap <C-Up> :call AdjustFontSize(1)<CR>:echo &guifont<CR>
+nnoremap <C-Down> :call AdjustFontSize(-1)<CR>:echo &guifont<CR>
 
 """ theme
 set bg=light
@@ -104,3 +107,8 @@ let g:airline_right_sep=''
 let g:airline_symbols.branch = ''
 let g:airline_symbols.readonly = ''
 let g:airline_section_z = '%3l,%-3c %P'
+
+""" functions
+function! AdjustFontSize(amount)
+  let &guifont=substitute(&guifont,'\zs\d\+','\=eval(submatch(0)+a:amount)','')
+endfunction
