@@ -10,8 +10,8 @@ URxvt.depth: 32
 URxvt.scrollBar: off
 !URxvt.font: xft:hermit:size=8
 !URxvt.font: xft:droidsansmono:size=8
-!URxvt.font: xft:monospace:size=8
-URxvt.font: xft:liberationmono:size=8
+URxvt.font: xft:monospace:size=8
+!URxvt.font: xft:liberationmono:size=8
 URxvt.perl-ext-common:  default,url-select,keyboard-select,clipboard,font-size
 URxvt.url-select.button: 1
 URxvt.url-select.launcher: /usr/bin/firefox
@@ -124,3 +124,24 @@ URxvt.urgentOnBell:  true
 *color14: #008787
 *color7: #eeeeee
 *color15: #eeeeee
+
+!!from https://github.com/jonathanfilip/lucius/blob/master/xresources/LuciusBlack
+!*background: #121212
+!*foreground: #d7d7d7
+!*cursorColor: #87afd7
+!*color0: #121212
+!*color8: #121212
+!*color1: #ff5f5f
+!*color9: #ff5f5f
+!*color2: #afd787
+!*color10: #afd787
+!*color3: #d7d7af
+!*color11: #d7d7af
+!*color4: #87d7ff
+!*color12: #87d7ff
+!*color5: #d7afd7
+!*color13: #d7afd7
+!*color6: #87d7af
+!*color14: #87d7af
+!*color7: #d7d7d7
+!*color15: #d7d7d7

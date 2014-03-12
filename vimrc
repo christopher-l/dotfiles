@@ -7,6 +7,7 @@ set ff=unix
 set ttm=0
 set mouse=nv
 set hidden
+set autochdir
 set nu
 set ts=4
 set sw=4
@@ -48,13 +49,12 @@ nnoremap ,, ,
 nnoremap <Leader>b :ls<CR>:b 
 nnoremap <Leader>v :e %:.:h/<Tab><Left>
 nnoremap <Leader>c :e %:.<Tab>
-nnoremap <Leader>x :set autochdir! autochdir?<CR>
-nnoremap <Leader>d :cd %:p:h<CR>
 nnoremap <Leader>l :!pdflatex --interaction=nonstopmode %<CR>
 nnoremap <silent> <Leader><ESC> :noh<CR><ESC>
-nnoremap <Leader>z :let &bg = ( &bg == "dark"? "light" : "dark" )<CR>
+nnoremap <Leader>zz :let &bg = ( &bg == "dark"? "light" : "dark" )<CR>
+nnoremap <Leader>zc :set cursorline!<CR>
+nnoremap <Leader>w :set wrap!<CR>
 nnoremap <Leader>s :set spell!<CR>
-nnoremap <Leader>f 1z=
 nnoremap <C-Up> :call AdjustFontSize(1)<CR>:echo &guifont<CR>
 nnoremap <C-Down> :call AdjustFontSize(-1)<CR>:echo &guifont<CR>
 
@@ -83,17 +83,18 @@ if has("autocmd")
   autocmd FileType javascript setlocal ts=4 sw=4 et
   autocmd FileType c          setlocal ts=4 sw=4 noet
   autocmd FileType ada        setlocal ts=3 sw=3 et fo-=o
-  autocmd FileType tex        setlocal ts=2 sw=2 et fo+=t
+  autocmd FileType tex        setlocal ts=2 sw=2 et fo+=t indk=
   autocmd FileType mail       setlocal cc=72 tw=72 fo+=t
   autocmd FileType vim        setlocal ts=2 sw=2 et
+  autocmd FileType python     setlocal ts=2 sw=2 et
 endif
 
 """ browser
-let g:netrw_list_hide='\.swp$,\.o$,\.ali$,\.swo$'
+let g:netrw_list_hide='\.swp$,\.o$,\.ali$,\.swo$,\.pyc$'
 
 """ plugins
 map <Leader>e :NERDTreeFocus<CR>
-let NERDTreeIgnore=['\.swp$', '\.o$', '\.ali$', '\.swo$']
+let NERDTreeIgnore=['\.swp$', '\.o$', '\.ali$', '\.swo$', '\.pyc$']
 let NERDTreeMouseMode=2
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType")
       \ && b:NERDTreeType == "primary") | q | endif  " close NT if last window
@@ -107,6 +108,11 @@ let g:airline_right_sep=''
 let g:airline_symbols.branch = ''
 let g:airline_symbols.readonly = ''
 let g:airline_section_z = '%3l,%-3c %P'
+
+let Tlist_Use_Right_Window=1
+let Tlist_Exit_OnlyWindow=1
+nnoremap <Leader>t :TlistToggle<CR>
+
 
 """ functions
 function! AdjustFontSize(amount)

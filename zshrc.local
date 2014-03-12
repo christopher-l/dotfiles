@@ -6,8 +6,8 @@ setopt pushdminus
 export PATH=$PATH:/home/chris/bin
 export GNATPATH=/opt/gnat/bin
 
-echo TODO:
-cat ~/todo
+#echo TODO:
+#cat ~/todo
 
 ## Base16 Shell
 #if [ "$TERM" = "rxvt-unicode-256color" ]; then
