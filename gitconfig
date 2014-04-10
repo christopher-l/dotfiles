@@ -11,3 +11,11 @@
 	tool = gvimdiff
 [help]
 	autocorrect = -1
+[color "diff"]
+    new = 10
+    old = 9
+[color "status"]
+    added = 10
+    changed = 9
+    untracked = 9
+    updated = 10
