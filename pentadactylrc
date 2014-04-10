@@ -4,7 +4,7 @@ loadplugins '\.(js|penta)$'
 group user
 
 set guioptions=brTs
-"hi -append FontFixed font-size:12px
+hi -append FontFixed font-size:8pt; font-family:"fira mono"
 
 autocmd LocationChange feedly.com :normal! <C-z>
 set defsearch=dd

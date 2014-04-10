@@ -65,7 +65,7 @@ colo lucius
 """ gvim
 if has("gui_running")
   "set lines=60 columns=120
-  set guifont=Liberation\ Mono\ 8
+  set guifont=Fira\ Mono\ 8
   set guicursor+=a:blinkon0
   set guioptions-=m  " menu bar
   set guioptions-=T  " tool bar
@@ -84,7 +84,7 @@ if has("autocmd")
   autocmd FileType c          setlocal ts=4 sw=4 noet
   autocmd FileType ada        setlocal ts=3 sw=3 et fo-=o
   autocmd FileType tex        setlocal ts=2 sw=2 et fo+=t indk=
-  autocmd FileType mail       setlocal cc=72 tw=72 fo+=t
+  autocmd FileType mail       setlocal cc=72 tw=72 fo+=t spell
   autocmd FileType vim        setlocal ts=2 sw=2 et
   autocmd FileType python     setlocal ts=2 sw=2 et
 endif

@@ -10,7 +10,8 @@ URxvt.depth: 32
 URxvt.scrollBar: off
 !URxvt.font: xft:hermit:size=8
 !URxvt.font: xft:droidsansmono:size=8
-URxvt.font: xft:monospace:size=8
+!URxvt.font: xft:monospace:size=8
+URxvt.font: xft:firamono:size=8
 !URxvt.font: xft:liberationmono:size=8
 URxvt.perl-ext-common:  default,url-select,keyboard-select,clipboard,font-size
 URxvt.url-select.button: 1
@@ -30,6 +31,7 @@ URxvt.keysym.C-S-Down: perl:font-size:decglobal
 URxvt.saveLines: 8192
 URxvt.urgentOnBell:  true
 
+!!Tango
 !URxvt.foreground: #f0f0f0
 !URxvt.background: #000000
 !URxvt.color0: #2e3436
@@ -104,26 +106,26 @@ URxvt.urgentOnBell:  true
 !URxvt.foreground: #000000
 !URxvt.background: #f5f5f5
 
-!from https://github.com/jonathanfilip/lucius/blob/master/xresources/LuciusLight
-*background: #eeeeee
-*foreground: #444444
-*cursorColor: #5f87af
-*color0: #444444
-*color8: #444444
-*color1: #af0000
-*color9: #af0000
-*color2: #008700
-*color10: #008700
-*color3: #af5f00
-*color11: #af5f00
-*color4: #005faf
-*color12: #005faf
-*color5: #870087
-*color13: #870087
-*color6: #008787
-*color14: #008787
-*color7: #eeeeee
-*color15: #eeeeee
+!!from https://github.com/jonathanfilip/lucius/blob/master/xresources/LuciusLight
+!*background: #eeeeee
+!*foreground: #444444
+!*cursorColor: #5f87af
+!*color0: #444444
+!*color8: #444444
+!*color1: #af0000
+!*color9: #af0000
+!*color2: #008700
+!*color10: #008700
+!*color3: #af5f00
+!*color11: #af5f00
+!*color4: #005faf
+!*color12: #005faf
+!*color5: #870087
+!*color13: #870087
+!*color6: #008787
+!*color14: #008787
+!*color7: #eeeeee
+!*color15: #eeeeee
 
 !!from https://github.com/jonathanfilip/lucius/blob/master/xresources/LuciusBlack
 !*background: #121212
@@ -145,3 +147,24 @@ URxvt.urgentOnBell:  true
 !*color14: #87d7af
 !*color7: #d7d7d7
 !*color15: #d7d7d7
+
+!merge of LuciusLight and LuciusBlack
+*background: #121212
+*foreground: #d7d7d7
+*cursorColor: #87afd7
+*color1: #af0000
+*color2: #008700
+*color3: #af5f00
+*color4: #005faf
+*color5: #870087
+*color6: #008787
+*color7: #eeeeee
+*color8: #444444
+*color9: #ff5f5f
+*color10: #afd787
+*color11: #d7d7af
+*color12: #87d7ff
+*color13: #d7afd7
+*color14: #87d7af
+*color15: #d7d7d7
+*color16: #121212

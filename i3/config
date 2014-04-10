@@ -18,7 +18,8 @@ set $mod Mod4
 # clear in small sizes. However, if you need a lot of unicode glyphs or
 # right-to-left text rendering, you should instead use pango for rendering and
 # chose an xft font, such as:
-font xft:DejaVu Sans 8
+#font xft:DejaVu Sans 8
+font xft:Fira Mono bold 8
 #font xft:Liberation Mono 8
 
 # Use Mouse+$mod to drag floating windows to their wanted position
@@ -27,12 +28,18 @@ floating_modifier $mod
 # start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
 
+# start a filebrowser
+bindsym $mod+d exec dolphin
+
 # kill focused window
 bindsym $mod+BackSpace kill
 bindsym $mod+q kill
 
 # start dmenu (a program launcher)
-bindsym Mod1+space exec dmenu_run
+bindsym Mod1+space exec j4-dmenu-desktop
+
+# start winmenu
+bindsym Mod1+Tab exec i3-winmenu.py
 
 # change focus
 bindsym $mod+h focus left
@@ -82,7 +89,7 @@ bindsym $mod+space focus mode_toggle
 bindsym $mod+a focus parent
 
 # focus the child container
-bindsym $mod+d focus child
+# bindsym $mod+d focus child
 
 # move the currently focused window to the scratchpad
 bindsym $mod+Shift+minus move scratchpad
@@ -270,6 +277,7 @@ workspace_layout stacking
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
+        position top
         status_command i3status
         tray_output LVDS1
 }
