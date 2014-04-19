@@ -46,17 +46,20 @@ nnoremap <C-j> <C-W>j
 nnoremap <C-k> <C-W>k
 nnoremap <C-l> <C-W>l
 nnoremap ,, ,
-nnoremap <Leader>b :ls<CR>:b 
-nnoremap <Leader>v :e %:.:h/<Tab><Left>
-nnoremap <Leader>c :e %:.<Tab>
+"nnoremap <Leader>b :ls<CR>:b 
+"nnoremap <Leader>v :e %:.:h/<Tab><Left>
+"nnoremap <Leader>c :e %:.<Tab>
 nnoremap <Leader>l :!pdflatex --interaction=nonstopmode %<CR>
 nnoremap <silent> <Leader><ESC> :noh<CR><ESC>
 nnoremap <Leader>zz :let &bg = ( &bg == "dark"? "light" : "dark" )<CR>
 nnoremap <Leader>zc :set cursorline!<CR>
 nnoremap <Leader>w :set wrap!<CR>
 nnoremap <Leader>s :set spell!<CR>
+nnoremap <Leader>x :source $MYVIMRC<CR>
 nnoremap <C-Up> :call AdjustFontSize(1)<CR>:echo &guifont<CR>
 nnoremap <C-Down> :call AdjustFontSize(-1)<CR>:echo &guifont<CR>
+nnoremap <Enter> o<Esc>k
+nnoremap <S-Enter> O<Esc>j
 
 """ theme
 set bg=light
@@ -93,6 +96,9 @@ endif
 let g:netrw_list_hide='\.swp$,\.o$,\.ali$,\.swo$,\.pyc$'
 
 """ plugins
+nnoremap <Leader>t :CtrlP<CR>
+nnoremap <Leader>b :CtrlPBuffer<CR>
+
 map <Leader>e :NERDTreeFocus<CR>
 let NERDTreeIgnore=['\.swp$', '\.o$', '\.ali$', '\.swo$', '\.pyc$']
 let NERDTreeMouseMode=2
@@ -109,9 +115,9 @@ let g:airline_symbols.branch = ''
 let g:airline_symbols.readonly = ''
 let g:airline_section_z = '%3l,%-3c %P'
 
-let Tlist_Use_Right_Window=1
-let Tlist_Exit_OnlyWindow=1
-nnoremap <Leader>t :TlistToggle<CR>
+"let Tlist_Use_Right_Window=1
+"let Tlist_Exit_OnlyWindow=1
+"nnoremap <Leader>t :TlistToggle<CR>
 
 
 """ functions
