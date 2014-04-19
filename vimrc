@@ -61,12 +61,12 @@ nnoremap <C-Down> :call AdjustFontSize(-1)<CR>:echo &guifont<CR>
 nnoremap <Enter> o<Esc>k
 nnoremap <S-Enter> O<Esc>j
 
+""" theme
+set bg=light
+colo lucius
+
 """ gvim
 if has("gui_running")
-  """ theme
-  set bg=light
-  colo lucius
-
   "set lines=60 columns=120
   set guifont=Fira\ Mono\ 8
   set guicursor+=a:blinkon0
