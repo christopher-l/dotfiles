@@ -57,7 +57,7 @@ else
         hi Visual       ctermfg=White     guifg=White     ctermbg=DarkGray cterm=none  term=none
         hi Title        ctermfg=Black     guifg=Black     ctermbg=none cterm=bold      term=bold gui=bold
 
-        hi StatusLine   ctermfg=White     guifg=White     ctermbg=Black cterm=bold,underline term=bold  gui=bold
+        hi StatusLine   ctermfg=Black     guifg=Black     ctermbg=White cterm=bold,underline term=bold  gui=bold
         hi StatusLineNC ctermfg=DarkGray  guifg=DarkGray  ctermbg=Black cterm=bold,underline term=bold  gui=bold
         hi LineNr       ctermfg=gray      guifg=gray      ctermbg=none
 endif

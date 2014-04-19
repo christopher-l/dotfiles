@@ -6,6 +6,8 @@ setopt pushdminus
 export PATH=$PATH:/home/chris/bin
 export GNATPATH=/opt/gnat/bin
 
+zstyle ':prompt:grml:left:items:user' pre '%F{blue}'
+
 #echo TODO:
 #cat ~/todo
 
