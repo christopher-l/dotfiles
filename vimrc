@@ -11,7 +11,9 @@ set autochdir
 set nu
 set ts=4
 set sw=4
+set sts=4
 set et
+set so=3
 set cc=80
 set tw=80
 set fo=crqj
@@ -21,7 +23,7 @@ set autoindent
 set dictionary+=/usr/share/dict/american-english
 set dictionary+=/usr/share/dict/ngerman
 set spl=de,en
-set history=1000
+set history=10000
 
 """ search
 set incsearch
@@ -50,16 +52,14 @@ nnoremap ,, ,
 "nnoremap <Leader>v :e %:.:h/<Tab><Left>
 "nnoremap <Leader>c :e %:.<Tab>
 nnoremap <Leader>l :!pdflatex --interaction=nonstopmode %<CR>
-nnoremap <silent> <Leader><ESC> :noh<CR><ESC>
-nnoremap <Leader>zz :let &bg = ( &bg == "dark"? "light" : "dark" )<CR>
-nnoremap <Leader>zc :set cursorline!<CR>
-nnoremap <Leader>w :set wrap!<CR>
+nnoremap <silent> \ :noh<CR><ESC>
+nnoremap <Leader>z :let &bg = ( &bg == "dark"? "light" : "dark" )<CR>
+nnoremap <Leader>q q:
 nnoremap <Leader>s :set spell!<CR>
 nnoremap <Leader>x :source $MYVIMRC<CR>
 nnoremap <C-Up> :call AdjustFontSize(1)<CR>:echo &guifont<CR>
 nnoremap <C-Down> :call AdjustFontSize(-1)<CR>:echo &guifont<CR>
-nnoremap <Enter> o<Esc>k
-nnoremap <S-Enter> O<Esc>j
+nnoremap <Leader>` g`"
 
 """ theme
 set bg=light
@@ -81,15 +81,15 @@ endif
 """ rules
 if has("autocmd")
   autocmd FileType make       setlocal ts=8 sw=8 noet
-  autocmd FileType html       setlocal ts=2 sw=2 et
-  autocmd FileType css        setlocal ts=2 sw=2 et
-  autocmd FileType javascript setlocal ts=4 sw=4 et
+  autocmd FileType html       setlocal ts=2 sw=2 sts=2 et
+  autocmd FileType css        setlocal ts=2 sw=2 sts=2 et
+  autocmd FileType javascript setlocal ts=4 sw=4 sts=4 et
   autocmd FileType c          setlocal ts=4 sw=4 noet
-  autocmd FileType ada        setlocal ts=3 sw=3 et fo-=o
-  autocmd FileType tex        setlocal ts=2 sw=2 et fo+=t indk=
+  autocmd FileType ada        setlocal ts=3 sw=3 sts=3 et fo-=o
+  autocmd FileType tex        setlocal ts=2 sw=2 sts=2 et fo+=t indk=
   autocmd FileType mail       setlocal cc=72 tw=72 fo+=t spell
-  autocmd FileType vim        setlocal ts=2 sw=2 et
-  autocmd FileType python     setlocal ts=2 sw=2 et
+  autocmd FileType vim        setlocal ts=2 sw=2 sts=2 et
+  "autocmd FileType python     setlocal ts=2 sw=2 et
 endif
 
 """ browser
@@ -98,6 +98,9 @@ let g:netrw_list_hide='\.swp$,\.o$,\.ali$,\.swo$,\.pyc$'
 """ plugins
 nnoremap <Leader>t :CtrlP<CR>
 nnoremap <Leader>b :CtrlPBuffer<CR>
+nnoremap <Leader>m :CtrlPMRUFiles<CR>
+"let g:ctrlp_match_window = 'max:50,results:50'
+let g:ctrlp_reuse_window = 'help'
 
 map <Leader>e :NERDTreeFocus<CR>
 let NERDTreeIgnore=['\.swp$', '\.o$', '\.ali$', '\.swo$', '\.pyc$']
@@ -111,8 +114,8 @@ if !exists('g:airline_symbols')
 endif
 let g:airline_left_sep=''
 let g:airline_right_sep=''
-let g:airline_symbols.branch = ''
-let g:airline_symbols.readonly = ''
+"let g:airline_symbols.branch = ''
+"let g:airline_symbols.readonly = ''
 let g:airline_section_z = '%3l,%-3c %P'
 
 "let Tlist_Use_Right_Window=1

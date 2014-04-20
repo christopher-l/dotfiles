@@ -20,13 +20,14 @@ set $mod Mod4
 # chose an xft font, such as:
 #font xft:DejaVu Sans 8
 font xft:Fira Mono bold 8
-#font xft:Liberation Mono 8
+#font xft:Liberation Mono bold 8
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
 # start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+shift+Return exec urxvt -bg black -fg rgb:f0/f0/f0
 
 # start a filebrowser
 bindsym $mod+d exec dolphin
