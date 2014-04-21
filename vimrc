@@ -24,12 +24,16 @@ set dictionary+=/usr/share/dict/american-english
 set dictionary+=/usr/share/dict/ngerman
 set spl=de,en
 set history=10000
+set winwidth=84
+set winheight=50
+set winminheight=5
 
 """ search
 set incsearch
 set smartcase
 set ignorecase
 set hlsearch
+nohlsearch
 
 """ menu
 set wildmenu
@@ -47,15 +51,13 @@ nnoremap <C-h> <C-W>h
 nnoremap <C-j> <C-W>j
 nnoremap <C-k> <C-W>k
 nnoremap <C-l> <C-W>l
-nnoremap ,, ,
-"nnoremap <Leader>b :ls<CR>:b 
-"nnoremap <Leader>v :e %:.:h/<Tab><Left>
-"nnoremap <Leader>c :e %:.<Tab>
+nnoremap <Leader>, <C-^>
 nnoremap <Leader>l :!pdflatex --interaction=nonstopmode %<CR>
-nnoremap <silent> \ :noh<CR><ESC>
+nnoremap <silent> <BS> :noh<CR><ESC>
 nnoremap <Leader>z :let &bg = ( &bg == "dark"? "light" : "dark" )<CR>
 nnoremap <Leader>q q:
 nnoremap <Leader>s :set spell!<CR>
+nnoremap <Leader>v :e $MYVIMRC<CR>
 nnoremap <Leader>x :source $MYVIMRC<CR>
 nnoremap <C-Up> :call AdjustFontSize(1)<CR>:echo &guifont<CR>
 nnoremap <C-Down> :call AdjustFontSize(-1)<CR>:echo &guifont<CR>
