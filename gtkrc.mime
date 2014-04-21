@@ -9,13 +9,7 @@ include "/usr/share/themes/Adwaita/gtk-2.0/gtkrc"
 #     FONTS      #
 ##################
 
-#style "myfont"
-#{
-#   font_name = "Myriad Web 9"
-#}
-#widget_class "*" style "myfont"
-gtk-font-name = "Droid Sans 8"
-#monospace-font-name = "Monospace 8"
+gtk-font-name = "Liberation Sans 8"
 
 
 ##################
