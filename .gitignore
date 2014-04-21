@@ -1,3 +1,5 @@
+*.swp
+vim/spell
 vim/.netrwhist
 vim/bundle/tags
 __pycache__

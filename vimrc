@@ -27,6 +27,7 @@ set history=10000
 set winwidth=84
 set winheight=50
 set winminheight=5
+set cursorline
 
 """ search
 set incsearch
