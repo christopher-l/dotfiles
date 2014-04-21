@@ -11,12 +11,11 @@ reference the source. Look up the respective Github / whatever pages if you want
 to use those.
 
 ## deploy.sh
-I wrote a basic [bash script](./blob/master/deploy.sh) that will somewhat
-intelligently deploy symlinks into your home directory. You probably don't want
-to use it as it is on my files but it can be used on any dotfiles folder, just
-leave out the preceding dot on the first level; e.g.
-`~/.vim/colors/my_fancy_colorscheme.vim` becomes
-`dotfiles/vim/colors/my_fancy_colorscheme.vim`.
+I wrote a basic [bash script](./deploy.sh) that will somewhat intelligently
+deploy symlinks into your home directory. You probably don't want to use it as
+it is on my files but it can be used on any dotfiles folder, just leave out the
+preceding dot on the first level; e.g.  `~/.vim/colors/my_fancy_colorscheme.vim`
+becomes `dotfiles/vim/colors/my_fancy_colorscheme.vim`.
 
 ```
 Usage: ./deploy.sh [-n] TARGET...
