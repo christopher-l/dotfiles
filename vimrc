@@ -71,7 +71,7 @@ colo lucius
 """ gvim
 if has("gui_running")
   "set lines=60 columns=120
-  set guifont=Fira\ Mono\ 8
+  set guifont=Source\ Code\ Pro\ Light\ 11px
   set guicursor+=a:blinkon0
   set guioptions-=m  " menu bar
   set guioptions-=T  " tool bar

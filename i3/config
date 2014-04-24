@@ -19,8 +19,9 @@ set $mod Mod4
 # right-to-left text rendering, you should instead use pango for rendering and
 # chose an xft font, such as:
 #font xft:DejaVu Sans 8
-font xft:Fira Mono bold 8
+#font xft:Fira Mono 8
 #font xft:Liberation Mono bold 8
+font xft:Source Code Pro 11px
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -37,8 +38,8 @@ bindsym $mod+BackSpace kill
 bindsym $mod+q kill
 
 # start dmenu (a program launcher)
-bindsym Mod1+space exec dmenu_run
-bindsym Mod1+shift+space exec j4-dmenu-desktop
+bindsym Mod1+space exec dmenu_run -nb "#eeeeee" -nf "#444444" -sb "#005faf"
+bindsym Mod1+shift+space exec j4-dmenu-desktop --dmenu="dmenu -i -nb '#eeeeee' -nf '#444444' -sb '#005faf'"
 
 # start winmenu
 bindsym Mod1+Tab exec i3-winmenu.py
@@ -276,10 +277,28 @@ hide_edge_borders both
 bindsym $mod+b border toggle
 workspace_layout stacking
 
+# colors
+# class                 border  backgr. text    indicator
+client.focused          #005faf #005faf #eeeeee #2e9ef4
+client.focused_inactive #888888 #888888 #eeeeee #484e50
+client.unfocused        #dadada #dadada #888888 #292d2e
+client.urgent           #2f343a #900000 #ffffff #900000
+
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
         position top
         status_command i3status
         tray_output LVDS1
+        colors {
+                background #eeeeee
+                statusline #444444
+                separator #666666
+
+                # colorclass        border  bg      text
+                focused_workspace  #005faf #005faf #eeeeee
+                active_workspace   #888888 #888888 #eeeeee
+                inactive_workspace #e5e5e5 #e5e5e5 #888888
+                urgent_workspace   #2f343a #900000 #ffffff
+        }
 }
