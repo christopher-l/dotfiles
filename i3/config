@@ -21,7 +21,7 @@ set $mod Mod4
 #font xft:DejaVu Sans 8
 #font xft:Fira Mono 8
 #font xft:Liberation Mono bold 8
-font xft:Source Code Pro 11px
+font xft:Source Code Pro semibold 11px
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -282,7 +282,7 @@ workspace_layout stacking
 client.focused          #005faf #005faf #eeeeee #2e9ef4
 client.focused_inactive #888888 #888888 #eeeeee #484e50
 client.unfocused        #dadada #dadada #888888 #292d2e
-client.urgent           #2f343a #900000 #ffffff #900000
+client.urgent           #af0000 #af0000 #eeeeee #900000
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
@@ -295,10 +295,10 @@ bar {
                 statusline #444444
                 separator #666666
 
-                # colorclass        border  bg      text
+                # class            border  backgr. text
                 focused_workspace  #005faf #005faf #eeeeee
                 active_workspace   #888888 #888888 #eeeeee
                 inactive_workspace #e5e5e5 #e5e5e5 #888888
-                urgent_workspace   #2f343a #900000 #ffffff
+                urgent_workspace   #af0000 #af0000 #eeeeee
         }
 }
