@@ -5,6 +5,10 @@ group user
 
 set guioptions=brTs
 hi -append FontFixed font-size:11px; font-family:"source code pro"
+hi -append StatusLineNormal color:#444444; background:#f0f0f0
+hi -append StatusLineSecure color:#005faf; background:#f0f0f0
+hi -append StatusLineBroken color:#af0000; background:#f0f0f0
+hi -append StatusLineExtended color:#008700; background:#f0f0f0
 
 "autocmd LocationChange feedly.com :normal! <C-z>
 set defsearch=dd
