@@ -10,6 +10,19 @@ Occasionally I borrowed some files or snippets myself. I tried to always
 reference the source. Look up the respective Github / whatever pages if you want
 to use those.
 
+## Vim plugins
+If you want to clone all Vim plugins in this repository issue
+```
+git submodule update --init
+```
+
+To checkout the current master branch, you can do
+```
+git submodule init
+git submodule foreach git checkout master
+git submodule foreach git pull
+```
+
 ## deploy.sh
 I wrote a basic [bash script](./deploy.sh) that will somewhat intelligently
 deploy symlinks into your home directory. You probably don't want to use it as
