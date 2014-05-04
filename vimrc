@@ -141,7 +141,9 @@ function! ToggleDocstringMode()
         setlocal tw=79
         setlocal cc=80
         setlocal nospell
-        %s/\v(^\s*\n)+\ze\s*"""$/
+        norm m`
+        %s/\v^(\s*)(\S.{-1,})\s+"""$/\1\2\1"""/e
+        norm ``
     else
         echo 'enable docstringmode'
         let b:docstringmode = 1
@@ -149,7 +151,5 @@ function! ToggleDocstringMode()
         setlocal tw=72
         setlocal cc=73
         setlocal spell
-        %s/^\s*"""$/&/g
     endif
-    norm ``
 endfunction
