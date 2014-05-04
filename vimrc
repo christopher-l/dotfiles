@@ -15,7 +15,7 @@ set sts=4
 set et
 set so=3
 set cc=80
-set tw=80
+set tw=79
 set fo=crqj
 set list
 set lcs=tab:▸\ ,trail:_
@@ -25,9 +25,10 @@ set dictionary+=/usr/share/dict/ngerman
 set spl=de,en
 set history=10000
 set winwidth=84
-set winheight=50
+set winheight=40
 set winminheight=5
-set cursorline
+"set cursorline
+set laststatus=2
 
 """ search
 set incsearch
@@ -63,6 +64,8 @@ nnoremap <Leader>x :source $MYVIMRC<CR>
 nnoremap <C-Up> :call AdjustFontSize(1)<CR>:echo &guifont<CR>
 nnoremap <C-Down> :call AdjustFontSize(-1)<CR>:echo &guifont<CR>
 nnoremap <Leader>` g`"
+nnoremap <Leader>y :SyntasticToggleMode<CR>
+nnoremap <Leader>d :call ToggleDocstringMode()<CR>
 
 """ theme
 set bg=light
@@ -78,7 +81,6 @@ if has("gui_running")
   set guioptions+=c  " console for choices
   set guioptions-=e  " gui tabs
   nnoremap <F1> :if &go=~#'m'<Bar>set go-=m<Bar>else<Bar>set go+=m<Bar>endif<CR>
-  set laststatus=2
 endif
 
 """ rules
@@ -92,20 +94,20 @@ if has("autocmd")
   autocmd FileType tex        setlocal ts=2 sw=2 sts=2 et fo+=t indk=
   autocmd FileType mail       setlocal cc=72 tw=72 fo+=t spell
   autocmd FileType vim        setlocal ts=2 sw=2 sts=2 et
-  "autocmd FileType python     setlocal ts=2 sw=2 et
+  autocmd FileType python     setlocal ts=4 sw=4 sts=4 et
 endif
 
 """ browser
 let g:netrw_list_hide='\.swp$,\.o$,\.ali$,\.swo$,\.pyc$'
 
 """ plugins
-nnoremap <Leader>t :CtrlP<CR>
+nnoremap <Leader>e :CtrlP<CR>
 nnoremap <Leader>b :CtrlPBuffer<CR>
 nnoremap <Leader>m :CtrlPMRUFiles<CR>
 "let g:ctrlp_match_window = 'max:50,results:50'
 let g:ctrlp_reuse_window = 'help'
 
-map <Leader>e :NERDTreeFocus<CR>
+map <Leader>t :NERDTreeFocus<CR>
 let NERDTreeIgnore=['\.swp$', '\.o$', '\.ali$', '\.swo$', '\.pyc$']
 let NERDTreeMouseMode=2
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType")
@@ -129,4 +131,25 @@ let g:airline_section_z = '%3l,%-3c %P'
 """ functions
 function! AdjustFontSize(amount)
   let &guifont=substitute(&guifont,'\zs\d\+','\=eval(submatch(0)+a:amount)','')
+endfunction
+
+function! ToggleDocstringMode()
+    if exists('b:docstringmode') && b:docstringmode
+        echo 'disable docstringmode'
+        let b:docstringmode = 0
+        setlocal fo-=ta
+        setlocal tw=79
+        setlocal cc=80
+        setlocal nospell
+        %s/\v(^\s*\n)+\ze\s*"""$/
+    else
+        echo 'enable docstringmode'
+        let b:docstringmode = 1
+        setlocal fo+=ta
+        setlocal tw=72
+        setlocal cc=73
+        setlocal spell
+        %s/^\s*"""$/&/g
+    endif
+    norm ``
 endfunction
