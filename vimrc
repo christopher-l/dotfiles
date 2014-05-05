@@ -66,6 +66,7 @@ nnoremap <C-Down> :call AdjustFontSize(-1)<CR>:echo &guifont<CR>
 nnoremap <Leader>` g`"
 nnoremap <Leader>y :SyntasticToggleMode<CR>
 nnoremap <Leader>d :call ToggleDocstringMode()<CR>
+nnoremap <Leader>. :w\|!./%<CR>
 
 """ theme
 set bg=light
@@ -142,7 +143,7 @@ function! ToggleDocstringMode()
         setlocal cc=80
         setlocal nospell
         norm m`
-        %s/\v^(\s*)(\S.{-1,})\s+"""$/\1\2\1"""/e
+        %s/\v^(\s*)(\S.{-1,})\s+"""$/\1\2\r\1"""/e
         norm ``
     else
         echo 'enable docstringmode'

@@ -6,6 +6,7 @@ setopt pushdminus
 export PATH=$PATH:/home/chris/bin
 export GNATPATH=/opt/gnat/bin
 alias view="vim -R"
+. /usr/share/zsh/site-functions/_z
 
 # zstyle ':prompt:grml:left:items:user' pre '%F{blue}'
 
