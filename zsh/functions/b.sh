@@ -1,3 +1,3 @@
 function b {
-    nohup "$@" &>/dev/null
+    (nohup "$@" &>/dev/null &)
 }
