@@ -8,6 +8,13 @@ export GNATPATH=/opt/gnat/bin
 alias view="vim -R"
 . /usr/share/zsh/site-functions/_z
 
+if test -d "$HOME/.zsh/functions/"; then
+    for file in $HOME/.zsh/functions/*.sh; do
+        test -r "$file" && . "$file"
+    done
+    unset file
+fi
+
 # zstyle ':prompt:grml:left:items:user' pre '%F{blue}'
 
 #echo TODO:

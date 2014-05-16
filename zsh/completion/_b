@@ -1,0 +1,7 @@
+#compdef b
+
+function _b {
+    _command
+}
+
+_b "$@"
