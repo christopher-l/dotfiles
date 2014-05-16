@@ -1,4 +1,3 @@
 function b {
-    exec "$@" &>/dev/null &
-    disown
+    nohup "$@" &>/dev/null
 }
