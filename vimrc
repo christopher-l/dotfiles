@@ -7,7 +7,7 @@ set ff=unix
 set ttm=0
 set mouse=nv
 set hidden
-set autochdir
+"set autochdir
 set nu
 set ts=4
 set sw=4
@@ -25,7 +25,7 @@ set dictionary+=/usr/share/dict/ngerman
 set spl=de,en
 set history=10000
 set winwidth=84
-set winheight=40
+set winheight=30
 set winminheight=5
 "set cursorline
 set laststatus=2
@@ -71,6 +71,7 @@ nnoremap <Leader>. :w\|!./%<CR>
 """ theme
 set bg=light
 colo lucius
+LuciusWhite
 
 """ gvim
 if has("gui_running")
