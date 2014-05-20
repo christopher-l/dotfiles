@@ -12,7 +12,7 @@ URxvt.scrollBar: off
 !URxvt.font: xft:droidsansmono:size=8
 !URxvt.font: xft:monospace:size=8
 !URxvt.font: xft:firamono:size=8
-URxvt.font: xft:sourcecodepro:pixelsize=11
+URxvt.font: xft:sourcecodepro:pixelsize=12
 !URxvt.font: xft:liberationmono:size=8
 URxvt.perl-ext-common:  default,url-select,keyboard-select,clipboard,font-size
 URxvt.url-select.button: 1
@@ -109,7 +109,8 @@ URxvt.urgentOnBell:  true
 !URxvt.background: #f5f5f5
 
 !from https://github.com/jonathanfilip/lucius/blob/master/xresources/LuciusLight
-*background: #eeeeee
+!*background: #eeeeee
+*background: #ffffff
 *foreground: #444444
 *cursorColor: #5f87af
 *color0: #444444
