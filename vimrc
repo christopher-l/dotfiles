@@ -76,7 +76,7 @@ LuciusWhite
 """ gvim
 if has("gui_running")
   "set lines=60 columns=120
-  set guifont=Source\ Code\ Pro\ Light\ 11px
+  set guifont=Source\ Code\ Pro\ 12px
   set guicursor+=a:blinkon0
   set guioptions-=m  " menu bar
   set guioptions-=T  " tool bar
@@ -106,6 +106,7 @@ let g:netrw_list_hide='\.swp$,\.o$,\.ali$,\.swo$,\.pyc$'
 nnoremap <Leader>e :CtrlP<CR>
 nnoremap <Leader>b :CtrlPBuffer<CR>
 nnoremap <Leader>m :CtrlPMRUFiles<CR>
+nnoremap <Leader>c :CtrlP %:h<CR>
 "let g:ctrlp_match_window = 'max:50,results:50'
 let g:ctrlp_reuse_window = 'help'
 

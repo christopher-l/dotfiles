@@ -254,26 +254,32 @@ for_window [class="python2.7"] floating enable
 #for_window [class="Pidgin"] focus
 
 # custom keybindings
-bindsym XF86Launch1 exec xset dpms force off
-bindsym XF86ScreenSaver exec i3lock -c 000000
-bindsym XF86Display exec x-toggle-2nd.sh
-bindsym Mod1+XF86Display exec x-mirror.sh
-bindsym Shift+XF86Display exec x-switch-display.sh
-bindsym XF86TouchpadToggle exec toggletouchpad.sh
-bindsym XF86AudioLowerVolume exec amixer -D pulse set Master 5%- unmute && killall -SIGUSR1 i3status
-bindsym XF86AudioRaiseVolume exec amixer -D pulse set Master 5%+ unmute && killall -SIGUSR1 i3status
-bindsym XF86AudioMute exec amixer set Master toggle && killall -SIGUSR1 i3status
-bindsym XF86AudioMicMute exec amixer set Capture toggle
+bindsym XF86Launch1 exec --no-startup-id xset dpms force off
+bindsym XF86ScreenSaver exec --no-startup-id i3lock -c 000000
+bindsym XF86Display exec --no-startup-id x-toggle-2nd.sh
+bindsym Mod1+XF86Display exec --no-startup-id x-mirror.sh
+bindsym Shift+XF86Display exec --no-startup-id x-switch-display.sh
+bindsym XF86TouchpadToggle exec --no-startup-id toggletouchpad.sh
 #bindsym XF86AudioLowerVolume exec pactl set-sink-volume alsa_output.pci-0000_00_1b.0.analog-stereo -- -6% && amixer set Master unmute && killall -SIGUSR1 i3status
 #bindsym XF86AudioRaiseVolume exec pactl set-sink-volume alsa_output.pci-0000_00_1b.0.analog-stereo -- +6% && amixer set Master unmute && killall -SIGUSR1 i3status
+#bindsym XF86AudioLowerVolume exec amixer -D pulse set Master 5%- unmute && killall -SIGUSR1 i3status
+#bindsym XF86AudioRaiseVolume exec amixer -D pulse set Master 5%+ unmute && killall -SIGUSR1 i3status
+bindsym XF86AudioRaiseVolume exec --no-startup-id volume.sh 5%+
+bindsym XF86AudioLowerVolume exec --no-startup-id volume.sh 5%-
+bindsym XF86AudioMute exec --no-startup-id amixer set Master toggle && killall -SIGUSR1 i3status
+bindsym XF86AudioMicMute exec --no-startup-id amixer set Capture toggle
 bindsym XF86WebCam exec gnome-control-center sound
-bindsym Print exec scrot
-bindsym Mod1+Print exec scrot -s
+bindsym Print exec --no-startup-id scrot
+bindsym Mod1+Print exec --no-startup-id scrot -s
 
 # startup applications
 #exec nm-applet
 #exec dropboxd
 #exec xautolock -time 30 -locker 'i3lock -c 000000'
+
+# fix weird font issues in gtk applications
+#exec --no-startup-id start_and_stop_gnome-settings-daemon.sh
+exec --no-startup-id xsettingsd
 
 # generel config
 hide_edge_borders both
