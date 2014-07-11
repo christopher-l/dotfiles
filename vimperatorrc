@@ -1,12 +1,14 @@
 "highlight StatusLine color: #444444
 highlight StatusLine color: black
 "set showstatuslinks=2
-set defsearch=dn
+set defsearch=dd
 noremap zz :set gui=invtabs,invnavigation invsb<CR>
 noremap <BS> :noh<CR>
 noremap j <Down>
 noremap k <Up>
 noremap h <Left>
 noremap l <Right>
+noremap J j
+noremap K k
 noremap d :bd -s lastactive<CR>
 noremap ,r :reloadall<CR>
