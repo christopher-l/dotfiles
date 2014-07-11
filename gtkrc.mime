@@ -1,4 +1,4 @@
-include "/usr/share/themes/Adwaita/gtk-2.0/gtkrc"
+include "/usr/share/themes/oxygen-gtk/gtk-2.0/gtkrc"
 #style "myfont" { font_name = "Source Sans Pro Light 9" }
 #widget_class "*" style "myfont"
 gtk-font-name = "Source Sans Pro 9"

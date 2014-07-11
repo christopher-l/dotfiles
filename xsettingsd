@@ -6,4 +6,3 @@ Xft/HintStyle "hintslight"
 Xft/Antialias 1
 Gtk/DialogsUseHeader 1
 Gtk/EnableAnimations 1
-Net/ThemeName "Adwaita"

@@ -72,9 +72,9 @@ nnoremap <Leader>. :make!<CR>
 nnoremap <Leader>r :e %:r.
 
 """ theme
-set bg=light
+set bg=dark
 colo lucius
-LuciusWhite
+LuciusBlack
 
 """ gvim
 if has("gui_running")
