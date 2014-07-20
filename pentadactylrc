@@ -15,16 +15,16 @@ set defsearch=dd
 map zt :set go!=T<CR>
 map zz :set go!=s<CR>
 map d :bd<CR>
-map -builtin H h
-map -builtin J j
-map -builtin K k
-map -builtin L l
-"map -builtin j <scroll-down>
-"map -builtin k <scroll-up>
-map -builtin j 10j
-map -builtin k 10k
-map -builtin h H
-map -builtin l L
+"map -builtin H h
+"map -builtin J j
+"map -builtin K k
+"map -builtin L l
+map -builtin j <scroll-down>
+map -builtin k <scroll-up>
+"map -builtin j 10j
+"map -builtin k 10k
+"map -builtin h H
+"map -builtin l L
 map -builtin , gT
 map -builtin . gt
 map gr :reloadall<CR>
