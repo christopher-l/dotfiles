@@ -108,8 +108,7 @@ URxvt.urgentOnBell:  true
 !URxvt.foreground: #000000
 !URxvt.background: #f5f5f5
 
-!from https://github.com/jonathanfilip/lucius/blob/master/xresources/LuciusLight
-!*background: #eeeeee
+!from https://github.com/jonathanfilip/lucius/blob/master/xresources/LuciusWhite
 *background: #ffffff
 *foreground: #444444
 *cursorColor: #5f87af
@@ -127,8 +126,8 @@ URxvt.urgentOnBell:  true
 *color13: #870087
 *color6: #008787
 *color14: #008787
-*color7: #eeeeee
-*color15: #eeeeee
+*color7: #ffffff
+*color15: #ffffff
 
 !!from https://github.com/jonathanfilip/lucius/blob/master/xresources/LuciusBlack
 !*background: #121212
