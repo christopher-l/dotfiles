@@ -120,6 +120,13 @@
 /*   color: #870087; */
 /* } */
 
+blockquote {
+  border-left: 0px;
+  background: #GTK-COLOR-BASE;
+  font-style: normal;
+  padding: 0px 5px;
+}
+
 table.headmeta {
   border-bottom: 0px
 }
