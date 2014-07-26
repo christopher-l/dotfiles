@@ -18,3 +18,4 @@ noremap J j
 noremap K k
 noremap d :bd -s lastactive<CR>
 noremap ,r :reloadall<CR>
+noremap ,g :panorama switch 
