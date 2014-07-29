@@ -295,7 +295,7 @@ workspace_layout stacking
 client.focused          #005F87 #005F87 #d7d7d7 #2e9ef4
 client.focused_inactive #303030 #303030 #d7d7d7 #484e50
 client.unfocused        #303030 #303030 #888888 #292d2e
-client.urgent           #303030 #303030 #ff5f5f #900000
+client.urgent           #af0000 #af0000 #d7d7d7 #900000
 
 #exec_always --no-startup-id xsetroot -solid '#eeeeee'
 exec_always --no-startup-id nitrogen --restore
@@ -312,9 +312,9 @@ bar {
                 separator #d7d7d7
 
                 # class            border  backgr. text
-                focused_workspace  #303030 #303030 #87d7ff
-                active_workspace   #303030 #303030 #444444
+                focused_workspace  #005f87 #005f87 #d7d7d7
+                active_workspace   #444444 #444444 #888888
                 inactive_workspace #303030 #303030 #888888
-                urgent_workspace   #303030 #303030 #ff5f5f
+                urgent_workspace   #af0000 #af0000 #d7d7d7
         }
 }
