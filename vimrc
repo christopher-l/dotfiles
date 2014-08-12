@@ -40,7 +40,7 @@ nohlsearch
 """ menu
 set wildmenu
 set wildmode=full
-set wildignore+=*.o,*.ali
+set wildignore+=*.o,*.ali,*.gcno,*.gcda
 set wildignorecase
 set wildcharm=<Tab>
 
@@ -55,7 +55,7 @@ nnoremap <C-k> <C-W>k
 nnoremap <C-l> <C-W>l
 nnoremap <Leader>, <C-^>
 nnoremap <Leader>l :!pdflatex -interaction nonstopmode
-        \ -output-directory %:h %<CR>
+        \ -output-directory "%:h" "%"<CR>
 nnoremap <silent> <BS> :noh<CR><ESC>
 nnoremap <Leader>z :let &bg = ( &bg == "dark"? "light" : "dark" )<CR>
 nnoremap <Leader>q q:
@@ -67,7 +67,8 @@ nnoremap <C-Down> :call AdjustFontSize(-1)<CR>:echo &guifont<CR>
 nnoremap <Leader>` g`"
 nnoremap <Leader>y :SyntasticToggleMode<CR>
 nnoremap <Leader>d :call ToggleDocstringMode()<CR>
-nnoremap <Leader>. :w\|!./%<CR>
+" nnoremap <Leader>. :w\|!./%<CR>
+nnoremap <Leader>. :make!<CR>
 nnoremap <Leader>r :e %:r.
 
 """ theme
@@ -95,6 +96,7 @@ if has("autocmd")
   autocmd FileType javascript setlocal ts=4 sw=4 sts=4 et
   autocmd FileType c          setlocal ts=4 sw=4 noet
   autocmd FileType ada        setlocal ts=3 sw=3 sts=3 et fo-=o
+        \ makeprg=make
   autocmd FileType tex        setlocal ts=4 sw=4 sts=4 et fo+=t indk=
   autocmd FileType mail       setlocal cc=72 tw=72 fo+=t spell
   autocmd FileType vim        setlocal ts=2 sw=2 sts=2 et
