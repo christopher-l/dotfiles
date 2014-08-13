@@ -21,7 +21,7 @@ set $mod Mod4
 #font xft:DejaVu Sans 8
 #font xft:Fira Mono 8
 #font xft:Liberation Mono bold 8
-font xft:Source Sans Pro Semibold 12px
+font xft:Source Sans Pro Bold 12px
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -285,9 +285,9 @@ bindsym Mod1+Print exec --no-startup-id scrot -s
 exec --no-startup-id xsettingsd
 
 # generel config
-hide_edge_borders both
+# hide_edge_borders both
 bindsym $mod+b border toggle
-new_window normal 1
+# new_window normal 1
 workspace_layout stacking
 
 # colors
@@ -309,7 +309,7 @@ bar {
         colors {
                 background #121212
                 statusline #d7d7d7
-                separator #d7d7d7
+                separator #888888
 
                 # class            border  backgr. text
                 focused_workspace  #005f87 #005f87 #d7d7d7

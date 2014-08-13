@@ -13,6 +13,7 @@ URxvt.scrollBar: off
 !URxvt.font: xft:monospace:size=8
 !URxvt.font: xft:firamono:size=8
 URxvt.font: xft:sourcecodepro:semibold:pixelsize=12
+URxvt.boldFont: xft:sourcecodepro:bold:pixelsize=12
 !URxvt.font: xft:liberationmono:size=8
 URxvt.perl-ext-common:  default,url-select,keyboard-select,clipboard,font-size
 URxvt.url-select.button: 1
