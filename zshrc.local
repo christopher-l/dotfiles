@@ -27,3 +27,12 @@ fi
 #    BASE16_SHELL="$HOME/.zsh/base16-shell/base16-$BASE16_SCHEME.dark.sh"
 #    [[ -s $BASE16_SHELL ]] && . $BASE16_SHELL
 #fi;
+
+zstyle ':chpwd:profiles:/home/chris/Documents/Semester_8/bachelor(|/|/*)' profile ada
+chpwd_profile_ada()
+{
+  [[ ${profile} == ${CHPWD_PROFILE} ]] && return 1
+  print "chpwd(): Switching to profile: $profile"
+  export PATH="/opt/gnat/bin:$PATH"
+}
+
