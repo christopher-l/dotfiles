@@ -1,3 +1,4 @@
 # Write your default config options here!
 
 vo=opengl-old
+cache=500000

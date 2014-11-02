@@ -10,4 +10,4 @@ xrandr --newmode $modeline
 xrandr --addmode $1 $modename
 xrandr --output $1 --mode $modename --right-of LVDS1
 
-nitrogen --restore
+# nitrogen --restore

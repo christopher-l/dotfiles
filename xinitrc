@@ -38,6 +38,7 @@ xsetroot -cursor_name left_ptr
 #} &
 
 export DE="kde"
+export KDE_SESSION_VERSION="4"
 
 numlockx &
 #nm-applet &

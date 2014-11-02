@@ -28,7 +28,7 @@ fi
 #    [[ -s $BASE16_SHELL ]] && . $BASE16_SHELL
 #fi;
 
-zstyle ':chpwd:profiles:/home/chris/Documents/Semester_8/bachelor(|/|/*)' profile ada
+zstyle ':chpwd:profiles:/home/chris/Documents/Uni/Bachelor/AdaTLS(|/|/*)' profile ada
 chpwd_profile_ada()
 {
   [[ ${profile} == ${CHPWD_PROFILE} ]] && return 1
