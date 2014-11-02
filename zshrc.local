@@ -1,12 +1,10 @@
 # use with grml config
 source /usr/share/doc/pkgfile/command-not-found.zsh
-hash -d uni=~/Documents/Semester_8/
 export _JAVA_AWT_WM_NONREPARENTING=1
 setopt pushdminus
 export PATH=$PATH:/home/chris/bin
 export GNATPATH=/opt/gnat/bin
 alias view="vim -R"
-[[ -f /usr/share/zsh/site-functions/_z ]] && . /usr/share/zsh/site-functions/_z
 
 if test -d "$HOME/.zsh/functions/"; then
     for file in $HOME/.zsh/functions/*.sh; do
@@ -15,18 +13,7 @@ if test -d "$HOME/.zsh/functions/"; then
     unset file
 fi
 
-
 # zstyle ':prompt:grml:left:items:user' pre '%F{blue}'
-
-#echo TODO:
-#cat ~/todo
-
-## Base16 Shell
-#if [ "$TERM" = "rxvt-unicode-256color" ]; then
-#    BASE16_SCHEME="default"
-#    BASE16_SHELL="$HOME/.zsh/base16-shell/base16-$BASE16_SCHEME.dark.sh"
-#    [[ -s $BASE16_SHELL ]] && . $BASE16_SHELL
-#fi;
 
 zstyle ':chpwd:profiles:/home/chris/Documents/Uni/Bachelor/AdaTLS(|/|/*)' profile ada
 chpwd_profile_ada()

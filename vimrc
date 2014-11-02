@@ -58,7 +58,6 @@ nnoremap <Leader>l :!pdflatex -interaction nonstopmode
         \ -output-directory "%:h" "%"<CR>
 nnoremap <silent> <BS> :noh<CR><ESC>
 nnoremap <Leader>z :let &bg = ( &bg == "dark"? "light" : "dark" )<CR>
-nnoremap <Leader>q q:
 nnoremap <Leader>s :set spell!<CR>
 nnoremap <Leader>v :e $MYVIMRC<CR>
 nnoremap <Leader>x :source $MYVIMRC<CR>
@@ -72,14 +71,15 @@ nnoremap <Leader>. :make!<CR>
 nnoremap <Leader>r :e %:r.
 
 """ theme
-set bg=dark
-colo lucius
+" set bg=dark
+colorscheme lucius
 LuciusBlack
 
 """ gvim
 if has("gui_running")
+  LuciusLight
   "set lines=60 columns=120
-  set guifont=Source\ Code\ Pro\ 12px
+  set guifont=Source\ Code\ Pro\ medium\ 12px
   set guicursor+=a:blinkon0
   set guioptions-=m  " menu bar
   set guioptions-=T  " tool bar
@@ -120,7 +120,7 @@ let NERDTreeMouseMode=2
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType")
       \ && b:NERDTreeType == "primary") | q | endif  " close NT if last window
 
-"let g:airline_theme='sol'
+" let g:airline_theme='badwolf'
 if !exists('g:airline_symbols')
   let g:airline_symbols = {}
 endif
