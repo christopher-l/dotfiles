@@ -1,5 +1,7 @@
 #!/bin/bash
 
+exclude=("README.md" "scripts")
+
 dryrun=false
 
 function print_usage () {
@@ -53,9 +55,14 @@ if [[ "$1" = "-n" ]] ; then
     shift
 fi
 
+declare -A exclude_map
+for file in "${exclude[@]}" ; do
+    exclude_map[$file]=1
+done
 
 for arg in "$@" ; do
-    if [[ "$arg" != _* ]] && [[ "$0" != *"$arg" ]] ; then
+    if [[ "$arg" != _* && "$0" != *"$arg" && ! ${exclude_map[$arg]} ]]
+    then
         if [[ -e "$arg" ]] ; then
             create_symlink "$arg"
         else
