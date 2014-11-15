@@ -214,7 +214,7 @@ bindsym $mod+Mod1+shift+Right move workspace to output right
 assign [class="Firefox"] → $ws2
 assign [class="Thunderbird"] → $ws3
 assign [class="Pidgin"] → $ws4
-assign [class="Xchat"] → $ws4
+assign [class="Hexchat"] → $ws4
 assign [class="Liferea"] → $ws5
 assign [class="Gmpc"] → $ws10
 # window rules
@@ -246,7 +246,7 @@ bindsym Print exec --no-startup-id scrot
 bindsym Mod1+Print exec --no-startup-id scrot -s
 
 # startup applications
-exec --no-startup-id xautolock -time 30 -locker 'i3lock -c 000000'
+exec --no-startup-id xautolock -time 30 -locker 'i3lock -c 000000 -d'
 exec --no-startup-id xsettingsd
 
 # generel config
