@@ -54,8 +54,6 @@ nnoremap <C-j> <C-W>j
 nnoremap <C-k> <C-W>k
 nnoremap <C-l> <C-W>l
 nnoremap <Leader>, <C-^>
-nnoremap <Leader>l :!pdflatex -interaction nonstopmode
-        \ -output-directory "%:h" "%"<CR>
 nnoremap <silent> <BS> :noh<CR><ESC>
 nnoremap <Leader>z :let &bg = ( &bg == "dark"? "light" : "dark" )<CR>
 nnoremap <Leader>s :set spell!<CR>
@@ -67,7 +65,6 @@ nnoremap <Leader>` g`"
 nnoremap <Leader>y :SyntasticToggleMode<CR>
 nnoremap <Leader>d :call ToggleDocstringMode()<CR>
 " nnoremap <Leader>. :w\|!./%<CR>
-nnoremap <Leader>. :make!<CR>
 nnoremap <Leader>r :e %:r.
 
 """ theme
@@ -97,7 +94,11 @@ if has("autocmd")
   autocmd FileType c          setlocal ts=4 sw=4 noet
   autocmd FileType ada        setlocal ts=3 sw=3 sts=3 et fo-=o
         \ makeprg=make
+        \| nnoremap <Leader>. :make!<CR>
+        \| nnoremap <Leader>/ :!./run_tests<CR>
   autocmd FileType tex        setlocal ts=4 sw=4 sts=4 et fo+=t indk=
+        \| nnoremap <buffer> <Leader>. :!pdflatex -interaction nonstopmode
+        \ -output-directory "%:h" "%"<CR>
   autocmd FileType mail       setlocal cc=72 tw=72 fo+=t spell
   autocmd FileType vim        setlocal ts=2 sw=2 sts=2 et
   autocmd FileType python     setlocal ts=4 sw=4 sts=4 et
@@ -126,14 +127,7 @@ if !exists('g:airline_symbols')
 endif
 let g:airline_left_sep=''
 let g:airline_right_sep=''
-"let g:airline_symbols.branch = ''
-"let g:airline_symbols.readonly = ''
 let g:airline_section_z = '%3l,%-3c %P'
-
-"let Tlist_Use_Right_Window=1
-"let Tlist_Exit_OnlyWindow=1
-"nnoremap <Leader>t :TlistToggle<CR>
-
 
 """ functions
 function! AdjustFontSize(amount)
