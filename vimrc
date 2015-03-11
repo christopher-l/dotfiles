@@ -29,6 +29,7 @@ set winheight=30
 set winminheight=5
 "set cursorline
 set laststatus=2
+set exrc
 
 """ search
 set incsearch
@@ -68,15 +69,18 @@ nnoremap <Leader>d :call ToggleDocstringMode()<CR>
 nnoremap <Leader>r :e %:r.
 
 """ theme
-" set bg=dark
-colorscheme lucius
-LuciusBlack
+set bg=dark
+colorscheme grb256
+let g:airline_theme='raven'
+" LuciusBlack
 
 """ gvim
 if has("gui_running")
-  LuciusLight
+  colorscheme raggi
+  let g:airline_theme='silver'
+  " LuciusLight
   "set lines=60 columns=120
-  set guifont=Source\ Code\ Pro\ medium\ 12px
+  set guifont=Source\ Code\ Pro\ 10
   set guicursor+=a:blinkon0
   set guioptions-=m  " menu bar
   set guioptions-=T  " tool bar
@@ -96,12 +100,14 @@ if has("autocmd")
         \ makeprg=make
         \| nnoremap <Leader>. :make!<CR>
         \| nnoremap <Leader>/ :!./run_tests<CR>
-  autocmd FileType tex        setlocal ts=4 sw=4 sts=4 et fo+=t indk=
+  autocmd FileType tex        setlocal ts=2 sw=2 sts=2 et fo+=t spell
         \| nnoremap <buffer> <Leader>. :!pdflatex -interaction nonstopmode
         \ -output-directory "%:h" "%"<CR>
   autocmd FileType mail       setlocal cc=72 tw=72 fo+=t spell
   autocmd FileType vim        setlocal ts=2 sw=2 sts=2 et
   autocmd FileType python     setlocal ts=4 sw=4 sts=4 et
+  autocmd FileType rust       setlocal ts=4 sw=4 sts=4 et
+        \| nnoremap <Leader>. :!cargo run<CR>
 endif
 
 """ browser
@@ -121,7 +127,6 @@ let NERDTreeMouseMode=2
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType")
       \ && b:NERDTreeType == "primary") | q | endif  " close NT if last window
 
-" let g:airline_theme='badwolf'
 if !exists('g:airline_symbols')
   let g:airline_symbols = {}
 endif

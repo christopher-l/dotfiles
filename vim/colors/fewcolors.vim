@@ -35,6 +35,7 @@ if &background =~ 'dark'
         hi StatusLine   ctermfg=White     guifg=White     ctermbg=Black cterm=bold,underline term=bold  gui=bold
         hi StatusLineNC ctermfg=Gray      guifg=Gray      ctermbg=Black cterm=bold,underline term=bold  gui=bold
         hi LineNr       ctermfg=Gray      guifg=Gray      ctermbg=none
+        hi ColorColumn                                    ctermbg=232      guibg=080808
 
 else
         hi Normal       ctermfg=black     guifg=black     ctermbg=none
@@ -60,6 +61,7 @@ else
         hi StatusLine   ctermfg=Black     guifg=Black     ctermbg=White cterm=bold,underline term=bold  gui=bold
         hi StatusLineNC ctermfg=DarkGray  guifg=DarkGray  ctermbg=Black cterm=bold,underline term=bold  gui=bold
         hi LineNr       ctermfg=gray      guifg=gray      ctermbg=none
+        hi ColorColumn                                    ctermbg=255      guibg=#EEEEEE
 endif
 
 if $TERM != 'rxvt-unicode-256color'
