@@ -1,4 +1,7 @@
 # Write your default config options here!
 
-vo=opengl-old
+# vo=opengl-old
 cache=500000
+
+ytdl
+ytdl-format=best,bestvideo+bestaudio
