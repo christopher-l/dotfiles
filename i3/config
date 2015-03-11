@@ -210,6 +210,8 @@ bindsym $mod+Mod1+shift+Down move workspace to output down
 bindsym $mod+Mod1+shift+Up move workspace to output up
 bindsym $mod+Mod1+shift+Right move workspace to output right
 
+bindsym $mod+o move container to output right, focus output right
+
 # workspace assignments
 assign [class="Firefox"] → $ws2
 assign [class="Thunderbird"] → $ws3
@@ -229,8 +231,8 @@ for_window [class="Xsane"] floating enable
 
 # custom keybindings
 bindsym XF86Launch1 exec --no-startup-id xset dpms force off
-# bindsym XF86ScreenSaver exec --no-startup-id i3lock -c 000000
-bindsym XF86ScreenSaver exec --no-startup-id xautolock -locknow
+bindsym XF86ScreenSaver exec --no-startup-id i3lock -c 000000
+# bindsym XF86ScreenSaver exec --no-startup-id xautolock -locknow
 bindsym XF86Display exec --no-startup-id x-toggle-2nd.sh
 bindsym Mod1+XF86Display exec --no-startup-id x-mirror.sh
 bindsym Shift+XF86Display exec --no-startup-id x-switch-display.sh
@@ -246,7 +248,7 @@ bindsym Print exec --no-startup-id scrot
 bindsym Mod1+Print exec --no-startup-id scrot -s
 
 # startup applications
-exec --no-startup-id xautolock -time 30 -locker 'i3lock -c 000000 -d'
+# exec --no-startup-id xautolock -time 30 -locker 'i3lock -c 000000 -d'
 exec --no-startup-id xsettingsd
 
 # generel config
