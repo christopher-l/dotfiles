@@ -130,26 +130,26 @@ URxvt.urgentOnBell:  true
 !*color7: #ffffff
 !*color15: #ffffff
 
-!from https://github.com/jonathanfilip/lucius/blob/master/xresources/LuciusBlack
-*background: #121212
-*foreground: #d7d7d7
-*cursorColor: #87afd7
-*color0: #121212
-*color8: #121212
-*color1: #ff5f5f
-*color9: #ff5f5f
-*color2: #afd787
-*color10: #afd787
-*color3: #d7d7af
-*color11: #d7d7af
-*color4: #87d7ff
-*color12: #87d7ff
-*color5: #d7afd7
-*color13: #d7afd7
-*color6: #87d7af
-*color14: #87d7af
-*color7: #d7d7d7
-*color15: #d7d7d7
+/* !from https://github.com/jonathanfilip/lucius/blob/master/xresources/LuciusBlack */
+/* *background: #121212 */
+/* *foreground: #d7d7d7 */
+/* *cursorColor: #87afd7 */
+/* *color0: #121212 */
+/* *color8: #121212 */
+/* *color1: #ff5f5f */
+/* *color9: #ff5f5f */
+/* *color2: #afd787 */
+/* *color10: #afd787 */
+/* *color3: #d7d7af */
+/* *color11: #d7d7af */
+/* *color4: #87d7ff */
+/* *color12: #87d7ff */
+/* *color5: #d7afd7 */
+/* *color13: #d7afd7 */
+/* *color6: #87d7af */
+/* *color14: #87d7af */
+/* *color7: #d7d7d7 */
+/* *color15: #d7d7d7 */
 
 !merge of LuciusLight and LuciusBlack
 !*background: #121212
@@ -202,3 +202,23 @@ URxvt.urgentOnBell:  true
 /* ! white */
 /* *.color7:       #e5e5e5 */
 /* *.color15:      #f3f3f3 */
+
+# Pastel Colors
+*.background: #000000
+*.foreground: #D3D2D3
+*.color0: #000000
+*.color1: #FF7768
+*.color2: #ABFA68
+*.color3: #FFFD88
+*.color4: #98D0FE
+*.color5: #FF85FD
+*.color6: #CACBFE
+*.color7: #EFEFEF
+*.color8: #848484
+*.color9: #FFBCB5
+*.color10: #D1FCB1
+*.color11: #FFFDD0
+*.color12: #BADFFF
+*.color13: #FFA9FE
+*.color14: #E2E3FE
+*.color15: #FFFFFF
