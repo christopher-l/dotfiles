@@ -1,0 +1,12 @@
+'atom-text-editor:not(mini).autocomplete-active':
+  'ctrl-p': 'core:move-up'
+  'ctrl-n': 'core:move-down'
+
+'body.platform-linux':
+  'ctrl-0': 'window:reset-font-size'
+
+'atom-text-editor.vim-mode.normal-mode,atom-text-editor.vim-mode.visual-mode':
+  'ctrl-f': 'find-and-replace:show'
+
+'atom-text-editor.vim-mode:not(.insert-mode)':
+  'ctrl-b': 'fuzzy-finder:toggle-buffer-finder'

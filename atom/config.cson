@@ -1,0 +1,36 @@
+"*":
+  welcome:
+    showOnStartup: false
+  core:
+    disabledPackages: [
+      "welcome"
+      "language-ada"
+      "pdf-view"
+    ]
+    autoHideMenuBar: true
+  editor:
+    scrollPastEnd: true
+    fontFamily: "source code pro semibold, source han sans jp medium"
+    showIndentGuide: true
+    invisibles: {}
+  minimap:
+    displayPluginsControls: false
+    scrollAnimation: true
+  latex:
+    openResultAfterBuild: false
+  "tree-view":
+    hideIgnoredNames: true
+    hideVcsIgnoredFiles: true
+  "find-and-replace":
+    openProjectFindResultsInRightPane: true
+  tabs:
+    usePreviewTabs: true
+".octave.source":
+  editor:
+    tabLength: 4
+".matlab.source":
+  editor:
+    tabLength: 4
+".ada.source":
+  editor:
+    tabLength: 3
