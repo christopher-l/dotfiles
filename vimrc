@@ -26,8 +26,7 @@ set spl=de,en
 set history=10000
 set winwidth=84
 set winheight=30
-set winminheight=5
-"set cursorline
+set cursorline
 set laststatus=2
 set exrc
 
@@ -69,16 +68,14 @@ nnoremap <Leader>d :call ToggleDocstringMode()<CR>
 nnoremap <Leader>r :e %:r.
 
 """ theme
-set bg=dark
-colorscheme grb256
-let g:airline_theme='raven'
-" LuciusBlack
+" set bg=dark
+let g:hybrid_use_Xresources = 1
+colorscheme hybrid
+let g:airline_theme='hybrid'
 
 """ gvim
 if has("gui_running")
-  colorscheme raggi
-  let g:airline_theme='silver'
-  " LuciusLight
+  colorscheme hybrid-light
   "set lines=60 columns=120
   set guifont=Source\ Code\ Pro\ 10
   set guicursor+=a:blinkon0
@@ -94,7 +91,7 @@ if has("autocmd")
   autocmd FileType make       setlocal ts=8 sw=8 noet
   autocmd FileType html       setlocal ts=2 sw=2 sts=2 et
   autocmd FileType css        setlocal ts=2 sw=2 sts=2 et
-  autocmd FileType javascript setlocal ts=4 sw=4 sts=4 et
+  autocmd FileType javascript setlocal ts=2 sw=2 sts=2 et
   autocmd FileType c          setlocal ts=4 sw=4 noet
   autocmd FileType ada        setlocal ts=3 sw=3 sts=3 et fo-=o
         \ makeprg=make
@@ -121,11 +118,12 @@ nnoremap <Leader>c :CtrlP %:h<CR>
 "let g:ctrlp_match_window = 'max:50,results:50'
 let g:ctrlp_reuse_window = 'help'
 
-map <Leader>t :NERDTreeFocus<CR>
+map <Leader>t :NERDTreeFind<CR>
 let NERDTreeIgnore=['\.swp$', '\.o$', '\.ali$', '\.swo$', '\.pyc$']
 let NERDTreeMouseMode=2
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType")
       \ && b:NERDTreeType == "primary") | q | endif  " close NT if last window
+autocmd bufenter * call UpdateNerdTree()
 
 if !exists('g:airline_symbols')
   let g:airline_symbols = {}
@@ -158,4 +156,12 @@ function! ToggleDocstringMode()
         setlocal cc=73
         setlocal spell
     endif
+endfunction
+
+function! UpdateNerdTree()
+  if (&bt == "" && exists("t:NERDTreeBufName")
+      \ && bufwinnr(t:NERDTreeBufName) != -1)
+    NERDTreeFind
+    norm 
+  endif
 endfunction
