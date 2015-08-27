@@ -159,7 +159,10 @@ function! ToggleDocstringMode()
 endfunction
 
 function! UpdateNerdTree()
-  if (&bt == "" && exists("t:NERDTreeBufName")
+  " check if normal file, not the preview window, and if nerd tree
+  " visible
+  if (&bt == "" && &pvw == 0
+      \ && exists("t:NERDTreeBufName")
       \ && bufwinnr(t:NERDTreeBufName) != -1)
     NERDTreeFind
     norm 
