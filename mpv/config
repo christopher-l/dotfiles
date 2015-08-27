@@ -4,4 +4,4 @@
 cache=500000
 
 ytdl
-ytdl-format=best,bestvideo+bestaudio
+ytdl-format=bestvideo+bestaudio,
