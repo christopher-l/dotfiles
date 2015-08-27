@@ -28,3 +28,6 @@
 [submodule "vim/bundle/vim-signify"]
 	path = vim/bundle/vim-signify
 	url = https://github.com/mhinz/vim-signify.git
+[submodule "vim/bundle/lexima.vim"]
+	path = vim/bundle/lexima.vim
+	url = https://github.com/cohama/lexima.vim.git
