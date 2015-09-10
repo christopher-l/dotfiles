@@ -92,6 +92,7 @@ if has("autocmd")
   autocmd FileType html       setlocal ts=2 sw=2 sts=2 et
   autocmd FileType css        setlocal ts=2 sw=2 sts=2 et
   autocmd FileType javascript setlocal ts=2 sw=2 sts=2 et
+  autocmd FileType json       setlocal ts=2 sw=2 sts=2 et
   autocmd FileType c          setlocal ts=4 sw=4 noet
   autocmd FileType ada        setlocal ts=3 sw=3 sts=3 et fo-=o
         \ makeprg=make
@@ -115,8 +116,8 @@ nnoremap <Leader>e :CtrlP<CR>
 nnoremap <Leader>b :CtrlPBuffer<CR>
 nnoremap <Leader>m :CtrlPMRUFiles<CR>
 nnoremap <Leader>c :CtrlP %:h<CR>
-"let g:ctrlp_match_window = 'max:50,results:50'
 let g:ctrlp_reuse_window = 'help'
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files']
 
 map <Leader>t :NERDTreeFind<CR>
 let NERDTreeIgnore=['\.swp$', '\.o$', '\.ali$', '\.swo$', '\.pyc$']
@@ -131,6 +132,8 @@ endif
 let g:airline_left_sep=''
 let g:airline_right_sep=''
 let g:airline_section_z = '%3l,%-3c %P'
+
+let g:signify_vcs_list = [ 'git' ]
 
 """ functions
 function! AdjustFontSize(amount)
