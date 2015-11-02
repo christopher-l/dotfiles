@@ -1,0 +1,9 @@
+hook global WinCreate .* %{addhl number_lines}
+hook global WinCreate .* %{addhl show_matching}
+colorscheme custom
+set global ui_options ncurses_assistant=none:ncurses_wheel_down_button=5
+set global indentwidth 2
+set global scrolloff 5,5
+map global user c <a-s>:comment-line<ret>
+map global user u <a-s>gh///<space><ret>d
+map global user l :pdflatex<ret>
