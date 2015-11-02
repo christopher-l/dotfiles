@@ -4,13 +4,14 @@ hook global BufCreate .*[.](tex) %{
 
 decl str pdflatexcmd pdflatex
 
-def -shell-params pdflatex -docstring "pdflatex wrapper" %{ %sh{
+def pdflatex -docstring "pdflatex wrapper" %{ %sh{
      output=$(mktemp -d -t kak-pdflatex.XXXXXXXX)/fifo
      mkfifo ${output}
      ( eval ${kak_opt_pdflatexcmd} ${kak_bufname} > ${output} 2>&1 ) > /dev/null 2>&1 < /dev/null &
 
      echo "eval -try-client '$kak_opt_toolsclient' %{
                edit! -fifo ${output} -scroll *pdflatex*
+               set buffer filetype pdflatex
                hook -group fifo buffer BufCloseFifo .* %{
                    nop %sh{ rm -r $(dirname ${output}) }
                    rmhooks buffer fifo
@@ -34,3 +35,9 @@ hook global WinSetOption filetype=tex %{
 }
 
 hook global WinSetOption filetype=(?!tex).* %{ rmhl tex }
+
+hook global WinSetOption filetype=pdflatex %{
+    hook buffer -group tex-hooks NormalKey <c-m> 'eval db'
+}
+
+hook global WinSetOption filetype=(?!pdflatex).* %{ rmhooks buffer tex-hooks }
