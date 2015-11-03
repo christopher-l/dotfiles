@@ -11,3 +11,8 @@ map global user c <a-s>:comment-line<ret>
 map global user u <a-s>gh///<space><ret>d
 map global user l :pdflatex<ret>
 map global user q :autowrap-selection<ret>
+map global user "'" i'<esc>a'<esc>
+map global user '"' i"<esc>a"<esc>
+map global user '$' i$<esc>a$<esc>
+map global user [ i[<esc>a]<esc>
+map global user { i{<esc>a}<esc>
