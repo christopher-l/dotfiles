@@ -30,14 +30,22 @@ addhl -group /tex/math          fill value
 
 addhl -group /tex/code regex \\[A-Za-z]* 0:identifier
 
+def -hidden _tex_indent_on_new_line %{
+    eval -draft -itersel %{
+        # preserve previous line indent
+        try %{ exec -draft <space> K <a-&> }
+    }
+}
+
 hook global WinSetOption filetype=tex %{
     addhl ref tex
+    hook buffer -group tex-indent InsertChar \n _tex_indent_on_new_line
 }
 
-hook global WinSetOption filetype=(?!tex).* %{ rmhl tex }
+hook global WinSetOption filetype=(?!tex).* %{ rmhl tex; rmhooks buffer tex-indent }
 
 hook global WinSetOption filetype=pdflatex %{
-    hook buffer -group tex-hooks NormalKey <c-m> 'eval db'
+    hook buffer -group pdflatex-hooks NormalKey <c-m> 'eval db'
 }
 
-hook global WinSetOption filetype=(?!pdflatex).* %{ rmhooks buffer tex-hooks }
+hook global WinSetOption filetype=(?!pdflatex).* %{ rmhooks buffer pdflatex-hooks }

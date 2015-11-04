@@ -25,6 +25,11 @@
     openProjectFindResultsInRightPane: true
   tabs:
     usePreviewTabs: true
+  linter:
+    lintOnFly: false
+    showErrorTabProject: false
+    showErrorTabFile: false
+    statusIconScope: "File"
 ".octave.source":
   editor:
     tabLength: 4

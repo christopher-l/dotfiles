@@ -28,7 +28,7 @@ face SecondarySelection black,blue
 face PrimaryCursor default,default+re
 face SecondaryCursor black,white
 face LineNumbers white
-face LineNumberCursor white,default+r
+face LineNumberCursor white,default+b
 face MenuForeground default,white
 face MenuBackground blue,black
 face MenuInfo cyan,black
@@ -39,3 +39,6 @@ face StatusCursor black,cyan
 face Prompt yellow,default
 face MatchingChar default,default+u
 face Search default,default+u
+
+# Custom
+face ColorColumn default,black
