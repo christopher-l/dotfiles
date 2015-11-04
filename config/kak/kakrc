@@ -6,4 +6,6 @@ set global indentwidth 2
 set global scrolloff 5,5
 map global user c <a-s>:comment-line<ret>
 map global user u <a-s>gh///<space><ret>d
-map global user l :pdflatex<ret>
+hook global WinSetOption filetype=tex %{
+    map buffer user . :pdflatex<ret>
+}
