@@ -1,10 +1,7 @@
 # use with grml config
-source /usr/share/doc/pkgfile/command-not-found.zsh
 export _JAVA_AWT_WM_NONREPARENTING=1
+export XDG_DATA_DIRS="/home/chris/.nix-profile/share:/nix/var/nix/profiles/default/share:/run/current-system/sw/share"
 setopt pushdminus
-export PATH=$PATH:/home/chris/bin
-export GNATPATH=/opt/gnat/bin
-alias view="vim -R"
 
 if test -d "$HOME/.zsh/functions/"; then
     for file in $HOME/.zsh/functions/*.sh; do
@@ -12,14 +9,3 @@ if test -d "$HOME/.zsh/functions/"; then
     done
     unset file
 fi
-
-# zstyle ':prompt:grml:left:items:user' pre '%F{blue}'
-
-zstyle ':chpwd:profiles:/home/chris/Documents/Uni/Bachelor/AdaTLS(|/|/*)' profile ada
-chpwd_profile_ada()
-{
-  [[ ${profile} == ${CHPWD_PROFILE} ]] && return 1
-  print "chpwd(): Switching to profile: $profile"
-  export PATH="/opt/gnat/bin:$PATH"
-}
-

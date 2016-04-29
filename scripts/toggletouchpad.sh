@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 STATE=`synclient -l | grep Touch | awk {'printf $3'}`
 

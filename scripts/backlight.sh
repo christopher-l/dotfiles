@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 # adjust the display's backlight brightness logarithmically
 # example call:

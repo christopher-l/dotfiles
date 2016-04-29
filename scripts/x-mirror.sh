@@ -1,14 +1,14 @@
-#!/bin/bash
+#!/bin/sh
 #
 # This script toggles the extended monitor outputs if something is connected
 #
 
 # your notebook monitor
-DEFAULT_OUTPUT='LVDS1'
+DEFAULT_OUTPUT='LVDS2'
 #DEFAULT_OUTPUT='LVDS-0'
 
 # outputs to toggle if connected
-OUTPUTS='VGA1 HDMI1 DP1'
+OUTPUTS='VGA2 HDMI1 DP4'
 #OUTPUTS='VGA-0 DP-0 DP-3'
 
 # get info from xrandr
