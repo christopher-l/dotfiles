@@ -1,6 +1,8 @@
-.window-frame {
+.window-frame, decoration {
   margin: 0;
+  border-style: none;
 }
-.header-bar {
+.header-bar, headerbar {
   border-radius: 0;
 }
+
