@@ -55,6 +55,8 @@ nnoremap <silent> <BS> :noh<CR><ESC>
 nnoremap <Leader>s :set spell!<CR>
 nnoremap <Leader>` g`"
 nnoremap <Leader>y :SyntasticToggleMode<CR>
+inoremap <C-b> <Left>
+inoremap <C-f> <Right>
 
 """ theme
 " set bg=dark
@@ -89,8 +91,12 @@ if has("autocmd")
         \| nnoremap <Leader>. :make!<CR>
         \| nnoremap <Leader>/ :!./run_tests<CR>
   autocmd FileType tex        setlocal ts=2 sw=2 sts=2 et fo+=t spell
-        \| nnoremap <buffer> <Leader>. :w<CR> :!pdflatex
-        \ -output-directory "%:h" "%" > /tmp/vim.out<CR>
+        \| nnoremap <silent> <buffer> <Leader>. :w<CR> :!cd "%:h" && pdflatex
+        \ -halt-on-error "%:t" > /tmp/vim.out<CR>
+        \ :redraw!<CR> :if v:shell_error<Bar>
+        \ echo "shell returned" v:shell_error<Bar>endif<CR>
+        \| nnoremap <silent> <buffer> <Leader>v
+        \ :!evince %:r.pdf &> /dev/null &<CR> :redraw!<CR>
   autocmd FileType mail       setlocal cc=72 tw=72 fo+=t spell
   autocmd FileType vim        setlocal ts=2 sw=2 sts=2 et
   autocmd FileType python     setlocal ts=4 sw=4 sts=4 et
@@ -108,6 +114,7 @@ nnoremap <Leader>m :CtrlPMRUFiles<CR>
 nnoremap <Leader>c :CtrlP %:h<CR>
 let g:ctrlp_reuse_window = 'help'
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files']
+let g:UltiSnipsSnippetsDir = "~/.vim/UltiSnips/"
 
 """ functions
 function! AdjustFontSize(amount)

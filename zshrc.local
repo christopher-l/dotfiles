@@ -9,3 +9,5 @@ if test -d "$HOME/.zsh/functions/"; then
     done
     unset file
 fi
+
+hash -d sem=~/Documents/Uni/Master/Sem3/
