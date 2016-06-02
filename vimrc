@@ -24,8 +24,6 @@ set autoindent
 " set dictionary+=/usr/share/dict/ngerman
 set spl=de,en
 set history=10000
-set winwidth=84
-set winheight=20
 set ruler
 set laststatus=1
 
@@ -67,7 +65,7 @@ colorscheme hybrid
 if has("gui_running")
   " colorscheme hybrid
   " set lines=60 columns=120
-  set guifont=Source\ Code\ Pro\ Medium\ 10
+  set guifont=Source\ Code\ Pro\ Medium\ 11
   set guicursor+=a:blinkon0
   set guioptions-=m  " menu bar
   set guioptions-=T  " tool bar

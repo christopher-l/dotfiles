@@ -7,9 +7,6 @@
 [submodule "vim/bundle/syntastic"]
 	path = vim/bundle/syntastic
 	url = https://github.com/scrooloose/syntastic.git
-[submodule "vim/bundle/vim-airline"]
-	path = vim/bundle/vim-airline
-	url = https://github.com/bling/vim-airline.git
 [submodule "vim/bundle/vim-lucius"]
 	path = vim/bundle/vim-lucius
 	url = https://github.com/jonathanfilip/vim-lucius.git
@@ -25,9 +22,9 @@
 [submodule "vim/bundle/vim-hybrid"]
 	path = vim/bundle/vim-hybrid
 	url = https://github.com/w0ng/vim-hybrid.git
-[submodule "vim/bundle/vim-signify"]
-	path = vim/bundle/vim-signify
-	url = https://github.com/mhinz/vim-signify.git
-[submodule "vim/bundle/lexima.vim"]
-	path = vim/bundle/lexima.vim
-	url = https://github.com/cohama/lexima.vim.git
+[submodule "vim/bundle/ultisnips"]
+	path = vim/bundle/ultisnips
+	url = https://github.com/SirVer/ultisnips.git
+[submodule "vim/bundle/vim-snippets"]
+	path = vim/bundle/vim-snippets
+	url = git://github.com/honza/vim-snippets.git
