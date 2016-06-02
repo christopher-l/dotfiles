@@ -20,5 +20,9 @@ map global user [ i[<esc>a]<esc>
 map global user { i{<esc>a}<esc>
 
 hook global WinSetOption filetype=tex %{
-    map buffer user . :pdflatex<ret>
+    map buffer user . :w<ret>:pdflatex<ret>
+}
+
+hook global WinSetOption filetype=python %{
+    set buffer indentwidth 4
 }
