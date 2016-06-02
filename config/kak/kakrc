@@ -16,8 +16,10 @@ map global user q :autowrap-selection<ret>
 map global user "'" i'<esc>a'<esc>
 map global user '"' i"<esc>a"<esc>
 map global user '$' i$<esc>a$<esc>
+map global user '`' i`<esc>a`<esc>
 map global user [ i[<esc>a]<esc>
 map global user { i{<esc>a}<esc>
+map global user ( i(<esc>a)<esc>
 
 hook global WinSetOption filetype=tex %{
     map buffer user . :w<ret>:pdflatex<ret>

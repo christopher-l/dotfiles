@@ -1,1 +1,8 @@
-@define-color link_color #005faf;
+.window-frame, decoration {
+  margin: 0;
+  border-style: none;
+}
+.header-bar, headerbar {
+  border-radius: 0;
+}
+
