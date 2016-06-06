@@ -1,6 +1,5 @@
 # use with grml config
 export _JAVA_AWT_WM_NONREPARENTING=1
-export XDG_DATA_DIRS="/home/chris/.nix-profile/share:/nix/var/nix/profiles/default/share:/run/current-system/sw/share"
 setopt pushdminus
 
 if test -d "$HOME/.zsh/functions/"; then
@@ -11,3 +10,7 @@ if test -d "$HOME/.zsh/functions/"; then
 fi
 
 hash -d sem=~/Documents/Uni/Master/Sem3/
+
+if [[ $(hostname) == kestrel ]] ; then
+    export XDG_DATA_DIRS="/home/chris/.nix-profile/share:/nix/var/nix/profiles/default/share:/run/current-system/sw/share"
+fi
