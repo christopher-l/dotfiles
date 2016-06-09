@@ -25,7 +25,7 @@ set autoindent
 set spl=de,en
 set history=10000
 set ruler
-set laststatus=1
+set laststatus=2
 
 """ search
 set incsearch
@@ -81,6 +81,7 @@ endif
 """ rules
 if has("autocmd")
   autocmd FileType make       setlocal ts=8 sw=8 noet
+  autocmd FileType cmake      setlocal ts=2 sw=2 et
   autocmd FileType html       setlocal ts=2 sw=2 sts=2 et
   autocmd FileType css        setlocal ts=2 sw=2 sts=2 et
   autocmd FileType javascript setlocal ts=2 sw=2 sts=2 et

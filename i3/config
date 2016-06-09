@@ -261,6 +261,7 @@ exec --no-startup-id xss-lock -- i3lock -i .i3/lockbg.png -n
 
 # generel config
 bindsym $mod+b border toggle
+hide_edge_borders both
 workspace_layout stacking
 
 # # colors
