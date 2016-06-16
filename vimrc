@@ -97,7 +97,11 @@ if has("autocmd")
         \ :redraw!<CR> :if v:shell_error<Bar>
         \ echo "shell returned" v:shell_error<Bar>endif<CR>
         \| nnoremap <silent> <buffer> <Leader>v
-        \ :!evince %:r.pdf &> /dev/null &<CR> :redraw!<CR>
+        \ :!evince "%:r.pdf" &> /dev/null &<CR> :redraw!<CR>
+  autocmd FileType markdown   setlocal ts=2 sw=2 sts=2 et fo+=t spell
+        \| nnoremap <buffer> <Leader>. :w<CR>:!pandoc "%" -o "%:r.pdf"<CR>
+        \| nnoremap <silent> <buffer> <Leader>v
+        \ :!evince "%:r.pdf" &> /dev/null &<CR> :redraw!<CR>
   autocmd FileType mail       setlocal cc=72 tw=72 fo+=t spell
   autocmd FileType vim        setlocal ts=2 sw=2 sts=2 et
   autocmd FileType python     setlocal ts=4 sw=4 sts=4 et
