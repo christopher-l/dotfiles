@@ -28,3 +28,6 @@
 [submodule "vim/bundle/vim-snippets"]
 	path = vim/bundle/vim-snippets
 	url = git://github.com/honza/vim-snippets.git
+[submodule "vim/bundle/vylight"]
+	path = vim/bundle/vylight
+	url = https://github.com/vim-scripts/vylight.git

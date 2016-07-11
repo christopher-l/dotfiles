@@ -28,10 +28,6 @@ snippet fig "figure environment" b
 \end{figure}
 endsnippet
 
-snippet gp "set graphics path" b
-\graphicspath{{./${1:img}/}}
-endsnippet
-
 snippet frame "frame environment" b
 \begin{frame}{$1}
 	$0
@@ -50,6 +46,18 @@ snippet == "slightly spaced aligned equal sign"
 \;&=\;
 endsnippet
 
-snippet qed "a box on the right" b
+snippet box "a box on the right" b
 \hfill$\Box$
+endsnippet
+
+snippet note "beamer note" b
+\note{
+	$0
+}
+endsnippet
+
+snippet no "beamer note with overlay specification" b
+\note<$1>{
+	$0
+}
 endsnippet

@@ -65,9 +65,9 @@ colorscheme hybrid
 
 """ gvim
 if has("gui_running")
-  " colorscheme hybrid
+  colorscheme vylight
   " set lines=60 columns=120
-  set guifont=Source\ Code\ Pro\ Medium\ 11
+  set guifont=Source\ Code\ Pro\ Medium\ 12
   set guicursor+=a:blinkon0
   set guioptions-=m  " menu bar
   set guioptions-=T  " tool bar
@@ -86,7 +86,7 @@ if has("autocmd")
   autocmd FileType css        setlocal ts=2 sw=2 sts=2 et
   autocmd FileType javascript setlocal ts=2 sw=2 sts=2 et
   autocmd FileType json       setlocal ts=2 sw=2 sts=2 et
-  autocmd FileType c          setlocal ts=4 sw=4 noet
+  autocmd FileType c          setlocal ts=4 sw=4 et
   autocmd FileType ada        setlocal ts=3 sw=3 sts=3 et fo-=o
         \ makeprg=make
         \| nnoremap <Leader>. :make!<CR>
