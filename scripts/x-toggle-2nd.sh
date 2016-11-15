@@ -8,7 +8,7 @@ DEFAULT_OUTPUT='LVDS1'
 #DEFAULT_OUTPUT='LVDS-0'
 
 # outputs to toggle if connected
-OUTPUTS='VGA1 HDMI1 DP4'
+OUTPUTS='VGA1 HDMI1 DP1'
 #OUTPUTS='VGA-0 DP-0 DP-3'
 
 # get info from xrandr

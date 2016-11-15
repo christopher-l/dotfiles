@@ -12,6 +12,7 @@
     xorg.xbacklight xorg.xkill dmenu2 i3status pavucontrol wpa_supplicant_gui scrot
     i3lock xss-lock
     gnome3.gnome_themes_standard gnome3.adwaita-icon-theme gnome3.dconf
+    kde5.breeze
   ];
 
   # X11 windowing system

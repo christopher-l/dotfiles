@@ -1,7 +1,0 @@
-#compdef optirun
-
-function _optirun {
-    _command
-}
-
-_optirun "$@"

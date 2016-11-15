@@ -9,6 +9,7 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ./units.nix
+      /etc/nixos/vpnc.nix
 
       ./i3.nix
     ];
@@ -47,8 +48,8 @@
       DISK_DEVICES="sdb"
       DISK_SPINDOWN_TIMEOUT_ON_AC="24"
       DISK_SPINDOWN_TIMEOUT_ON_BAT="12"
-      START_CHARGE_THRESH_BAT0=50
-      STOP_CHARGE_THRESH_BAT0=70 
+      START_CHARGE_THRESH_BAT0=70
+      STOP_CHARGE_THRESH_BAT0=80 
     '';
   };
 
@@ -127,11 +128,20 @@
     #}))
     gcc_multi
     gdb
+    gfortran
     (haskellPackages.ghcWithPackages (self : [
       self.QuickCheck
     ]))
     texlive.combined.scheme-full
-    python2 python35
+    python2
+    (pkgs.python35.buildEnv.override {
+      extraLibs = with pkgs.python35Packages; [
+        numpy
+        matplotlib
+        pyqt5
+        #(matplotlib.override { enableGtk3 = true; })
+      ];
+    })
     octaveFull
 
     # Misc

@@ -9,9 +9,9 @@ if test -d "$HOME/.zsh/functions/"; then
     unset file
 fi
 
-hash -d sem=~/Documents/Uni/Master/Sem3/
+hash -d sem=~/Documents/Uni/Master/Sem4/
 
 if [[ $(hostname) == kestrel ]] ; then
-    export XDG_DATA_DIRS="/home/chris/.nix-profile/share:/nix/var/nix/profiles/default/share:/run/current-system/sw/share"
-    export MANPATH=$HOME/.nix-profile/share/man:/run/current-system/sw/share/man
+    # export XDG_DATA_DIRS="$HOME/.nix-profile/share:/nix/var/nix/profiles/default/share:/run/current-system/sw/share"
+    # export MANPATH=$HOME/.nix-profile/share/man:/run/current-system/sw/share/man
 fi

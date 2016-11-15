@@ -26,6 +26,8 @@ set spl=de,en
 set history=10000
 set ruler
 set laststatus=2
+set backspace=indent,eol,start
+set diffopt=filler,foldcolumn:0
 
 """ search
 set incsearch
@@ -59,20 +61,25 @@ inoremap <C-b> <Left>
 inoremap <C-f> <Right>
 
 """ theme
-" set bg=dark
+set bg=dark
 let g:hybrid_use_Xresources = 1
 colorscheme hybrid
+highlight Normal ctermbg=none guibg=black
 
 """ gvim
 if has("gui_running")
-  colorscheme vylight
+  " colorscheme lucius
+  " LuciusBlack
   " set lines=60 columns=120
-  set guifont=Source\ Code\ Pro\ Medium\ 12
+  set guifont=Source\ Code\ Pro\ Semibold\ 10
   set guicursor+=a:blinkon0
   set guioptions-=m  " menu bar
   set guioptions-=T  " tool bar
   set guioptions+=c  " console for choices
   set guioptions-=e  " gui tabs
+  set guioptions-=r  " scrollbars
+  set guioptions-=R  " scrollbars
+  set guioptions-=L  " scrollbars
   nnoremap <F1> :if &go=~#'m'<Bar>set go-=m<Bar>else<Bar>set go+=m<Bar>endif<CR>
   nnoremap <C-Up> :call AdjustFontSize(1)<CR>:echo &guifont<CR>
   nnoremap <C-Down> :call AdjustFontSize(-1)<CR>:echo &guifont<CR>
@@ -83,6 +90,7 @@ if has("autocmd")
   autocmd FileType make       setlocal ts=8 sw=8 noet
   autocmd FileType cmake      setlocal ts=2 sw=2 et
   autocmd FileType html       setlocal ts=2 sw=2 sts=2 et
+  autocmd FileType text       setlocal ts=2 sw=2 sts=2 et spell
   autocmd FileType css        setlocal ts=2 sw=2 sts=2 et
   autocmd FileType javascript setlocal ts=2 sw=2 sts=2 et
   autocmd FileType json       setlocal ts=2 sw=2 sts=2 et
