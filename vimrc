@@ -28,6 +28,8 @@ set ruler
 set laststatus=2
 set backspace=indent,eol,start
 set diffopt=filler,foldcolumn:0
+set foldmethod=indent
+set nofoldenable
 
 """ search
 set incsearch

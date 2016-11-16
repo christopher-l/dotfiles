@@ -220,12 +220,13 @@ assign [class="Thunderbird"] → $ws3
 assign [class="Pidgin"] → $ws4
 assign [class="Hexchat"] → $ws4
 assign [class="Liferea"] → $ws5
-assign [class="Gmpc"] → $ws10
+assign [class="Spotify"] → $ws10
+
 # window rules
 for_window [instance="Navigator" class="Firefox"] border none
 for_window [instance="Chromium" class="Chromium"] border none
 for_window [instance="Mail" class="Thunderbird"] border none
-for_window [class="Atom"] border none
+for_window [class="Spotify"] border none
 for_window [class="mpv"] floating enable
 for_window [class="Dolphin" title="Copying"] floating enable
 for_window [class="Dolphin" title="Moving"] floating enable
