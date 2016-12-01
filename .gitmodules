@@ -31,3 +31,9 @@
 [submodule "vim/bundle/vylight"]
 	path = vim/bundle/vylight
 	url = https://github.com/vim-scripts/vylight.git
+[submodule "vim/bundle/vim-surround"]
+	path = vim/bundle/vim-surround
+	url = https://github.com/tpope/vim-surround.git
+[submodule "vim/bundle/vim-repeat"]
+	path = vim/bundle/vim-repeat
+	url = https://github.com/tpope/vim-repeat.git
