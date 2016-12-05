@@ -72,8 +72,8 @@ highlight Normal ctermbg=none guibg=black
 if has("gui_running")
   " colorscheme lucius
   " LuciusBlack
-  " set lines=60 columns=120
-  set guifont=Source\ Code\ Pro\ Semibold\ 10
+  set lines=60 columns=90
+  set guifont=Source\ Code\ Pro\ Semibold\ 11
   set guicursor+=a:blinkon0
   set guioptions-=m  " menu bar
   set guioptions-=T  " tool bar
@@ -117,6 +117,7 @@ if has("autocmd")
   autocmd FileType python     setlocal ts=4 sw=4 sts=4 et
   autocmd FileType rust       setlocal ts=4 sw=4 sts=4 et
         \| nnoremap <Leader>. :!cargo run<CR>
+  autocmd FileType gtkrc setlocal commentstring=#\ %s
 endif
 
 """ browser

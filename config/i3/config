@@ -15,9 +15,9 @@ set $mod Mod4
 # is used in the bar {} block below.
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
-font pango:Source Sans Pro Bold 12px
+# font pango:Source Sans Pro Bold 10
 # Before i3 v4.8, we used to recommend this one as the default:
-# font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
+font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
 # The font above is very space-efficient, that is, it looks good, sharp and
 # clear in small sizes. However, its unicode glyph coverage is limited, the old
 # X core fonts rendering does not support right-to-left and this being a bitmap
@@ -238,10 +238,10 @@ bindsym XF86Launch1 exec --no-startup-id xset dpms force off
 # bindsym XF86ScreenSaver exec --no-startup-id xset dpms force off
 bindsym XF86ScreenSaver exec --no-startup-id i3lock -i .i3/lockbg.png
 # bindsym XF86ScreenSaver exec --no-startup-id xautolock -locknow
-bindsym XF86Display exec --no-startup-id x-toggle-2nd.sh
-bindsym Mod1+XF86Display exec --no-startup-id x-mirror.sh
-bindsym Shift+XF86Display exec --no-startup-id x-switch-display.sh
-bindsym XF86TouchpadToggle exec --no-startup-id toggletouchpad.sh
+bindsym XF86Display exec --no-startup-id ~/bin/x-toggle-2nd.sh
+bindsym Mod1+XF86Display exec --no-startup-id ~/bin/x-mirror.sh
+bindsym Shift+XF86Display exec --no-startup-id ~/bin/x-switch-display.sh
+bindsym XF86TouchpadToggle exec --no-startup-id ~/bin/toggletouchpad.sh
 # bindsym XF86AudioRaiseVolume exec --no-startup-id ~/bin/volume.sh 5%+
 # bindsym XF86AudioLowerVolume exec --no-startup-id ~/bin/volume.sh 5%-
 bindsym XF86AudioRaiseVolume exec --no-startup-id amixer set Master 5%+ && kill -s USR1 `pidof i3status`

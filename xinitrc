@@ -31,20 +31,14 @@ if [ -d /etc/X11/xinit/xinitrc.d ]; then
 fi
 
 xset r rate 250 30
-xset -b  #disable bell
+xset -b  # disable bell
 
-#sleep 1 && {
 xsetroot -cursor_name left_ptr
-#} &
 
 export DE="kde"
 export KDE_FULL_SESSION=true
 export KDE_SESSION_VERSION="5"
 
-numlockx &
-#nm-applet &
-#dropboxd &
+export MOZ_USE_XINPUT2=1
 
-#exec ck-launch-session dbus-launch --exit-with-session xmonad
-#exec ck-launch-session dbus-launch i3
 exec i3

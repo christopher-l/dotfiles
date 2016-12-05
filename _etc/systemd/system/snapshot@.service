@@ -1,0 +1,6 @@
+[Unit]
+Description=Btrfs Snapshots
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/snapshot.sh %I

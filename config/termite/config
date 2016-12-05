@@ -1,0 +1,62 @@
+[options]
+font = Source Code Pro Semibold 11
+# font = Source Code Pro Regular 11
+scrollback_lines = 10000
+
+[colors]
+
+# Hybrid Colors
+#
+# special
+foreground      = #ffffff
+foreground_bold = #ffffff
+cursor          = #ffffff
+#background      = #161616
+background      = #000000
+# black
+color0  = #222222
+color8  = #666666
+# red
+color1  = #e84f4f
+color9  = #d23d3d
+# green
+color2  = #b7ce42
+color10 = #bde077
+# yellow
+color3  = #fea63c
+color11 = #ffe863
+# blue
+color4  = #66aabb
+color12 = #aaccbb
+# magenta
+color5  = #b7416e
+color13 = #e16a98
+# cyan
+color6  = #6d878d
+color14 = #42717b
+# white
+color7  = #dddddd
+color15 = #cccccc
+
+# # LuciusLight theme
+# # background= #eeeeee
+# # foreground= #444444
+# background= #ffffff
+# foreground= #000000
+# cursorColor= #5f87af
+# color0= #444444
+# color8= #444444
+# color1= #af0000
+# color9= #af0000
+# color2= #008700
+# color10= #008700
+# color3= #af5f00
+# color11= #af5f00
+# color4= #005faf
+# color12= #005faf
+# color5= #870087
+# color13= #870087
+# color6= #008787
+# color14= #008787
+# color7= #eeeeee
+# color15= #eeeeee

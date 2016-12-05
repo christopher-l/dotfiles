@@ -15,3 +15,8 @@ if [[ $(hostname) == kestrel ]] ; then
     # export XDG_DATA_DIRS="$HOME/.nix-profile/share:/nix/var/nix/profiles/default/share:/run/current-system/sw/share"
     # export MANPATH=$HOME/.nix-profile/share/man:/run/current-system/sw/share/man
 fi
+
+if [[ "$TERM" == xterm-termite ]] ; then
+    # Enable Ctrl-Shift-T
+    source /etc/profile.d/vte.sh
+fi
