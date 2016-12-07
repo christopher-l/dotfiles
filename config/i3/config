@@ -15,9 +15,10 @@ set $mod Mod4
 # is used in the bar {} block below.
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
-# font pango:Source Sans Pro Bold 10
+font pango:Cantarell Black 8
+# font pango:Source Sans Pro Bold 12px
 # Before i3 v4.8, we used to recommend this one as the default:
-font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
+# font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
 # The font above is very space-efficient, that is, it looks good, sharp and
 # clear in small sizes. However, its unicode glyph coverage is limited, the old
 # X core fonts rendering does not support right-to-left and this being a bitmap
@@ -235,15 +236,12 @@ for_window [class="Xsane"] floating enable
 
 # custom keybindings
 bindsym XF86Launch1 exec --no-startup-id xset dpms force off
-# bindsym XF86ScreenSaver exec --no-startup-id xset dpms force off
-bindsym XF86ScreenSaver exec --no-startup-id i3lock -i .i3/lockbg.png
-# bindsym XF86ScreenSaver exec --no-startup-id xautolock -locknow
+# bindsym XF86ScreenSaver exec --no-startup-id i3lock -i .i3/lockbg.png
+bindsym XF86ScreenSaver exec --no-startup-id loginctl lock-session
 bindsym XF86Display exec --no-startup-id ~/bin/x-toggle-2nd.sh
 bindsym Mod1+XF86Display exec --no-startup-id ~/bin/x-mirror.sh
 bindsym Shift+XF86Display exec --no-startup-id ~/bin/x-switch-display.sh
 bindsym XF86TouchpadToggle exec --no-startup-id ~/bin/toggletouchpad.sh
-# bindsym XF86AudioRaiseVolume exec --no-startup-id ~/bin/volume.sh 5%+
-# bindsym XF86AudioLowerVolume exec --no-startup-id ~/bin/volume.sh 5%-
 bindsym XF86AudioRaiseVolume exec --no-startup-id amixer set Master 5%+ && kill -s USR1 `pidof i3status`
 bindsym XF86AudioLowerVolume exec --no-startup-id amixer set Master 5%- && kill -s USR1 `pidof i3status`
 bindsym XF86AudioMute exec --no-startup-id amixer set Master toggle && kill -s USR1 `pidof i3status`
@@ -253,39 +251,23 @@ bindsym XF86MonBrightnessDown exec --no-startup-id ~/bin/backlight.sh 0.5
 bindsym XF86WebCam exec gnome-control-center sound
 bindsym Print exec --no-startup-id scrot
 bindsym Mod1+Print exec --no-startup-id scrot -s
+bindsym XF86AudioPlay exec --no-startup-id dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause
+bindsym XF86AudioNext exec --no-startup-id dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next
+bindsym XF86AudioPrev exec --no-startup-id dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous
+bindsym XF86AudioStop exec --no-startup-id dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Stop
 
 # startup applications
-# exec --no-startup-id xautolock -time 30 -locker 'i3lock -c 000000 -d'
-# exec --no-startup-id xsettingsd
 exec --no-startup-id xsetroot -solid "#000000"
-# exec --no-startup-id xss-lock -- i3lock -i .i3/lockbg.png -n
 
 # generel config
 bindsym $mod+b border toggle
 hide_edge_borders both
 workspace_layout stacking
 
-# # colors
-# # class                 border  backgr. text    indicator
-# client.focused          #005F87 #005F87 #d7d7d7 #2e9ef4
-# client.focused_inactive #303030 #303030 #d7d7d7 #484e50
-# client.unfocused        #303030 #303030 #888888 #292d2e
-# client.urgent           #af0000 #af0000 #d7d7d7 #900000
-# # Start i3bar to display a workspace bar (plus the system information i3status
-# # finds out, if available)
+# Start i3bar to display a workspace bar (plus the system information i3status
+# finds out, if available)
 bar {
         position top
         status_command i3status
         tray_output LVDS2
-#         colors {
-#                 background #121212
-#                 statusline #d7d7d7
-#                 separator #888888
-# 
-#                 # class            border  backgr. text
-#                 focused_workspace  #005f87 #005f87 #d7d7d7
-#                 active_workspace   #444444 #444444 #d7d7d7
-#                 inactive_workspace #303030 #303030 #888888
-#                 urgent_workspace   #af0000 #af0000 #d7d7d7
-#         }
 }

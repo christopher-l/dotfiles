@@ -59,6 +59,7 @@ nnoremap <silent> <BS> :noh<CR><ESC>
 nnoremap <Leader>s :set spell!<CR>
 nnoremap <Leader>` g`"
 nnoremap <Leader>y :SyntasticToggleMode<CR>
+nnoremap <silent> <Leader>t :!termite -d "%:h"&<CR><CR>
 inoremap <C-b> <Left>
 inoremap <C-f> <Right>
 

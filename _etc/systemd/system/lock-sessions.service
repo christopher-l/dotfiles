@@ -1,0 +1,10 @@
+[Unit]
+Description=Lock All Sessions Using Loginctl
+Before=hibernate.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/loginctl lock-sessions
+
+[Install]
+WantedBy=hibernate.target

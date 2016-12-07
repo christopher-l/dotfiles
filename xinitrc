@@ -34,6 +34,8 @@ xset r rate 250 30
 xset -b  # disable bell
 
 xsetroot -cursor_name left_ptr
+python $HOME/bin/systemd-lock-handler.py \
+    i3lock -i $HOME/.config/i3/lockbg.png -n &
 
 export DE="kde"
 export KDE_FULL_SESSION=true
