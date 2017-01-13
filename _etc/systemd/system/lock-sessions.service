@@ -1,6 +1,6 @@
 [Unit]
 Description=Lock All Sessions Using Loginctl
-Before=hibernate.target
+Before=sleep.target
 
 [Service]
 Type=oneshot

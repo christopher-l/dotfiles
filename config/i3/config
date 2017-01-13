@@ -15,8 +15,7 @@ set $mod Mod4
 # is used in the bar {} block below.
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
-font pango:Cantarell Black 8
-# font pango:Source Sans Pro Bold 12px
+font pango:Cantarell Black 8.5
 # Before i3 v4.8, we used to recommend this one as the default:
 # font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
 # The font above is very space-efficient, that is, it looks good, sharp and
@@ -35,11 +34,12 @@ bindsym $mod+Return exec termite
 bindsym $mod+q kill
 
 # start dmenu (a program launcher)
-bindsym Mod1+space exec dmenu_run -fn "Source Sans Pro:pixelsize=14:style=bold"
+# bindsym Mod1+space exec --no-startup-id dmenu_run -fn "Cantarell:pixelsize=14:style=bold"
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+bindsym Mod1+space exec --no-startup-id i3-dmenu-desktop --dmenu='dmenu -i -fn "Cantarell:pixelsize=14:style=bold"'
 
 # change focus
 bindsym $mod+h focus left
@@ -78,6 +78,9 @@ bindsym $mod+f fullscreen
 bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
+
+# toggle sticky (floating) windows
+bindsym $mod+z sticky toggle
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
@@ -228,7 +231,7 @@ for_window [instance="Navigator" class="Firefox"] border none
 for_window [instance="Chromium" class="Chromium"] border none
 for_window [instance="Mail" class="Thunderbird"] border none
 for_window [class="Spotify"] border none
-for_window [class="mpv"] floating enable
+# for_window [class="mpv"] floating enable
 for_window [class="Dolphin" title="Copying"] floating enable
 for_window [class="Dolphin" title="Moving"] floating enable
 for_window [class="Dolphin" title="Deleting"] floating enable
@@ -236,8 +239,7 @@ for_window [class="Xsane"] floating enable
 
 # custom keybindings
 bindsym XF86Launch1 exec --no-startup-id xset dpms force off
-# bindsym XF86ScreenSaver exec --no-startup-id i3lock -i .i3/lockbg.png
-bindsym XF86ScreenSaver exec --no-startup-id loginctl lock-session
+bindsym XF86ScreenSaver exec --no-startup-id i3lock -i ~/.config/i3/lockbg.png
 bindsym XF86Display exec --no-startup-id ~/bin/x-toggle-2nd.sh
 bindsym Mod1+XF86Display exec --no-startup-id ~/bin/x-mirror.sh
 bindsym Shift+XF86Display exec --no-startup-id ~/bin/x-switch-display.sh
@@ -248,7 +250,7 @@ bindsym XF86AudioMute exec --no-startup-id amixer set Master toggle && kill -s U
 bindsym XF86AudioMicMute exec --no-startup-id amixer set Capture toggle
 bindsym XF86MonBrightnessUp exec --no-startup-id ~/bin/backlight.sh 2
 bindsym XF86MonBrightnessDown exec --no-startup-id ~/bin/backlight.sh 0.5
-bindsym XF86WebCam exec gnome-control-center sound
+bindsym XF86WebCam exec pavucontrol
 bindsym Print exec --no-startup-id scrot
 bindsym Mod1+Print exec --no-startup-id scrot -s
 bindsym XF86AudioPlay exec --no-startup-id dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause
@@ -267,7 +269,7 @@ workspace_layout stacking
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-        position top
-        status_command i3status
-        tray_output LVDS2
+    position top
+    status_command i3status
+    tray_output LVDS1
 }

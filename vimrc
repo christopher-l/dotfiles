@@ -30,6 +30,7 @@ set backspace=indent,eol,start
 set diffopt=filler,foldcolumn:0
 set foldmethod=indent
 set nofoldenable
+set completeopt=longest,menu
 
 """ search
 set incsearch
@@ -40,10 +41,10 @@ nohlsearch
 
 """ menu
 set wildmenu
-set wildmode=full
-set wildignore+=*.o,*.ali,*.gcno,*.gcda
+set wildmode=longest,full
+" set wildignore+=*.o,*.ali,*.gcno,*.gcda
 set wildignorecase
-set wildcharm=<Tab>
+" set wildcharm=<Tab>
 
 """ keybindings
 let mapleader=","
@@ -65,16 +66,16 @@ inoremap <C-f> <Right>
 
 """ theme
 set bg=dark
-let g:hybrid_use_Xresources = 1
-colorscheme hybrid
+" let g:hybrid_custom_term_colors = 1
+" colorscheme hybrid
+let base16colorspace=256
+colorscheme base16-default-dark
 highlight Normal ctermbg=none guibg=black
 
 """ gvim
 if has("gui_running")
-  " colorscheme lucius
-  " LuciusBlack
   set lines=60 columns=90
-  set guifont=Source\ Code\ Pro\ Semibold\ 11
+  set guifont=Source\ Code\ Pro\ Semibold\ 10
   set guicursor+=a:blinkon0
   set guioptions-=m  " menu bar
   set guioptions-=T  " tool bar
@@ -119,6 +120,7 @@ if has("autocmd")
   autocmd FileType rust       setlocal ts=4 sw=4 sts=4 et
         \| nnoremap <Leader>. :!cargo run<CR>
   autocmd FileType gtkrc setlocal commentstring=#\ %s
+  autocmd FileType matlab setlocal commentstring=%\ %s
 endif
 
 """ browser
