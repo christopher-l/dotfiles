@@ -1,0 +1,16 @@
+snippet voct "custom vocab entry with type" b
+\vocab
+	{\ruby{${1:Kanji}}{}}
+	{\type{\textsc{$2}$3}
+	 \translation{$4}}
+endsnippet
+
+snippet voc "custom vocab entry" b
+\vocab
+	{\ruby{${1:Kanji}}{${2:Kana}}}
+	{\translation{$3}}
+endsnippet
+
+snippet ruby "Kanji with Furigana" i
+\ruby{${1:${VISUAL}}}{${2}}${0}
+endsnippet

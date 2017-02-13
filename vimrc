@@ -110,6 +110,7 @@ if has("autocmd")
         \ echo "shell returned" v:shell_error<Bar>endif<CR>
         \| nnoremap <silent> <buffer> <Leader>v
         \ :!evince "%:r.pdf" &> /dev/null &<CR> :redraw!<CR>
+  autocmd FileType plaintex   setlocal ts=2 sw=2 sts=2 et fo+=t spell
   autocmd FileType markdown   setlocal ts=2 sw=2 sts=2 et fo+=t spell
         \| nnoremap <buffer> <Leader>. :w<CR>:!pandoc "%" -o "%:r.pdf"<CR>
         \| nnoremap <silent> <buffer> <Leader>v
@@ -133,6 +134,7 @@ nnoremap <Leader>m :CtrlPMRUFiles<CR>
 nnoremap <Leader>c :CtrlP %:h<CR>
 let g:ctrlp_reuse_window = 'help'
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files']
+let g:ctrlp_match_window = 'max:99'
 let g:UltiSnipsSnippetsDir = "~/.vim/UltiSnips/"
 
 """ functions
