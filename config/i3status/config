@@ -32,6 +32,7 @@ ethernet enp0s25 {
 
 battery 0 {
         format = "%status %percentage %emptytime %consumption"
+        status_unk = "AC"
         low_threshold = 10
         threshold_type = percent
         hide_seconds = true
