@@ -1,9 +1,5 @@
-.window-frame, decoration {
+window decoration {
   padding: 0;
   margin: 0;
   border-style: none;
 }
-.header-bar, headerbar {
-  border-radius: 0;
-}
-
