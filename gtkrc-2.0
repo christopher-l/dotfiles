@@ -18,6 +18,6 @@ gtk-button-images=0
 # taken from a very helpful post here:
 # https://bbs.archlinux.org/viewtopic.php?id=65285
 style "vimfix" {
-  bg[NORMAL] = "#000000"
+  bg[NORMAL] = "#ffffff"
 }
 widget "vim-main-window.*GtkForm" style "vimfix"

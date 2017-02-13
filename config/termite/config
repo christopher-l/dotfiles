@@ -1,9 +1,10 @@
 [options]
-font = Source Code Pro Semibold 10
+font = Source Code Pro 10
 scrollback_lines = 10000
 browser = firefox
 
-# [colors]
+[colors]
+
 # # Hybrid Colors
 # # special
 # foreground      = #ffffff
@@ -36,45 +37,76 @@ browser = firefox
 # color7  = #dddddd
 # color15 = #cccccc
 
-[colors]
-# Base 16 default dark
-# https://github.com/chriskempson/base16-xresources/blob/master/xresources/base16-default-dark-256.Xresources
-# special
-foreground      = #d8d8d8
-foreground_bold = #d8d8d8
-cursor          = #d8d8d8
-# background      = #181818
-background      = #000000
-# black
-color0  = #181818
-color8  = #585858
-# red
-color1  = #ab4642
-color9  = #ab4642
-# green
-color2  = #a1b56c
-color10 = #a1b56c
-# yellow
-color3  = #f7ca88
-color11 = #f7ca88
-# blue
-color4  = #7cafc2
-color12 = #7cafc2
-# magenta
-color5  = #ba8baf
-color13 = #ba8baf
-# cyan
-color6  = #86c1b9
-color14 = #86c1b9
-# white
-color7  = #d8d8d8
-color15 = #f8f8f8
-# additional colors
-color16 = #dc9656
-color17 = #a16946
-color18 = #282828
-color19 = #383838
-color20 = #b8b8b8
-color21 = #e8e8e8
+# # Base 16 default dark
+# # https://github.com/chriskempson/base16-xresources/blob/master/xresources/base16-default-dark-256.Xresources
+# # special
+# foreground      = #d8d8d8
+# foreground_bold = #d8d8d8
+# cursor          = #d8d8d8
+# # background      = #181818
+# background      = #000000
+# # black
+# color0  = #181818
+# color8  = #585858
+# # red
+# color1  = #ab4642
+# color9  = #ab4642
+# # green
+# color2  = #a1b56c
+# color10 = #a1b56c
+# # yellow
+# color3  = #f7ca88
+# color11 = #f7ca88
+# # blue
+# color4  = #7cafc2
+# color12 = #7cafc2
+# # magenta
+# color5  = #ba8baf
+# color13 = #ba8baf
+# # cyan
+# color6  = #86c1b9
+# color14 = #86c1b9
+# # white
+# color7  = #d8d8d8
+# color15 = #f8f8f8
+# # additional colors
+# color16 = #dc9656
+# color17 = #a16946
+# color18 = #282828
+# color19 = #383838
+# color20 = #b8b8b8
+# color21 = #e8e8e8
+
+# Solarized light color scheme
+foreground = #657b83
+foreground_bold = #073642
+#foreground_dim = #888888
+background = #fdf6e3
+cursor = #586e75
+# if unset, will reverse foreground and background
+#highlight = #839496
+# colors from color0 to color254 can be set
+color0 = #073642
+color1 = #dc322f
+color2 = #859900
+color3 = #b58900
+color4 = #268bd2
+color5 = #d33682
+color6 = #2aa198
+color7 = #eee8d5
+color8 = #002b36
+color9 = #cb4b16
+color10 = #586e75
+color11 = #657b83
+color12 = #839496
+color13 = #6c71c4
+color14 = #93a1a1
+color15 = #fdf6e3
+
+
+foreground = #000000
+foreground_bold = #000000
+#foreground_dim = #888888
+background = #ffffff
 
 # vim: commentstring=#\ %s

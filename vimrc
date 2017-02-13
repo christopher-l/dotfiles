@@ -20,8 +20,6 @@ set fo=crqj
 set list
 set lcs=tab:▸\ ,trail:_
 set autoindent
-" set dictionary+=/usr/share/dict/american-english
-" set dictionary+=/usr/share/dict/ngerman
 set spl=de,en
 set history=10000
 set ruler
@@ -65,26 +63,27 @@ inoremap <C-b> <Left>
 inoremap <C-f> <Right>
 
 """ theme
-set bg=dark
+" set bg=dark
 " let g:hybrid_custom_term_colors = 1
-" colorscheme hybrid
-let base16colorspace=256
-colorscheme base16-default-dark
-highlight Normal ctermbg=none guibg=black
+" let base16colorspace=256
+colorscheme github
+hi Normal ctermbg=231
+hi ColorColumn ctermbg=255
+" highlight Normal ctermbg=none guibg=black
 
 """ gvim
 if has("gui_running")
   set lines=60 columns=90
-  set guifont=Source\ Code\ Pro\ Semibold\ 10
+  set linespace=2
+  set guifont=Source\ Code\ Pro\ 10
   set guicursor+=a:blinkon0
-  set guioptions-=m  " menu bar
-  set guioptions-=T  " tool bar
+  set guioptions-=m  " remove menu bar
+  set guioptions-=T  " remove tool bar
   set guioptions+=c  " console for choices
-  set guioptions-=e  " gui tabs
-  set guioptions-=r  " scrollbars
-  set guioptions-=R  " scrollbars
-  set guioptions-=L  " scrollbars
-  nnoremap <F1> :if &go=~#'m'<Bar>set go-=m<Bar>else<Bar>set go+=m<Bar>endif<CR>
+  set guioptions-=e  " remove gui tabs
+  " set guioptions-=r  " scrollbars
+  " set guioptions-=R  " scrollbars
+  " set guioptions-=L  " scrollbars
   nnoremap <C-Up> :call AdjustFontSize(1)<CR>:echo &guifont<CR>
   nnoremap <C-Down> :call AdjustFontSize(-1)<CR>:echo &guifont<CR>
 endif
