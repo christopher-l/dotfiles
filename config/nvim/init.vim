@@ -1,86 +1,61 @@
-execute pathogen#infect()
-syntax on
-filetype plugin indent on
+""" vim-plug
+call plug#begin('~/.local/share/nvim/plugged')
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-repeat'
+Plug 'kien/ctrlp.vim'
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+Plug 'neomake/neomake'
+call plug#end()
 
 """ general
-set encoding=utf-8
-set ff=unix
-set ttm=0
-set mouse=nv
-set hidden
-set nu
-set ts=4
-set sw=4
-set sts=4
-set et
-set so=3
-set cc=80
-set tw=72
-set fo=crqj
+set number
+set scrolloff=1
+set colorcolumn=80
+" set ttm=0
+" set mouse=nv
+" set hidden
+" set tw=72
+" set fo=crqj
 set list
 set lcs=tab:▸\ ,trail:_
-set autoindent
+" set autoindent
 set spl=de,en
-set history=10000
+" set history=10000
 set ruler
-set laststatus=2
-set backspace=indent,eol,start
-set diffopt=filler,foldcolumn:0
-set foldmethod=indent
-set nofoldenable
-set completeopt=longest,menu
+" set laststatus=2
+" set backspace=indent,eol,start
+" set diffopt=filler,foldcolumn:0
+" set foldmethod=indent
+" set nofoldenable
+" set completeopt=longest,menu
 
-""" search
-set incsearch
+" """ search
+" set incsearch
 set smartcase
 set ignorecase
-set hlsearch
-nohlsearch
+" set hlsearch
+" nohlsearch
 
-""" menu
-set wildmenu
-set wildmode=longest,full
+" """ menu
+" set wildmenu
+" set wildmode=longest,full
 " set wildignore+=*.o,*.ali,*.gcno,*.gcda
-set wildignorecase
+" set wildignorecase
 " set wildcharm=<Tab>
 
 """ keybindings
 let mapleader=","
-set pastetoggle=<F2>
-noremap <F1> 
-noremap! <F1> 
-nnoremap <C-h> <C-W>h
-nnoremap <C-j> <C-W>j
-nnoremap <C-k> <C-W>k
-nnoremap <C-l> <C-W>l
 nnoremap <Leader>, <C-^>
+nnoremap <Leader>. :w<CR>:Neomake<CR>
 nnoremap <silent> <BS> :noh<CR><ESC>
 nnoremap <Leader>s :set spell!<CR>
-nnoremap <Leader>` g`"
-nnoremap <Leader>y :SyntasticToggleMode<CR>
 nnoremap <silent> <Leader>t :!termite -d "%:h"&<CR><CR>
-inoremap <C-b> <Left>
-inoremap <C-f> <Right>
 
 """ theme
 colorscheme github-custom
-
-""" gvim
-if has("gui_running")
-  set lines=60 columns=90
-  set linespace=2
-  set guifont=Source\ Code\ Pro\ 10
-  set guicursor+=a:blinkon0
-  set guioptions-=m  " remove menu bar
-  set guioptions-=T  " remove tool bar
-  set guioptions+=c  " console for choices
-  set guioptions-=e  " remove gui tabs
-  " set guioptions-=r  " scrollbars
-  " set guioptions-=R  " scrollbars
-  " set guioptions-=L  " scrollbars
-  nnoremap <C-Up> :call AdjustFontSize(1)<CR>:echo &guifont<CR>
-  nnoremap <C-Down> :call AdjustFontSize(-1)<CR>:echo &guifont<CR>
-endif
 
 """ rules
 if has("autocmd")
@@ -93,14 +68,7 @@ if has("autocmd")
   autocmd FileType json       setlocal ts=2 sw=2 sts=2 et
   autocmd FileType c          setlocal ts=4 sw=4 et
   autocmd FileType ada        setlocal ts=3 sw=3 sts=3 et fo-=o
-        \ makeprg=make
-        \| nnoremap <Leader>. :make!<CR>
-        \| nnoremap <Leader>/ :!./run_tests<CR>
   autocmd FileType tex        setlocal ts=2 sw=2 sts=2 et fo+=t spell
-        \| nnoremap <silent> <buffer> <Leader>. :w<CR> :!cd "%:h" && pdflatex
-        \ -halt-on-error "%:t" > /tmp/vim.out<CR>
-        \ :redraw!<CR> :if v:shell_error<Bar>
-        \ echo "shell returned" v:shell_error<Bar>endif<CR>
         \| nnoremap <silent> <buffer> <Leader>v
         \ :!evince "%:r.pdf" &> /dev/null &<CR> :redraw!<CR>
   autocmd FileType plaintex   setlocal ts=2 sw=2 sts=2 et fo+=t spell
@@ -117,9 +85,6 @@ if has("autocmd")
   autocmd FileType matlab setlocal commentstring=%\ %s
 endif
 
-""" browser
-let g:netrw_list_hide='\.swp$,\.o$,\.ali$,\.swo$,\.pyc$'
-
 """ plugins
 nnoremap <Leader>e :CtrlP<CR>
 nnoremap <Leader>b :CtrlPBuffer<CR>
@@ -128,9 +93,5 @@ nnoremap <Leader>c :CtrlP %:h<CR>
 let g:ctrlp_reuse_window = 'help'
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files']
 let g:ctrlp_match_window = 'max:99'
-let g:UltiSnipsSnippetsDir = "~/.vim/UltiSnips/"
 
-""" functions
-function! AdjustFontSize(amount)
-  let &guifont=substitute(&guifont,'\zs\d\+','\=eval(submatch(0)+a:amount)','')
-endfunction
+let g:neomake_tex_enabled_makers = ['rubber']
