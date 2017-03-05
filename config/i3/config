@@ -15,7 +15,8 @@ set $mod Mod4
 # is used in the bar {} block below.
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
-font pango:Cantarell Black 8.5
+# font pango:Cantarell Black 8.5
+font pango:Source Sans Pro Bold 9
 # Before i3 v4.8, we used to recommend this one as the default:
 # font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
 # The font above is very space-efficient, that is, it looks good, sharp and
@@ -223,7 +224,9 @@ assign [class="Firefox"] → $ws2
 assign [class="Thunderbird"] → $ws3
 assign [class="Pidgin"] → $ws4
 assign [class="Hexchat"] → $ws4
+assign [title="Signal"] → $ws4
 assign [class="Liferea"] → $ws5
+assign [class="Feedreader"] → $ws5
 assign [class="Spotify"] → $ws10
 
 # window rules
@@ -231,7 +234,6 @@ for_window [instance="Navigator" class="Firefox"] border none
 for_window [instance="Chromium" class="Chromium"] border none
 for_window [instance="Mail" class="Thunderbird"] border none
 for_window [class="Spotify"] border none
-# for_window [class="mpv"] floating enable
 for_window [class="Dolphin" title="Copying"] floating enable
 for_window [class="Dolphin" title="Moving"] floating enable
 for_window [class="Dolphin" title="Deleting"] floating enable
@@ -266,10 +268,47 @@ bindsym $mod+b border toggle
 hide_edge_borders both
 workspace_layout stacking
 
+#colors
+set $yellow        #b58900
+set $orange        #cb4b16
+set $red           #dc322f
+set $magenta       #d33682
+set $violet        #6c71c4
+set $blue          #268bd2
+set $cyan          #2aa198
+set $green         #859900
+
+set $base03        #002b36
+set $base02        #073642
+set $base01        #586e75
+set $base00        #657b83
+set $base0         #839496
+set $base1         #93a1a1
+set $base2         #eee8d5
+set $base3         #fdf6e3
+
+# class                 border  backgr. text    indicator child_border
+client.focused          $base0  $base01 $base3  $green    $base0
+client.focused_inactive $base01 $base02 $base2  $green    $base01
+client.unfocused        $base02 $base03 $base00 $green    $base02
+client.urgent           $base02 $red    $base2  $green    $base02
+# client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
+# client.background       #ffffff
+
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
     position top
     status_command i3status
     tray_output LVDS1
+        colors {
+        background $base03
+        statusline $base2
+        #                  border  backgr. text
+        focused_workspace  $base0  $base01 $base3
+        active_workspace   $base0  $base02 $base0
+        inactive_workspace $base02 $base03 $base00
+        urgent_workspace   $base02 $red    $base2
+        # binding_mode       #2f343a #900000 #ffffff
+    }
 }
