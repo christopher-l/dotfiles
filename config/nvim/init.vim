@@ -16,9 +16,9 @@ set scrolloff=1
 set colorcolumn=80
 " set ttm=0
 " set mouse=nv
-" set hidden
-" set tw=72
-" set fo=crqj
+set hidden
+set tw=72
+set fo=crqj
 set list
 set lcs=tab:▸\ ,trail:_
 " set autoindent
@@ -28,8 +28,8 @@ set ruler
 " set laststatus=2
 " set backspace=indent,eol,start
 " set diffopt=filler,foldcolumn:0
-" set foldmethod=indent
-" set nofoldenable
+set foldmethod=indent
+set nofoldenable
 " set completeopt=longest,menu
 
 " """ search
@@ -49,7 +49,8 @@ set ignorecase
 """ keybindings
 let mapleader=","
 nnoremap <Leader>, <C-^>
-nnoremap <Leader>. :w<CR>:Neomake<CR>
+nnoremap <Leader>. :w<CR>:Neomake!<CR>
+nnoremap <Leader>/ :w<CR>:Neomake<CR>
 nnoremap <silent> <BS> :noh<CR><ESC>
 nnoremap <Leader>s :set spell!<CR>
 nnoremap <silent> <Leader>t :!termite -d "%:h"&<CR><CR>
@@ -72,7 +73,7 @@ if has("autocmd")
         \| nnoremap <silent> <buffer> <Leader>v
         \ :!evince "%:r.pdf" &> /dev/null &<CR> :redraw!<CR>
   autocmd FileType plaintex   setlocal ts=2 sw=2 sts=2 et fo+=t spell
-  autocmd FileType markdown   setlocal ts=2 sw=2 sts=2 et fo+=t spell
+  autocmd FileType markdown   setlocal ts=4 sw=4 sts=4 et fo+=t spell
         \| nnoremap <buffer> <Leader>. :w<CR>:!pandoc "%" -o "%:r.pdf"<CR>
         \| nnoremap <silent> <buffer> <Leader>v
         \ :!evince "%:r.pdf" &> /dev/null &<CR> :redraw!<CR>
@@ -95,3 +96,8 @@ let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files']
 let g:ctrlp_match_window = 'max:99'
 
 let g:neomake_tex_enabled_makers = ['rubber']
+
+let g:neomake_markdown_pandoc_maker = {
+    \ 'args': ['-o', '%:r.pdf'],
+    \ }
+let g:neomake_markdown_enabled_makers = ['pandoc']
