@@ -48,6 +48,8 @@ set ignorecase
 
 """ keybindings
 let mapleader=","
+noremap <F1> <Nop>
+noremap! <F1> <Nop>
 nnoremap <Leader>, <C-^>
 nnoremap <Leader>. :w<CR>:Neomake!<CR>
 nnoremap <Leader>/ :w<CR>:Neomake<CR>
@@ -56,6 +58,7 @@ nnoremap <Leader>s :set spell!<CR>
 nnoremap <silent> <Leader>t :!termite -d "%:h"&<CR><CR>
 
 """ theme
+set termguicolors
 colorscheme github-custom
 
 """ rules
@@ -94,6 +97,7 @@ nnoremap <Leader>c :CtrlP %:h<CR>
 let g:ctrlp_reuse_window = 'help'
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files']
 let g:ctrlp_match_window = 'max:99'
+let g:ctrlp_follow_symlinks = 1
 
 let g:neomake_tex_enabled_makers = ['rubber']
 

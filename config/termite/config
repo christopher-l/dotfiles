@@ -38,58 +38,11 @@ size_hints = true
 # color7  = #dddddd
 # color15 = #cccccc
 
-# # Base 16 default dark
-# # https://github.com/chriskempson/base16-xresources/blob/master/xresources/base16-default-dark-256.Xresources
-# # special
-# foreground      = #d8d8d8
-# foreground_bold = #d8d8d8
-# cursor          = #d8d8d8
-# # background      = #181818
-# background      = #000000
-# # black
-# color0  = #181818
-# color8  = #585858
-# # red
-# color1  = #ab4642
-# color9  = #ab4642
-# # green
-# color2  = #a1b56c
-# color10 = #a1b56c
-# # yellow
-# color3  = #f7ca88
-# color11 = #f7ca88
-# # blue
-# color4  = #7cafc2
-# color12 = #7cafc2
-# # magenta
-# color5  = #ba8baf
-# color13 = #ba8baf
-# # cyan
-# color6  = #86c1b9
-# color14 = #86c1b9
-# # white
-# color7  = #d8d8d8
-# color15 = #f8f8f8
-# # additional colors
-# color16 = #dc9656
-# color17 = #a16946
-# color18 = #282828
-# color19 = #383838
-# color20 = #b8b8b8
-# color21 = #e8e8e8
-
 # Solarized light color scheme
-# foreground = #657b83
 foreground = #000000
-# foreground_bold = #073642
 foreground_bold = #000000
-#foreground_dim = #888888
-# background = #fdf6e3
 background = #ffffff
 cursor = #586e75
-# if unset, will reverse foreground and background
-#highlight = #839496
-# colors from color0 to color254 can be set
 color0 = #073642
 color1 = #dc322f
 color2 = #859900
@@ -107,32 +60,4 @@ color13 = #d33682
 color14 = #2aa198
 color15 = #fdf6e3
 
-# # Multicolor
-# #black
-# color0 = #171717
-# color8 = #737373
-# #red
-# color1 = #FF5E5E
-# color9 = #FF7878
-# #green
-# color2 = #9CE82B
-# color10 = #9ACD32
-# #yellow
-# color3 = #F0E68C
-# color11 = #EEE8AA
-# #blue
-# color4 = #008AFF
-# color12 = #4F98FF
-# #magenta
-# color5 = #E88CFF
-# color13 = #EDA6FF
-# #cyan
-# color6 = #87CEFA
-# color14 = #B0E2FF
-# #white
-# color7 = #DCDCCC
-# color15 = #FFFFFF
-# background = #101010
-# foreground = #d4d4d4
-
-# vim: commentstring=#\ %s
+# vim: ft=dosini cms=#\ %s

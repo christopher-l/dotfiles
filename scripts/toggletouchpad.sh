@@ -1,6 +1,6 @@
 #!/bin/sh
 
-DEVICE=11
+DEVICE=15
 STATE=`xinput list-props $DEVICE | grep "Device Enabled" | awk {'printf $4'}`
 
 if [ "$STATE" = "0" ]; then
