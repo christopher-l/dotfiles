@@ -38,7 +38,7 @@ size_hints = true
 # color7  = #dddddd
 # color15 = #cccccc
 
-# Solarized light color scheme
+# Solarized light, customized
 foreground = #000000
 foreground_bold = #000000
 background = #ffffff
@@ -47,17 +47,17 @@ color0 = #073642
 color1 = #dc322f
 color2 = #859900
 color3 = #b58900
-color4 = #268bd2
-color5 = #d33682
+color4 = #2076b3
+color5 = #ba3073
 color6 = #2aa198
 color7 = #eee8d5
 color8 = #002b36
 color9 = #cb4b16
-color10 = #859900
-color11 = #b58900
-color12 = #268bd2
-color13 = #d33682
-color14 = #2aa198
+color10 = #b1cc00
+color11 = #e6ae00
+color12 = #2a98e6
+color13 = #ed3d92
+color14 = #37d4c8
 color15 = #fdf6e3
 
 # vim: ft=dosini cms=#\ %s

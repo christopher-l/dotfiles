@@ -51,7 +51,7 @@ let mapleader=","
 noremap <F1> <Nop>
 noremap! <F1> <Nop>
 nnoremap <Leader>, <C-^>
-nnoremap <Leader>. :w<CR>:Neomake!<CR>
+nnoremap <Leader>. :wa<CR>:Neomake!<CR>
 nnoremap <Leader>/ :w<CR>:Neomake<CR>
 nnoremap <silent> <BS> :noh<CR><ESC>
 nnoremap <Leader>s :set spell!<CR>
