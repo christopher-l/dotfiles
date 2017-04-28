@@ -87,7 +87,7 @@ if has("autocmd")
   autocmd FileType vim        setlocal ts=2 sw=2 sts=2 et
   autocmd FileType python     setlocal ts=4 sw=4 sts=4 et
   autocmd FileType rust       setlocal ts=4 sw=4 sts=4 et
-        \| nnoremap <Leader>. :!cargo run<CR>
+        \| nnoremap <Leader>. :wa<CR>:Neomake cargo<CR>
   autocmd FileType gtkrc setlocal commentstring=#\ %s
   autocmd FileType matlab setlocal commentstring=%\ %s
 endif
@@ -108,3 +108,5 @@ let g:neomake_markdown_pandoc_maker = {
     \ 'args': ['-o', '%:r.pdf'],
     \ }
 let g:neomake_markdown_enabled_makers = ['pandoc']
+
+let g:neomake_rust_enabled_makers = ['cargo']
