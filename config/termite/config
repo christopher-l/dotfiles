@@ -11,8 +11,8 @@ size_hints = true
 # foreground      = #ffffff
 # foreground_bold = #ffffff
 # cursor          = #ffffff
-# #background      = #161616
-# background      = #000000
+# background      = #161616
+# # background      = #000000
 # # black
 # color0  = #222222
 # color8  = #666666

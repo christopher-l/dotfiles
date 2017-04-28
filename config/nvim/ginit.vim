@@ -1,4 +1,4 @@
-let s:fontsize=10
+let s:fontsize=11
 exec "GuiFont Source Code Pro:h" . s:fontsize
 GuiLinespace 2
 
