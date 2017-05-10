@@ -88,6 +88,7 @@ if has("autocmd")
   autocmd FileType python     setlocal ts=4 sw=4 sts=4 et
   autocmd FileType rust       setlocal ts=4 sw=4 sts=4 et
         \| nnoremap <Leader>. :wa<CR>:Neomake cargo<CR>
+        \| nnoremap <Leader>/ :wa<CR>:sp +te\ cargo\ run<CR>
   autocmd FileType gtkrc setlocal commentstring=#\ %s
   autocmd FileType matlab setlocal commentstring=%\ %s
 endif
