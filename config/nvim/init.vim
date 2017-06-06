@@ -11,6 +11,8 @@ Plug 'honza/vim-snippets'
 Plug 'neomake/neomake'
 " Plug 'w0ng/vim-hybrid'
 Plug 'rust-lang/rust.vim'
+Plug 'jacoborus/tender'
+Plug 'chriskempson/base16-vim'
 call plug#end()
 
 """ general
@@ -18,7 +20,7 @@ set number
 set scrolloff=1
 set colorcolumn=80
 " set ttm=0
-" set mouse=nv
+set mouse=nv
 set hidden
 set tw=72
 set fo=crqj
@@ -62,7 +64,8 @@ nnoremap <silent> <Leader>t :!termite -d "%:h"&<CR><CR>
 
 """ theme
 set termguicolors
-colorscheme github-custom
+colorscheme tender
+hi SignColumn guibg=None
 
 """ rules
 if has("autocmd")
@@ -86,11 +89,12 @@ if has("autocmd")
   autocmd FileType mail       setlocal cc=72 tw=72 fo+=t spell
   autocmd FileType vim        setlocal ts=2 sw=2 sts=2 et
   autocmd FileType python     setlocal ts=4 sw=4 sts=4 et
-  autocmd FileType rust       setlocal ts=4 sw=4 sts=4 et
+  autocmd FileType rust       setlocal ts=4 sw=4 sts=4 et tw=72
         \| nnoremap <Leader>. :wa<CR>:Neomake cargo<CR>
-        \| nnoremap <Leader>/ :wa<CR>:sp +te\ cargo\ run<CR>
+        \| nnoremap <Leader>/ :wa<CR>:sp +te\ cargo\ test<CR>
   autocmd FileType gtkrc setlocal commentstring=#\ %s
   autocmd FileType matlab setlocal commentstring=%\ %s
+  autocmd FileType gitcommit setlocal spell
 endif
 
 """ plugins
@@ -99,7 +103,7 @@ nnoremap <Leader>b :CtrlPBuffer<CR>
 nnoremap <Leader>m :CtrlPMRUFiles<CR>
 nnoremap <Leader>c :CtrlP %:h<CR>
 let g:ctrlp_reuse_window = 'help'
-let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files']
+" let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files']
 let g:ctrlp_match_window = 'max:99'
 let g:ctrlp_follow_symlinks = 1
 
@@ -111,3 +115,4 @@ let g:neomake_markdown_pandoc_maker = {
 let g:neomake_markdown_enabled_makers = ['pandoc']
 
 let g:neomake_rust_enabled_makers = ['cargo']
+let g:neomake_rust_cargo_command = ['test', '--no-run']
