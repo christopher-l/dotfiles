@@ -1,5 +1,5 @@
 let s:fontsize=11
-exec "GuiFont Source Code Pro:h" . s:fontsize
+exec "GuiFont Fira Mono Medium:h" . s:fontsize
 GuiLinespace 2
 
 function! AdjustFontSize(delta)
