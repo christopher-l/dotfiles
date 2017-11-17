@@ -1,10 +1,46 @@
 @namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
 
 /* Global UI font */
-* {
-  font-weight: normal;
-}
+/* * { */
+/*   font-weight: normal; */
+/* } */
 
 #TabsToolbar {
   visibility: collapse;
+}
+
+#nav-bar {
+  border-top-style: none !important;
+}
+
+#sidebar-splitter {
+  width: 4px !important;
+}
+
+#sidebar-box[sidebarcommand="treestyletab_piro_sakura_ne_jp-sidebar-action"] #sidebar-header {
+  display: none;
+}
+
+#context-openlink,
+#context-openlinkintab,
+#context-openlinkprivate,
+#context-openlinkinusercontext-menu,
+#context-bookmarklink,
+#context-savelink,
+#context-sendlink,
+#context-copyimage-contents,
+#context-copyimage,
+#context-sep-copyimage,
+#context-viewimage,
+#context-sendimage,
+#context-setWallpaper,
+#context-setDesktopBackground,
+#context-bookmarkpage,
+#context-savepage,
+#context-sendpage,
+#context-selectall,
+#context-sep-selectall,
+#context-viewbgimage
+{
+  display:none !important;
 }

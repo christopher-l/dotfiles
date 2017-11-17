@@ -2,17 +2,6 @@
   'ctrl-p': 'core:move-up'
   'ctrl-n': 'core:move-down'
 
-'atom-text-editor.vim-mode.normal-mode,atom-text-editor.vim-mode.visual-mode':
-  'ctrl-f': 'find-and-replace:show'
-
-'atom-text-editor.vim-mode:not(.insert-mode)':
+'atom-text-editor.vim-mode-plus:not(.insert-mode)':
   'ctrl-b': 'fuzzy-finder:toggle-buffer-finder'
-
-'atom-text-editor.vim-mode.visual-mode':
-  'ctrl-c': 'core:copy'
-
-'atom-text-editor.vim-mode:not(.insert-mode), atom-text-editor.vim-mode.visual-mode':
-  'g q': 'autoflow:reflow-selection'
-
-'atom-text-editor.vim-mode:not(.insert-mode)':
-  'g c': 'editor:toggle-line-comments'
+  'ctrl-f': 'find-and-replace:show'
