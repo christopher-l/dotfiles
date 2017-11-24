@@ -1,41 +1,62 @@
 "*":
-  welcome:
-    showOnStartup: false
+  build:
+    overrideThemeColors: false
+    panelVisibility: "Hidden"
+    saveOnBuild: true
+    stealFocus: false
+  "build-cargo":
+    extCommands:
+      cargoCheck: true
+      cargoClippy: true
   core:
+    autoHideMenuBar: true
     disabledPackages: [
       "welcome"
       "language-ada"
       "pdf-view"
     ]
-    autoHideMenuBar: true
   editor:
+    fontFamily: "source code pro medium, source han sans jp medium"
+    fontSize: 16
+    invisibles:
+      cr: false
+      eol: false
     scrollPastEnd: true
-    fontFamily: "source code pro semibold, source han sans jp medium"
+    scrollSensitivity: 80
     showIndentGuide: true
-    invisibles: {}
+    showInvisibles: true
   minimap:
     displayPluginsControls: false
     scrollAnimation: true
-  latex:
-    openResultAfterBuild: false
+  "spell-check":
+    grammars: [
+      "source.asciidoc"
+      "source.gfm"
+      "text.git-commit"
+      "text.plain"
+      "text.plain.null-grammar"
+      "source.rust"
+    ]
+    locales: [
+      "en-US"
+      "de-DE"
+    ]
   "tree-view":
+    alwaysOpenExisting: true
     hideIgnoredNames: true
     hideVcsIgnoredFiles: true
-  "find-and-replace":
-    openProjectFindResultsInRightPane: true
-  tabs:
-    usePreviewTabs: true
-  linter:
-    lintOnFly: false
-    showErrorTabProject: false
-    showErrorTabFile: false
-    statusIconScope: "File"
-".octave.source":
-  editor:
-    tabLength: 4
-".matlab.source":
-  editor:
-    tabLength: 4
+  "vim-mode-plus":
+    keymapBackslashToInnerCommentOrParagraphWhenToggleLineCommentsIsPending: true
 ".ada.source":
   editor:
     tabLength: 3
+".matlab.source":
+  editor:
+    tabLength: 4
+".octave.source":
+  editor:
+    tabLength: 4
+".rust.source":
+  editor:
+    preferredLineLength: 79
+    tabLength: 4
