@@ -51,6 +51,9 @@ set ignorecase
 " set wildignorecase
 " set wildcharm=<Tab>
 
+
+:set statusline=%<%f\ %h%m%r%=%-10.(%{neomake#statusline#LoclistStatus()}%)\ %-14.(%l,%c%V%)\ %P
+
 """ keybindings
 let mapleader=","
 noremap <F1> <Nop>
@@ -107,12 +110,11 @@ let g:ctrlp_reuse_window = 'help'
 let g:ctrlp_match_window = 'max:99'
 let g:ctrlp_follow_symlinks = 1
 
+let g:neomake_open_list = 2
 let g:neomake_tex_enabled_makers = ['rubber']
-
 let g:neomake_markdown_pandoc_maker = {
     \ 'args': ['-o', '%:r.pdf'],
     \ }
 let g:neomake_markdown_enabled_makers = ['pandoc']
-
 let g:neomake_rust_enabled_makers = ['cargo']
 let g:neomake_rust_cargo_command = ['test', '--no-run']
