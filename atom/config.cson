@@ -12,8 +12,6 @@
     autoHideMenuBar: true
     disabledPackages: [
       "welcome"
-      "language-ada"
-      "pdf-view"
     ]
   editor:
     fontFamily: "source code pro medium, source han sans jp medium"
@@ -35,6 +33,7 @@
       "text.plain"
       "text.plain.null-grammar"
       "source.rust"
+      "text.tex.latex"
     ]
     locales: [
       "en-US"
@@ -42,8 +41,6 @@
     ]
   "tree-view":
     alwaysOpenExisting: true
-    hideIgnoredNames: true
-    hideVcsIgnoredFiles: true
   "vim-mode-plus":
     keymapBackslashToInnerCommentOrParagraphWhenToggleLineCommentsIsPending: true
 ".ada.source":
