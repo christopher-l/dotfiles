@@ -23,7 +23,6 @@
       eol: false
     scrollPastEnd: true
     scrollSensitivity: 80
-    showIndentGuide: true
     showInvisibles: true
   minimap:
     displayPluginsControls: false
