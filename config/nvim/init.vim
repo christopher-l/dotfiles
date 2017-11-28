@@ -9,11 +9,17 @@ Plug 'kien/ctrlp.vim'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'neomake/neomake'
+Plug 'equalsraf/neovim-gui-shim'
+Plug 'dzhou121/gonvim-fuzzy'
+Plug 'junegunn/fzf.vim'
 " Plug 'w0ng/vim-hybrid'
 Plug 'rust-lang/rust.vim'
 Plug 'jacoborus/tender'
 Plug 'chriskempson/base16-vim'
+Plug 'altercation/vim-colors-solarized'
 call plug#end()
+
+set rtp+=/usr/share/vim/vimfiles/ "fzf vim plugin
 
 """ general
 set number
@@ -53,14 +59,9 @@ set ignorecase
 
 """ statusline
 function! MyStatusLine()
-  let job_name = exists("s:neomake_job_name") ? ' ' . s:neomake_job_name : ''
-  let has_failed = exists("s:neomake_exit_code") && s:neomake_exit_code != 0
-  if has_failed
-    let status_ok = '%#NeomakeStatColorTypeE#' . job_name . ' FAILED '
-  else
-    let status_ok = '%#NeomakeStatusGood#' . job_name . ' ✓ '
-  endif
+  let status_ok = GetNeomakeStatus()
   let neomake_status_str = neomake#statusline#get(bufnr("%"), {
+        \ 'format_running': '{{running_job_names}} ...',
         \ 'format_loclist_ok': status_ok,
         \ 'format_loclist_unknown': '',
         \ })
@@ -81,7 +82,7 @@ nnoremap <Leader>. :wa<CR>:Neomake!<CR>
 " nnoremap <Leader>/ :w<CR>:Neomake<CR>
 nnoremap <silent> <BS> :noh<CR><ESC>
 nnoremap <Leader>s :set spell!<CR>
-nnoremap <silent> <Leader>t :!termite -d "%:h"&<CR><CR>
+" nnoremap <silent> <Leader>t :!termite -d "%:h"&<CR><CR>
 
 """ theme
 set termguicolors
@@ -118,7 +119,6 @@ if has("autocmd")
         \| nnoremap <Leader>. :wa<CR>:Cargo<CR>
         \| nnoremap <Leader>> :wa<CR>:Cargo 
         \| nnoremap <Leader>/ :wa<CR>:sp +te\ cargo\ test<CR>G
-nnoremap <Leader>/ :w<CR>:Neomake<CR>
   autocmd FileType gtkrc setlocal commentstring=#\ %s
   autocmd FileType matlab setlocal commentstring=%\ %s
   autocmd FileType gitcommit setlocal spell
@@ -135,12 +135,12 @@ let g:ctrlp_match_window = 'max:99'
 let g:ctrlp_follow_symlinks = 1
 
 " au FileType rust let b:neomake_enabled_makers = ['cargo']
-let g:neomake_open_list = 2
+" let g:neomake_open_list = 2
 let g:neomake_tex_enabled_makers = ['rubber']
 let g:neomake_rust_enabled_makers = ['cargo']
 " let g:neomake_rust_cargo_command = ['test']
 
-:command -nargs=? Cargo :call RunCargo(<f-args>)
+:command! -nargs=? Cargo :call RunCargo(<f-args>)
 
 function! RunCargo(...)
   if a:0 == 1
@@ -150,17 +150,41 @@ function! RunCargo(...)
   endif
   let g:neomake_rust_cargo_command = [s:cargo_command]
   silent Neomake cargo
-  echo 'cargo '. s:cargo_command
+  echo ' cargo '. s:cargo_command
+endfunction
+
+function! GetNeomakeStatus() abort
+  let job_name = exists("s:neomake_job_name") ? ' ' . s:neomake_job_name : ''
+  let has_failed = exists("s:neomake_exit_code") && s:neomake_exit_code != 0
+  if has_failed
+    return '%#NeomakeStatColorTypeE#' . job_name . ' FAILED '
+  else
+    return '%#NeomakeStatusGood#' . job_name . ' ✓ '
+  endif
+endfunction
+
+function! PrintNeomakeStatus() abort
+  let job_name = exists("s:neomake_job_name") ? ' ' . s:neomake_job_name : ''
+  let has_failed = exists("s:neomake_exit_code") && s:neomake_exit_code != 0
+  if has_failed
+    echohl ErrorMsg
+    echo job_name . ' FAILED '
+    echohl None
+  else
+    echohl ModeMsg
+    echo job_name . ' ✓ '
+    echohl None
+  endif
 endfunction
 
 function! MyOnNeomakeJobFinished() abort
   let context = g:neomake_hook_context
   let s:neomake_exit_code = context.jobinfo.exit_code
+  let s:neomake_job_name = context.jobinfo.maker.name
   if context.jobinfo.maker.name == 'cargo' && exists("s:cargo_command")
-    let s:neomake_job_name = s:cargo_command
-  else
-    let s:neomake_job_name = context.jobinfo.maker.name
+    let s:neomake_job_name .= ' ' . s:cargo_command
   endif
+  call PrintNeomakeStatus()
 endfunction
 
 augroup my_neomake_hooks

@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Gonvim
+GenericName=Text Editor
+Comment=Edit text files
+Icon=vim
+Exec=bash -c "gonvim %F & sleep 1 && xprop -f WM_CLASS 8s -set WM_CLASS 'Gonvim' -name 'Gonvim'  && xprop -f _GTK_THEME_VARIANT 8u -set _GTK_THEME_VARIANT 'dark' -name 'Gonvim'"
+Terminal=false
+Type=Application
+Categories=Utility;TextEditor;
+MimeType=text/english;text/plain;text/x-makefile;text/x-c++hdr;text/x-c++src;text/x-chdr;text/x-csrc;text/x-java;text/x-moc;text/x-pascal;text/x-tcl;text/x-tex;application/x-shellscript;text/x-c;text/x-c++;

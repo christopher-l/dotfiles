@@ -1,20 +1,15 @@
-let s:fontsize=11
-exec "GuiFont Fira Mono Medium:h" . s:fontsize
-GuiLinespace 2
+GuiFont SourceCodePro:h12
 
-function! AdjustFontSize(delta)
-  let l:font=substitute(g:GuiFont, ':h\zs\d\+', '\=eval(submatch(0)+a:delta)', '')
-  exec "GuiFont " . l:font
-endfunction
+set bg=dark
+colorscheme base16-tomorrow-night
+hi SpellBad guifg=#cc6666
 
-function! ResetFontSize()
-  let l:font=substitute(g:GuiFont, ':h\zs\d\+', s:fontsize, '')
-  exec "GuiFont " . l:font
-endfunction
+set laststatus=0
+set noruler
+set statusline=
+set noshowmode
 
-nnoremap <C-=> :call AdjustFontSize(1)<CR>
-nnoremap <C-+> :call AdjustFontSize(1)<CR>
-nnoremap <C--> :call AdjustFontSize(-1)<CR>
-nnoremap <C-0> :call ResetFontSize()<CR>
-
-" inoremap <MiddleMouse> <C-R>*
+nnoremap <Leader>e :GonvimFuzzyFiles<CR>
+nnoremap <Leader>b :GonvimFuzzyBuffers<CR>
+" nnoremap <Leader>c :GonvimFuzzyAg<CR>
+nnoremap <Leader>g :GonvimFuzzyBLines<CR>
