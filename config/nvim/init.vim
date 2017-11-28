@@ -150,7 +150,7 @@ function! RunCargo(...)
   endif
   let g:neomake_rust_cargo_command = [s:cargo_command]
   silent Neomake cargo
-  echo ' cargo '. s:cargo_command
+  echo ' cargo ' . s:cargo_command . '...'
 endfunction
 
 function! GetNeomakeStatus() abort
