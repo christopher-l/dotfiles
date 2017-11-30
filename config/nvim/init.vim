@@ -31,7 +31,7 @@ set hidden
 set tw=72
 set fo=crqj
 set list
-set lcs=tab:▸\ ,trail:_
+set lcs=tab:▸\ ,trail:·
 " set autoindent
 set spl=de,en
 " set history=10000
@@ -115,7 +115,7 @@ if has("autocmd")
   autocmd FileType mail       setlocal cc=72 tw=72 fo+=t spell
   autocmd FileType vim        setlocal ts=2 sw=2 sts=2 et
   autocmd FileType python     setlocal ts=4 sw=4 sts=4 et
-  autocmd FileType rust       setlocal ts=4 sw=4 sts=4 et
+  autocmd FileType rust       setlocal ts=4 sw=4 sts=4 et tw=80
         \| nnoremap <Leader>. :wa<CR>:Cargo<CR>
         \| nnoremap <Leader>> :wa<CR>:Cargo 
         \| nnoremap <Leader>/ :wa<CR>:sp +te\ cargo\ test<CR>G
