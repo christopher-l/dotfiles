@@ -188,3 +188,7 @@ augroup my_neomake_hooks
   au!
   autocmd User NeomakeJobFinished call MyOnNeomakeJobFinished()
 augroup END
+
+if exists("g:GuiLoaded") && !exists('g:GtkGuiLoaded')
+  source $HOME/.config/nvim/ginit.vim
+endif
