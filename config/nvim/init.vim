@@ -1,25 +1,22 @@
 """ vim-plug
-call plug#begin('~/.local/share/nvim/plugged')
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-unimpaired'
-Plug 'tpope/vim-repeat'
-Plug 'kien/ctrlp.vim'
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
-Plug 'neomake/neomake'
-Plug 'equalsraf/neovim-gui-shim'
-Plug 'dzhou121/gonvim-fuzzy'
-Plug 'junegunn/fzf.vim'
-" Plug 'w0ng/vim-hybrid'
-Plug 'rust-lang/rust.vim'
-Plug 'jacoborus/tender'
-Plug 'chriskempson/base16-vim'
-Plug 'altercation/vim-colors-solarized'
-call plug#end()
-
-set rtp+=/usr/share/vim/vimfiles/ "fzf vim plugin
+if !exists('g:GtkGuiLoaded')
+  call plug#begin('~/.local/share/nvim/plugged')
+  Plug 'tpope/vim-fugitive'
+  Plug 'tpope/vim-commentary'
+  Plug 'tpope/vim-surround'
+  Plug 'tpope/vim-unimpaired'
+  Plug 'tpope/vim-repeat'
+  Plug 'kien/ctrlp.vim'
+  Plug 'SirVer/ultisnips'
+  Plug 'honza/vim-snippets'
+  Plug 'neomake/neomake'
+  Plug 'w0ng/vim-hybrid'
+  Plug 'rust-lang/rust.vim'
+  Plug 'jacoborus/tender'
+  Plug 'chriskempson/base16-vim'
+  Plug 'rhysd/nyaovim-tree-view'
+  call plug#end()
+endif
 
 """ general
 set number
@@ -61,13 +58,15 @@ set ignorecase
 function! MyStatusLine()
   let status_ok = GetNeomakeStatus()
   let neomake_status_str = neomake#statusline#get(bufnr("%"), {
-        \ 'format_running': '{{running_job_names}} ...',
+        \ 'format_running': '{{running_job_names}}...',
         \ 'format_loclist_ok': status_ok,
         \ 'format_loclist_unknown': '',
+        \ 'format_loclist_type_E': '{{type}}:{{count}} ',
+        \ 'format_loclist_type_W': '{{type}}:{{count}} ',
+        \ 'format_loclist_type_I': '{{type}}:{{count}} ',
         \ })
-  return "%<%f\ %h%m%r%=%-10.("
+  return "%<%f\ %h%m%r%=%-18.("
         \ . neomake_status_str
-        \ . "%#StatusLine#"
         \ . "%)\ %-14.(%l,%c%V%)\ %P"
 endfunction
 
@@ -86,12 +85,8 @@ nnoremap <Leader>s :set spell!<CR>
 
 """ theme
 set termguicolors
-colorscheme tender
-hi SignColumn guibg=None
-
-hi NeomakeStatColorTypeE guifg=red gui=reverse
-hi NeomakeStatColorTypeW guifg=yellow gui=reverse
-hi NeomakeStatusGood guifg=lightgreen gui=reverse
+" set bg=dark
+colorscheme base16-tomorrow
 
 """ rules
 if has("autocmd")
@@ -115,12 +110,13 @@ if has("autocmd")
   autocmd FileType mail       setlocal cc=72 tw=72 fo+=t spell
   autocmd FileType vim        setlocal ts=2 sw=2 sts=2 et
   autocmd FileType python     setlocal ts=4 sw=4 sts=4 et
-  autocmd FileType rust       setlocal ts=4 sw=4 sts=4 et tw=80
+  autocmd FileType rust       setlocal ts=4 sw=4 sts=4 et tw=79 fo+=t
         \| nnoremap <Leader>. :wa<CR>:Cargo<CR>
         \| nnoremap <Leader>> :wa<CR>:Cargo 
         \| nnoremap <Leader>/ :wa<CR>:sp +te\ cargo\ test<CR>G
   autocmd FileType gtkrc setlocal commentstring=#\ %s
   autocmd FileType matlab setlocal commentstring=%\ %s
+  autocmd FileType desktop setlocal commentstring=#\ %s
   autocmd FileType gitcommit setlocal spell
 endif
 
@@ -157,9 +153,9 @@ function! GetNeomakeStatus() abort
   let job_name = exists("s:neomake_job_name") ? ' ' . s:neomake_job_name : ''
   let has_failed = exists("s:neomake_exit_code") && s:neomake_exit_code != 0
   if has_failed
-    return '%#NeomakeStatColorTypeE#' . job_name . ' FAILED '
+    return job_name . ' FAILED '
   else
-    return '%#NeomakeStatusGood#' . job_name . ' ✓ '
+    return job_name . ' ✓ '
   endif
 endfunction
 
