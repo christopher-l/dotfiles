@@ -38,6 +38,7 @@ set ruler
 " set diffopt=filler,foldcolumn:0
 set foldmethod=indent
 set nofoldenable
+set foldnestmax=2
 " set completeopt=longest,menu
 
 " """ search
@@ -86,7 +87,7 @@ nnoremap <Leader>s :set spell!<CR>
 """ theme
 set termguicolors
 " set bg=dark
-colorscheme base16-tomorrow
+" colorscheme base16-tomorrow
 
 """ rules
 if has("autocmd")

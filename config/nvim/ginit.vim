@@ -29,4 +29,6 @@ nnoremap <C--> :call AdjustFontSize(-1)<CR>
 nnoremap <C-0> :call ResetFontSize()<CR>
 
 set bg=dark
-colorscheme hybrid
+let g:spacegray_underline_search = 1
+let g:spacegray_use_italics = 1
+colorscheme spacegray
