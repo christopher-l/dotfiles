@@ -19,6 +19,7 @@ if !exists('g:GtkGuiLoaded')
 endif
 
 """ general
+set exrc
 set number
 set scrolloff=1
 set colorcolumn=80
@@ -119,6 +120,9 @@ if has("autocmd")
   autocmd FileType matlab setlocal commentstring=%\ %s
   autocmd FileType desktop setlocal commentstring=#\ %s
   autocmd FileType gitcommit setlocal spell
+  autocmd FileType xml setlocal et ts=2 sw=2 sts=2
+
+  autocmd DirChanged * if filereadable(".exrc") | source .exrc | endif
 endif
 
 """ plugins
@@ -127,7 +131,7 @@ nnoremap <Leader>b :CtrlPBuffer<CR>
 nnoremap <Leader>m :CtrlPMRUFiles<CR>
 nnoremap <Leader>c :CtrlP %:h<CR>
 let g:ctrlp_reuse_window = 'help'
-" let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files']
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files']
 let g:ctrlp_match_window = 'max:99'
 let g:ctrlp_follow_symlinks = 1
 
