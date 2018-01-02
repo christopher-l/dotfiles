@@ -2,10 +2,10 @@
 Name=NeovimGtk
 Comment=Gtk GUI for Neovim text editor
 # Exec=nvim-gtk -- %U
-Exec=/home/chris/dev/neovim-gtk-git/src/neovim-gtk/target/release/nvim-gtk -- %U
+Exec=env NVIM_GTK_PREFER_DARK_THEME=1 bash -c '/home/chris/dev/neovim-gtk-git/src/neovim-gtk/target/release/nvim-gtk -- %U 2> nvim-gtk.stderr'
 # Exec=env NVIM_GTK_PREFER_DARK_THEME=1 nvim-gtk -- %F
 # Icon=org.daa.NeovimGtk
-Icon=vim
+Icon=gvim
 Type=Application
 Terminal=false
 Categories=GTK;Utility;TextEditor;

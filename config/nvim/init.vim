@@ -14,7 +14,6 @@ if !exists('g:GtkGuiLoaded')
   Plug 'rust-lang/rust.vim'
   Plug 'jacoborus/tender'
   Plug 'chriskempson/base16-vim'
-  Plug 'rhysd/nyaovim-tree-view'
   call plug#end()
 endif
 
@@ -22,7 +21,8 @@ endif
 set exrc
 set number
 set scrolloff=1
-set colorcolumn=80
+" set colorcolumn=80
+let &colorcolumn=join(range(81,999),",")
 " set ttm=0
 set mouse=nv
 set hidden
@@ -121,6 +121,7 @@ if has("autocmd")
   autocmd FileType desktop setlocal commentstring=#\ %s
   autocmd FileType gitcommit setlocal spell
   autocmd FileType xml setlocal et ts=2 sw=2 sts=2
+  autocmd FileType dosini setlocal commentstring=#\ %s
 
   autocmd DirChanged * if filereadable(".exrc") | source .exrc | endif
 endif
@@ -134,6 +135,8 @@ let g:ctrlp_reuse_window = 'help'
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files']
 let g:ctrlp_match_window = 'max:99'
 let g:ctrlp_follow_symlinks = 1
+
+let g:deoplete#enable_at_startup = 1
 
 " au FileType rust let b:neomake_enabled_makers = ['cargo']
 " let g:neomake_open_list = 2
