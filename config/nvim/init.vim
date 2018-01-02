@@ -21,12 +21,12 @@ endif
 set exrc
 set number
 set scrolloff=1
-" set colorcolumn=80
-let &colorcolumn=join(range(81,999),",")
+" Highlight all columns after current textwidth
+let &colorcolumn=join(map(range(1,999), '"+".v:val'), ",")
 " set ttm=0
 set mouse=nv
 set hidden
-set tw=72
+set tw=80
 set fo=crqj
 set list
 set lcs=tab:▸\ ,trail:·
@@ -42,14 +42,14 @@ set nofoldenable
 set foldnestmax=2
 " set completeopt=longest,menu
 
-" """ search
+""" search
 " set incsearch
 set smartcase
 set ignorecase
 " set hlsearch
 " nohlsearch
 
-" """ menu
+""" menu
 " set wildmenu
 " set wildmode=longest,full
 " set wildignore+=*.o,*.ali,*.gcno,*.gcda
@@ -109,7 +109,7 @@ if has("autocmd")
         \| nnoremap <buffer> <Leader>. :w<CR>:!pandoc "%" -o "%:r.pdf"<CR>
         \| nnoremap <silent> <buffer> <Leader>v
         \ :!evince "%:r.pdf" &> /dev/null &<CR> :redraw!<CR>
-  autocmd FileType mail       setlocal cc=72 tw=72 fo+=t spell
+  autocmd FileType mail       setlocal tw=72 fo+=t spell
   autocmd FileType vim        setlocal ts=2 sw=2 sts=2 et
   autocmd FileType python     setlocal ts=4 sw=4 sts=4 et
   autocmd FileType rust       setlocal ts=4 sw=4 sts=4 et tw=79 fo+=t
@@ -120,7 +120,7 @@ if has("autocmd")
   autocmd FileType matlab setlocal commentstring=%\ %s
   autocmd FileType desktop setlocal commentstring=#\ %s
   autocmd FileType gitcommit setlocal spell
-  autocmd FileType xml setlocal et ts=2 sw=2 sts=2
+  autocmd FileType xml setlocal et ts=2 sw=2 sts=2 tw=0
   autocmd FileType dosini setlocal commentstring=#\ %s
 
   autocmd DirChanged * if filereadable(".exrc") | source .exrc | endif
