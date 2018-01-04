@@ -11,7 +11,7 @@ if test -d "$HOME/.zsh/functions/"; then
     unset file
 fi
 
-if [[ "$TERM" == xterm-termite ]] ; then
+if [[ "$TERM" == xterm-termite ]]; then
     # Enable Ctrl-Shift-T
     source /etc/profile.d/vte.sh
 fi

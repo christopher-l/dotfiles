@@ -1,7 +1,6 @@
 let s:default_fontsize = 11
 let s:fontsize = s:default_fontsize
 let s:font = "Fira Mono Medium"
-GuiLinespace 2
 
 function! SetFont() abort
   if exists('g:GtkGuiLoaded')

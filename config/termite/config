@@ -1,63 +1,41 @@
 [options]
-font = Source Code Pro 10
+font = Fira Mono Medium 10
 scrollback_lines = 10000
 browser = firefox
 size_hints = true
 
 [colors]
 
-# # Hybrid Colors
-# # special
-# foreground      = #ffffff
-# foreground_bold = #ffffff
-# cursor          = #ffffff
+# Hybrid Colors
+# special
+foreground      = #ffffff
+foreground_bold = #ffffff
+cursor          = #ffffff
 # background      = #161616
-# # background      = #000000
-# # black
-# color0  = #222222
-# color8  = #666666
-# # red
-# color1  = #e84f4f
-# color9  = #d23d3d
-# # green
-# color2  = #b7ce42
-# color10 = #bde077
-# # yellow
-# color3  = #fea63c
-# color11 = #ffe863
-# # blue
-# color4  = #66aabb
-# color12 = #aaccbb
-# # magenta
-# color5  = #b7416e
-# color13 = #e16a98
-# # cyan
-# color6  = #6d878d
-# color14 = #42717b
-# # white
-# color7  = #dddddd
-# color15 = #cccccc
-
-# Solarized light, customized
-foreground = #000000
-foreground_bold = #000000
-background = #ffffff
-cursor = #586e75
-color0 = #073642
-color1 = #dc322f
-color2 = #859900
-color3 = #b58900
-color4 = #2076b3
-color5 = #ba3073
-color6 = #2aa198
-color7 = #eee8d5
-color8 = #002b36
-color9 = #cb4b16
-color10 = #b1cc00
-color11 = #e6ae00
-color12 = #2a98e6
-color13 = #ed3d92
-color14 = #37d4c8
-color15 = #fdf6e3
+background      = #000000
+# black
+color0  = #222222
+color8  = #666666
+# red
+color1  = #e84f4f
+color9  = #d23d3d
+# green
+color2  = #b7ce42
+color10 = #bde077
+# yellow
+color3  = #fea63c
+color11 = #ffe863
+# blue
+color4  = #66aabb
+color12 = #aaccbb
+# magenta
+color5  = #b7416e
+color13 = #e16a98
+# cyan
+color6  = #6d878d
+color14 = #42717b
+# white
+color7  = #dddddd
+color15 = #cccccc
 
 # vim: ft=dosini cms=#\ %s

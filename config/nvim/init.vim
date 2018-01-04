@@ -12,8 +12,6 @@ if !exists('g:GtkGuiLoaded')
   Plug 'neomake/neomake'
   Plug 'w0ng/vim-hybrid'
   Plug 'rust-lang/rust.vim'
-  Plug 'jacoborus/tender'
-  Plug 'chriskempson/base16-vim'
   call plug#end()
 endif
 
@@ -88,7 +86,7 @@ nnoremap <Leader>s :set spell!<CR>
 """ theme
 set termguicolors
 set bg=dark
-" colorscheme base16-tomorrow
+colorscheme hybrid
 
 """ rules
 if has("autocmd")
