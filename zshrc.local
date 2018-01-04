@@ -1,4 +1,5 @@
 # use with grml config
+export PATH=$HOME/.local/bin:$PATH
 export EDITOR=nvim
 export _JAVA_AWT_WM_NONREPARENTING=1
 setopt pushdminus
@@ -8,13 +9,6 @@ if test -d "$HOME/.zsh/functions/"; then
         test -r "$file" && . "$file"
     done
     unset file
-fi
-
-hash -d sem=~/Documents/Uni/Master/Sem4/
-
-if [[ $(hostname) == kestrel ]] ; then
-    # export XDG_DATA_DIRS="$HOME/.nix-profile/share:/nix/var/nix/profiles/default/share:/run/current-system/sw/share"
-    # export MANPATH=$HOME/.nix-profile/share/man:/run/current-system/sw/share/man
 fi
 
 if [[ "$TERM" == xterm-termite ]] ; then

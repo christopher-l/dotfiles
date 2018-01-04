@@ -1,13 +1,9 @@
 [user]
-	name = Christopher Luebbemeier
-	email = christopher.luebbemeier@uni-weimar.de
+	name = Christopher Lübbemeier
+	email = christopher.luebbemeier@gmail.com
 [color]
-	branch = auto
-	diff = auto
-	status = auto
+	ui = auto
 [push]
 	default = simple
-[merge]
-	tool = vimdiff
-[help]
-	autocorrect = -1
+[core]
+	pager = less -+XF

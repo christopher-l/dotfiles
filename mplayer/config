@@ -1,8 +1,0 @@
-# Write your default config options here!
-
-ao=pulse
-
-[projector]
-ao=alsa:device=hw=0.3
-ac=hwdts,hwac3,
-fs=true

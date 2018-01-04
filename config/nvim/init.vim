@@ -87,7 +87,7 @@ nnoremap <Leader>s :set spell!<CR>
 
 """ theme
 set termguicolors
-" set bg=dark
+set bg=dark
 " colorscheme base16-tomorrow
 
 """ rules
