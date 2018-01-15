@@ -82,6 +82,7 @@ nnoremap <Leader>. :wa<CR>:Neomake!<CR>
 nnoremap <silent> <BS> :noh<CR><ESC>
 nnoremap <Leader>s :set spell!<CR>
 " nnoremap <silent> <Leader>t :!termite -d "%:h"&<CR><CR>
+nnoremap <silent> <Leader>t :sp +te<CR>i
 
 """ theme
 set termguicolors
@@ -100,7 +101,8 @@ if has("autocmd")
   autocmd FileType c          setlocal ts=4 sw=4 et
   autocmd FileType ada        setlocal ts=3 sw=3 sts=3 et fo-=o
   autocmd FileType tex        setlocal ts=2 sw=2 sts=2 et fo+=t spell
-        \| nnoremap <silent> <buffer> <Leader>v
+        \| syntax spell toplevel
+        \ nnoremap <silent> <buffer> <Leader>v
         \ :!evince "%:r.pdf" &> /dev/null &<CR> :redraw!<CR>
   autocmd FileType plaintex   setlocal ts=2 sw=2 sts=2 et fo+=t spell
   autocmd FileType markdown   setlocal ts=4 sw=4 sts=4 et fo+=t spell
@@ -120,6 +122,7 @@ if has("autocmd")
   autocmd FileType gitcommit setlocal spell
   autocmd FileType xml setlocal et ts=2 sw=2 sts=2 tw=0
   autocmd FileType dosini setlocal commentstring=#\ %s
+  autocmd FileType bib setlocal et ts=2 sw=2 sts=2 commentstring=%\ %s
 
   autocmd DirChanged * if filereadable(".exrc") | source .exrc | endif
 endif
