@@ -113,9 +113,9 @@ if has("autocmd")
   autocmd FileType vim        setlocal ts=2 sw=2 sts=2 et
   autocmd FileType python     setlocal ts=4 sw=4 sts=4 et
   autocmd FileType rust       setlocal ts=4 sw=4 sts=4 et tw=79 fo+=t
-        \| nnoremap <Leader>. :wa<CR>:Cargo<CR>
-        \| nnoremap <Leader>> :wa<CR>:Cargo 
-        \| nnoremap <Leader>/ :wa<CR>:sp +te\ cargo\ test<CR>G
+        \| nnoremap <buffer> <Leader>. :wa<CR>:Cargo<CR>
+        \| nnoremap <buffer> <Leader>> :wa<CR>:Cargo 
+        \| nnoremap <buffer> <Leader>/ :wa<CR>:sp +te\ cargo\ test<CR>G
   autocmd FileType gtkrc setlocal commentstring=#\ %s
   autocmd FileType matlab setlocal commentstring=%\ %s
   autocmd FileType desktop setlocal commentstring=#\ %s
