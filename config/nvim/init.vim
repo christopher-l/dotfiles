@@ -1,6 +1,5 @@
 """ vim-plug
-if !exists('g:GtkGuiLoaded')
-  call plug#begin('~/.local/share/nvim/plugged')
+call plug#begin('~/.local/share/nvim/plugged')
   Plug 'tpope/vim-fugitive'
   Plug 'tpope/vim-commentary'
   Plug 'tpope/vim-surround'
@@ -10,10 +9,15 @@ if !exists('g:GtkGuiLoaded')
   Plug 'SirVer/ultisnips'
   Plug 'honza/vim-snippets'
   Plug 'neomake/neomake'
+  Plug 'lervag/vimtex'
+  Plug 'racer-rust/vim-racer'
+  Plug 'vim-airline/vim-airline'
+  Plug 'vim-airline/vim-airline-themes'
   Plug 'w0ng/vim-hybrid'
   Plug 'rust-lang/rust.vim'
-  call plug#end()
-endif
+  Plug 'albertorestifo/github.vim'
+  Plug 'nlknguyen/papercolor-theme'
+call plug#end()
 
 """ general
 set exrc
@@ -21,56 +25,21 @@ set number
 set scrolloff=1
 " Highlight all columns after current textwidth
 let &colorcolumn=join(map(range(1,999), '"+".v:val'), ",")
-" set ttm=0
 set mouse=nv
 set hidden
 set tw=80
 set fo=crqj
 set list
 set lcs=tab:▸\ ,trail:·
-" set autoindent
 set spl=de,en
-" set history=10000
 set ruler
-" set laststatus=2
-" set backspace=indent,eol,start
-" set diffopt=filler,foldcolumn:0
 set foldmethod=indent
 set nofoldenable
 set foldnestmax=2
-" set completeopt=longest,menu
 
 """ search
-" set incsearch
 set smartcase
 set ignorecase
-" set hlsearch
-" nohlsearch
-
-""" menu
-" set wildmenu
-" set wildmode=longest,full
-" set wildignore+=*.o,*.ali,*.gcno,*.gcda
-" set wildignorecase
-" set wildcharm=<Tab>
-
-""" statusline
-function! MyStatusLine()
-  let status_ok = GetNeomakeStatus()
-  let neomake_status_str = neomake#statusline#get(bufnr("%"), {
-        \ 'format_running': '{{running_job_names}}...',
-        \ 'format_loclist_ok': status_ok,
-        \ 'format_loclist_unknown': '',
-        \ 'format_loclist_type_E': '{{type}}:{{count}} ',
-        \ 'format_loclist_type_W': '{{type}}:{{count}} ',
-        \ 'format_loclist_type_I': '{{type}}:{{count}} ',
-        \ })
-  return "%<%f\ %h%m%r%=%-18.("
-        \ . neomake_status_str
-        \ . "%)\ %-14.(%l,%c%V%)\ %P"
-endfunction
-
-set statusline=%!MyStatusLine()
 
 """ keybindings
 let mapleader=","
@@ -78,10 +47,8 @@ noremap <F1> <Nop>
 noremap! <F1> <Nop>
 nnoremap <Leader>, <C-^>
 nnoremap <Leader>. :wa<CR>:Neomake!<CR>
-" nnoremap <Leader>/ :w<CR>:Neomake<CR>
 nnoremap <silent> <BS> :noh<CR><ESC>
 nnoremap <Leader>s :set spell!<CR>
-" nnoremap <silent> <Leader>t :!termite -d "%:h"&<CR><CR>
 nnoremap <silent> <Leader>t :sp +te<CR>i
 
 """ theme
@@ -112,10 +79,12 @@ if has("autocmd")
   autocmd FileType mail       setlocal tw=72 fo+=t spell
   autocmd FileType vim        setlocal ts=2 sw=2 sts=2 et
   autocmd FileType python     setlocal ts=4 sw=4 sts=4 et
-  autocmd FileType rust       setlocal ts=4 sw=4 sts=4 et tw=79 fo+=t
-        \| nnoremap <buffer> <Leader>. :wa<CR>:Cargo<CR>
+  autocmd FileType rust       setlocal ts=4 sw=4 sts=4 et tw=80 fo+=t
+        \| nnoremap <buffer> <Leader>. :wa<CR>:Cargo build<CR>
         \| nnoremap <buffer> <Leader>> :wa<CR>:Cargo 
         \| nnoremap <buffer> <Leader>/ :wa<CR>:sp +te\ cargo\ test<CR>G
+        \| nmap <buffer> gd <Plug>(rust-def)
+  autocmd FileType gtkrc setlocal commentstring=#\ %s
   autocmd FileType gtkrc setlocal commentstring=#\ %s
   autocmd FileType matlab setlocal commentstring=%\ %s
   autocmd FileType desktop setlocal commentstring=#\ %s
@@ -137,37 +106,25 @@ let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files']
 let g:ctrlp_match_window = 'max:99'
 let g:ctrlp_follow_symlinks = 1
 
-let g:deoplete#enable_at_startup = 1
+let g:airline#extensions#neomake#enabled = 1
+let g:airline_theme = 'papercolor'
 
-" au FileType rust let b:neomake_enabled_makers = ['cargo']
-" let g:neomake_open_list = 2
 let g:neomake_tex_enabled_makers = ['rubber']
 let g:neomake_rust_enabled_makers = ['cargo']
-" let g:neomake_rust_cargo_command = ['test']
 
-:command! -nargs=? Cargo :call RunCargo(<f-args>)
+let g:tex_flavor = 'latex'
+let g:vimtex_syntax_minted = [
+          \ {
+          \   'lang' : 'rust',
+          \   'environments' : ['rustcode'],
+          \   'ignored': ['rustinline'],
+          \ }
+\]
 
-function! RunCargo(...)
-  if a:0 == 1
-    let s:cargo_command = a:1
-  elseif !exists("s:cargo_command")
-    let s:cargo_command = 'build'
-  endif
-  let g:neomake_rust_cargo_command = [s:cargo_command]
-  silent Neomake cargo
-  echo ' cargo ' . s:cargo_command . '...'
-endfunction
+let g:racer_cmd = "/home/chris/.cargo/bin/racer"
+let g:racer_experimental_completer = 1
 
-function! GetNeomakeStatus() abort
-  let job_name = exists("s:neomake_job_name") ? ' ' . s:neomake_job_name : ''
-  let has_failed = exists("s:neomake_exit_code") && s:neomake_exit_code != 0
-  if has_failed
-    return job_name . ' FAILED '
-  else
-    return job_name . ' ✓ '
-  endif
-endfunction
-
+""" Neomake
 function! PrintNeomakeStatus() abort
   let job_name = exists("s:neomake_job_name") ? ' ' . s:neomake_job_name : ''
   let has_failed = exists("s:neomake_exit_code") && s:neomake_exit_code != 0
@@ -197,6 +154,7 @@ augroup my_neomake_hooks
   autocmd User NeomakeJobFinished call MyOnNeomakeJobFinished()
 augroup END
 
+""" GUI Config
 if exists("g:GuiLoaded") && !exists('g:GtkGuiLoaded')
   source $HOME/.config/nvim/ginit.vim
 endif
