@@ -8,18 +8,21 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'kien/ctrlp.vim'
   Plug 'SirVer/ultisnips'
   Plug 'honza/vim-snippets'
-  Plug 'neomake/neomake'
+  Plug 'skywind3000/asyncrun.vim'
   Plug 'lervag/vimtex'
-  Plug 'racer-rust/vim-racer'
-  Plug 'vim-airline/vim-airline'
-  Plug 'vim-airline/vim-airline-themes'
+  Plug 'autozimu/LanguageClient-neovim', {
+      \ 'branch': 'next',
+      \ 'do': 'bash install.sh',
+      \ }
+  Plug 'roxma/nvim-completion-manager'
   Plug 'w0ng/vim-hybrid'
   Plug 'rust-lang/rust.vim'
   Plug 'albertorestifo/github.vim'
   Plug 'nlknguyen/papercolor-theme'
+  Plug 'protesilaos/prot16-vim'
 call plug#end()
 
-""" general
+""" General
 set exrc
 set number
 set scrolloff=1
@@ -37,26 +40,27 @@ set foldmethod=indent
 set nofoldenable
 set foldnestmax=2
 
-""" search
+""" Search
 set smartcase
 set ignorecase
 
-""" keybindings
+""" Keybindings
 let mapleader=","
 noremap <F1> <Nop>
 noremap! <F1> <Nop>
 nnoremap <Leader>, <C-^>
-nnoremap <Leader>. :wa<CR>:Neomake!<CR>
 nnoremap <silent> <BS> :noh<CR><ESC>
 nnoremap <Leader>s :set spell!<CR>
 nnoremap <silent> <Leader>t :sp +te<CR>i
+nnoremap <silent> <Leader>. :wa<CR>:RunAsync<CR>
+nnoremap <Leader>> :wa<CR>:RunAsync 
 
-""" theme
+""" Theme
 set termguicolors
 set bg=dark
 colorscheme hybrid
 
-""" rules
+""" Rules
 if has("autocmd")
   autocmd FileType make       setlocal ts=8 sw=8 noet
   autocmd FileType cmake      setlocal ts=2 sw=2 et
@@ -80,10 +84,10 @@ if has("autocmd")
   autocmd FileType vim        setlocal ts=2 sw=2 sts=2 et
   autocmd FileType python     setlocal ts=4 sw=4 sts=4 et
   autocmd FileType rust       setlocal ts=4 sw=4 sts=4 et tw=80 fo+=t
-        \| nnoremap <buffer> <Leader>. :wa<CR>:Cargo build<CR>
-        \| nnoremap <buffer> <Leader>> :wa<CR>:Cargo 
+        \| if !exists("g:async_command") | let g:async_command = 'cargo build'
+        \| endif
+        \| nnoremap <buffer> <Leader>> :wa<CR>:RunAsync cargo 
         \| nnoremap <buffer> <Leader>/ :wa<CR>:sp +te\ cargo\ test<CR>G
-        \| nmap <buffer> gd <Plug>(rust-def)
   autocmd FileType gtkrc setlocal commentstring=#\ %s
   autocmd FileType gtkrc setlocal commentstring=#\ %s
   autocmd FileType matlab setlocal commentstring=%\ %s
@@ -92,11 +96,12 @@ if has("autocmd")
   autocmd FileType xml setlocal et ts=2 sw=2 sts=2 tw=0
   autocmd FileType dosini setlocal commentstring=#\ %s
   autocmd FileType bib setlocal et ts=2 sw=2 sts=2 commentstring=%\ %s
+  autocmd FileType help setlocal nospell
 
   autocmd DirChanged * if filereadable(".exrc") | source .exrc | endif
 endif
 
-""" plugins
+""" Plugins
 nnoremap <Leader>e :CtrlP<CR>
 nnoremap <Leader>b :CtrlPBuffer<CR>
 nnoremap <Leader>m :CtrlPMRUFiles<CR>
@@ -106,12 +111,10 @@ let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files']
 let g:ctrlp_match_window = 'max:99'
 let g:ctrlp_follow_symlinks = 1
 
-let g:airline#extensions#neomake#enabled = 1
-let g:airline_theme = 'papercolor'
-
 let g:neomake_tex_enabled_makers = ['rubber']
 let g:neomake_rust_enabled_makers = ['cargo']
 
+let g:vimtex_fold_enabled = 1
 let g:tex_flavor = 'latex'
 let g:vimtex_syntax_minted = [
           \ {
@@ -121,38 +124,36 @@ let g:vimtex_syntax_minted = [
           \ }
 \]
 
-let g:racer_cmd = "/home/chris/.cargo/bin/racer"
-let g:racer_experimental_completer = 1
+let g:LanguageClient_serverCommands = {
+    \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
+    \ }
+nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
 
-""" Neomake
-function! PrintNeomakeStatus() abort
-  let job_name = exists("s:neomake_job_name") ? ' ' . s:neomake_job_name : ''
-  let has_failed = exists("s:neomake_exit_code") && s:neomake_exit_code != 0
-  if has_failed
-    echohl ErrorMsg
-    echo job_name . ' FAILED '
-    echohl None
+""" AsyncRun
+function! RunAsync(...)
+  if a:0 == 1
+    let g:async_command = a:1
+  elseif !exists("g:async_command")
+    let g:async_command = 'make'
+  endif
+  exec "AsyncRun " . g:async_command
+endfunction
+command! -nargs=? RunAsync :call RunAsync(<f-args>)
+
+function! Get_asyncrun_status()
+  let async_status = g:asyncrun_status
+  if async_status == 'running'
+    return g:async_command . ' •'
+  elseif async_status == 'success'
+    return g:async_command . ' ✔'
+  elseif async_status == 'failure'
+    return g:async_command . ' ✘'
   else
-    echohl ModeMsg
-    echo job_name . ' ✓ '
-    echohl None
+    return ''
   endif
 endfunction
 
-function! MyOnNeomakeJobFinished() abort
-  let context = g:neomake_hook_context
-  let s:neomake_exit_code = context.jobinfo.exit_code
-  let s:neomake_job_name = context.jobinfo.maker.name
-  if context.jobinfo.maker.name == 'cargo' && exists("s:cargo_command")
-    let s:neomake_job_name .= ' ' . s:cargo_command
-  endif
-  call PrintNeomakeStatus()
-endfunction
-
-augroup my_neomake_hooks
-  au!
-  autocmd User NeomakeJobFinished call MyOnNeomakeJobFinished()
-augroup END
+set statusline=%<%f\ %h%m%r%=%{Get_asyncrun_status()}\ \ \ %-14.(%l,%c%V%)\ %P
 
 """ GUI Config
 if exists("g:GuiLoaded") && !exists('g:GtkGuiLoaded')
