@@ -9,6 +9,7 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'SirVer/ultisnips'
   Plug 'honza/vim-snippets'
   Plug 'skywind3000/asyncrun.vim'
+  Plug 'mh21/errormarker.vim'
   Plug 'lervag/vimtex'
   Plug 'autozimu/LanguageClient-neovim', {
       \ 'branch': 'next',
@@ -20,6 +21,9 @@ call plug#begin('~/.local/share/nvim/plugged')
   Plug 'albertorestifo/github.vim'
   Plug 'nlknguyen/papercolor-theme'
   Plug 'protesilaos/prot16-vim'
+  Plug 'thenewvu/vim-colors-blueprint'
+  Plug 'jakwings/vim-colors'
+  Plug 'arcticicestudio/nord-vim'
 call plug#end()
 
 """ General
@@ -72,9 +76,10 @@ if has("autocmd")
   autocmd FileType c          setlocal ts=4 sw=4 et
   autocmd FileType ada        setlocal ts=3 sw=3 sts=3 et fo-=o
   autocmd FileType tex        setlocal ts=2 sw=2 sts=2 et fo+=t spell
-        \| syntax spell toplevel
-        \ nnoremap <silent> <buffer> <Leader>v
+        \| let &l:errorformat = '%f:%l-%*\d: %m,%f:%l: %m,'
+        \| nnoremap <silent> <buffer> <Leader>v
         \ :!evince "%:r.pdf" &> /dev/null &<CR> :redraw!<CR>
+        \| syntax spell toplevel
   autocmd FileType plaintex   setlocal ts=2 sw=2 sts=2 et fo+=t spell
   autocmd FileType markdown   setlocal ts=4 sw=4 sts=4 et fo+=t spell
         \| nnoremap <buffer> <Leader>. :w<CR>:!pandoc "%" -o "%:r.pdf"<CR>
@@ -129,7 +134,14 @@ let g:LanguageClient_serverCommands = {
     \ }
 nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
 
+let errormarker_errortextgroup = "Error"
+let errormarker_errorgroup = ""
+let errormarker_warninggroup = ""
+
 """ AsyncRun
+" Trigger AutoCmds for errormarker
+let g:asyncrun_auto = "make"
+
 function! RunAsync(...)
   if a:0 == 1
     let g:async_command = a:1

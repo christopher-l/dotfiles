@@ -1,3 +1,5 @@
+set guicursor=n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20,a:blinkwait9999999999999
+
 let s:default_fontsize = 11
 let s:fontsize = s:default_fontsize
 let s:font = "Fira Mono Medium"
@@ -27,7 +29,4 @@ nnoremap <C-+> :call AdjustFontSize(1)<CR>
 nnoremap <C--> :call AdjustFontSize(-1)<CR>
 nnoremap <C-0> :call ResetFontSize()<CR>
 
-set bg=dark
-let g:spacegray_underline_search = 1
-let g:spacegray_use_italics = 1
-colorscheme spacegray
+noremap <F9> :call rpcnotify(1, 'Gui', 'Command', 'ToggleSidebar')<CR>
