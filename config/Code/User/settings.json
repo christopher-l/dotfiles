@@ -1,0 +1,69 @@
+{
+    "workbench.activityBar.visible": true,
+    "workbench.colorTheme": "GitHub Plus",
+    "workbench.iconTheme": "vs-minimal",
+    "workbench.statusBar.feedback.visible": false,
+    "window.menuBarVisibility": "toggle",
+    "window.zoomLevel": 0,
+    "editor.fontFamily": "Source Code Pro",
+    "editor.minimap.showSlider": "always",
+    "editor.mouseWheelZoom": true,
+    "editor.renderWhitespace": "boundary",
+    "editor.rulers": [
+        80
+    ],
+    "diffEditor.renderSideBySide": false,
+    "explorer.decorations.badges": false,
+    "git.confirmSync": false,
+    "extensions.ignoreRecommendations": true,
+    "vim.leader": ",",
+    "vim.otherModesKeyBindingsNonRecursive": [
+        {
+            "before": ["leader", ">"],
+            "after": [],
+            "commands": [
+                {
+                    "command": "workbench.action.tasks.runTask",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": ["leader", "."],
+            "after": [],
+            "commands": [
+                {
+                    "command": "workbench.action.tasks.build",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": ["leader", "/"],
+            "after": [],
+            "commands": [
+                {
+                    "command": "workbench.action.tasks.test",
+                    "args": []
+                }
+            ]
+        },
+    ],
+    "vim.foldfix": true,
+    "vim.handleKeys": {
+        "<C-b>": false,
+        "<C-f>": false,
+        "<C-k>": false,
+    },
+    "vim.mouseSelectionGoesIntoVisualMode": false,
+    "vim.visualstar": true,
+    "rust-client.updateOnStartup": true,
+    "symbolOutline.topLevel": [
+        "Class",
+        "Module",
+        "Constructor",
+        "Function",
+        "Method",
+    ],
+    "diffEditor.ignoreTrimWhitespace": true,
+}
