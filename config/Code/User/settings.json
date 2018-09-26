@@ -1,54 +1,17 @@
 {
-    "workbench.activityBar.visible": true,
-    "workbench.colorTheme": "GitHub Plus",
-    "workbench.iconTheme": "vs-minimal",
-    "workbench.statusBar.feedback.visible": false,
-    "window.menuBarVisibility": "toggle",
-    "window.zoomLevel": 0,
-    "editor.fontFamily": "Source Code Pro",
+    "diffEditor.renderSideBySide": false,
+    "editor.fontFamily": "Source Code Pro Medium",
+    "editor.minimap.enabled": false,
     "editor.minimap.showSlider": "always",
     "editor.mouseWheelZoom": true,
-    "editor.renderWhitespace": "boundary",
     "editor.rulers": [
         80
     ],
-    "diffEditor.renderSideBySide": false,
-    "explorer.decorations.badges": false,
-    "git.confirmSync": false,
+    "explorer.confirmDelete": false,
     "extensions.ignoreRecommendations": true,
-    "vim.leader": ",",
-    "vim.otherModesKeyBindingsNonRecursive": [
-        {
-            "before": ["leader", ">"],
-            "after": [],
-            "commands": [
-                {
-                    "command": "workbench.action.tasks.runTask",
-                    "args": []
-                }
-            ]
-        },
-        {
-            "before": ["leader", "."],
-            "after": [],
-            "commands": [
-                {
-                    "command": "workbench.action.tasks.build",
-                    "args": []
-                }
-            ]
-        },
-        {
-            "before": ["leader", "/"],
-            "after": [],
-            "commands": [
-                {
-                    "command": "workbench.action.tasks.test",
-                    "args": []
-                }
-            ]
-        },
-    ],
+    "git.autofetch": true,
+    "git.confirmSync": false,
+    "terminal.integrated.fontFamily": "source code pro",
     "vim.foldfix": true,
     "vim.handleKeys": {
         "<C-b>": false,
@@ -57,13 +20,9 @@
     },
     "vim.mouseSelectionGoesIntoVisualMode": false,
     "vim.visualstar": true,
-    "rust-client.updateOnStartup": true,
-    "symbolOutline.topLevel": [
-        "Class",
-        "Module",
-        "Constructor",
-        "Function",
-        "Method",
-    ],
-    "diffEditor.ignoreTrimWhitespace": true,
+    "window.menuBarVisibility": "toggle",
+    "window.titleBarStyle": "custom",
+    "window.zoomLevel": 1,
+    "workbench.colorTheme": "Visual Studio Dark",
+    "workbench.statusBar.feedback.visible": false,
 }

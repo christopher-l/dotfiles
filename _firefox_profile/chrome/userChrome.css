@@ -1,11 +1,5 @@
 @namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
 
-/* Global UI font */
-/* * { */
-/*   font-weight: normal; */
-/* } */
-
-/*#sidebar-box[sidebarcommand="treestyletab_piro_sakura_ne_jp-sidebar-action"]*/
 #sidebar-header {
   display: none;
 }
@@ -19,8 +13,6 @@
 }
 
 #nav-bar {
-  /* border-top: 1px solid #444444 !important; */
-  /* border-bottom-style: 1px solid #222222 !important; */
   box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.5) !important;
 }
 

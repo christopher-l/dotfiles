@@ -1,7 +1,7 @@
 [Desktop Entry]
 Name=NeovimGtk
 Comment=Gtk GUI for Neovim text editor
-Exec=bash -c 'NVIM_GTK_PREFER_DARK_THEME=1 /home/chris/dev/neovim-gtk-git/src/neovim-gtk/target/release/nvim-gtk -- %U 2> nvim-gtk.stderr'
+Exec=bash -c 'NVIM_GTK_PREFER_DARK_THEME=0 /home/chris/dev/neovim-gtk-git/src/neovim-gtk/target/release/nvim-gtk -- %U'
 Icon=gvim
 Type=Application
 Terminal=false

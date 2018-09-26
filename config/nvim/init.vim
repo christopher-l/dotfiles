@@ -15,7 +15,7 @@ call plug#begin('~/.local/share/nvim/plugged')
       \ 'branch': 'next',
       \ 'do': 'bash install.sh',
       \ }
-  Plug 'roxma/nvim-completion-manager'
+  " Plug 'roxma/nvim-completion-manager'
   Plug 'w0ng/vim-hybrid'
   Plug 'rust-lang/rust.vim'
   Plug 'albertorestifo/github.vim'

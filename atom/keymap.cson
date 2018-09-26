@@ -1,7 +1,0 @@
-'atom-text-editor:not(mini).autocomplete-active':
-  'ctrl-p': 'core:move-up'
-  'ctrl-n': 'core:move-down'
-
-'atom-text-editor.vim-mode-plus:not(.insert-mode)':
-  'ctrl-b': 'fuzzy-finder:toggle-buffer-finder'
-  'ctrl-f': 'find-and-replace:show'
