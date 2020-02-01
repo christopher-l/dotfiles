@@ -365,7 +365,7 @@ bar {
 # The following exec calls run programs in the background when i3 starts.
 
 # Start ~~the installed regolith-compositor~~ compton
-exec --no-startup-id /usr/bin/compton -f --config ~/.config/regolith/compton/config
+exec --no-startup-id /usr/bin/compton --config ~/.config/regolith/compton/config
 
 # Start Rofication for notifications
 exec --no-startup-id /usr/share/rofication/rofication-daemon.py
