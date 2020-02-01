@@ -78,11 +78,27 @@ bindsym $mod+Shift+j move down
 bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
 
+# change output focus
+bindsym $mod+Ctrl+Left focus output left
+bindsym $mod+Ctrl+Down focus output down
+bindsym $mod+Ctrl+Up focus output up
+bindsym $mod+Ctrl+Right focus output right
+
+bindsym $mod+Ctrl+h focus output left
+bindsym $mod+Ctrl+j focus output down
+bindsym $mod+Ctrl+k focus output up
+bindsym $mod+Ctrl+l focus output right
+
 # move workspaces to outputs
 bindsym $mod+Ctrl+Shift+Left move workspace to output left
 bindsym $mod+Ctrl+Shift+Down move workspace to output down
 bindsym $mod+Ctrl+Shift+Up move workspace to output up
 bindsym $mod+Ctrl+Shift+Right move workspace to output right
+
+bindsym $mod+Ctrl+Shift+h move workspace to output left
+bindsym $mod+Ctrl+Shift+j move workspace to output down
+bindsym $mod+Ctrl+Shift+k move workspace to output up
+bindsym $mod+Ctrl+Shift+l move workspace to output right
 
 # toggle split orientation
 bindsym $mod+BackSpace split toggle
@@ -102,7 +118,8 @@ bindsym $mod+Ctrl+a scratchpad show
 bindsym $mod+Shift+t focus mode_toggle
 
 # toggle tabbed mode
-bindsym $mod+t layout toggle tabbed splith splitv
+bindsym $mod+t layout toggle tabbed splith
+bindsym $mod+s layout stacking
 
 # switch to workspace
 bindsym $mod+1 workspace number $ws1
@@ -128,6 +145,8 @@ bindsym $mod+Ctrl+9 workspace number $ws19
 # cycle across workspaces
 bindsym $mod+Tab workspace next
 bindsym $mod+Shift+Tab workspace prev
+
+bindsym $mod+Escape workspace back_and_forth
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace number $ws1
@@ -187,7 +206,7 @@ bindsym $mod+Shift+b exec /usr/bin/gnome-session-quit --reboot
 bindsym $mod+Shift+p exec /usr/bin/gnome-session-quit --power-off
 
 # lock the screen
-bindsym $mod+Escape exec gnome-screensaver-command --lock
+bindsym $mod+Delete exec gnome-screensaver-command --lock
 
 # put the system to sleep
 bindsym $mod+Shift+s exec systemctl suspend
@@ -294,7 +313,9 @@ client.urgent           $urgent.color.border               $urgent.color.backgro
 popup_during_fullscreen smart
 
 # window focus follows your mouse movements as the mouse crosses window borders
-focus_follows_mouse no
+focus_follows_mouse yes
+
+workspace_auto_back_and_forth yes
 
 # Create variables from Xresources for i3bars's look.
 set_from_resource $i3-wm.bar.background.color i3-wm.bar.background.color "#002b36"
@@ -343,8 +364,8 @@ bar {
 
 # The following exec calls run programs in the background when i3 starts.
 
-# Start the installed regolith-compositor
-exec --no-startup-id /usr/share/regolith-compositor/init
+# Start ~~the installed regolith-compositor~~ compton
+exec --no-startup-id /usr/bin/compton -f --config ~/.config/regolith/compton/config
 
 # Start Rofication for notifications
 exec --no-startup-id /usr/share/rofication/rofication-daemon.py
