@@ -39,7 +39,7 @@ hide_edge_borders smart
 workspace_layout stacking
 
 ## Launch // Terminal // <Super> Enter ##
-bindsym $mod+Return exec /usr/bin/x-terminal-emulator
+bindsym $mod+Return exec /usr/bin/gnome-terminal
 
 ## Launch // Browser // <Super><Shift> Enter ##
 bindsym $mod+Shift+Return exec gtk-launch $(xdg-settings get default-web-browser)
@@ -360,6 +360,7 @@ set_from_resource $i3-wm.window.border.size i3-wm.window.border.size 1
 set_from_resource $i3-wm.floatingwindow.border.size i3-wm.floatingwindow.border.size 1
 default_border pixel $i3-wm.window.border.size
 default_floating_border pixel $i3-wm.floatingwindow.border.size
+for_window [class=".*"] border pixel 1
 
 # Specify the distance between windows in pixels. (i3-gaps)
 set_from_resource $i3-wm.gaps.inner.size i3-wm.gaps.inner.size 5
@@ -409,6 +410,9 @@ popup_during_fullscreen smart
 # window focus follows your mouse movements as the mouse crosses window borders
 focus_follows_mouse yes
 
+# When a window requests focus, set the urgent hint instead
+focus_on_window_activation urgent
+
 workspace_auto_back_and_forth yes
 
 # Create variables from Xresources for i3bars's look.
@@ -439,7 +443,7 @@ font "pango:$i3-wm.font"
 set_from_resource $i3-wm.bar.position i3-wm.bar.position bottom
 set_from_resource $i3-wm.bar.font i3-wm.bar.font "pango:Source Code Pro Medium 13, Material Design Icons 13"
 set_from_resource $i3-wm.bar.separator i3-wm.bar.separator " "
-set_from_resource $i3-wm.bar.trayoutput i3-wm.bar.trayoutput none
+set_from_resource $i3-wm.bar.trayoutput i3-wm.bar.trayoutput primary
 set_from_resource $i3-wm.bar.stripworkspacenumbers i3-wm.bar.stripworkspacenumbers yes
 
 # i3xrocks config file. Override this for custom status indicators on the bar.
@@ -470,7 +474,7 @@ bar {
 # The following exec calls run programs in the background when i3 starts.
 
 # Start the installed regolith-compositor
-exec --no-startup-id /usr/share/regolith-compositor/init
+#exec --no-startup-id /usr/share/regolith-compositor/init
 #exec --no-startup-id /usr/bin/compton --config ~/.config/regolith/compton/config
 
 # Start Rofication for notifications
