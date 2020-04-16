@@ -39,7 +39,7 @@ hide_edge_borders smart
 workspace_layout stacking
 
 ## Launch // Terminal // <Super> Enter ##
-bindsym $mod+Return exec /usr/bin/gnome-terminal
+bindsym $mod+Return exec /usr/bin/tilix
 
 ## Launch // Browser // <Super><Shift> Enter ##
 bindsym $mod+Shift+Return exec gtk-launch $(xdg-settings get default-web-browser)
