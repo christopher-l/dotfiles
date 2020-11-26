@@ -1,0 +1,87 @@
+{
+  // Window
+  "window.menuBarVisibility": "toggle",
+  "window.newWindowDimensions": "inherit",
+  "window.title": "${rootName}",
+  "window.zoomLevel": 1,
+
+  // Style
+  "workbench.colorTheme": "Nord",
+  "editor.fontFamily": "Liberation Mono",
+  "editor.fontSize": 13,
+  "editor.lineHeight": 24,
+  "workbench.tree.indent": 20,
+
+  // Behavior
+  "editor.acceptSuggestionOnCommitCharacter": false,
+  "editor.mouseWheelZoom": true,
+  "editor.tabCompletion": "onlySnippets",
+  "workbench.editor.revealIfOpen": true,
+
+  // Don't show again
+  "explorer.confirmDelete": false,
+  "explorer.confirmDragAndDrop": false,
+  "git.autofetch": true,
+  "git.confirmSync": false,
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  
+  // View
+  "editor.rulers": [100],
+  "outline.showProperties": false,
+  "outline.showVariables": false,
+
+  // Technical
+  "terminal.integrated.rendererType": "dom",
+
+  // Ruler and Minimap
+  "editor.minimap.enabled": true,
+  "editor.minimap.renderCharacters": false,
+  "editor.minimap.showSlider": "always",
+  // "editor.scrollbar.verticalScrollbarSize": 0,
+  "workbench.colorCustomizations": {
+    "editorOverviewRuler.infoForeground": "#0000", // hide spelling mistakes from overview ruler
+    "editorOverviewRuler.warningForeground": "#0000",
+    "minimap.warningHighlight": "#0000",
+  },
+
+  // Plugins
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "python.formatting.provider": "black",
+  "gitlens.hovers.currentLine.over": "line",
+  "gitlens.views.repositories.location": "gitlens",
+  "gitlens.views.fileHistory.location": "gitlens",
+  "gitlens.views.lineHistory.location": "gitlens",
+  "gitlens.views.compare.location": "gitlens",
+  "gitlens.views.search.location": "gitlens",
+  "gitlens.menus": false,
+  "gitlens.mode.statusBar.enabled": false,
+  "gitlens.mode.active": "zen",
+  "cSpell.enableFiletypes": [
+    "shellscript",
+    "xml"
+  ],
+  "cSpell.language": "en,de",
+  "cSpell.userWords": [
+    "nestjs",
+    "postgres"
+  ],
+  "cSpell.showCommandsInEditorContextMenu": false,
+  "bookmarks.showCommandsInContextMenu": false,
+
+  // Ungrouped
+}
