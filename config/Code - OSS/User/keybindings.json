@@ -60,4 +60,12 @@
         "command": "workbench.action.terminal.focusAtIndex9",
         "when": "terminalFocus"
     },
+    {
+        "key": "ctrl+s",
+        "command": "workbench.action.files.saveAll"
+    },
+    {
+        "key": "ctrl+s",
+        "command": "-workbench.action.files.save"
+    }
 ]
