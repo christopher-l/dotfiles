@@ -27,7 +27,8 @@ const directions = {
 // Utility Functions
 // ============================================
 
-function getPreviousSpaceOnScreen() {
+/** Returns the last workspace that was active on the active monitor.  */
+function getPreviousSpaceOnMonitor() {
     let spaces = Tiling.spaces;
     const mru = [...spaces.stack];
     const from = mru.indexOf(spaces.selectedSpace);
@@ -38,6 +39,7 @@ function getPreviousSpaceOnScreen() {
     return mru[to];
 }
 
+/** Returns the neighboring monitor in the given direction relative to the active monitor.  */
 function getMonitor(direction) {
     let display = global.display;
     let spaces = Tiling.spaces;
@@ -104,11 +106,16 @@ function activateWorkspaceOnCurrentMonitor() {
 }
 
 function moveSpaceToMonitor(basebinding = '<super><alt>') {
+    /**
+     * Move the active workspace to a neighboring monitor in the given direction.
+     * 
+     * The active monitor switches back the last workspace that was active on that monitor.
+     */
     function moveTo(direction) {
         let spaces = Tiling.spaces;
         let currentSpace = spaces.selectedSpace;
         let nextMonitor = getMonitor(direction);
-        getPreviousSpaceOnScreen().workspace.activate(global.get_current_time());
+        getPreviousSpaceOnMonitor().workspace.activate(global.get_current_time());
         currentSpace.setMonitor(nextMonitor);
         spaces.monitors.set(nextMonitor, currentSpace);
         currentSpace.workspace.activate(global.get_current_time());
@@ -126,6 +133,19 @@ function moveSpaceToMonitor(basebinding = '<super><alt>') {
             },
         );
     }
+}
+
+/**
+ * Activates the next empty workspace on the currently active monitor.
+ */
+function goToNextEmptyWorkspace(binding = "<Super>n") {
+    Keybindings.bindkey(binding, "go-to-next-empty-space", () => {
+        let spaces = Tiling.spaces;
+        targetSpace = [...spaces.values()].find((space) => space.length === 0);
+        if (targetSpace) {
+            targetSpace.workspace.activate(global.get_current_time());
+        }
+    });
 }
 
 // ============================================
@@ -147,8 +167,10 @@ function init() {
 
     // Keybindings
     moveSpaceToMonitor();
-    Examples.keybindings.cycleMonitor();
     activateWorkspaceOnCurrentMonitor();
+    goToNextEmptyWorkspace();
+    Examples.keybindings.cycleMonitor();
+    Examples.keybindings.reorderWorkspace();
 
     // Window properties
     for (const wm_class of wmClassesToMoveToScratch) {
