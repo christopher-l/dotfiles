@@ -4,8 +4,8 @@ set -e
 
 function apply_vscode() {
     local config_file="$HOME/.config/Code - OSS/User/settings.json"
-    local dark_theme="Nord"
-    local light_theme="GitHub Light"
+    local dark_theme="Visual Studio Dark"
+    local light_theme="Visual Studio Light"
     local selected_theme=$1_theme
     local theme=${!selected_theme}
     sed -i "s/\"workbench.colorTheme\": \".*\"/\"workbench.colorTheme\": \"$theme\"/" "$config_file"
@@ -22,7 +22,7 @@ function apply_gnome_terminal() {
 case "$1" in
 light | dark)
     apply_vscode $1
-    apply_gnome_terminal $1
+    # apply_gnome_terminal $1
     ;;
 *)
     echo "Usage:"

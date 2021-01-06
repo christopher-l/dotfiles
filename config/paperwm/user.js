@@ -138,7 +138,7 @@ function moveSpaceToMonitor(basebinding = '<super><alt>') {
 /**
  * Activates the next empty workspace on the currently active monitor.
  */
-function goToNextEmptyWorkspace(binding = "<Super>n") {
+function goToNextEmptyWorkspace(binding = "<Super><Shift>Return") {
     Keybindings.bindkey(binding, "go-to-next-empty-space", () => {
         let spaces = Tiling.spaces;
         targetSpace = [...spaces.values()].find((space) => space.length === 0);
@@ -171,6 +171,7 @@ function init() {
     goToNextEmptyWorkspace();
     Examples.keybindings.cycleMonitor();
     Examples.keybindings.reorderWorkspace();
+    Examples.keybindings.cycleEdgeSnap();
 
     // Window properties
     for (const wm_class of wmClassesToMoveToScratch) {
