@@ -1,41 +1,25 @@
-@namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
-
-#sidebar-header {
-  display: none;
-}
-
-:root {
-  --headerbar-height: 42px;
-}
+/* Hide tabs bar */
 
 #TabsToolbar {
+  display: flex;
+  height: 0;
+}
+
+.toolbar-items {
   visibility: collapse;
 }
 
-#nav-bar {
-  box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.5) !important;
-}
-
-#sidebar-splitter {
-  width: 0px !important;
-  border-left-style: none !important;
-}
-
-#titlebar {
-  margin-bottom: calc(var(--headerbar-height) * (-1)) !important;
-}
-
-#titlebar-content {
-  height: var(--headerbar-height);
+.titlebar-buttonbox-container {
+  margin-left: auto;
+  height: 42px;
 }
 
 #nav-bar {
-  height: var(--headerbar-height);
   padding-left: 3px !important;
-  padding-right: 80px !important;
+  padding-right: 40px !important;
 }
 
-#titlebar-buttonbox {
+.titlebar-buttonbox {
   margin: 0px 5px;
 }
 
@@ -44,4 +28,15 @@
   border-inline-start: none !important;
   border-inline-end: 1px solid;
   padding-right: 5px;
+}
+
+/* Remove sidebar header and thick border */
+
+#sidebar-header {
+  display: none;
+}
+
+#sidebar-splitter {
+  width: 0px !important;
+  border-left-style: none !important;
 }
