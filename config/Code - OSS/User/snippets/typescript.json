@@ -15,20 +15,13 @@
 	"Log to the console": { 
 		"prefix": "log", 
 		"body": [ 
-			"console.log('$1')"
+			"console.log($1)"
 		], 
 		"description": "Log to the console" 
 	}, 
-	"Debug log": { 
-		"prefix": "dl", 
-		"body": [ 
-			"console.log('$1:', $1)"
-		], 
-		"description": "Log to the console" 
-	},
 	"Unimplemented": {
-		"prefix": "uim",
-		"body": "throw new Error('unimplemented')",
+		"prefix": "ni",
+		"body": "throw new Error('not implemented')",
 		"description": "Throw 'unimplemented' error"
 	},
 	"Timeout": {
@@ -38,5 +31,14 @@
 			"\t${TM_SELECTED_TEXT}$1",
 			"});$0"
 		]
+	},
+	"Test": {
+		"prefix": "it",
+		"body": [
+			"it('$1', () => {",
+			"\t$0",
+			"});"
+		],
+		"description": ""
 	}
 }
