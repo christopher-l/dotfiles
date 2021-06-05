@@ -4,11 +4,23 @@ set -e
 
 function apply_vscode() {
     local config_file="$HOME/.config/Code - OSS/User/settings.json"
-    local dark_theme="Visual Studio Dark"
-    local light_theme="Visual Studio Light"
-    local selected_theme=$1_theme
-    local theme=${!selected_theme}
-    sed -i "s/\"workbench.colorTheme\": \".*\"/\"workbench.colorTheme\": \"$theme\"/" "$config_file"
+    # Select specific theme
+
+    # local dark_theme="Visual Studio Dark"
+    # local light_theme="Visual Studio Light"
+    # local selected_theme=$1_theme
+    # local theme=${!selected_theme}
+    # sed -i "s/\"workbench.colorTheme\": \".*\"/\"workbench.colorTheme\": \"$theme\"/" "$config_file"
+
+    # Toggle "~ Dark" / "~ Light"
+    case "$1" in
+    light)
+        sed -i "s/\"workbench.colorTheme\": \"\(.*\)Dark\(.*\)\"/\"workbench.colorTheme\": \"\1Light\2\"/" "$config_file"
+        ;;
+    dark)
+        sed -i "s/\"workbench.colorTheme\": \"\(.*\)Light\(.*\)\"/\"workbench.colorTheme\": \"\1Dark\2\"/" "$config_file"
+        ;;
+    esac
 }
 
 function apply_gnome_terminal() {
