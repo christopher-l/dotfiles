@@ -31,9 +31,19 @@ function apply_gnome_terminal() {
     gsettings set org.gnome.Terminal.ProfilesList default $profile
 }
 
+function apply_qt5() {
+    local config_file="$HOME/.config/qt5ct/qt5ct.conf"
+    local dark_theme="Adwaita-Dark"
+    local light_theme="Adwaita"
+    local selected_theme=$1_theme
+    local theme=${!selected_theme}
+    sed -i "s/^style=.*$/style=$theme/" "$config_file"
+}
+
 case "$1" in
 light | dark)
     apply_vscode $1
+    apply_qt5 $1
     # apply_gnome_terminal $1
     ;;
 *)
