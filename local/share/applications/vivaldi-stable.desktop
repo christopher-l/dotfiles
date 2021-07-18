@@ -105,14 +105,14 @@ Comment[vi]=Truy cập Internet
 Comment[zh_CN]=访问互联网
 Comment[zh_HK]=連線到網際網路
 Comment[zh_TW]=連線到網際網路
-Exec=/usr/bin/vivaldi-stable %U
+Exec=/usr/bin/vivaldi-stable --enable-features=UseOzonePlatform --ozone-platform=wayland %U
 StartupNotify=true
 Terminal=false
 Icon=vivaldi
 Type=Application
 Categories=Network;WebBrowser;
 MimeType=application/pdf;application/rdf+xml;application/rss+xml;application/xhtml+xml;application/xhtml_xml;application/xml;image/gif;image/jpeg;image/png;image/webp;text/html;text/xml;x-scheme-handler/ftp;x-scheme-handler/http;x-scheme-handler/https;x-scheme-handler/mailto;
-Actions=new-window;new-private-window;dark-mode;
+Actions=new-window;new-private-window;
 
 [Desktop Action new-window]
 Name=New Window
@@ -166,7 +166,7 @@ Name[uk]=Нове вікно
 Name[vi]=Cửa sổ Mới
 Name[zh_CN]=新建窗口
 Name[zh_TW]=開新視窗
-Exec=/usr/bin/vivaldi-stable --new-window
+Exec=/usr/bin/vivaldi-stable --enable-features=UseOzonePlatform --ozone-platform=wayland --new-window
 
 [Desktop Action new-private-window]
 Name=New Private Window
@@ -218,9 +218,4 @@ Name[uk]=Нове приватне вікно
 Name[vi]=Cửa sổ Riêng tư Mới
 Name[zh_CN]=新建隐私窗口
 Name[zh_TW]=新增無痕視窗
-Exec=/usr/bin/vivaldi-stable --incognito
-
-[Desktop Action dark-mode]
-Name=Dark Mode
-Exec=/usr/bin/vivaldi-stable --force-dark-mode
-
+Exec=/usr/bin/vivaldi-stable --enable-features=UseOzonePlatform --ozone-platform=wayland --incognito

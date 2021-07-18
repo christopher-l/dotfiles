@@ -34,7 +34,7 @@ GenericName[zh_TW]=密碼管理員
 Comment=Community-driven port of the Windows application “KeePass Password Safe”
 Comment[da]=Fællesskabsdrevet port af Windows-programmet “KeePass Password Safe”
 Comment[et]=Kogukonna arendatav port Windowsi programmist KeePass Password Safe
-Exec=keepassxc %f
+Exec=keepassxc -platform wayland %f
 TryExec=keepassxc
 Icon=keepassxc
 StartupWMClass=keepassxc
@@ -48,8 +48,8 @@ Actions=personal;edu-sharing;
 
 [Desktop Action personal]
 Name=Personal
-Exec=sh -c "secret-tool lookup keepass Personal | keepassxc --pw-stdin /home/chris/Sync/Sync/Personal.kdbx"
+Exec=sh -c "secret-tool lookup keepass Personal | keepassxc --pw-stdin /home/chris/Sync/Sync/Personal.kdbx -platform wayland"
 
 [Desktop Action edu-sharing]
 Name=Edu-Sharing
-Exec=sh -c "secret-tool lookup keepass Edu-Sharing | keepassxc --pw-stdin /home/chris/Work/Documents/Edu-Sharing.kdbx"
+Exec=sh -c "secret-tool lookup keepass Edu-Sharing | keepassxc --pw-stdin /home/chris/Work/Documents/Edu-Sharing.kdbx -platform wayland"
