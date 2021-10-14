@@ -9,6 +9,11 @@ if test -d "$HOME/.zsh/functions/"; then
     unset file
 fi
 
+if test -d "/usr/share/fzf/"; then
+	source /usr/share/fzf/key-bindings.zsh
+	source /usr/share/fzf/completion.zsh
+fi
+
 if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
     source /etc/profile.d/vte.sh
 fi
