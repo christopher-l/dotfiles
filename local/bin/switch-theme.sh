@@ -20,6 +20,7 @@ function apply_vscode() {
         ;;
     dark)
         sed -i "s/\"workbench.colorTheme\": \"\(.*\)Light\(.*\)\"/\"workbench.colorTheme\": \"\1Dark\2\"/" "$config_file"
+        # Append "Medium" to the "fontFamily" value, but only if it currently doesn't have "Medium" as suffix.
         sed -i -E '/\"editor\.fontFamily\": \"(.*)Medium\"/! s/\"editor\.fontFamily\": \"(.*)\"/\"editor\.fontFamily\": \"\1 Medium\"/' "$config_file"
         ;;
     esac
