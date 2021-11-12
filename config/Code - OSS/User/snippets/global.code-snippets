@@ -19,5 +19,10 @@
 		"prefix": "date",
 		"body": "$CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE",
 		"description": "Insert current date in ISO format"
+	},
+	"Timestamp": {
+		"prefix": "ts",
+		"body": "$CURRENT_YEAR$CURRENT_MONTH$CURRENT_DATE$CURRENT_HOUR$CURRENT_MINUTE",
+		"description": "Insert current date in ISO format"
 	}
 }

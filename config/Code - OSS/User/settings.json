@@ -1,22 +1,29 @@
 {
-  // Window
-  "window.menuBarVisibility": "toggle",
-  "window.newWindowDimensions": "inherit",
-  "window.title": "${rootName}",
-  "window.zoomLevel": 1,
-
-  // Style
-  "workbench.colorTheme": "Nord",
-  "editor.fontFamily": "Liberation Mono",
+  "editor.fontFamily": "Roboto Mono",
   "editor.fontSize": 13,
-  "editor.lineHeight": 24,
+  "editor.lineHeight": 22,
+  "terminal.integrated.fontSize": 12,
+  "terminal.integrated.minimumContrastRatio": 4.5,
+  "window.menuBarVisibility": "toggle",
+  "window.title": "${rootName}",
+  "window.titleBarStyle": "custom",
+  "window.zoomLevel": 1,
+  "workbench.colorTheme": "GitHub Dark Default",
+  "workbench.startupEditor": "none",
   "workbench.tree.indent": 20,
+  "workbench.tree.renderIndentGuides": "none",
 
   // Behavior
   "editor.acceptSuggestionOnCommitCharacter": false,
   "editor.mouseWheelZoom": true,
   "editor.tabCompletion": "onlySnippets",
+  "explorer.openEditors.sortOrder": "alphabetical",
+  "editor.suggest.preview": true,
+  "workbench.editor.openPositioning": "last",
   "workbench.editor.revealIfOpen": true,
+  "files.associations": {
+    "profile": "shellscript"
+  },
 
   // Don't show again
   "explorer.confirmDelete": false,
@@ -25,25 +32,26 @@
   "git.confirmSync": false,
   "javascript.updateImportsOnFileMove.enabled": "always",
   "typescript.updateImportsOnFileMove.enabled": "always",
-  
+
   // View
-  "editor.rulers": [100],
-  "outline.showProperties": false,
-  "outline.showVariables": false,
-
-  // Technical
-  "terminal.integrated.rendererType": "dom",
-
-  // Ruler and Minimap
-  "editor.minimap.enabled": true,
   "editor.minimap.renderCharacters": false,
   "editor.minimap.showSlider": "always",
+  "editor.rulers": [100],
+  "explorer.decorations.badges": false,
+  "explorer.openEditors.visible": 99,
+  "outline.showProperties": false,
+  "outline.showVariables": false,
   // "editor.scrollbar.verticalScrollbarSize": 0,
   "workbench.colorCustomizations": {
     "editorOverviewRuler.infoForeground": "#0000", // hide spelling mistakes from overview ruler
     "editorOverviewRuler.warningForeground": "#0000",
     "minimap.warningHighlight": "#0000",
+    "editorIndentGuide.background": "#0000" // hide non-active indent guides
   },
+  "editor.semanticTokenColorCustomizations": {
+    "enabled": true // enable for all themes
+  },
+  // "editor.renderLineHighlight": "gutter",
 
   // Plugins
   "[javascript]": {
@@ -63,25 +71,54 @@
   },
   "python.formatting.provider": "black",
   "gitlens.hovers.currentLine.over": "line",
-  "gitlens.views.repositories.location": "gitlens",
-  "gitlens.views.fileHistory.location": "gitlens",
-  "gitlens.views.lineHistory.location": "gitlens",
-  "gitlens.views.compare.location": "gitlens",
-  "gitlens.views.search.location": "gitlens",
   "gitlens.menus": false,
   "gitlens.mode.statusBar.enabled": false,
-  "gitlens.mode.active": "zen",
-  "cSpell.enableFiletypes": [
-    "shellscript",
-    "xml"
-  ],
+  "cSpell.enableFiletypes": ["shellscript", "xml"],
   "cSpell.language": "en,de",
-  "cSpell.userWords": [
-    "nestjs",
-    "postgres"
-  ],
+  "cSpell.userWords": ["nestjs", "postgres"],
   "cSpell.showCommandsInEditorContextMenu": false,
   "bookmarks.showCommandsInContextMenu": false,
-
-  // Ungrouped
+  "vim.handleKeys": {
+    "<C-d>": false
+  },
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": ["u"],
+      "after": [],
+      "commands": [
+        {
+          "command": "undo"
+        }
+      ]
+    },
+    {
+      "before": ["<C-r>"],
+      "after": [],
+      "commands": [
+        {
+          "command": "redo"
+        }
+      ]
+    }
+  ],
+  "vim.useCtrlKeys": false,
+  "vim.textwidth": 100,
+  "vim.leader": ",",
+  "vim.camelCaseMotion.enable": true,
+  "[scss]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "workbench.editorAssociations": {
+    "*.ipynb": "jupyter.notebook.ipynb"
+  },
+  "gitlens.remotes": [
+    {
+      "domain": "scm.edu-sharing.com",
+      "type": "GitLab"
+    }
+  ],
+  "vscode-neovim.neovimExecutablePaths.linux": "/usr/bin/nvim",
+  "tabnine.experimentalAutoImports": true,
+  "gitlens.blame.ignoreWhitespace": true,
+  "gitlens.mode.active": "zen"
 }
