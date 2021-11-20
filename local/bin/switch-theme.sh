@@ -16,12 +16,12 @@ function apply_vscode() {
     case "$1" in
     light)
         sed -i "s/\"workbench.colorTheme\": \"\(.*\)Dark\(.*\)\"/\"workbench.colorTheme\": \"\1Light\2\"/" "$config_file"
-        sed -i "s/\"editor.fontFamily\": \"\(.*\) Medium\"/\"editor.fontFamily\": \"\1\"/" "$config_file"
+        # sed -i "s/\"editor.fontFamily\": \"\(.*\) Medium\"/\"editor.fontFamily\": \"\1\"/" "$config_file"
         ;;
     dark)
         sed -i "s/\"workbench.colorTheme\": \"\(.*\)Light\(.*\)\"/\"workbench.colorTheme\": \"\1Dark\2\"/" "$config_file"
         # Append "Medium" to the "fontFamily" value, but only if it currently doesn't have "Medium" as suffix.
-        sed -i -E '/\"editor\.fontFamily\": \"(.*)Medium\"/! s/\"editor\.fontFamily\": \"(.*)\"/\"editor\.fontFamily\": \"\1 Medium\"/' "$config_file"
+        # sed -i -E '/\"editor\.fontFamily\": \"(.*)Medium\"/! s/\"editor\.fontFamily\": \"(.*)\"/\"editor\.fontFamily\": \"\1 Medium\"/' "$config_file"
         ;;
     esac
 }
