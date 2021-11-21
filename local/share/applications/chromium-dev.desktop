@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=1.0
+Name=Chromium Dev
+Comment=Chromium development profile
+Exec=env ACCESSIBILITY_ENABLED=1 /usr/bin/chromium --user-data-dir=.config/chromium-dev --remote-debugging-port=9222 --force-renderer-accessibility --disable-features=SameSiteByDefaultCookies
+StartupNotify=true
+Terminal=false
+Icon=chromium
+Type=Application
+Categories=Network;WebBrowser;
+NotShowIn=GNOME;KDE;Unity;

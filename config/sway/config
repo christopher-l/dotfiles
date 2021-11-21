@@ -23,7 +23,7 @@ set $menu dmenu_path | dmenu | xargs swaymsg exec --
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
+output * bg /usr/share/backgrounds/gnome/Leaf.jpg fill
 #
 # Example configuration:
 #
@@ -44,6 +44,9 @@ output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
 # your displays after another 300 seconds, and turn your screens back on when
 # resumed. It will also lock your screen before your computer goes to sleep.
 
+exec swayidle -w \
+         timeout 900 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"'
+
 ### Input configuration
 #
 # Example configuration:
@@ -58,6 +61,40 @@ output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
 # You can get the names of your inputs by running: swaymsg -t get_inputs
 # Read `man 5 sway-input` for more information about this section.
 
+input "type:keyboard" {
+    repeat_delay 200
+    repeat_rate 30
+    xkb_options "caps:ctrl_modifier"
+    xkb_layout "us"
+    xkb_variant "altgr-intl"
+}
+
+### General settings
+
+# Default layout
+workspace_layout stacking
+default_border none
+hide_edge_borders --i3 smart
+bindsym $mod+t border toggle
+gaps inner 5
+smart_gaps on
+
+bindsym $mod+Escape workspace back_and_forth
+workspace_auto_back_and_forth yes
+
+
+### Workspaces
+set $ws1 1: term
+set $ws2 2: web
+set $ws3 3: dev
+set $ws4 4: debug
+set $ws5 5: sec
+set $ws6 6: misc
+set $ws7 7: aux
+set $ws8 8: doc
+set $ws9 9: chat
+set $ws10 10: music
+
 ### Key bindings
 #
 # Basics:
@@ -66,7 +103,7 @@ output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
     bindsym $mod+Return exec $term
 
     # Kill focused window
-    bindsym $mod+Shift+q kill
+    bindsym $mod+q kill
 
     # Start your launcher
     bindsym $mod+d exec $menu
@@ -97,6 +134,16 @@ output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
     bindsym $mod+Up focus up
     bindsym $mod+Right focus right
 
+    bindsym $mod+Mod1+$left focus output left
+    bindsym $mod+Mod1+$down focus output down
+    bindsym $mod+Mod1+$up focus output up
+    bindsym $mod+Mod1+$right focus output right
+
+    bindsym $mod+Mod1+Left focus output left
+    bindsym $mod+Mod1+Down focus output down
+    bindsym $mod+Mod1+Up focus output up
+    bindsym $mod+Mod1+Right focus output right
+
     # Move the focused window with the same, but add Shift
     bindsym $mod+Shift+$left move left
     bindsym $mod+Shift+$down move down
@@ -107,31 +154,42 @@ output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
     bindsym $mod+Shift+Down move down
     bindsym $mod+Shift+Up move up
     bindsym $mod+Shift+Right move right
+
+    bindsym $mod+Mod1+shift+$left move workspace to output left
+    bindsym $mod+Mod1+shift+$down move workspace to output down
+    bindsym $mod+Mod1+shift+$up move workspace to output up
+    bindsym $mod+Mod1+shift+$right move workspace to output right
+
+    bindsym $mod+Mod1+shift+Left move workspace to output left
+    bindsym $mod+Mod1+shift+Down move workspace to output down
+    bindsym $mod+Mod1+shift+Up move workspace to output up
+    bindsym $mod+Mod1+shift+Right move workspace to output right
+
 #
 # Workspaces:
 #
     # Switch to workspace
-    bindsym $mod+1 workspace number 1
-    bindsym $mod+2 workspace number 2
-    bindsym $mod+3 workspace number 3
-    bindsym $mod+4 workspace number 4
-    bindsym $mod+5 workspace number 5
-    bindsym $mod+6 workspace number 6
-    bindsym $mod+7 workspace number 7
-    bindsym $mod+8 workspace number 8
-    bindsym $mod+9 workspace number 9
-    bindsym $mod+0 workspace number 10
+    bindsym $mod+1 workspace $ws1
+    bindsym $mod+2 workspace $ws2
+    bindsym $mod+3 workspace $ws3
+    bindsym $mod+4 workspace $ws4
+    bindsym $mod+5 workspace $ws5
+    bindsym $mod+6 workspace $ws6
+    bindsym $mod+7 workspace $ws7
+    bindsym $mod+8 workspace $ws8
+    bindsym $mod+9 workspace $ws9
+    bindsym $mod+0 workspace $ws10
     # Move focused container to workspace
-    bindsym $mod+Shift+1 move container to workspace number 1
-    bindsym $mod+Shift+2 move container to workspace number 2
-    bindsym $mod+Shift+3 move container to workspace number 3
-    bindsym $mod+Shift+4 move container to workspace number 4
-    bindsym $mod+Shift+5 move container to workspace number 5
-    bindsym $mod+Shift+6 move container to workspace number 6
-    bindsym $mod+Shift+7 move container to workspace number 7
-    bindsym $mod+Shift+8 move container to workspace number 8
-    bindsym $mod+Shift+9 move container to workspace number 9
-    bindsym $mod+Shift+0 move container to workspace number 10
+    bindsym $mod+Shift+1 move container to workspace $ws1
+    bindsym $mod+Shift+2 move container to workspace $ws2
+    bindsym $mod+Shift+3 move container to workspace $ws3
+    bindsym $mod+Shift+4 move container to workspace $ws4
+    bindsym $mod+Shift+5 move container to workspace $ws5
+    bindsym $mod+Shift+6 move container to workspace $ws6
+    bindsym $mod+Shift+7 move container to workspace $ws7
+    bindsym $mod+Shift+8 move container to workspace $ws8
+    bindsym $mod+Shift+9 move container to workspace $ws9
+    bindsym $mod+Shift+0 move container to workspace $ws10
     # Note: workspaces can have any name you want, not just numbers.
     # We just use 1-10 as the default.
 #
@@ -195,6 +253,60 @@ mode "resize" {
     bindsym Escape mode "default"
 }
 bindsym $mod+r mode "resize"
+#
+# Custom:
+#
+    # Launch applications
+    bindsym Mod1+Space exec --no-startup-id ulauncher-toggle
+    bindsym $mod+Shift+p exec --no-startup-id gnome-control-center
+    bindsym $mod+Shift+s exec --no-startup-id gnome-control-center sound
+    bindsym $mod+Shift+n exec --no-startup-id gnome-control-center network
+    bindsym $mod+Shift+b exec --no-startup-id blueberry
+    bindsym $mod+Shift+d exec --no-startup-id wdisplays
+    bindsym $mod+Shift+t exec --no-startup-id ~/.local/bin/switch-theme.sh toggle
+    bindsym Print exec --no-startup-id grim -g "$(slurp)" - | swappy -f -
+    # Media keys
+    bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
+    bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
+    bindsym --no-repeat XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+    # bindsym Pause exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
+    bindsym --no-repeat Ctrl+Pause exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
+    bindsym --no-repeat Pause exec pactl set-source-mute @DEFAULT_SOURCE@ false
+    bindsym --no-repeat --release Pause exec pactl set-source-mute @DEFAULT_SOURCE@ true
+    bindsym XF86AudioPlay exec playerctl play-pause
+    bindsym XF86AudioNext exec playerctl next
+    bindsym XF86AudioPrev exec playerctl previous
+    
+#
+# Workspaces assignments
+#
+assign [app_id="firefox"] → $ws2
+assign [class="Chromium"] → $ws4
+assign [app_id="org.keepassxc.KeePassXC"] → $ws7
+assign [app_id="droidcam"] → $ws7
+assign [class="Slack"] → $ws9
+
+#
+# Window rules
+#
+for_window [app_id="ulauncher"] border none
+for_window [app_id="firefox" title="Firefox - Choose User Profile"] floating enable
+for_window [app_id="xfce4-notifyd"] border none, move position 50ppt 0px, move left 50px
+no_focus [app_id="xfce4-notifyd"]
+
+#
+# Startup applications
+#
+exec_always "systemctl --user import-environment; systemctl --user restart sway-session.target"
+exec "ulauncher --hide-window"
+# Enable NetworkManager to read secrets from the key chain
+exec "nm-applet"
+exec "blueberry-tray"
+exec "easyeffects --gapplication-service"
+exec "/usr/lib/deja-dup/deja-dup-monitor"
+# Apply the GTK theme to XWayland applications
+exec /usr/lib/gsd-xsettings
+exec /usr/lib/geoclue-2.0/demos/agent
 
 #
 # Status Bar:
@@ -202,15 +314,17 @@ bindsym $mod+r mode "resize"
 # Read `man 5 sway-bar` for more information about this section.
 bar {
     position top
+    swaybar_command waybar
 
     # When the status_command prints a new line to stdout, swaybar updates.
     # The default just shows the current date and time.
-    status_command while date +'%Y-%m-%d %l:%M:%S %p'; do sleep 1; done
+    # status_command while date +'%Y-%m-%d %l:%M:%S %p'; do sleep 1; done
 
     colors {
-        statusline #ffffff
-        background #323232
-        inactive_workspace #32323200 #32323200 #5c5c5c
+        # statusline #ffffff
+        # background #323232
+        # inactive_workspace #32323200 #32323200 #5c5c5c
+        # inactive_workspace #323232 #323232 #5c5c5c
     }
 }
 

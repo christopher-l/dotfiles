@@ -1,0 +1,15 @@
+[Desktop Entry]
+Name=KeePassXC Personal
+Comment=Unlock Personal Database
+Exec=sh -c "secret-tool lookup keepass Personal | keepassxc --pw-stdin /home/chris/Sync/Sync/Personal.kdbx -platform wayland"
+TryExec=keepassxc
+Icon=keepassxc
+StartupWMClass=keepassxc
+StartupNotify=true
+Terminal=false
+Type=Application
+Version=1.0
+Categories=Utility;Security;Qt;
+MimeType=application/x-keepass2;
+Actions=personal;edu-sharing;
+NotShowIn=GNOME;KDE;Unity;

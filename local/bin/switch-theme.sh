@@ -56,18 +56,41 @@ function apply_qt5() {
     sed -i "s/^style=.*$/style=$theme/" "$config_file"
 }
 
-case "$1" in
-light | dark)
+function toggle_gtk_theme() (
+    light_theme="'Adwaita'"
+    dark_theme="'Adwaita-dark'"
+    current_theme=$(gsettings get org.gnome.desktop.interface gtk-theme)
+    if [[ $current_theme == $light_theme ]]; then
+        gsettings set org.gnome.desktop.interface gtk-theme $dark_theme
+        echo "dark"
+    else
+        gsettings set org.gnome.desktop.interface gtk-theme $light_theme
+        echo "light"
+    fi
+)
+
+function apply_all_applications() (
     apply_vscode $1
     apply_obsidian $1
     apply_qt5 $1
     # apply_gnome_terminal $1
+)
+
+case "$1" in
+light | dark)
+    apply_all_applications $1
+    ;;
+toggle)
+    new_theme=$(toggle_gtk_theme)
+    apply_all_applications $new_theme
     ;;
 *)
     echo "Usage:"
     echo "    $0 light"
     echo "or"
     echo "    $0 dark"
+    echo "or"
+    echo "    $0 toggle"
     exit 1
     ;;
 esac

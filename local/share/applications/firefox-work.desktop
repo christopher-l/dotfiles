@@ -1,0 +1,15 @@
+[Desktop Entry]
+Version=1.0
+Name=Firefox Work
+Comment=Launch Firefox with Work Profile
+Keywords=Internet;WWW;Browser;Web;Explorer
+Exec=env MOZ_ENABLE_WAYLAND=1 /usr/lib/firefox/firefox -p work %u
+Icon=firefox
+Terminal=false
+X-MultipleArgs=false
+Type=Application
+MimeType=text/html;text/xml;application/xhtml+xml;x-scheme-handler/http;x-scheme-handler/https;application/x-xpinstall;
+StartupNotify=true
+StartupWMClass=firefox
+Categories=Network;WebBrowser;
+NotShowIn=GNOME;KDE;Unity;
