@@ -36,7 +36,18 @@ function apply_obsidian() {
         local theme=${!selected_theme}
         sed -i "s/\"theme\": \".*\"/\"theme\": \"$theme\"/" "$config_file"
     done
+}
 
+function apply_ulauncher() {
+    local config_file="$HOME/.config/ulauncher/settings.json"
+    local dark_theme="dark"
+    local light_theme="light"
+    local selected_theme=$1_theme
+    local theme=${!selected_theme}
+    sed -i "s/\"theme-name\": \".*\"/\"theme-name\": \"$theme\"/" "$config_file"
+    if pgrep -x ulauncher >/dev/null; then
+        killall ulauncher && sleep 1 && ulauncher --hide-window &
+    fi
 }
 
 function apply_gnome_terminal() {
@@ -72,6 +83,7 @@ function toggle_gtk_theme() (
 function apply_all_applications() (
     apply_vscode $1
     apply_obsidian $1
+    apply_ulauncher $1
     apply_qt5 $1
     # apply_gnome_terminal $1
 )

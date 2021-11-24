@@ -1,5 +1,3 @@
-decoration {
-  padding: 0;
-  margin: 0;
-  border-style: none;
+vte-terminal {
+  padding: 10px;
 }
