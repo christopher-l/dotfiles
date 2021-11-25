@@ -1,1 +1,8 @@
 anchor=top-center
+
+on-notify=exec pkill -RTMIN+8 waybar
+on-button-left=exec makoctl invoke -n $id; makoctl dismiss -n $id; pkill -RTMIN+8 waybar
+on-button-right=exec makoctl dismiss -n $id; pkill -RTMIN+8 waybar
+
+[mode=do-not-disturb]
+invisible=1

@@ -6,11 +6,13 @@
   "spacing": 4, // Gaps between modules (4px)
   // Choose the order of the modules
   "modules-left": ["sway/workspaces", "sway/mode", "sway/window"],
-  "modules-center": ["clock"],
+  "modules-center": ["clock", "custom/mako"],
   "modules-right": ["tray", "pulseaudio", "network"],
   // Modules configuration
   "sway/workspaces": {
-    "enable-bar-scroll": true
+    "enable-bar-scroll": true,
+    "format": "{index}: {name}",
+    "disable-scroll-wraparound": true
   },
   "sway/mode": {
     "format": "<span style=\"italic\">{}</span>"
@@ -26,6 +28,12 @@
     // "format-alt": "{:%Y-%m-%d}"
     "on-click": "gnome-clocks",
     "on-click-right": "gnome-calendar"
+  },
+  "custom/mako": {
+    "exec": "~/.config/waybar/scripts/mako.sh get-icon",
+    "on-click": "~/.config/waybar/scripts/mako.sh toggle-mode && sleep 0.05 && pkill -RTMIN+8 waybar",
+    "restart-interval": 60,
+    "signal": 8
   },
   "network": {
     // "interface": "wlp2*", // (Optional) To force the use of this interface
