@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 MODE_FILE="$XDG_RUNTIME_DIR/mako_mode"
 mode=$(cat $MODE_FILE 2>/dev/null || echo "default")

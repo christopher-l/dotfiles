@@ -279,8 +279,6 @@ workspace_auto_back_and_forth yes
     bindsym $mod+Ctrl+b exec --no-startup-id blueberry
     bindsym $mod+Ctrl+d exec --no-startup-id wdisplays
 
-    # Toggle desktop-wide light / dark theme
-    bindsym $mod+Shift+t exec --no-startup-id ~/.local/bin/switch-theme.sh toggle
     # Screenshot
     bindsym Print exec --no-startup-id grim -g "$(slurp)" - | swappy -f -
     # Media keys
@@ -298,14 +296,14 @@ workspace_auto_back_and_forth yes
 ################################################################
 ### Workspaces assignments
 ################################################################
-assign [class="Chromium"] → workspace number 4
-assign [app_id="org.keepassxc.KeePassXC"] → workspace number 6
-assign [app_id="droidcam"] → workspace number 6
-assign [app_id="firefox" title="Firefox — Sharing Indicator"] → workspace number 6
-assign [app_id="evolution"] → workspace number 7
-assign [app_id="geary"] → workspace number 7
-assign [class="zoom"] → workspace number 8
-assign [class="Slack"] → workspace number 9
+# assign [class="Chromium"] → workspace number 4
+# assign [app_id="org.keepassxc.KeePassXC"] → workspace number 6
+# assign [app_id="droidcam"] → workspace number 6
+# assign [app_id="firefox" title="Firefox — Sharing Indicator"] → workspace number 6
+# assign [app_id="evolution"] → workspace number 7
+# assign [app_id="geary"] → workspace number 7
+# assign [class="zoom"] → workspace number 8
+# assign [class="Slack"] → workspace number 9
 
 ################################################################
 ### Window rules
@@ -331,7 +329,7 @@ exec_always "systemctl --user import-environment; systemctl --user restart sway-
 # Application launcher daemon
 exec "ulauncher --hide-window"
 # Automatically rename workspaces based on content
-exec sworkstyle
+exec_always --no-startup-id workstyle &> /tmp/workstyle.log
 # Enable NetworkManager to read secrets from the key chain
 exec "nm-applet"
 # Bluetooth
@@ -349,6 +347,8 @@ exec gammastep
 # Online accounts
 exec "pkill -f goa"
 exec "/usr/lib/goa-daemon"
+# Gnome Software auto updates
+exec "gnome-software --gapplication-service"
 
 ################################################################
 ### Status Bar

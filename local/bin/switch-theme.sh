@@ -67,17 +67,59 @@ function apply_qt5() {
     sed -i "s/^style=.*$/style=$theme/" "$config_file"
 }
 
-function toggle_gtk_theme() (
-    light_theme="'Adwaita'"
-    dark_theme="'Adwaita-dark'"
+light_gtk_theme="'Adwaita'"
+dark_gtk_theme="'Adwaita-dark'"
+function get_current_theme() (
     current_theme=$(gsettings get org.gnome.desktop.interface gtk-theme)
-    if [[ $current_theme == $light_theme ]]; then
-        gsettings set org.gnome.desktop.interface gtk-theme $dark_theme
+    if [[ $current_theme == $light_gtk_theme ]]; then
+        echo "light"
+    else
+        echo "dark"
+    fi
+)
+
+function apply_gtk_theme() (
+    case "$1" in
+    light)
+        gsettings set org.gnome.desktop.interface gtk-theme $light_gtk_theme
+        ;;
+    dark)
+        gsettings set org.gnome.desktop.interface gtk-theme $dark_gtk_theme
+        ;;
+    esac
+)
+
+function toggle_gtk_theme() (
+    current_theme=$(get_current_theme)
+    if [[ $current_theme == "light" ]]; then
+        apply_gtk_theme "dark"
         echo "dark"
     else
-        gsettings set org.gnome.desktop.interface gtk-theme $light_theme
+        apply_gtk_theme "light"
         echo "light"
     fi
+)
+
+function get_icon() (
+    current_theme=$(get_current_theme)
+    if [[ $current_theme == "light" ]]; then
+        echo ""
+    else
+        echo ""
+    fi
+)
+
+function apply_icon_theme() (
+    light_theme="'Papirus-Light'"
+    dark_theme="'Papirus-Dark'"
+    case "$1" in
+    light)
+        gsettings set org.gnome.desktop.interface icon-theme $light_theme
+        ;;
+    dark)
+        gsettings set org.gnome.desktop.interface icon-theme $dark_theme
+        ;;
+    esac
 )
 
 function apply_all_applications() (
@@ -88,13 +130,21 @@ function apply_all_applications() (
     # apply_gnome_terminal $1
 )
 
+
 case "$1" in
 light | dark)
     apply_all_applications $1
     ;;
 toggle)
     new_theme=$(toggle_gtk_theme)
+    apply_icon_theme $new_theme
     apply_all_applications $new_theme
+    ;;
+get-current)
+    get_current_theme
+    ;;
+get-icon)
+    get_icon
     ;;
 *)
     echo "Usage:"
@@ -103,6 +153,10 @@ toggle)
     echo "    $0 dark"
     echo "or"
     echo "    $0 toggle"
+    echo "or"
+    echo "    $0 get-current"
+    echo "or"
+    echo "    $0 get-icon"
     exit 1
     ;;
 esac

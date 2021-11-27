@@ -7,11 +7,11 @@
   // Choose the order of the modules
   "modules-left": ["sway/workspaces", "sway/mode", "sway/window"],
   "modules-center": ["clock", "custom/mako"],
-  "modules-right": ["tray", "pulseaudio", "network"],
+  "modules-right": ["tray", "custom/theme", "custom/gammastep", "pulseaudio", "network"],
   // Modules configuration
   "sway/workspaces": {
     "enable-bar-scroll": true,
-    "format": "{index}: {name}",
+    // "format": "{index}: {name}",
     "disable-scroll-wraparound": true
   },
   "sway/mode": {
@@ -34,6 +34,20 @@
     "on-click": "~/.config/waybar/scripts/mako.sh toggle-mode && sleep 0.05 && pkill -RTMIN+8 waybar",
     "restart-interval": 60,
     "signal": 8
+  },
+  "custom/theme": {
+    "exec": "~/.local/bin/switch-theme.sh get-icon",
+    "on-click": "~/.local/bin/switch-theme.sh toggle && sleep 0.05 && pkill -RTMIN+9 waybar",
+    "tooltip": false,
+    "restart-interval": 60,
+    "signal": 9
+  },
+  "custom/gammastep": {
+    "exec": "~/.config/waybar/scripts/gammastep.sh get-json",
+    "return-type": "json",
+    "on-click": "~/.config/waybar/scripts/gammastep.sh toggle && sleep 0.05 && pkill -RTMIN+10 waybar",
+    "restart-interval": 60,
+    "signal": 10
   },
   "network": {
     // "interface": "wlp2*", // (Optional) To force the use of this interface

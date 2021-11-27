@@ -165,7 +165,7 @@ Name[uk]=Нове вікно
 Name[vi]=Cửa sổ Mới
 Name[zh_CN]=新建窗口
 Name[zh_TW]=開新視窗
-Exec=/usr/bin/chromium --enable-features=UseOzonePlatform --ozone-platform=wayland
+Exec=/usr/bin/chromium --enable-features=UseOzonePlatform --ozone-platform=wayland --password-store=gnome
 
 [Desktop Action new-private-window]
 Name=New Incognito Window
@@ -217,8 +217,8 @@ Name[uk]=Нове вікно в режимі анонімного перегля
 Name[vi]=Cửa sổ ẩn danh mới
 Name[zh_CN]=新建隐身窗口
 Name[zh_TW]=新增無痕式視窗
-Exec=/usr/bin/chromium --enable-features=UseOzonePlatform --ozone-platform=wayland --incognito
+Exec=/usr/bin/chromium --enable-features=UseOzonePlatform --ozone-platform=wayland --incognito --password-store=gnome
 
 [Desktop Action dev]
 Name=Dev
-Exec=env ACCESSIBILITY_ENABLED=1 /usr/bin/chromium --user-data-dir=.config/chromium-dev --remote-debugging-port=9222 --force-renderer-accessibility --disable-features=SameSiteByDefaultCookies
+Exec=env ACCESSIBILITY_ENABLED=1 /usr/bin/chromium --user-data-dir=.config/chromium-dev --remote-debugging-port=9222 --force-renderer-accessibility --disable-features=SameSiteByDefaultCookies --password-store=gnome
