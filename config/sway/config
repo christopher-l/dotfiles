@@ -92,7 +92,7 @@ workspace_auto_back_and_forth yes
     bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
 
     # Power off system
-    bindsym Ctrl+Mod1+Delete exec $HOME/.config/sway/scripts/poweroff.sh
+    bindsym Ctrl+Mod1+Delete exec $HOME/.config/sway/scripts/poweroff.sh poweroff
 #
 # Moving around:
 #
@@ -233,7 +233,7 @@ workspace_auto_back_and_forth yes
     bindsym $mod+Shift+space floating toggle
 
     # Swap focus between the tiling area and the floating area
-    bindsym $mod+space focus mode_toggle
+    bindsym $mod+Ctrl+space focus mode_toggle
 
     # Move focus to the parent container
     bindsym $mod+a focus parent
@@ -273,17 +273,17 @@ workspace_auto_back_and_forth yes
 # Custom:
 #
     # Launch applications
-    bindsym $mod+Ctrl+p exec --no-startup-id gnome-control-center
-    bindsym $mod+Ctrl+s exec --no-startup-id gnome-control-center sound
-    bindsym $mod+Ctrl+n exec --no-startup-id gnome-control-center network
-    bindsym $mod+Ctrl+b exec --no-startup-id blueberry
-    bindsym $mod+Ctrl+d exec --no-startup-id wdisplays
+    bindsym $mod+Ctrl+p exec gnome-control-center
+    bindsym $mod+Ctrl+s exec gnome-control-center sound
+    bindsym $mod+Ctrl+n exec gnome-control-center network
+    bindsym $mod+Ctrl+b exec blueberry
+    bindsym $mod+Ctrl+d exec wdisplays
 
     # Screenshot
-    bindsym Print exec --no-startup-id grim -g "$(slurp)" - | swappy -f -
+    bindsym Print exec grim -g "$(slurp)" - | swappy -f -
     # Media keys
-    bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
-    bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
+    bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+    bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
     bindsym --no-repeat XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
     bindsym XF86AudioPlay exec playerctl play-pause
     bindsym XF86AudioNext exec playerctl next
@@ -329,7 +329,7 @@ exec_always "systemctl --user import-environment; systemctl --user restart sway-
 # Application launcher daemon
 exec "ulauncher --hide-window"
 # Automatically rename workspaces based on content
-exec_always --no-startup-id workstyle &> /tmp/workstyle.log
+exec workstyle
 # Enable NetworkManager to read secrets from the key chain
 exec "nm-applet"
 # Bluetooth
@@ -349,6 +349,8 @@ exec "pkill -f goa"
 exec "/usr/lib/goa-daemon"
 # Gnome Software auto updates
 exec "gnome-software --gapplication-service"
+# Switch input methods
+exec_always fcitx5 -d -r
 
 ################################################################
 ### Status Bar

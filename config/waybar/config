@@ -7,7 +7,7 @@
   // Choose the order of the modules
   "modules-left": ["sway/workspaces", "sway/mode", "sway/window"],
   "modules-center": ["clock", "custom/mako"],
-  "modules-right": ["tray", "custom/theme", "custom/gammastep", "pulseaudio", "network"],
+  "modules-right": ["tray", "custom/theme", "custom/gammastep", "pulseaudio", "network", "custom/power"],
   // Modules configuration
   "sway/workspaces": {
     "enable-bar-scroll": true,
@@ -49,6 +49,12 @@
     "restart-interval": 60,
     "signal": 10
   },
+  "custom/power": {
+    "format": "",
+    "tooltip": false,
+    "on-click": "~/.config/sway/scripts/poweroff.sh all",
+    "on-click-middle": "systemctl suspend"
+  },
   "network": {
     // "interface": "wlp2*", // (Optional) To force the use of this interface
     "format-wifi": "{essid} ({signalStrength}%) ",
@@ -77,7 +83,6 @@
       "car": "",
       "default": ["", "", ""]
     },
-    "on-click": "gnome-control-center sound",
-    "on-click-right": "playerctl play-pause"
+    "on-click": "gnome-control-center sound"
   }
 }

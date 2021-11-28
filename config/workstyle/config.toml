@@ -36,10 +36,13 @@
 "nautilus" = ""
 "droidcam" = ""
 "evolution" = ""
+"geary" = ""
 "keepassxc" = ""
 "seahorse" = ""
 "dejadup" = ""
 "signal" = ""
 "software" = ""
+"clocks" = ""
+
 [other]
 "fallback_icon" = ""

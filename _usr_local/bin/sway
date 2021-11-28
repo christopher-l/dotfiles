@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 
-eval $(/usr/bin/gnome-keyring-daemon --start)
-export SSH_AUTH_SOCK
+PROFILE_FILE="$HOME/.config/sway/profile"
+
+if test -f $PROFILE_FILE; then
+    source $PROFILE_FILE
+fi
 
 /usr/bin/sway
