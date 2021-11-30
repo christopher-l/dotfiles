@@ -7,32 +7,6 @@
  * =========================================================================== */
 
 /* -----------------------------------------------------------------------------
- * Keyframes
- * -------------------------------------------------------------------------- */
-
-@keyframes blink-warning {
-  70% {
-    color: white;
-  }
-
-  to {
-    color: white;
-    background-color: orange;
-  }
-}
-
-@keyframes blink-critical {
-  70% {
-    color: white;
-  }
-
-  to {
-    color: white;
-    background-color: red;
-  }
-}
-
-/* -----------------------------------------------------------------------------
  * Base styles
  * -------------------------------------------------------------------------- */
 
@@ -48,8 +22,6 @@
 /* The whole bar */
 #waybar {
   background: black;
-  /* background: #323232; */
-  /* color: white; */
   color: #ccc;
   font-family: Roboto, Cantarell, Noto Sans, sans-serif;
   font-size: 14px;
@@ -64,7 +36,6 @@
 #battery,
 #clock,
 #cpu,
-#custom-keyboard-layout,
 #memory,
 #mode,
 #network,
@@ -74,103 +45,13 @@
 #custom-gammastep,
 #custom-power,
 #tray {
-  padding-left: 5px;
-  padding-right: 5px;
+  padding-left: 7px;
+  padding-right: 7px;
 }
 
 /* -----------------------------------------------------------------------------
- * Module stylesX
+ * Module styles
  * -------------------------------------------------------------------------- */
-
-#battery {
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-  animation-direction: alternate;
-}
-
-#battery.warning {
-  color: orange;
-}
-
-#battery.critical {
-  color: red;
-}
-
-#battery.warning.discharging {
-  animation-name: blink-warning;
-  animation-duration: 3s;
-}
-
-#battery.critical.discharging {
-  animation-name: blink-critical;
-  animation-duration: 2s;
-}
-
-#clock {
-}
-
-#cpu {
-  /* No styles */
-}
-
-#cpu.warning {
-  color: orange;
-}
-
-#cpu.critical {
-  color: red;
-}
-
-#memory {
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-  animation-direction: alternate;
-}
-
-#memory.warning {
-  color: orange;
-}
-
-#memory.critical {
-  color: red;
-  animation-name: blink-critical;
-  animation-duration: 2s;
-}
-
-#mode {
-  background: #64727d;
-  border-top: 2px solid white;
-  /* To compensate for the top border and still have vertical centering */
-  padding-bottom: 2px;
-}
-
-#network {
-  /* No styles */
-}
-
-#network.disconnected {
-  color: orange;
-}
-
-#pulseaudio {
-  /* No styles */
-}
-
-#pulseaudio.muted {
-  /* No styles */
-}
-
-#custom-spotify {
-  color: rgb(102, 220, 105);
-}
-
-#temperature {
-  /* No styles */
-}
-
-#temperature.critical {
-  color: red;
-}
 
 #custom-theme {
   margin-right: 10px;

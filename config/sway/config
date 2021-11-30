@@ -43,8 +43,9 @@ input "type:keyboard" {
 ################################################################
 # Style
 font Roboto Bold 14px
-hide_edge_borders --i3 smart_no_gaps
-default_border pixel
+hide_edge_borders --i3 smart
+# smart_borders on
+default_border none
 # gaps inner 2
 # smart_gaps on
 # Layout
@@ -256,6 +257,7 @@ workspace_auto_back_and_forth yes
     bindsym $mod+Ctrl+s exec gnome-control-center sound
     bindsym $mod+Ctrl+b exec blueberry
     bindsym $mod+Ctrl+d exec wdisplays
+    bindsym $mod+Ctrl+f exec nautilus
 
     # Screenshot
     bindsym Print exec grim -g "$(slurp)" - | swappy -f -
