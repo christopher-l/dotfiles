@@ -31,7 +31,9 @@
   },
   "custom/mako": {
     "exec": "~/.config/waybar/scripts/mako.sh get-icon",
-    "on-click": "~/.config/waybar/scripts/mako.sh toggle-mode && sleep 0.05 && pkill -RTMIN+8 waybar",
+    "return-type": "json",
+    "on-click": "~/.config/waybar/scripts/mako.sh toggle-restore",
+    "on-click-right": "~/.config/waybar/scripts/mako.sh toggle-mode",
     "restart-interval": 60,
     "signal": 8
   },
@@ -58,8 +60,8 @@
   "network": {
     // "interface": "wlp2*", // (Optional) To force the use of this interface
     "format-wifi": "{essid} ({signalStrength}%) ",
-    "format-ethernet": "",
-    "format-linked": "{ifname} (No IP) ",
+    "format-ethernet": "",
+    "format-linked": "{ifname} (No IP) ",
     "format-disconnected": "Disconnected ⚠",
     "tooltip-format": "{ipaddr}/{cidr}",
     "on-click": "gnome-control-center network"
@@ -70,8 +72,8 @@
     "format-bluetooth": "{icon}  {volume}%   {format_source}",
     "format-bluetooth-muted": " {icon}   {format_source}",
     "format-muted": "  {format_source}",
-    "format-source": "  ",
-    "format-source-muted": "",
+    "format-source": "   ",
+    "format-source-muted": " ",
     "format-icons": {
       "headphone": "",
       "hands-free": "",
