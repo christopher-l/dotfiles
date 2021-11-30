@@ -34,6 +34,7 @@
     "return-type": "json",
     "on-click": "~/.config/waybar/scripts/mako.sh toggle-restore",
     "on-click-right": "~/.config/waybar/scripts/mako.sh toggle-mode",
+    "on-click-middle": "~/.config/waybar/scripts/mako.sh reset",
     "restart-interval": 60,
     "signal": 8
   },

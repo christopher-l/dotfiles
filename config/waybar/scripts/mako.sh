@@ -75,6 +75,12 @@ function reloadWaybar() (
 	pkill -RTMIN+8 waybar
 )
 
+function reset() (
+	killall mako
+	rm -r "$RUNTIME_DIR"
+	reloadWaybar
+)
+
 case $1 in
 get-icon)
 	getIcon
@@ -84,6 +90,9 @@ toggle-mode)
 	;;
 toggle-restore)
 	toggleRestore
+	;;
+reset)
+	reset
 	;;
 on-notify)
 	onNotify "$2"
