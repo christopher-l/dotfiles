@@ -2,11 +2,11 @@
 
 set -e
 
-TOTAL_WORKSPACES=22
+MAX_WORKSPACES=30
 
 getFirstEmptyWorkspace() (
     activeWorkspaces=$(swaymsg -t get_tree | jq '.nodes[].nodes[].num | select(. != null)')
-    for i in $(seq 1 $TOTAL_WORKSPACES); do
+    for i in $(seq 1 $MAX_WORKSPACES); do
         if ! grep -E -q "^$i$" <<<"$activeWorkspaces"; then
             echo $i
             exit 0

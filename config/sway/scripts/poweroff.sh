@@ -10,8 +10,8 @@ function all() (
 
     case $? in
     1) swaymsg exit ;;
-    2) reboot ;;
-    3) poweroff ;;
+    2) systemctl reboot ;;
+    3) systemctl poweroff ;;
     esac
 )
 
@@ -22,7 +22,7 @@ function poweroff() (
         --button="Power off"
 
     case $? in
-    1) poweroff ;;
+    1) systemctl poweroff ;;
     esac
 )
 

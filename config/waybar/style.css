@@ -197,12 +197,13 @@
 #workspaces button {
   padding-left: 10px;
   padding-right: 10px;
+  border: 2px solid #000000;
+  border-radius: 15px;
   color: #888888;
 }
 
 #workspaces button:hover {
-  background: #333;
-  color: #ccc;
+  background: unset;
   text-shadow: none;
   box-shadow: none;
 }
@@ -214,7 +215,7 @@
 
 #workspaces button.focused {
   color: white;
-  background-color: #285577;
+  background-color: #333;
 }
 
 #workspaces button.urgent {
