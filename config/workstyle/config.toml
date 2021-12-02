@@ -38,6 +38,7 @@
 "discord" = ""
 "pavucontrol" = ""
 "gnome-control-center" = ""
+"easyeffects" = ""
 
 [other]
 "fallback_icon" = ""

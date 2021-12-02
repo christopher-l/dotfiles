@@ -332,6 +332,10 @@ exec "/usr/lib/goa-daemon"
 exec "gnome-software --gapplication-service"
 # Switch input methods
 exec_always fcitx5 -d -r
+# Notifications daemon
+exec "swaync"
+# Update waybar notifications widget on notifications
+exec "$HOME/.config/waybar/scripts/swaync.sh subscribe-widget"
 
 ################################################################
 ### Status Bar

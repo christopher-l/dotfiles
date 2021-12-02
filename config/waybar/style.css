@@ -53,8 +53,16 @@
  * Module styles
  * -------------------------------------------------------------------------- */
 
+ #clock {
+   margin-left: 20px;
+ }
+
+#custom-swaync {
+  min-width: 20px;
+}
+
 #custom-theme {
-  margin-right: 10px;
+  margin-right: 6px;
 }
 
 #custom-gammastep.daytime {

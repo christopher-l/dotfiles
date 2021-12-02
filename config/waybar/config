@@ -6,7 +6,7 @@
   "spacing": 4, // Gaps between modules (4px)
   // Choose the order of the modules
   "modules-left": ["sway/workspaces", "sway/mode", "sway/window"],
-  "modules-center": ["clock", "custom/mako"],
+  "modules-center": ["clock", "custom/swaync"],
   "modules-right": ["tray", "custom/theme", "custom/gammastep", "pulseaudio", "network", "custom/power"],
   // Modules configuration
   "sway/workspaces": {
@@ -22,22 +22,28 @@
     "spacing": 10
   },
   "clock": {
-    // "timezone": "America/New_York",
     "format": "{:%b %d  %H:%M}",
-    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-    // "format-alt": "{:%Y-%m-%d}"
-    "on-click": "gnome-clocks",
-    "on-click-right": "gnome-calendar"
+    "tooltip": false,
+    "on-click": "swaync-client -t -sw"
   },
-  "custom/mako": {
-    "exec": "~/.config/waybar/scripts/mako.sh get-icon",
+  "custom/swaync": {
+    "exec":"~/.config/waybar/scripts/swaync.sh get-json",
     "return-type": "json",
-    "on-click": "~/.config/waybar/scripts/mako.sh toggle-restore",
-    "on-click-right": "~/.config/waybar/scripts/mako.sh toggle-mode",
-    "on-click-middle": "~/.config/waybar/scripts/mako.sh reset",
+    "format": "<span size=\"5500\">{}</span>",
+    "tooltip": false,
     "restart-interval": 60,
-    "signal": 8
+    "signal": 11,
+    "on-click": "swaync-client -t -sw"
   },
+  // "custom/mako": {
+  //   "exec": "~/.config/waybar/scripts/mako.sh get-icon",
+  //   "return-type": "json",
+  //   "on-click": "~/.config/waybar/scripts/mako.sh toggle-restore",
+  //   "on-click-right": "~/.config/waybar/scripts/mako.sh toggle-mode",
+  //   "on-click-middle": "~/.config/waybar/scripts/mako.sh reset",
+  //   "restart-interval": 60,
+  //   "signal": 8
+  // },
   "custom/theme": {
     "exec": "~/.local/bin/switch-theme.sh get-icon",
     "on-click": "~/.local/bin/switch-theme.sh toggle && sleep 0.05 && pkill -RTMIN+9 waybar",
@@ -70,7 +76,7 @@
   "pulseaudio": {
     // "scroll-step": 1, // %, can be a float
     "format": "{icon}  {volume}%  {format_source}",
-    "format-bluetooth": "{icon}  {volume}%   {format_source}",
+    "format-bluetooth": "{icon}   {volume}%  {format_source}",
     "format-bluetooth-muted": " {icon}   {format_source}",
     "format-muted": "  {format_source}",
     "format-source": "   ",
@@ -84,6 +90,7 @@
       "car": "",
       "default": ["", "", ""]
     },
-    "on-click": "gnome-control-center sound"
+    "on-click": "gnome-control-center sound",
+    "on-click-middle": "pactl set-sink-mute @DEFAULT_SINK@ toggle"
   }
 }
