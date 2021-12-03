@@ -40,6 +40,7 @@
 }
 .close-button:hover {
   background: transparent;
+  box-shadow: none;
   opacity: 1;
   /* background: rgb(30, 30, 30); */
   /* transition: all 0.15s ease-in-out; */

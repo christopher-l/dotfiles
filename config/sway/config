@@ -333,8 +333,8 @@ exec "gnome-software --gapplication-service"
 # Switch input methods
 exec_always fcitx5 -d -r
 # Notifications daemon
-# exec "swaync"
-exec "~/Desktop/SwayNotificationCenter/build/src/swaync"
+exec "swaync"
+# exec "~/Desktop/SwayNotificationCenter/build/src/swaync"
 # Update waybar notifications widget on notifications
 exec "$HOME/.config/waybar/scripts/swaync.sh subscribe-widget"
 

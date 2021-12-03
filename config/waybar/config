@@ -90,7 +90,7 @@
       "phone": "",
       "portable": "",
       "car": "",
-      "default": ["", "", ""]
+      "default": ["", ""]
     },
     "on-click": "gnome-control-center sound",
     "on-click-middle": "pactl set-sink-mute @DEFAULT_SINK@ toggle"
