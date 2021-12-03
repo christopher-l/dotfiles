@@ -24,7 +24,9 @@
   "clock": {
     "format": "{:%b %d  %H:%M}",
     "tooltip": false,
-    "on-click": "swaync-client -t -sw"
+    "on-click": "swaync-client -t -sw",
+    "on-scroll-up": "swaymsg workspace prev_on_output",
+    "on-scroll-down": "swaymsg workspace next_on_output"
   },
   "custom/swaync": {
     "exec":"~/.config/waybar/scripts/swaync.sh get-json",

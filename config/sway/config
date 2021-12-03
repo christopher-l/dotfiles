@@ -43,7 +43,7 @@ input "type:keyboard" {
 ################################################################
 # Style
 font Roboto Bold 14px
-hide_edge_borders --i3 smart
+hide_edge_borders --i3 both
 # smart_borders on
 default_border none
 # gaps inner 2
@@ -209,7 +209,7 @@ workspace_auto_back_and_forth yes
     bindsym $mod+Shift+space floating toggle
 
     # Swap focus between the tiling area and the floating area
-    bindsym $mod+Ctrl+space focus mode_toggle
+    bindsym $mod+space focus mode_toggle
 
     # Move focus to the parent container
     bindsym $mod+a focus parent
@@ -333,7 +333,8 @@ exec "gnome-software --gapplication-service"
 # Switch input methods
 exec_always fcitx5 -d -r
 # Notifications daemon
-exec "swaync"
+# exec "swaync"
+exec "~/Desktop/SwayNotificationCenter/build/src/swaync"
 # Update waybar notifications widget on notifications
 exec "$HOME/.config/waybar/scripts/swaync.sh subscribe-widget"
 

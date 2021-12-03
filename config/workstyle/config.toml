@@ -39,6 +39,9 @@
 "pavucontrol" = ""
 "gnome-control-center" = ""
 "easyeffects" = ""
+"evince" = ""
+"gcolor3" = ""
+"swappy" = ""
 
 [other]
 "fallback_icon" = ""
