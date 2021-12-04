@@ -45,8 +45,8 @@ function apply_ulauncher() {
     local selected_theme=$1_theme
     local theme=${!selected_theme}
     sed -i "s/\"theme-name\": \".*\"/\"theme-name\": \"$theme\"/" "$config_file"
-    if pgrep -x ulauncher >/dev/null; then
-        killall ulauncher && sleep 1 && ulauncher --hide-window &
+    if systemctl --user is-active --quiet ulauncher.service; then
+        systemctl --user reload-or-restart ulauncher.service
     fi
 }
 

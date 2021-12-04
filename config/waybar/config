@@ -63,14 +63,14 @@
   "custom/power": {
     "format": "",
     "tooltip": false,
-    "on-click": "~/.config/sway/scripts/poweroff.sh all",
+    "on-click": "~/.config/sway/scripts/poweroff.py",
     "on-click-middle": "systemctl suspend"
   },
   "network": {
     // "interface": "wlp2*", // (Optional) To force the use of this interface
     "format-wifi": "{essid} ({signalStrength}%) ",
-    "format-ethernet": "",
-    "format-linked": "{ifname} (No IP) ",
+    "format-ethernet": "",
+    "format-linked": "{ifname} (No IP) ",
     "format-disconnected": "Disconnected ⚠",
     "tooltip-format": "{ipaddr}/{cidr}",
     "on-click": "gnome-control-center network"
@@ -79,7 +79,7 @@
     // "scroll-step": 1, // %, can be a float
     "format": "{icon}  {volume}%  {format_source}",
     "format-bluetooth": "{icon}   {volume}%  {format_source}",
-    "format-bluetooth-muted": " {icon}   {format_source}",
+    "format-bluetooth-muted": "   {format_source}",
     "format-muted": "  {format_source}",
     "format-source": "   ",
     "format-source-muted": " ",

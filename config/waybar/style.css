@@ -45,8 +45,7 @@
 #custom-gammastep,
 #custom-power,
 #tray {
-  padding-left: 7px;
-  padding-right: 7px;
+  padding: 0 7px;
 }
 
 /* -----------------------------------------------------------------------------

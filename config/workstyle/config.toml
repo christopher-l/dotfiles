@@ -20,6 +20,7 @@
 "transmission" = ""
 "disk usage" = ""
 "gnome-terminal-server" = ""
+"tilix" = ""
 "code-oss" = ""
 "zoom" = ""
 "gedit" = ""
@@ -42,6 +43,8 @@
 "evince" = ""
 "gcolor3" = ""
 "swappy" = ""
+"obsidian" = ""
+"contrast" = ""
 
 [other]
 "fallback_icon" = ""

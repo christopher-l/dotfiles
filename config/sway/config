@@ -11,7 +11,7 @@ set $down j
 set $up k
 set $right l
 # Terminal emulator
-set $term gnome-terminal
+set $term alacritty
 # Application launcher
 set $menu ulauncher-toggle
 
@@ -52,6 +52,7 @@ default_border none
 workspace_layout stacking
 # Behavior
 workspace_auto_back_and_forth yes
+focus_on_window_activation focus
 
 ################################################################
 ### Key bindings
@@ -60,13 +61,13 @@ workspace_auto_back_and_forth yes
 # Basics:
 #
     # Start a terminal
-    bindsym $mod+Return exec $term
+    bindsym --no-repeat $mod+Return exec $term
 
     # Kill focused window
-    bindsym $mod+q kill
+    bindsym --no-repeat $mod+q kill
 
     # Start application launcher
-    bindsym Mod1+space exec $menu
+    bindsym --no-repeat Mod1+space exec $menu
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
@@ -76,13 +77,13 @@ workspace_auto_back_and_forth yes
     floating_modifier $mod normal
 
     # Reload the configuration file
-    bindsym $mod+Shift+c reload
+    bindsym --no-repeat $mod+Shift+c reload
 
     # Exit sway (logs you out of your Wayland session)
-    bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
+    bindsym --no-repeat $mod+Shift+e exec $HOME/.config/sway/scripts/poweroff.py logout
 
     # Power off system
-    bindsym Ctrl+Mod1+Delete exec $HOME/.config/sway/scripts/poweroff.sh poweroff
+    bindsym --no-repeat Ctrl+Mod1+Delete exec $HOME/.config/sway/scripts/poweroff.py poweroff
 #
 # Moving around:
 #
@@ -307,8 +308,6 @@ for_window [class="zoom" title="^zoom$"] border none, floating enable
 ################################################################
 # Systemd session target
 exec_always "systemctl --user import-environment; systemctl --user restart sway-session.target"
-# Application launcher daemon
-exec "ulauncher --hide-window"
 # Automatically rename workspaces based on content
 exec workstyle
 # Enable NetworkManager to read secrets from the key chain
@@ -334,16 +333,8 @@ exec "gnome-software --gapplication-service"
 exec_always fcitx5 -d -r
 # Notifications daemon
 exec "swaync"
-# exec "~/Desktop/SwayNotificationCenter/build/src/swaync"
 # Update waybar notifications widget on notifications
 exec "$HOME/.config/waybar/scripts/swaync.sh subscribe-widget"
-
-################################################################
-### Status Bar
-################################################################
-bar {
-    swaybar_command waybar
-}
 
 ################################################################
 ### Colors
