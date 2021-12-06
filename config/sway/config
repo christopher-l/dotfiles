@@ -261,7 +261,9 @@ focus_on_window_activation focus
     bindsym $mod+Ctrl+f exec nautilus
 
     # Screenshot
-    bindsym Print exec grim -g "$(slurp)" - | swappy -f -
+    bindsym Print exec grimshot save area - | swappy -f -
+    bindsym Ctrl+Print exec grimshot save output - | swappy -f -
+    bindsym Mod1+Print exec grimshot save active - | swappy -f -
     # Media keys
     bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
     bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%

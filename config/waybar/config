@@ -7,7 +7,7 @@
   // Choose the order of the modules
   "modules-left": ["sway/workspaces", "sway/mode", "sway/window"],
   "modules-center": ["clock", "custom/swaync"],
-  "modules-right": ["tray", "custom/orca", "custom/theme", "custom/gammastep", "pulseaudio", "network", "custom/power"],
+  "modules-right": ["tray", "custom/orca", "custom/theme", "custom/gammastep", "network", "pulseaudio", "custom/power"],
   // Modules configuration
   "sway/workspaces": {
     "enable-bar-scroll": true,
@@ -19,7 +19,7 @@
   },
   "tray": {
     // "icon-size": 21,
-    "spacing": 10
+    "spacing": 16
   },
   "clock": {
     "format": "{:%b %d  %H:%M}",
@@ -86,11 +86,11 @@
   "pulseaudio": {
     // "scroll-step": 1, // %, can be a float
     "format": "{icon}  {volume}%  {format_source}",
-    "format-bluetooth": "{icon}   {volume}%  {format_source}",
-    "format-bluetooth-muted": "   {format_source}",
+    "format-bluetooth": "{icon}  {volume}%  {format_source}",
+    "format-bluetooth-muted": "  {format_source}",
     "format-muted": "  {format_source}",
-    "format-source": "   ",
-    "format-source-muted": " ",
+    "format-source": "  ",
+    "format-source-muted": "",
     "format-icons": {
       "headphone": "",
       "hands-free": "",
