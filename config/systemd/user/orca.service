@@ -1,0 +1,7 @@
+[Unit]
+Description=Screen reader
+BindsTo=sway-session.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/orca

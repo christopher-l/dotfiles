@@ -7,7 +7,7 @@
   // Choose the order of the modules
   "modules-left": ["sway/workspaces", "sway/mode", "sway/window"],
   "modules-center": ["clock", "custom/swaync"],
-  "modules-right": ["tray", "custom/theme", "custom/gammastep", "pulseaudio", "network", "custom/power"],
+  "modules-right": ["tray", "custom/orca", "custom/theme", "custom/gammastep", "pulseaudio", "network", "custom/power"],
   // Modules configuration
   "sway/workspaces": {
     "enable-bar-scroll": true,
@@ -46,6 +46,14 @@
   //   "restart-interval": 60,
   //   "signal": 8
   // },
+  "custom/orca": {
+    "exec": "~/.config/waybar/scripts/orca.sh get-json",
+    "return-type": "json",
+    "on-click": "~/.config/waybar/scripts/orca.sh toggle",
+    "tooltip": false,
+    "restart-interval": 60,
+    "signal": 12
+  },
   "custom/theme": {
     "exec": "~/.local/bin/switch-theme.sh get-icon",
     "on-click": "~/.local/bin/switch-theme.sh toggle && sleep 0.05 && pkill -RTMIN+9 waybar",

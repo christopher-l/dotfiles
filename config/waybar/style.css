@@ -44,13 +44,24 @@
 #custom-theme,
 #custom-gammastep,
 #custom-power,
+#custom-orca,
 #tray {
-  padding: 0 7px;
+  padding: 0 8px;
+}
+
+#custom-theme,
+#custom-orca,
+#tray {
+  /* margin: 0 5px; */
 }
 
 /* -----------------------------------------------------------------------------
  * Module styles
  * -------------------------------------------------------------------------- */
+
+.inactive {
+  opacity: 0.5;
+}
 
  #clock {
    margin-left: 20px;
@@ -58,10 +69,6 @@
 
 #custom-swaync {
   min-width: 20px;
-}
-
-#custom-theme {
-  margin-right: 6px;
 }
 
 #custom-gammastep.daytime {
@@ -72,10 +79,6 @@
 }
 #custom-gammastep.inhibited {
   opacity: 0.5;
-}
-
-#tray {
-  margin-right: 10px;
 }
 
 #window {
