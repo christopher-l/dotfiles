@@ -324,8 +324,6 @@ exec "/usr/lib/deja-dup/deja-dup-monitor"
 exec /usr/lib/gsd-xsettings
 # Make geo location available to gammastep
 exec /usr/lib/geoclue-2.0/demos/agent
-# Adjust color temperature
-exec gammastep
 # Online accounts
 exec "pkill -f goa"
 exec "/usr/lib/goa-daemon"

@@ -1,0 +1,10 @@
+[Unit]
+Description=Dynamically rename workspaces
+BindsTo=sway-session.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/workstyle
+
+[Install]
+WantedBy=sway-session.target
