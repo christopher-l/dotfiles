@@ -5,9 +5,8 @@ set -e
 function apply_vscode() {
     local config_file="$HOME/.config/Code - OSS/User/settings.json"
     # Select specific theme
-
-    # local dark_theme="Visual Studio Dark"
-    # local light_theme="Visual Studio Light"
+    # local dark_theme="Tailwind Moon"
+    # local light_theme="Tailwind Breeze"
     # local selected_theme=$1_theme
     # local theme=${!selected_theme}
     # sed -i "s/\"workbench.colorTheme\": \".*\"/\"workbench.colorTheme\": \"$theme\"/" "$config_file"

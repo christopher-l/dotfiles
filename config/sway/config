@@ -210,7 +210,7 @@ focus_on_window_activation focus
     bindsym $mod+Shift+space floating toggle
 
     # Swap focus between the tiling area and the floating area
-    bindsym $mod+space focus mode_toggle
+    bindsym $mod+Ctrl+space focus mode_toggle
 
     # Move focus to the parent container
     bindsym $mod+a focus parent
@@ -310,14 +310,10 @@ for_window [class="zoom" title="^zoom$"] border none, floating enable
 ################################################################
 # Systemd session target
 exec_always "systemctl --user import-environment; systemctl --user restart sway-session.target"
-# Automatically rename workspaces based on content
-exec workstyle
 # Enable NetworkManager to read secrets from the key chain
 exec "nm-applet"
 # Bluetooth
 exec "blueberry-tray"
-# Sound filters
-exec "easyeffects --gapplication-service"
 # Backup daemon
 exec "/usr/lib/deja-dup/deja-dup-monitor"
 # Apply the GTK theme to XWayland applications
@@ -331,8 +327,6 @@ exec "/usr/lib/goa-daemon"
 exec "gnome-software --gapplication-service"
 # Switch input methods
 exec_always fcitx5 -d -r
-# Notifications daemon
-exec "swaync"
 # Update waybar notifications widget on notifications
 exec "$HOME/.config/waybar/scripts/swaync.sh subscribe-widget"
 

@@ -1,0 +1,11 @@
+[Unit]
+Description=Sway Notification Center
+BindsTo=sway-session.target
+
+[Service]
+Type=simple
+# ExecStart=/home/chris/Desktop/SwayNotificationCenter/build/src/swaync
+ExecStart=/usr/bin/swaync
+
+[Install]
+WantedBy=sway-session.target
