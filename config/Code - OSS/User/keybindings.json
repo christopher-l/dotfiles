@@ -88,4 +88,8 @@
         "key": "ctrl+f",
         "command": "-vscode-neovim.ctrl-f",
     },
+    {
+        "key": "ctrl+k ctrl+r",
+        "command": "workbench.action.openRecent"
+    },
 ]

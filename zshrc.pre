@@ -1,0 +1,1 @@
+fpath=(~/.zsh/completion $fpath)

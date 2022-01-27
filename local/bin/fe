@@ -1,0 +1,42 @@
+#!/usr/bin/env zx
+
+const parseArgs = require('minimist');
+const args = parseArgs(process.argv.slice(3), {
+  stopEarly: true,
+  boolean: ['v'],
+  alias: { v: 'verbose' },
+});
+
+const content = await fs.readdir('.');
+let successful = [];
+let failed = [];
+await Promise.all(
+  content.map(async (entry) => {
+    if ((await fs.lstat(entry)).isDirectory()) {
+      try {
+        const output = await $`cd ${entry}; ${args._}`;
+        successful.push({ directory: entry, processOutput: output });
+      } catch (p) {
+        failed.push({ directory: entry, processOutput: p });
+      }
+    }
+  }),
+);
+
+if (args.verbose) {
+  console.log([...successful, ...failed]);
+} else if (failed.length > 0) {
+  console.log(failed);
+}
+
+if (args.verbose && failed.length === 0) {
+  console.log(chalk.green.bold('All tasks have completed successfully.'));
+} else if (failed.length > 0) {
+  console.error(
+    chalk.red.bold(`${failed.length} of ${failed.length + successful.length} tasks have failed:`),
+  );
+  for (const task of failed) {
+    console.error('    ' + task.directory);
+  }
+  process.exit(1);
+}

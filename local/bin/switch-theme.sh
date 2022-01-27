@@ -26,7 +26,7 @@ function apply_vscode() {
 }
 
 function apply_obsidian() {
-    local workspaces=("$HOME/Documents/Zettelkasten")
+    local workspaces=("$HOME/Documents/Notes/Zettelkasten")
     for i in ${!workspaces[@]}; do
         local config_file="${workspaces[$i]}/.obsidian/appearance.json"
         local dark_theme="obsidian"
@@ -65,6 +65,18 @@ function apply_qt5() {
     local theme=${!selected_theme}
     sed -i "s/^style=.*$/style=$theme/" "$config_file"
 }
+
+function apply_chromium() (
+    config_file="$HOME/.config/chromium-flags.conf"
+    case "$1" in
+    light)
+        sed -i '/--force-dark-mode/d' "$config_file"
+        ;;
+    dark)
+        echo "--force-dark-mode" >> "$config_file"
+        ;;
+    esac
+)
 
 light_gtk_theme="'Adwaita'"
 dark_gtk_theme="'Adwaita-dark'"
@@ -127,6 +139,7 @@ function apply_all_applications() (
     # apply_ulauncher $1
     apply_qt5 $1
     # apply_gnome_terminal $1
+    apply_chromium $1
 )
 
 
