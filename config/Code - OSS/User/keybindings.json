@@ -92,4 +92,9 @@
         "key": "ctrl+k ctrl+r",
         "command": "workbench.action.openRecent"
     },
+    {
+        "key": "home",
+        "command": "-extension.vim_home",
+        "when": "editorTextFocus && vim.active && !inDebugRepl && vim.mode != 'Insert'"
+    },
 ]

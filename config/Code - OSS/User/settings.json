@@ -1,28 +1,34 @@
 {
-  "editor.fontFamily": "Roboto Mono",
+  // Window
+  "editor.fontFamily": "JetBrains Mono",
   "editor.fontSize": 13,
   "editor.lineHeight": 22,
   "terminal.integrated.fontSize": 12,
-  "terminal.integrated.minimumContrastRatio": 4.5,
   "window.menuBarVisibility": "toggle",
   "window.title": "${rootName}",
   "window.titleBarStyle": "custom",
-  "window.zoomLevel": 1,
-  "workbench.colorTheme": "GitHub Dark Default",
-  "workbench.startupEditor": "none",
-  "workbench.tree.indent": 20,
-  "workbench.tree.renderIndentGuides": "none",
+  "window.zoomLevel": 0.5,
+  "workbench.colorTheme": "Tailwind Moon",
+  "workbench.iconTheme": "material-icon-theme",
 
   // Behavior
   "editor.acceptSuggestionOnCommitCharacter": false,
+  "editor.linkedEditing": true,
   "editor.mouseWheelZoom": true,
+  "editor.suggest.preview": true,
   "editor.tabCompletion": "onlySnippets",
   "explorer.openEditors.sortOrder": "alphabetical",
-  "editor.suggest.preview": true,
+  "terminal.integrated.showExitAlert": false,
   "workbench.editor.openPositioning": "last",
   "workbench.editor.revealIfOpen": true,
+  "workbench.startupEditor": "none",
   "files.associations": {
     "profile": "shellscript"
+  },
+  "terminal.integrated.profiles.linux": {
+    "zsh": {
+      "path": "/usr/bin/zsh"
+    }
   },
 
   // Don't show again
@@ -35,23 +41,25 @@
 
   // View
   "editor.minimap.renderCharacters": false,
+
   "editor.minimap.showSlider": "always",
   "editor.rulers": [100],
   "explorer.decorations.badges": false,
   "explorer.openEditors.visible": 99,
   "outline.showProperties": false,
   "outline.showVariables": false,
-  // "editor.scrollbar.verticalScrollbarSize": 0,
+  "terminal.integrated.minimumContrastRatio": 4.5,
+  "workbench.tree.indent": 20,
+  "workbench.tree.renderIndentGuides": "none",
+  "editor.semanticTokenColorCustomizations": {
+    "enabled": true // enable for all themes
+  },
   "workbench.colorCustomizations": {
     "editorOverviewRuler.infoForeground": "#0000", // hide spelling mistakes from overview ruler
     "editorOverviewRuler.warningForeground": "#0000",
     "minimap.warningHighlight": "#0000",
     "editorIndentGuide.background": "#0000" // hide non-active indent guides
   },
-  "editor.semanticTokenColorCustomizations": {
-    "enabled": true // enable for all themes
-  },
-  // "editor.renderLineHighlight": "gutter",
 
   // Plugins
   "[javascript]": {
@@ -77,9 +85,19 @@
   "cSpell.language": "en,de",
   "cSpell.userWords": ["nestjs", "postgres"],
   "cSpell.showCommandsInEditorContextMenu": false,
-  "bookmarks.showCommandsInContextMenu": false,
+  "editor.cursorBlinking": "solid",
   "vim.handleKeys": {
-    "<C-d>": false
+    "<C-[>": false,
+    "<C-]>": false,
+    "<C-a>": false,
+    "<C-c>": false,
+    "<C-d>": false,
+    "<C-f>": false,
+    "<C-j>": false,
+    "<C-k>": false,
+    "<C-v>": false,
+    "<C-w>": false,
+    "<C-x>": false
   },
   "vim.normalModeKeyBindingsNonRecursive": [
     {
@@ -100,8 +118,42 @@
         }
       ]
     }
+    // {
+    //   "before": ["<C-c>"],
+    //   "after": [],
+    //   "commands":["editor.action.clipboardCopyAction"],
+    // },
+    // {
+    //   "before": ["<C-v>"],
+    //   "after": [],
+    //   "commands":["editor.action.clipboardPasteAction"],
+    // },
   ],
-  "vim.useCtrlKeys": false,
+  "vim.visualModeKeyBindingsNonRecursive": [
+    // {
+    //   "before": ["<C-c>"],
+    //   "after": [],
+    //   "commands":["editor.action.clipboardCopyAction"],
+    // },
+    // {
+    //   "before": ["<C-v>"],
+    //   "after": [],
+    //   "commands":["editor.action.clipboardPasteAction"],
+    // },
+  ],
+  "vim.insertModeKeyBindingsNonRecursive": [
+    // {
+    //   "before": ["<C-c>"],
+    //   "after": [],
+    //   "commands":["editor.action.clipboardCopyAction"],
+    // },
+    // {
+    //   "before": ["<C-v>"],
+    //   "after": [],
+    //   "commands":["editor.action.clipboardPasteAction"],
+    // },
+  ],
+  "vim.useCtrlKeys": true,
   "vim.textwidth": 100,
   "vim.leader": ",",
   "vim.camelCaseMotion.enable": true,
@@ -120,5 +172,8 @@
   "vscode-neovim.neovimExecutablePaths.linux": "/usr/bin/nvim",
   "tabnine.experimentalAutoImports": true,
   "gitlens.blame.ignoreWhitespace": true,
-  "gitlens.mode.active": "zen"
+
+  // Temporary
+  "diffEditor.renderSideBySide": false,
+  "gitlens.mode.active": "zen",
 }
