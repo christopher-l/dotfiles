@@ -59,11 +59,13 @@ function apply_gnome_terminal() {
 
 function apply_qt5() {
     local config_file="$HOME/.config/qt5ct/qt5ct.conf"
-    local dark_theme="Adwaita-Dark"
-    local light_theme="Adwaita"
-    local selected_theme=$1_theme
-    local theme=${!selected_theme}
-    sed -i "s/^style=.*$/style=$theme/" "$config_file"
+    if [[ -f $config_file ]]; then
+        local dark_theme="Adwaita-Dark"
+        local light_theme="Adwaita"
+        local selected_theme=$1_theme
+        local theme=${!selected_theme}
+        sed -i "s/^style=.*$/style=$theme/" "$config_file"
+    fi
 }
 
 function apply_chromium() (
