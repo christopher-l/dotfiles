@@ -1,0 +1,10 @@
+[Unit]
+Description=Unlock keyring using YubiKey
+BindsTo=gnome-session.target
+
+[Service]
+Type=oneshot
+ExecStart=/home/chris/Desktop/gnome-keyring-yubikey-unlock/unlock_keyrings.sh /home/chris/Desktop/gnome-keyring-yubikey-unlock/login.gpg 123456
+
+[Install]
+WantedBy=gnome-session.target
