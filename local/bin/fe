@@ -3,9 +3,31 @@
 const parseArgs = require('minimist');
 const args = parseArgs(process.argv.slice(3), {
   stopEarly: true,
-  boolean: ['v'],
-  alias: { v: 'verbose' },
+  boolean: ['h', 'v'],
+  alias: {
+    h: 'help',
+    v: 'verbose',
+  },
 });
+
+const helpMessage = `Usage: fe [options] [--] <command> [arguments]
+
+Run a command in all subdirectories of the current directory simultaneously.
+
+Options:
+  -h, --help     Print this help message and exit.
+  -v, --verbose  Print all information of each run.
+
+Arguments:
+  command        The command to run in each subdirectory.
+  arguments      Additional arguments to the given command.
+
+The variable $dir will be expanded when used inside arguments.`;
+
+if (args.help || args._.length === 0) {
+  console.log(helpMessage);
+  process.exit(args.help ? 0 : 1);
+}
 
 const content = await fs.readdir('.');
 let successful = [];
@@ -14,7 +36,8 @@ await Promise.all(
   content.map(async (entry) => {
     if ((await fs.lstat(entry)).isDirectory()) {
       try {
-        const output = await $`cd ${entry}; ${args._}`;
+        process.env.dir = entry;
+        const output = await $`cd ${entry}; eval ${args._}`;
         successful.push({ directory: entry, processOutput: output });
       } catch (p) {
         failed.push({ directory: entry, processOutput: p });
