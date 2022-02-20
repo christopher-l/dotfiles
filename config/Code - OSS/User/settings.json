@@ -1,14 +1,13 @@
 {
   // Window
-  "editor.fontFamily": "JetBrains Mono",
+  "editor.fontFamily": "Liberation Mono",
   "editor.fontSize": 13,
   "editor.lineHeight": 22,
   "terminal.integrated.fontSize": 12,
   "window.menuBarVisibility": "toggle",
   "window.title": "${rootName}",
   "window.titleBarStyle": "custom",
-  "window.zoomLevel": 0.5,
-  "workbench.colorTheme": "Tailwind Moon",
+  "window.zoomLevel": 1,
   "workbench.iconTheme": "material-icon-theme",
 
   // Behavior
@@ -40,8 +39,8 @@
   "typescript.updateImportsOnFileMove.enabled": "always",
 
   // View
+  "editor.minimap.enabled": false,
   "editor.minimap.renderCharacters": false,
-
   "editor.minimap.showSlider": "always",
   "editor.rulers": [100],
   "explorer.decorations.badges": false,
@@ -49,6 +48,7 @@
   "outline.showProperties": false,
   "outline.showVariables": false,
   "terminal.integrated.minimumContrastRatio": 4.5,
+  "workbench.experimental.layoutControl.enabled": true,
   "workbench.tree.indent": 20,
   "workbench.tree.renderIndentGuides": "none",
   "editor.semanticTokenColorCustomizations": {
@@ -90,6 +90,7 @@
     "<C-[>": false,
     "<C-]>": false,
     "<C-a>": false,
+    "<C-b>": false,
     "<C-c>": false,
     "<C-d>": false,
     "<C-f>": false,
