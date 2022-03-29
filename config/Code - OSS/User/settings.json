@@ -14,7 +14,7 @@
   "editor.acceptSuggestionOnCommitCharacter": false,
   "editor.linkedEditing": true,
   "editor.mouseWheelZoom": true,
-  "editor.suggest.preview": true,
+  // "editor.suggest.preview": true,
   "editor.tabCompletion": "onlySnippets",
   "explorer.openEditors.sortOrder": "alphabetical",
   "terminal.integrated.showExitAlert": false,
@@ -176,5 +176,5 @@
 
   // Temporary
   "diffEditor.renderSideBySide": false,
-  "gitlens.mode.active": "zen",
+  "workbench.colorTheme": "Default Light+",
 }

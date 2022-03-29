@@ -26,15 +26,12 @@ function apply_vscode() {
 }
 
 function apply_obsidian() {
-    local workspaces=("$HOME/Documents/Notes/Zettelkasten")
-    for i in ${!workspaces[@]}; do
-        local config_file="${workspaces[$i]}/.obsidian/appearance.json"
-        local dark_theme="obsidian"
-        local light_theme="moonstone"
-        local selected_theme=$1_theme
-        local theme=${!selected_theme}
-        sed -i "s/\"theme\": \".*\"/\"theme\": \"$theme\"/" "$config_file"
-    done
+    local config_file="$HOME/.config/obsidian/appearance.json"
+    local dark_theme="obsidian"
+    local light_theme="moonstone"
+    local selected_theme=$1_theme
+    local theme=${!selected_theme}
+    sed -i "s/\"theme\": \".*\"/\"theme\": \"$theme\"/" "$config_file"
 }
 
 function apply_ulauncher() {
@@ -136,7 +133,7 @@ function apply_icon_theme() (
 )
 
 function apply_all_applications() (
-    # apply_vscode $1
+    apply_vscode $1
     apply_obsidian $1
     # apply_ulauncher $1
     apply_qt5 $1

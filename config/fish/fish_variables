@@ -2,6 +2,18 @@
 # VERSION: 3.0
 SETUVAR --export EDITOR:vim
 SETUVAR __fish_initialized:3100
+SETUVAR _fish_abbr__2E_2E_2E_:cd\x20\x2e\x2e/\x2e\x2e
+SETUVAR _fish_abbr_g:git
+SETUVAR _fish_abbr_gb:git\x20branch
+SETUVAR _fish_abbr_gc:git\x20commit
+SETUVAR _fish_abbr_gd:git\x20diff
+SETUVAR _fish_abbr_gl:git\x20log
+SETUVAR _fish_abbr_gp:git\x20pull
+SETUVAR _fish_abbr_gps:git\x20push
+SETUVAR _fish_abbr_grh:git\x20reset\x20\x2d\x2dhard
+SETUVAR _fish_abbr_gri:git\x20rebase\x20\x2di
+SETUVAR _fish_abbr_gs:git\x20status
+SETUVAR _fish_abbr_gsw:git\x20switch
 SETUVAR _fish_abbr_l:ls\x20\x2dl
 SETUVAR fish_color_autosuggestion:4D5566
 SETUVAR fish_color_cancel:\x2dr
