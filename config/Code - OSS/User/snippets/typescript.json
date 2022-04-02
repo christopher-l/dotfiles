@@ -22,6 +22,17 @@
     "body": ["tap(($1) => console.log('$1', $1)),"],
     "description": "Tap observable and log to console"
   },
+  "Debug observable": {
+    "prefix": "do",
+    "body":[
+      "subscribe({",
+      "\tnext: (value) => console.log('next', value),",
+      "\terror: (err) => console.log('error', err),",
+      "\tcomplete: () => console.log('complete'),",
+      "});",
+    ],
+    "description": "Subscribe and log observable actions"
+  },
   "Unimplemented": {
     "prefix": "ni",
     "body": "throw new Error('not implemented')",

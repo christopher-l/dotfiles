@@ -221,4 +221,4 @@ Exec=/usr/bin/chromium --ozone-platform-hint=auto --incognito --password-store=g
 
 [Desktop Action dev]
 Name=Dev
-Exec=env ACCESSIBILITY_ENABLED=1 /usr/bin/chromium --user-data-dir=.config/chromium-dev --remote-debugging-port=9222 --force-renderer-accessibility --disable-features=SameSiteByDefaultCookies --password-store=gnome
+Exec=env ACCESSIBILITY_ENABLED=1 /usr/bin/chromium --user-data-dir=.config/chromium-dev --ozone-platform-hint=auto --remote-debugging-port=9222 --force-renderer-accessibility --disable-features=SameSiteByDefaultCookies --password-store=gnome

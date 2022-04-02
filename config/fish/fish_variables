@@ -1,7 +1,8 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
 SETUVAR --export EDITOR:vim
-SETUVAR __fish_initialized:3100
+SETUVAR --export _ZO_FZF_OPTS:\x2d\x2dheight\x2040\x25\x20\x2d\x2dreverse
+SETUVAR __fish_initialized:3400
 SETUVAR _fish_abbr__2E_2E_2E_:cd\x20\x2e\x2e/\x2e\x2e
 SETUVAR _fish_abbr_g:git
 SETUVAR _fish_abbr_gb:git\x20branch
@@ -9,6 +10,7 @@ SETUVAR _fish_abbr_gc:git\x20commit
 SETUVAR _fish_abbr_gd:git\x20diff
 SETUVAR _fish_abbr_gl:git\x20log
 SETUVAR _fish_abbr_gp:git\x20pull
+SETUVAR _fish_abbr_gpd:git\x20push\x20\x2dd\x20origin
 SETUVAR _fish_abbr_gps:git\x20push
 SETUVAR _fish_abbr_grh:git\x20reset\x20\x2d\x2dhard
 SETUVAR _fish_abbr_gri:git\x20rebase\x20\x2di
@@ -16,7 +18,7 @@ SETUVAR _fish_abbr_gs:git\x20status
 SETUVAR _fish_abbr_gsw:git\x20switch
 SETUVAR _fish_abbr_l:ls\x20\x2dl
 SETUVAR fish_color_autosuggestion:4D5566
-SETUVAR fish_color_cancel:\x2dr
+SETUVAR fish_color_cancel:\x2d\x2dreverse
 SETUVAR fish_color_command:39BAE6
 SETUVAR fish_color_comment:626A73
 SETUVAR fish_color_cwd:59C2FF
@@ -41,6 +43,7 @@ SETUVAR fish_color_valid_path:\x2d\x2dunderline
 SETUVAR fish_greeting:\x1d
 SETUVAR fish_key_bindings:fish_default_key_bindings
 SETUVAR fish_pager_color_completion:normal
-SETUVAR fish_pager_color_description:B3A06D\x1eyellow
+SETUVAR fish_pager_color_description:B3A06D
 SETUVAR fish_pager_color_prefix:normal\x1e\x2d\x2dbold\x1e\x2d\x2dunderline
 SETUVAR fish_pager_color_progress:brwhite\x1e\x2d\x2dbackground\x3dcyan
+SETUVAR fish_pager_color_selected_background:\x2d\x2dbackground\x3dE6B450
