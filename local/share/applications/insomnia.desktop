@@ -1,6 +1,6 @@
 [Desktop Entry]
 Name=Insomnia
-Exec=/opt/Insomnia/insomnia --enable-features=UseOzonePlatform --ozone-platform=wayland %U
+Exec=/opt/Insomnia/insomnia --enable-features=WaylandWindowDecorations --ozone-platform=wayland %U
 Terminal=false
 Type=Application
 Icon=insomnia

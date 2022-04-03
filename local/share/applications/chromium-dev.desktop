@@ -2,10 +2,11 @@
 Version=1.0
 Name=Chromium Dev
 Comment=Chromium development profile
-Exec=env ACCESSIBILITY_ENABLED=1 /usr/bin/chromium --user-data-dir=.config/chromium-dev --remote-debugging-port=9222 --force-renderer-accessibility --disable-features=SameSiteByDefaultCookies --password-store=gnome
+Exec=env ACCESSIBILITY_ENABLED=1 /usr/bin/chromium --user-data-dir=.config/chromium-dev --ozone-platform-hint=auto --remote-debugging-port=9222 --force-renderer-accessibility --disable-features=SameSiteByDefaultCookies --password-store=gnome
+StartupWMClass=chromium (.config/chromium-dev)
 StartupNotify=true
 Terminal=false
-Icon=chromium
+Icon=chromium-dev
 Type=Application
 Categories=Network;WebBrowser;
-NotShowIn=GNOME;KDE;Unity;
+# NotShowIn=GNOME;KDE;Unity;
