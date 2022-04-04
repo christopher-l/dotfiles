@@ -15,7 +15,8 @@ newName=$(
         --entry \
         --title="Rename Workspace" \
         --text="Enter a new name for workspace $((index + 1))" \
-        --entry-text="$((index + 1)): "
+        ""
+        # --entry-text="$((index + 1)): "
 )
 # Get workspace names list.
 names=$(dconf read $DCONF_KEY)

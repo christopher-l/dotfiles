@@ -1,14 +1,11 @@
 {
   // Window
-  "editor.fontFamily": "Liberation Mono",
+  "editor.fontFamily": "Cascadia Code",
   "editor.fontSize": 13,
-  "editor.lineHeight": 22,
+  "editor.lineHeight": 1.8,
   "terminal.integrated.fontSize": 12,
   "window.menuBarVisibility": "toggle",
   "window.title": "${rootName}",
-  "window.titleBarStyle": "custom",
-  "window.zoomLevel": 1,
-  "workbench.iconTheme": "material-icon-theme",
 
   // Behavior
   "editor.acceptSuggestionOnCommitCharacter": false,
@@ -17,17 +14,14 @@
   // "editor.suggest.preview": true,
   "editor.tabCompletion": "onlySnippets",
   "explorer.openEditors.sortOrder": "alphabetical",
+  "git.closeDiffOnOperation": true,
   "terminal.integrated.showExitAlert": false,
+  "workbench.editor.navigationScope": "editorGroup",
   "workbench.editor.openPositioning": "last",
   "workbench.editor.revealIfOpen": true,
   "workbench.startupEditor": "none",
   "files.associations": {
     "profile": "shellscript"
-  },
-  "terminal.integrated.profiles.linux": {
-    "zsh": {
-      "path": "/usr/bin/zsh"
-    }
   },
 
   // Don't show again
@@ -45,10 +39,9 @@
   "editor.rulers": [100],
   "explorer.decorations.badges": false,
   "explorer.openEditors.visible": 99,
-  "outline.showProperties": false,
+  "outline.showFunctions": false,
   "outline.showVariables": false,
   "terminal.integrated.minimumContrastRatio": 4.5,
-  "workbench.experimental.layoutControl.enabled": true,
   "workbench.tree.indent": 20,
   "workbench.tree.renderIndentGuides": "none",
   "editor.semanticTokenColorCustomizations": {
@@ -78,12 +71,9 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "python.formatting.provider": "black",
-  "gitlens.hovers.currentLine.over": "line",
-  "gitlens.menus": false,
-  "gitlens.mode.statusBar.enabled": false,
   "cSpell.enableFiletypes": ["shellscript", "xml"],
   "cSpell.language": "en,de",
-  "cSpell.userWords": ["nestjs", "postgres"],
+  "cSpell.userWords": ["edusharing", "nestjs", "postgres"],
   "cSpell.showCommandsInEditorContextMenu": false,
   "editor.cursorBlinking": "solid",
   "vim.handleKeys": {
@@ -119,40 +109,6 @@
         }
       ]
     }
-    // {
-    //   "before": ["<C-c>"],
-    //   "after": [],
-    //   "commands":["editor.action.clipboardCopyAction"],
-    // },
-    // {
-    //   "before": ["<C-v>"],
-    //   "after": [],
-    //   "commands":["editor.action.clipboardPasteAction"],
-    // },
-  ],
-  "vim.visualModeKeyBindingsNonRecursive": [
-    // {
-    //   "before": ["<C-c>"],
-    //   "after": [],
-    //   "commands":["editor.action.clipboardCopyAction"],
-    // },
-    // {
-    //   "before": ["<C-v>"],
-    //   "after": [],
-    //   "commands":["editor.action.clipboardPasteAction"],
-    // },
-  ],
-  "vim.insertModeKeyBindingsNonRecursive": [
-    // {
-    //   "before": ["<C-c>"],
-    //   "after": [],
-    //   "commands":["editor.action.clipboardCopyAction"],
-    // },
-    // {
-    //   "before": ["<C-v>"],
-    //   "after": [],
-    //   "commands":["editor.action.clipboardPasteAction"],
-    // },
   ],
   "vim.useCtrlKeys": true,
   "vim.textwidth": 100,
@@ -161,20 +117,15 @@
   "[scss]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
   "workbench.editorAssociations": {
     "*.ipynb": "jupyter.notebook.ipynb"
   },
-  "gitlens.remotes": [
-    {
-      "domain": "scm.edu-sharing.com",
-      "type": "GitLab"
-    }
-  ],
-  "vscode-neovim.neovimExecutablePaths.linux": "/usr/bin/nvim",
   "tabnine.experimentalAutoImports": true,
-  "gitlens.blame.ignoreWhitespace": true,
 
-  // Temporary
-  "diffEditor.renderSideBySide": false,
-  "workbench.colorTheme": "Default Light+",
+  // Dynamic
+  "workbench.colorTheme": "GitHub Light",
+  "window.zoomLevel": 0.5,
 }
