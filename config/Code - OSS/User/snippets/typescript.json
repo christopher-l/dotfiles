@@ -24,12 +24,12 @@
   },
   "Debug observable": {
     "prefix": "do",
-    "body":[
+    "body": [
       "subscribe({",
       "\tnext: (value) => console.log('next', value),",
       "\terror: (err) => console.log('error', err),",
       "\tcomplete: () => console.log('complete'),",
-      "});",
+      "});"
     ],
     "description": "Subscribe and log observable actions"
   },
@@ -42,9 +42,13 @@
     "prefix": "to",
     "body": ["setTimeout(() => {", "\t${TM_SELECTED_TEXT}$1", "});$0"]
   },
-  "Test": {
+  "Jasmine test": {
     "prefix": "it",
     "body": ["it('$1', () => {", "\t$0", "});"],
     "description": ""
+  },
+  "Playwright test": {
+    "prefix": "test",
+    "body": ["test('$1', async ({ page }) => {", "\t$0", "});"]
   }
 }

@@ -1,11 +1,15 @@
 {
   // Window
-  "editor.fontFamily": "Cascadia Code",
+  "editor.fontFamily": "JetBrains Mono semibold",
   "editor.fontSize": 13,
+  // "editor.fontWeight": "500",
   "editor.lineHeight": 1.8,
-  "terminal.integrated.fontSize": 12,
+  "terminal.integrated.fontSize": 13,
+  // "terminal.integrated.fontWeight": "500",
   "window.menuBarVisibility": "toggle",
+  "window.commandCenter": true,
   "window.title": "${rootName}",
+  "workbench.layoutControl.enabled": false,
 
   // Behavior
   "editor.acceptSuggestionOnCommitCharacter": false,
@@ -15,6 +19,8 @@
   "editor.tabCompletion": "onlySnippets",
   "explorer.openEditors.sortOrder": "alphabetical",
   "git.closeDiffOnOperation": true,
+  "git.mergeEditor": true,
+  "terminal.integrated.defaultProfile.linux": "zsh",
   "terminal.integrated.showExitAlert": false,
   "workbench.editor.navigationScope": "editorGroup",
   "workbench.editor.openPositioning": "last",
@@ -23,6 +29,8 @@
   "files.associations": {
     "profile": "shellscript"
   },
+  "editor.inlayHints.enabled": "offUnlessPressed",
+  "terminal.integrated.persistentSessionReviveProcess": "never",
 
   // Don't show again
   "explorer.confirmDelete": false,
@@ -31,17 +39,11 @@
   "git.confirmSync": false,
   "javascript.updateImportsOnFileMove.enabled": "always",
   "typescript.updateImportsOnFileMove.enabled": "always",
-
-  // View
-  "editor.minimap.enabled": false,
-  "editor.minimap.renderCharacters": false,
   "editor.minimap.showSlider": "always",
   "editor.rulers": [100],
-  "explorer.decorations.badges": false,
   "explorer.openEditors.visible": 99,
   "outline.showFunctions": false,
   "outline.showVariables": false,
-  "terminal.integrated.minimumContrastRatio": 4.5,
   "workbench.tree.indent": 20,
   "workbench.tree.renderIndentGuides": "none",
   "editor.semanticTokenColorCustomizations": {
@@ -53,6 +55,13 @@
     "minimap.warningHighlight": "#0000",
     "editorIndentGuide.background": "#0000" // hide non-active indent guides
   },
+  // "workbench.editor.decorations.colors": false,
+  // "workbench.editor.decorations.badges": false,
+  // "explorer.decorations.badges": false,
+
+  // Languages
+  "typescript.preferences.importModuleSpecifier": "project-relative",
+  "typescript.inlayHints.parameterNames.enabled": "all",
 
   // Plugins
   "[javascript]": {
@@ -120,12 +129,9 @@
   "[css]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "workbench.editorAssociations": {
-    "*.ipynb": "jupyter.notebook.ipynb"
-  },
   "tabnine.experimentalAutoImports": true,
-
-  // Dynamic
-  "workbench.colorTheme": "GitHub Light",
-  "window.zoomLevel": 0.5,
+  "diffEditor.ignoreTrimWhitespace": false,
+  "window.titleBarStyle": "custom",
+  "editor.minimap.renderCharacters": false,
+  "terminal.integrated.shellIntegration.enabled": true
 }

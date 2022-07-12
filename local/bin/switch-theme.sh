@@ -136,7 +136,7 @@ function apply_icon_theme() (
 )
 
 function apply_all_applications() (
-    apply_vscode $1
+    # apply_vscode $1
     apply_obsidian $1
     # apply_ulauncher $1
     apply_qt5 $1
