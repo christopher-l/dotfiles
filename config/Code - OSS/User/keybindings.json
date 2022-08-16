@@ -156,4 +156,9 @@
         "command": "-workbench.action.terminal.focusFind",
         "when": "terminalFindFocused && terminalHasBeenCreated || terminalFindFocused && terminalProcessSupported || terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported"
     },
+    {
+        "key": "ctrl+r",
+        "command": "workbench.action.terminal.runRecentCommand",
+        "when": "terminalFocus"
+    },
 ]

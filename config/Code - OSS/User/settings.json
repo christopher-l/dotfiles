@@ -7,7 +7,7 @@
   "terminal.integrated.fontSize": 13,
   // "terminal.integrated.fontWeight": "500",
   "window.menuBarVisibility": "toggle",
-  "window.commandCenter": true,
+  // "window.commandCenter": true,
   "window.title": "${rootName}",
   "workbench.layoutControl.enabled": false,
 
@@ -31,6 +31,7 @@
   },
   "editor.inlayHints.enabled": "offUnlessPressed",
   "terminal.integrated.persistentSessionReviveProcess": "never",
+  "editor.experimental.stickyScroll.enabled": true,
 
   // Don't show again
   "explorer.confirmDelete": false,
@@ -131,7 +132,5 @@
   },
   "tabnine.experimentalAutoImports": true,
   "diffEditor.ignoreTrimWhitespace": false,
-  "window.titleBarStyle": "custom",
   "editor.minimap.renderCharacters": false,
-  "terminal.integrated.shellIntegration.enabled": true
 }
