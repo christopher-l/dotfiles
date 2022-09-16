@@ -4,7 +4,7 @@ BindsTo=gnome-session-pre.target
 
 [Service]
 Type=oneshot
-ExecStart=/home/chris/Desktop/gnome-keyring-yubikey-unlock/unlock_keyrings.sh /home/chris/Desktop/gnome-keyring-yubikey-unlock/login.gpg 123456
+ExecStart=/home/chris/Projects/Other/gnome-keyring-yubikey-unlock/unlock_keyrings.sh /home/chris/Projects/Other/gnome-keyring-yubikey-unlock/login.gpg 123456
 
 [Install]
 WantedBy=gnome-session-pre.target

@@ -16,6 +16,16 @@
         "when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus"
     },
     {
+        "key": "ctrl+n",
+        "command": "selectNextCodeAction",
+        "when": "codeActionMenuVisible"
+    },
+    {
+        "key": "ctrl+p",
+        "command": "selectPrevCodeAction",
+        "when": "codeActionMenuVisible"
+    },
+    {
         "key": "alt+1",
         "command": "workbench.action.terminal.focusAtIndex1",
         "when": "terminalFocus"
@@ -139,7 +149,7 @@
     {
         "key": "ctrl+p",
         "command": "workbench.action.quickOpen",
-        "when": "!terminalFocus"
+        "when": "!terminalFocus && !codeActionMenuVisible && !suggestWidgetVisible"
     },
     {
         "key": "ctrl+shift+f",

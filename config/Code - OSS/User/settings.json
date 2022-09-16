@@ -1,15 +1,18 @@
 {
   // Window
-  "editor.fontFamily": "JetBrains Mono semibold",
+  "editor.fontFamily": "Liberation Mono",
   "editor.fontSize": 13,
-  // "editor.fontWeight": "500",
-  "editor.lineHeight": 1.8,
-  "terminal.integrated.fontSize": 13,
+  "editor.lineHeight": 1.67,
   // "terminal.integrated.fontWeight": "500",
   "window.menuBarVisibility": "toggle",
   // "window.commandCenter": true,
   "window.title": "${rootName}",
   "workbench.layoutControl.enabled": false,
+  "workbench.preferredLightColorTheme": "GitHub Light",
+  "workbench.preferredDarkColorTheme": "GitHub Dark",
+  "window.autoDetectColorScheme": true,
+  "editor.minimap.renderCharacters": false,
+  "editor.stickyScroll.enabled": true,
 
   // Behavior
   "editor.acceptSuggestionOnCommitCharacter": false,
@@ -31,7 +34,28 @@
   },
   "editor.inlayHints.enabled": "offUnlessPressed",
   "terminal.integrated.persistentSessionReviveProcess": "never",
-  "editor.experimental.stickyScroll.enabled": true,
+  "terminal.integrated.profiles.linux": {
+    "bash": {
+      "path": "bash",
+      "icon": "terminal-bash"
+    },
+    "zsh": {
+      "path": "zsh",
+      // Correctly load zshrc.local
+      "args": ["-l", "-i"]
+    },
+    "fish": {
+      "path": "fish"
+    },
+    "tmux": {
+      "path": "tmux",
+      "icon": "terminal-tmux"
+    },
+    "pwsh": {
+      "path": "pwsh",
+      "icon": "terminal-powershell"
+    }
+  },
 
   // Don't show again
   "explorer.confirmDelete": false,
@@ -131,6 +155,22 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "tabnine.experimentalAutoImports": true,
+
+  "gitlens.currentLine.enabled": false,
+  "gitlens.hovers.currentLine.over": "line",
+  "gitlens.codeLens.enabled": false,
+  "gitlens.hovers.enabled": false,
+  "gitlens.menus": false,
+  "gitlens.mode.statusBar.enabled": false,
+  "gitlens.remotes": [
+    {
+      "domain": "scm.edu-sharing.com",
+      "type": "GitLab"
+    }
+  ],
+
+  // Temp
   "diffEditor.ignoreTrimWhitespace": false,
-  "editor.minimap.renderCharacters": false,
+  "workbench.colorTheme": "GitHub Light",
+  "window.zoomLevel": 1
 }
