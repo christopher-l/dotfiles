@@ -167,7 +167,7 @@
         "when": "terminalFindFocused && terminalHasBeenCreated || terminalFindFocused && terminalProcessSupported || terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported"
     },
     {
-        "key": "ctrl+r",
+        "key": "ctrl+k ctrl+r",
         "command": "workbench.action.terminal.runRecentCommand",
         "when": "terminalFocus"
     },

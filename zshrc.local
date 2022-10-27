@@ -19,3 +19,7 @@ eval "$(zoxide init zsh)"
 if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
     source /etc/profile.d/vte.sh
 fi
+
+alias gs="git status"
+alias gl="git log --graph"
+alias gsw="git switch"
