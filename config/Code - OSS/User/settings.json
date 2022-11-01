@@ -23,6 +23,7 @@
   "explorer.openEditors.sortOrder": "alphabetical",
   "git.closeDiffOnOperation": true,
   "git.mergeEditor": true,
+  "terminal.external.linuxExec": "kgx",
   "terminal.integrated.defaultProfile.linux": "zsh",
   "terminal.integrated.showExitAlert": false,
   "workbench.editor.navigationScope": "editorGroup",
