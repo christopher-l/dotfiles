@@ -8,8 +8,8 @@
   // "window.commandCenter": true,
   "window.title": "${rootName}",
   "workbench.layoutControl.enabled": false,
-  "workbench.preferredLightColorTheme": "GitHub Light",
-  "workbench.preferredDarkColorTheme": "GitHub Dark",
+  "workbench.preferredLightColorTheme": "GitHub Light Default",
+  "workbench.preferredDarkColorTheme": "GitHub Dark Default",
   "window.autoDetectColorScheme": true,
   "editor.minimap.renderCharacters": false,
   "editor.stickyScroll.enabled": true,
@@ -112,6 +112,7 @@
   "cSpell.userWords": [
     "declarables",
     "edusharing",
+    "Lübbemeier",
     "nestjs",
     "postgres"
   ],

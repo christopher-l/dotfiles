@@ -23,3 +23,5 @@ fi
 alias gs="git status"
 alias gl="git log --graph"
 alias gsw="git switch"
+
+# source <(ng completion script)
