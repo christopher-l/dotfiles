@@ -1,3 +1,12 @@
+function truncate_pwd
+    read pwd
+    if test (string length $pwd) -ge $argv[1]
+        echo '..'(string sub --start=-$argv[1] $pwd)
+    else
+        echo $pwd
+    end
+end
+
 function fish_prompt --description 'Write out the prompt'
     set -l last_pipestatus $pipestatus
     set -lx __fish_last_status $status # Export for __fish_print_pipestatus.
@@ -27,5 +36,5 @@ function fish_prompt --description 'Write out the prompt'
     set -l statusb_color (set_color $bold_flag $fish_color_status)
     set -l prompt_status (__fish_print_pipestatus "[" "]" "|" "$status_color" "$statusb_color" $last_pipestatus)
 
-    echo -n -s (prompt_login)' ' (set_color $color_cwd) (prompt_pwd) $normal (fish_vcs_prompt) $normal " "$prompt_status $suffix " "
+    echo -n -s (prompt_login)' ' (set_color $color_cwd) (prompt_pwd | truncate_pwd 38) $normal (fish_vcs_prompt) $normal " "$prompt_status $suffix " "
 end
