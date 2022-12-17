@@ -24,7 +24,6 @@
   "git.closeDiffOnOperation": true,
   "git.mergeEditor": true,
   "terminal.external.linuxExec": "kgx",
-  "terminal.integrated.defaultProfile.linux": "zsh",
   "terminal.integrated.showExitAlert": false,
   "workbench.editor.navigationScope": "editorGroup",
   "workbench.editor.openPositioning": "last",
@@ -176,7 +175,8 @@
       "type": "GitLab"
     }
   ],
-  "playwright.reuseBrowser": false,
+  "playwright.reuseBrowser": true,
+  "php.format.rules.callParametersNewLineAfterLeftParen": true,
 
   // Temp
   "diffEditor.ignoreTrimWhitespace": false,

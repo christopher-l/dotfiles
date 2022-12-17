@@ -11,3 +11,12 @@ if status is-interactive
     #     restore_theme
     # end
 end
+
+function fish_title
+    if set -q argv[1]
+        echo $argv;
+    else
+        # pwd | truncate_pwd 26
+        basename (pwd)
+    end
+end
