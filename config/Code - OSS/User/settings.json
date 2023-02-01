@@ -1,7 +1,6 @@
 {
   // Window
   "editor.fontFamily": "Liberation Mono",
-  "editor.fontSize": 13,
   "editor.lineHeight": 1.67,
   // "terminal.integrated.fontWeight": "500",
   "window.menuBarVisibility": "toggle",
@@ -18,8 +17,12 @@
   "editor.acceptSuggestionOnCommitCharacter": false,
   "editor.linkedEditing": true,
   "editor.mouseWheelZoom": true,
-  // "editor.suggest.preview": true,
   "editor.tabCompletion": "onlySnippets",
+  "editor.suggest.snippetsPreventQuickSuggestions": false,
+  "editor.suggest.localityBonus": true,
+  "editor.quickSuggestions": {
+    "strings": true,
+  },
   "explorer.openEditors.sortOrder": "alphabetical",
   "git.closeDiffOnOperation": true,
   "git.mergeEditor": true,
@@ -180,6 +183,5 @@
 
   // Temp
   "diffEditor.ignoreTrimWhitespace": false,
-  "workbench.colorTheme": "GitHub Light",
-  "window.zoomLevel": 1
+  "window.zoomLevel": 1,
 }
