@@ -108,21 +108,6 @@
         "when": "editorTextFocus && vim.active && !inDebugRepl && vim.mode != 'Insert'"
     },
     {
-        "key": "right",
-        "command": "tabnine.accept-inline-suggestion",
-        "when": "tabnine.in-inline-suggestions && tabnine.inline-suggestion:enabled || tabnine.in-inline-suggestions && tabnine.snippet-suggestion:enabled"
-    },
-    {
-        "key": "ctrl+f",
-        "command": "tabnine.accept-inline-suggestion",
-        "when": "tabnine.in-inline-suggestions && tabnine.inline-suggestion:enabled || tabnine.in-inline-suggestions && tabnine.snippet-suggestion:enabled"
-    },
-    {
-        "key": "tab",
-        "command": "-tabnine.accept-inline-suggestion",
-        "when": "tabnine.in-inline-suggestions && tabnine.inline-suggestion:enabled || tabnine.in-inline-suggestions && tabnine.snippet-suggestion:enabled"
-    },
-    {
         "key": "alt+left",
         "command": "-workbench.action.terminal.focusPreviousPane",
         "when": "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported"
@@ -165,10 +150,5 @@
         "key": "ctrl+f",
         "command": "-workbench.action.terminal.focusFind",
         "when": "terminalFindFocused && terminalHasBeenCreated || terminalFindFocused && terminalProcessSupported || terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported"
-    },
-    {
-        "key": "ctrl+k ctrl+r",
-        "command": "workbench.action.terminal.runRecentCommand",
-        "when": "terminalFocus"
     },
 ]
