@@ -1,0 +1,9 @@
+[Unit]
+Description=Backup
+
+[Timer]
+OnBootSec=30min
+Unit=backup.service
+
+[Install]
+WantedBy=timers.target
