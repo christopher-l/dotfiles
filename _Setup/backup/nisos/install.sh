@@ -3,3 +3,4 @@
 set -e
 
 systemctl enable backup.timer
+systemctl daemon-reload

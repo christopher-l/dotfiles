@@ -3,17 +3,16 @@
 set -e
 
 function print_usage_and_exit (
-    echo "Usage: $0 install|uninstall script host"
+    echo "Usage: $0 script host"
     exit 1
 )
 
-if [ $# -ne 3 ]; then
+if [ $# -ne 2 ]; then
     print_usage_and_exit
 fi
 
-command=$1
-script=$2
-host=$3
+script=$1
+host=$2
 
 function run_as_root (
     # echo "$@"
@@ -38,7 +37,7 @@ function copy_file (
     if [ "$host" = $(hostname) ]; then
         sudo cp "$file" "/$path"
     else
-        scp "$file" root@"$host":"/$path"
+        scp "$file" root@"$host":"/$path" > /dev/null
     fi
 )
 
@@ -79,7 +78,7 @@ function install_file (
     file="$1"
     path="$2"
     copy_file "$path" "$file"
-    echo "Installed file /$path$file"
+    echo "Installed file /$file"
 )
 
 function uninstall (
@@ -89,14 +88,7 @@ function uninstall (
 function main (
     cd "$script" || print_usage_and_exit
     cd "$host" || print_usage_and_exit
-    case "$command" in
-        install)
-            install ;;
-        uninstall)
-            uninstall ;;
-        *)
-            print_usage_and_exit ;;
-    esac
+    install
 )
 
 main

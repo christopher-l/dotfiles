@@ -1,0 +1,11 @@
+[Unit]
+Description=Daily docker backup
+
+[Timer]
+OnCalendar=daily
+Persistent=true
+Unit=backup-docker.service
+
+[Install]
+WantedBy=timers.target
+

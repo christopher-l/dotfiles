@@ -2,7 +2,8 @@
 Description=Backup
 
 [Timer]
-OnBootSec=30min
+OnCalendar=Mon 10:00
+Persistent=true
 Unit=backup.service
 
 [Install]
