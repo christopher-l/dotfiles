@@ -27,6 +27,7 @@ args=(
     --exclude=node_modules
     --exclude=.angular
     --exclude=".Trash-*"
+    --exclude=Backup
     # --exclude=/mnt/wd-raid/Video
     --delete
     --delete-excluded

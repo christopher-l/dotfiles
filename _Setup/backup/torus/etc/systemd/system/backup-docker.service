@@ -5,4 +5,4 @@ Description=Backup Docker
 Type=oneshot
 Nice=19
 IOSchedulingClass=idle
-ExecStart=/usr/bin/duplicity /root/docker file:///home/chris/Backup/Docker --no-encryption
+ExecStart=/usr/bin/tar -czf /home/chris/Backup/torus/docker.tar.gz -C /root docker
