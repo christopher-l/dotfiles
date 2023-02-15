@@ -2,19 +2,19 @@
 
 set -e
 
-#DEST=root@torus:/mnt/hdd/backup/_sync/nisos
-DEST=/mnt/wd-raid/Backup/nisos
+DEST=root@torus:/mnt/hdd/backup/_sync/nisos
+# DEST=/mnt/wd-raid/Backup/nisos
 
 args=(
     -a
     # -P
     # --info=progress2
-    #-e ssh
+    -e ssh
     --exclude=/dev
     --exclude=/sys
     --exclude=/proc
     --exclude=/run
-    --exclude=/mnt
+    # --exclude=/mnt
     --exclude=/tmp
     --exclude=/media
     --exclude=/var/cache/
@@ -28,7 +28,8 @@ args=(
     --exclude=.angular
     --exclude=".Trash-*"
     --exclude=Backup
-    # --exclude=/mnt/wd-raid/Video
+    --exclude=/mnt/wd-raid/Incoming
+    --exclude=/mnt/wd-raid/Video
     --delete
     --delete-excluded
 )

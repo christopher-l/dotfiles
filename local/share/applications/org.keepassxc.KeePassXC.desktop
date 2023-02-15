@@ -49,8 +49,8 @@ Actions=personal;edu-sharing;
 
 [Desktop Action personal]
 Name=Personal
-Exec=sh -c "secret-tool lookup keepass Personal | keepassxc --pw-stdin /home/chris/Sync/Sync/Personal.kdbx -platform wayland"
-#Exec=sh -c "secret-tool lookup keepass Personal | keepassxc --pw-stdin /home/chris/Sync/Sync/Personal.kdbx"
+Exec=sh -c "secret-tool lookup keepass Personal | keepassxc --pw-stdin /home/chris/Sync/App\ Data/Personal.kdbx -platform wayland"
+#Exec=sh -c "secret-tool lookup keepass Personal | keepassxc --pw-stdin /home/chris/Sync/App\ Data/Personal.kdbx"
 
 [Desktop Action edu-sharing]
 Name=Edu-Sharing
