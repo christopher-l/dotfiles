@@ -68,7 +68,7 @@ function main() (
 #
 # - arg 1: in file
 # - arg 2: out file
-# - arg 3: preset: 'text' | 'text-recycle'
+# - arg 3: preset: 'text' | 'text-gray' | 'text-recycle'
 function high_contrast() (
     echo "high_contrast $1 $2 $3"
     args=(
@@ -83,6 +83,12 @@ function high_contrast() (
     text)
         args+=(
             -brightness-contrast 0x30 # increase brightness by 0 and contrast by 30
+        )
+        ;;
+    text-gray)
+        args+=(
+            -brightness-contrast 0x30 # increase brightness by 0 and contrast by 30
+            -set colorspace Gray
         )
         ;;
     text-recycle)

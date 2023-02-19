@@ -2,7 +2,7 @@
 
 set -e
 
-DEST=root@torus:/mnt/hdd/backup/_sync/nisos
+DEST=root@torus:/mnt/hdd/backup/weekly.0/nisos
 # DEST=/mnt/wd-raid/Backup/nisos
 
 args=(
