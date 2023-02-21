@@ -55,7 +55,9 @@ function install (
 
 function install_dir (
     path="$1"
-    if [ ! -d "/$path" ]; then
+    GLOBIGNORE=".:.."
+    if ! run_as_root test -d "/$path"; then
+        echo mkdir "/$path"
         run_as_root mkdir "/$path"
         echo "Created directory /$path"
     fi
