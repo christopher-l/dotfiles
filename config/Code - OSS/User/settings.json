@@ -1,6 +1,6 @@
 {
   // Window
-  "editor.fontFamily": "Liberation Mono",
+  "editor.fontFamily": "Roboto Mono",
   "editor.lineHeight": 1.67,
   // "terminal.integrated.fontWeight": "500",
   "window.menuBarVisibility": "toggle",
@@ -200,4 +200,6 @@
   // Temp
   "diffEditor.ignoreTrimWhitespace": false,
   "window.zoomLevel": 1,
+  "workbench.colorTheme": "Fleety",
+
 }
