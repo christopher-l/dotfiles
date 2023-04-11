@@ -1,7 +1,7 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
 SETUVAR --export EDITOR:vim
-SETUVAR Z_DATA_DIR:/home/chris/\x2elocal/share/z
+SETUVAR --export _ZO_FZF_OPTS:\x2d\x2dheight\x2040\x25\x20\x2d\x2dreverse
 SETUVAR __fish_initialized:3400
 SETUVAR _fish_abbr__2E_2E_2E_:cd\x20\x2e\x2e/\x2e\x2e
 SETUVAR _fish_abbr_g:git
