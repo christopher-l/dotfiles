@@ -6,4 +6,4 @@ Type=oneshot
 Restart=on-failure
 Nice=19
 IOSchedulingClass=idle
-ExecStart=/usr/bin/tar -czf /home/chris/Backup/torus/docker.tar.gz -C /root docker
+ExecStart=/root/docker/backup.sh /home/chris/Backup/torus/docker.tar.gz

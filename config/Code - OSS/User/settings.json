@@ -66,6 +66,7 @@
   "git.autofetch": true,
   "git.confirmSync": false,
   "git.openRepositoryInParentFolders": "always",
+  "githubPullRequests.createOnPublishBranch": "never",
   "javascript.updateImportsOnFileMove.enabled": "always",
   "typescript.updateImportsOnFileMove.enabled": "always",
   "editor.minimap.showSlider": "always",
