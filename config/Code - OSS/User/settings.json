@@ -111,7 +111,11 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "python.formatting.provider": "black",
-  "cSpell.enableFiletypes": ["shellscript", "xml"],
+  "cSpell.enableFiletypes": [
+    "shellscript",
+    "xml",
+    "blueprint-gtk"
+  ],
   "cSpell.language": "en,de",
   "cSpell.userWords": [
     "declarables",
