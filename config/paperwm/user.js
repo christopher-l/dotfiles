@@ -6,40 +6,86 @@ var St = imports.gi.St;
 var Main = imports.ui.main;
 var Shell = imports.gi.Shell;
 
-var workspaceManager = global.workspace_manager;
-
 // Extension local imports
-var Extension, Me, Tiling, Utils, App, Keybindings, Examples, Settings;
+var Extension, Me, Tiling, Utils, App, Keybindings, Examples;
 
-const wmClassesToMoveToScratch = [
-    'evolution-alarm-notify', // Wayland
-    'Evolution-alarm-notify', // X11
-];
+function init() {
+    // Runs _only_ once on startup
 
-const directions = {
-    Left: 'h',
-    Down: 'j',
-    Up: 'k',
-    Right: 'l',
-};
+    // Initialize extension imports here to make gnome-shell-reload work
+    Extension = imports.misc.extensionUtils.getCurrentExtension();
+    Me = Extension.imports.user;
+    Tiling = Extension.imports.tiling;
+    Utils = Extension.imports.utils;
+    Keybindings = Extension.imports.keybindings;
+    Examples = Extension.imports.examples;
+    App = Extension.imports.app;
 
-// ============================================
-// Utility Functions
-// ============================================
-
-/** Returns the last workspace that was active on the active monitor.  */
-function getPreviousSpaceOnMonitor() {
-    let spaces = Tiling.spaces;
-    const mru = [...spaces.stack];
-    const from = mru.indexOf(spaces.selectedSpace);
-    let to = from;
-    do {
-        to = (to + 1) % mru.length;
-    } while (to !== from && mru[to].monitor !== spaces.selectedSpace.monitor);
-    return mru[to];
+    registerMoveSpaceToMonitor();
+    registerActivateWorkspaceOnCurrentMonitor();
 }
 
-/** Returns the neighboring monitor in the given direction relative to the active monitor.  */
+function enable() {
+    // Runs on extension reloads, eg. when unlocking the session
+}
+
+function disable() {
+    // Runs on extension reloads eg. when locking the session (`<super>L).
+}
+
+function registerMoveSpaceToMonitor(basebinding = '<super><alt>') {
+    /**
+     * Move the active workspace to a neighboring monitor in the given direction.
+     *
+     * The active monitor switches back the last workspace that was active on that monitor.
+     */
+    function moveTo(direction) {
+        let spaces = Tiling.spaces;
+        let currentSpace = spaces.selectedSpace;
+        let nextMonitor = getMonitor(direction);
+        getPreviousSpaceOnMonitor().workspace.activate(global.get_current_time());
+        currentSpace.setMonitor(nextMonitor);
+        spaces.monitors.set(nextMonitor, currentSpace);
+        currentSpace.workspace.activate(global.get_current_time());
+    }
+
+    for (let arrow of ['Down', 'Left', 'Up', 'Right']) {
+        Keybindings.bindkey(`${basebinding}${arrow}`, `move-space-monitor-${arrow}`, () => {
+            moveTo(Meta.DisplayDirection[arrow.toUpperCase()]);
+        });
+    }
+}
+
+function registerActivateWorkspaceOnCurrentMonitor(basebinding = '<super><alt>') {
+    let workspaceManager = global.workspace_manager;
+    /**
+     * Focuses the workspace with the given index.
+     *
+     * If the workspace is currently visible on a monitor, the respective monitor gets focused.
+     * Otherwise, the workspace is activated on the monitor that currently has focus.
+     */
+    function activateSpace(targetIndex) {
+        let spaces = Tiling.spaces;
+        let currentSpace = spaces.selectedSpace;
+        let monitor = currentSpace.monitor;
+        let target = workspaceManager.get_workspace_by_index(targetIndex);
+        let targetSpace = spaces.spaceOf(target);
+        let targetSpaceIsVisible = spaces.monitors.get(targetSpace.monitor) === targetSpace;
+        if (!targetSpaceIsVisible) {
+            targetSpace.setMonitor(monitor);
+            spaces.monitors.set(monitor, targetSpace);
+        }
+        targetSpace.workspace.activate(global.get_current_time());
+    }
+    for (let k = 0; k <= 9; k++) {
+        let targetIndex = (k + 9) % 10;
+        Keybindings.bindkey(`${basebinding}${k}`, `goto-space-${targetIndex}`, () =>
+            activateSpace(targetIndex),
+        );
+    }
+}
+
+/** Returns the neighboring monitor in the given direction relative to the active monitor. */
 function getMonitor(direction) {
     let display = global.display;
     let spaces = Tiling.spaces;
@@ -73,119 +119,14 @@ function getMonitor(direction) {
     return Main.layoutManager.monitors[n];
 }
 
-// ============================================
-// Keybindings
-// ============================================
-
-function activateWorkspaceOnCurrentMonitor() {
-    /**
-     * Focuses the workspace with the given index.
-     *
-     * If the workspace is currently visible on a monitor, the respective monitor gets focused.
-     * Otherwise, the workspace is activated on the monitor that currently has focus.
-     */
-    function activateSpace(targetIndex) {
-        let spaces = Tiling.spaces;
-        let currentSpace = spaces.selectedSpace;
-        let monitor = currentSpace.monitor;
-        let target = workspaceManager.get_workspace_by_index(targetIndex);
-        let targetSpace = spaces.spaceOf(target);
-        let targetSpaceIsVisible = spaces.monitors.get(targetSpace.monitor) === targetSpace;
-        if (!targetSpaceIsVisible) {
-            targetSpace.setMonitor(monitor);
-            spaces.monitors.set(monitor, targetSpace);
-        }
-        targetSpace.workspace.activate(global.get_current_time());
-    }
-    for (let k = 0; k <= 9; k++) {
-        let targetIndex = (k + 9) % 10;
-        Keybindings.bindkey(`<Super><Shift>${k}`, `goto-space-${targetIndex}`, () =>
-            activateSpace(targetIndex),
-        );
-    }
-}
-
-function moveSpaceToMonitor(basebinding = '<super><alt>') {
-    /**
-     * Move the active workspace to a neighboring monitor in the given direction.
-     * 
-     * The active monitor switches back the last workspace that was active on that monitor.
-     */
-    function moveTo(direction) {
-        let spaces = Tiling.spaces;
-        let currentSpace = spaces.selectedSpace;
-        let nextMonitor = getMonitor(direction);
-        getPreviousSpaceOnMonitor().workspace.activate(global.get_current_time());
-        currentSpace.setMonitor(nextMonitor);
-        spaces.monitors.set(nextMonitor, currentSpace);
-        currentSpace.workspace.activate(global.get_current_time());
-    }
-
-    for (let arrow of ['Down', 'Left', 'Up', 'Right']) {
-        Keybindings.bindkey(`${basebinding}${arrow}`, `move-space-monitor-${arrow}`, () => {
-            moveTo(Meta.DisplayDirection[arrow.toUpperCase()]);
-        });
-        Keybindings.bindkey(
-            `${basebinding}${directions[arrow]}`,
-            `move-space-monitor-${arrow}-alt`,
-            () => {
-                moveTo(Meta.DisplayDirection[arrow.toUpperCase()]);
-            },
-        );
-    }
-}
-
-/**
- * Activates the next empty workspace on the currently active monitor.
- */
-function goToNextEmptyWorkspace(binding = "<Super><Shift>Return") {
-    Keybindings.bindkey(binding, "go-to-next-empty-space", () => {
-        let spaces = Tiling.spaces;
-        targetSpace = [...spaces.values()].find((space) => space.length === 0);
-        if (targetSpace) {
-            targetSpace.workspace.activate(global.get_current_time());
-        }
-    });
-}
-
-// ============================================
-// Hooks
-// ============================================
-
-function init() {
-    // Runs _only_ once on startup
-
-    // Initialize extension imports here to make gnome-shell-reload work
-    Extension = imports.misc.extensionUtils.getCurrentExtension();
-    Me = Extension.imports.user;
-    Tiling = Extension.imports.tiling;
-    Utils = Extension.imports.utils;
-    Keybindings = Extension.imports.keybindings;
-    Examples = Extension.imports.examples;
-    App = Extension.imports.app;
-    Settings = Extension.imports.settings;
-
-    // Keybindings
-    moveSpaceToMonitor();
-    activateWorkspaceOnCurrentMonitor();
-    goToNextEmptyWorkspace();
-    Examples.keybindings.cycleMonitor();
-    Examples.keybindings.reorderWorkspace();
-    Examples.keybindings.cycleEdgeSnap();
-
-    // Window properties
-    for (const wm_class of wmClassesToMoveToScratch) {
-        Settings.defwinprop({
-            wm_class,
-            scratch_layer: true,
-        });
-    }
-}
-
-function enable() {
-    // Runs on extension reloads, eg. when unlocking the session
-}
-
-function disable() {
-    // Runs on extension reloads eg. when locking the session (`<super>L).
+/** Returns the last workspace that was active on the active monitor. */
+function getPreviousSpaceOnMonitor() {
+    let spaces = Tiling.spaces;
+    const mru = [...spaces.stack];
+    const from = mru.indexOf(spaces.selectedSpace);
+    let to = from;
+    do {
+        to = (to + 1) % mru.length;
+    } while (to !== from && mru[to].monitor !== spaces.selectedSpace.monitor);
+    return mru[to];
 }
