@@ -52,31 +52,32 @@ function connectWindowHorizontalScroll() {
     const Navigator = Extension.imports.navigator;
 
     function handleScroll(event) {
-        // const space = Tiling.spaces.selectedSpace;
-        if (event.get_scroll_direction() === Clutter.ScrollDirection.UP) {
+        const space = Tiling.spaces.selectedSpace;
+        if (event.get_scroll_direction() === Clutter.ScrollDirection.LEFT) {
             // space.switchLeft();
             const tabPopup = Navigator.getActionDispatcher(Clutter.GrabState.KEYBOARD);
             tabPopup.show(false, 'switch-left', Clutter.ModifierType.MOD4_MASK);
             return Clutter.EVENT_STOP;
-        } else if (event.get_scroll_direction() === Clutter.ScrollDirection.DOWN) {
+        } else if (event.get_scroll_direction() === Clutter.ScrollDirection.RIGHT) {
             // space.switchRight();
             const tabPopup = Navigator.getActionDispatcher(Clutter.GrabState.KEYBOARD);
             tabPopup.show(false, 'switch-right', Clutter.ModifierType.MOD4_MASK);
             return Clutter.EVENT_STOP;
         }
-        // if (event.get_scroll_direction() === Clutter.ScrollDirection.SMOOTH) {
-        //     const [dx, dy] = event.get_scroll_delta();
-        //     const sensitivity = 30;
-        //     const delta = (dx || dy) * sensitivity;
-        //     const target = Math.round(space.targetX + delta);
-        //     console.log('handleScroll', {
-        //         target,
-        //     });
-        //     space.targetX = target;
-        //     space.cloneContainer.x = target;
-        //     Navigator.getNavigator().finish();
-        //     return Clutter.EVENT_STOP;
-        // }
+        if (event.get_scroll_direction() === Clutter.ScrollDirection.SMOOTH) {
+            const [dx, dy] = event.get_scroll_delta();
+            const sensitivity = 50;
+            const delta = dy * sensitivity;
+            const target = Math.round(space.targetX - delta);
+            console.log('handleScroll', {
+                target,
+            });
+            space.targetX = target;
+            space.cloneContainer.x = target;
+            // Navigator.getNavigator().finish();
+            space.moveDone();
+            return Clutter.EVENT_STOP;
+        }
         return Clutter.EVENT_PROPAGATE;
     }
 
