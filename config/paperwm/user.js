@@ -38,7 +38,7 @@ function enable() {
 function disable() {
     // Runs on extension reloads eg. when locking the session (`<super>L).
     signals.destroy();
-    onDisable.foreach((f) => f());
+    onDisable.forEach((f) => f());
     onDisable = [];
 }
 
@@ -66,12 +66,9 @@ function connectWindowHorizontalScroll() {
         }
         if (event.get_scroll_direction() === Clutter.ScrollDirection.SMOOTH) {
             const [dx, dy] = event.get_scroll_delta();
-            const sensitivity = 50;
+            const sensitivity = 100;
             const delta = dy * sensitivity;
             const target = Math.round(space.targetX - delta);
-            console.log('handleScroll', {
-                target,
-            });
             space.targetX = target;
             space.cloneContainer.x = target;
             // Navigator.getNavigator().finish();
