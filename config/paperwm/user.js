@@ -9,6 +9,8 @@ var Shell = imports.gi.Shell;
 // Extension local imports
 var Extension, Me, Tiling, Utils, App, Keybindings, Examples;
 
+var signals, onDisable;
+
 function init() {
     // Runs _only_ once on startup
 
@@ -21,16 +23,85 @@ function init() {
     Examples = Extension.imports.examples;
     App = Extension.imports.app;
 
+    signals = new Utils.Signals();
+    onDisable = [];
+
     registerMoveSpaceToMonitor();
     registerActivateWorkspaceOnCurrentMonitor();
 }
 
 function enable() {
     // Runs on extension reloads, eg. when unlocking the session
+    connectWindowHorizontalScroll();
 }
 
 function disable() {
     // Runs on extension reloads eg. when locking the session (`<super>L).
+    signals.destroy();
+    onDisable.foreach((f) => f());
+    onDisable = [];
+}
+
+/**
+ * Scroll through windows horizontally using super + scroll wheel.
+ */
+function connectWindowHorizontalScroll() {
+    const wm = imports.ui.windowManager;
+    const WindowManager = wm.WindowManager;
+    const stage = global.stage;
+    const Navigator = Extension.imports.navigator;
+
+    function handleScroll(event) {
+        // const space = Tiling.spaces.selectedSpace;
+        if (event.get_scroll_direction() === Clutter.ScrollDirection.UP) {
+            // space.switchLeft();
+            const tabPopup = Navigator.getActionDispatcher(Clutter.GrabState.KEYBOARD);
+            tabPopup.show(false, 'switch-left', Clutter.ModifierType.MOD4_MASK);
+            return Clutter.EVENT_STOP;
+        } else if (event.get_scroll_direction() === Clutter.ScrollDirection.DOWN) {
+            // space.switchRight();
+            const tabPopup = Navigator.getActionDispatcher(Clutter.GrabState.KEYBOARD);
+            tabPopup.show(false, 'switch-right', Clutter.ModifierType.MOD4_MASK);
+            return Clutter.EVENT_STOP;
+        }
+        // if (event.get_scroll_direction() === Clutter.ScrollDirection.SMOOTH) {
+        //     const [dx, dy] = event.get_scroll_delta();
+        //     const sensitivity = 30;
+        //     const delta = (dx || dy) * sensitivity;
+        //     const target = Math.round(space.targetX + delta);
+        //     console.log('handleScroll', {
+        //         target,
+        //     });
+        //     space.targetX = target;
+        //     space.cloneContainer.x = target;
+        //     Navigator.getNavigator().finish();
+        //     return Clutter.EVENT_STOP;
+        // }
+        return Clutter.EVENT_PROPAGATE;
+    }
+
+    signals.connect(stage, 'scroll-event', (actor, event) => {
+        const allowedModes = Shell.ActionMode.NORMAL;
+        if ((allowedModes & Main.actionMode) === 0) {
+            return Clutter.EVENT_PROPAGATE;
+        } else if ((event.get_state() & global.display.compositor_modifiers) === 0) {
+            return Clutter.EVENT_PROPAGATE;
+        } else {
+            return handleScroll(event);
+        }
+    });
+
+    const originalHandleWorkspaceScroll = WindowManager.prototype.handleWorkspaceScroll;
+    WindowManager.prototype.handleWorkspaceScroll = function (event) {
+        if (Main.overview.visible) {
+            return originalHandleWorkspaceScroll.apply(this, [event]);
+        } else {
+            return Clutter.EVENT_PROPAGATE;
+        }
+    };
+    onDisable.push(() => {
+        WindowManager.prototype.handleWorkspaceScroll = originalHandleWorkspaceScroll;
+    });
 }
 
 function registerMoveSpaceToMonitor(basebinding = '<super><alt>') {
