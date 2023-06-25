@@ -12,11 +12,6 @@
   // 	],
   // 	"description": "Log output to console"
   // }
-  "Log to the console": {
-    "prefix": "log",
-    "body": ["console.log($1)"],
-    "description": "Log to the console"
-  },
   "Tap": {
     "prefix": "tap",
     "body": ["tap(($1) => console.log('$1', $1)),"],

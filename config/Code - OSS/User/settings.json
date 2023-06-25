@@ -1,16 +1,20 @@
 {
   // Window
-  "editor.fontFamily": "Roboto Mono",
+  "editor.fontFamily": "Liberation Mono",
+  "editor.fontSize": 13,
   "editor.lineHeight": 1.67,
   // "terminal.integrated.fontWeight": "500",
   "window.menuBarVisibility": "toggle",
-  // "window.commandCenter": true,
+  "window.commandCenter": true,
   "window.title": "${rootName}",
+  "window.titleBarStyle": "custom",
+  "workbench.editor.showTabs": false,
   "workbench.layoutControl.enabled": false,
   "workbench.preferredLightColorTheme": "GitHub Light Default",
   "workbench.preferredDarkColorTheme": "GitHub Dark Default",
   "window.autoDetectColorScheme": true,
   "editor.minimap.renderCharacters": false,
+  "editor.minimap.enabled": false,
   "editor.stickyScroll.enabled": true,
 
   // Behavior
@@ -21,9 +25,10 @@
   "editor.suggest.snippetsPreventQuickSuggestions": false,
   "editor.suggest.localityBonus": true,
   "editor.quickSuggestions": {
-    "strings": true,
+    "other": "inline",
+    "strings": "inline"
   },
-  "explorer.openEditors.sortOrder": "alphabetical",
+  "diffEditor.diffAlgorithm": "advanced",
   "git.closeDiffOnOperation": true,
   "git.mergeEditor": true,
   "terminal.external.linuxExec": "kgx",
