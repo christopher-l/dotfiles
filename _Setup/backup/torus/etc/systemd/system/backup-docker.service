@@ -2,7 +2,7 @@
 Description=Backup Docker
 
 [Service]
-Type=oneshot
+Type=simple
 Restart=on-failure
 Nice=19
 IOSchedulingClass=idle
