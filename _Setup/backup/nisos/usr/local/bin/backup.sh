@@ -41,7 +41,7 @@ function main() (
 
     case "$preset" in
     online)
-        dest=root@torus:/mnt/hdd/backup/weekly.0/nisos
+        dest=root@vortex:/mnt/hdd/backup/weekly.0/nisos
         args+=(
             -e ssh
         )
