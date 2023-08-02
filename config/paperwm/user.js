@@ -5,29 +5,19 @@ var Clutter = imports.gi.Clutter;
 var St = imports.gi.St;
 var Main = imports.ui.main;
 var Shell = imports.gi.Shell;
+var Extension = imports.misc.extensionUtils.getCurrentExtension();
+var Me = Extension.imports.user;
+var Tiling = Extension.imports.tiling;
+var Utils = Extension.imports.utils;
+var Keybindings = Extension.imports.keybindings;
+var App = Extension.imports.app;
 
-// Extension local imports
-var Extension, Me, Tiling, Utils, App, Keybindings, Examples;
-
-var signals, onDisable;
+var onDisable = [];
+var signals = new Utils.Signals();
 
 function init() {
-    // Runs _only_ once on startup
-
-    // Initialize extension imports here to make gnome-shell-reload work
-    Extension = imports.misc.extensionUtils.getCurrentExtension();
-    Me = Extension.imports.user;
-    Tiling = Extension.imports.tiling;
-    Utils = Extension.imports.utils;
-    Keybindings = Extension.imports.keybindings;
-    Examples = Extension.imports.examples;
-    App = Extension.imports.app;
-
-    signals = new Utils.Signals();
-    onDisable = [];
-
-    registerMoveSpaceToMonitor();
-    registerActivateWorkspaceOnCurrentMonitor();
+    // registerMoveSpaceToMonitor();
+    // registerActivateWorkspaceOnCurrentMonitor();
 }
 
 function enable() {
@@ -37,7 +27,6 @@ function enable() {
 
 function disable() {
     // Runs on extension reloads eg. when locking the session (`<super>L).
-    signals.destroy();
     onDisable.forEach((f) => f());
     onDisable = [];
 }
@@ -52,29 +41,28 @@ function connectWindowHorizontalScroll() {
     const Navigator = Extension.imports.navigator;
 
     function handleScroll(event) {
-        const space = Tiling.spaces.selectedSpace;
-        if (event.get_scroll_direction() === Clutter.ScrollDirection.LEFT) {
-            // space.switchLeft();
+        if (event.get_scroll_direction() === Clutter.ScrollDirection.UP) {
             const tabPopup = Navigator.getActionDispatcher(Clutter.GrabState.KEYBOARD);
             tabPopup.show(false, 'switch-left', Clutter.ModifierType.MOD4_MASK);
             return Clutter.EVENT_STOP;
-        } else if (event.get_scroll_direction() === Clutter.ScrollDirection.RIGHT) {
-            // space.switchRight();
+        } else if (event.get_scroll_direction() === Clutter.ScrollDirection.DOWN) {
             const tabPopup = Navigator.getActionDispatcher(Clutter.GrabState.KEYBOARD);
             tabPopup.show(false, 'switch-right', Clutter.ModifierType.MOD4_MASK);
             return Clutter.EVENT_STOP;
         }
-        if (event.get_scroll_direction() === Clutter.ScrollDirection.SMOOTH) {
-            const [dx, dy] = event.get_scroll_delta();
-            const sensitivity = 100;
-            const delta = dy * sensitivity;
-            const target = Math.round(space.targetX - delta);
-            space.targetX = target;
-            space.cloneContainer.x = target;
-            // Navigator.getNavigator().finish();
-            space.moveDone();
-            return Clutter.EVENT_STOP;
-        }
+        // Smooth scrolling without switching focus. A bit buggy.
+        //
+        // const space = Tiling.spaces.selectedSpace;
+        // if (event.get_scroll_direction() === Clutter.ScrollDirection.SMOOTH) {
+        //     const [dx, dy] = event.get_scroll_delta();
+        //     const sensitivity = 100;
+        //     const delta = dy * sensitivity;
+        //     const target = Math.round(space.targetX - delta);
+        //     space.targetX = target;
+        //     space.cloneContainer.x = target;
+        //     space.moveDone();
+        //     return Clutter.EVENT_STOP;
+        // }
         return Clutter.EVENT_PROPAGATE;
     }
 

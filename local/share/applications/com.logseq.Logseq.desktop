@@ -1,0 +1,13 @@
+[Desktop Entry]
+Name=Logseq Desktop
+Exec=/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=run.sh --file-forwarding com.logseq.Logseq @@u %U @@ --enable-features=UseOzonePlatform --ozone-platform=wayland --enable-features=WaylandWindowDecorations
+Terminal=false
+Type=Application
+Icon=com.logseq.Logseq
+StartupWMClass=Logseq
+Comment=A privacy-first, open-source platform for knowledge management and collaboration.
+MimeType=x-scheme-handler/logseq;
+Categories=Utility;office;
+NoDisplay=false
+X-Flatpak=com.logseq.Logseq
+
