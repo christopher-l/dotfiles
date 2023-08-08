@@ -1,0 +1,10 @@
+[Unit]
+Description=Daily Duck-DNS refresh
+
+[Timer]
+OnCalendar=daily
+Persistent=true
+
+[Install]
+WantedBy=timers.target
+
