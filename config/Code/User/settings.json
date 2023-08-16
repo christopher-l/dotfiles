@@ -201,6 +201,7 @@
   ],
   "playwright.reuseBrowser": true,
   "php.format.rules.callParametersNewLineAfterLeftParen": true,
-
+  
   // Temp
+  "window.zoomLevel": 1,
 }
