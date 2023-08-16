@@ -161,4 +161,9 @@
         "command": "editor.action.inlineSuggest.commit",
         "when": "inlineSuggestionHasIndentationLessThanTabSize && inlineSuggestionVisible && !editorTabMovesFocus"
     },
+    {
+        "key": "tab",
+        "command": "-acceptSelectedSuggestion",
+        "when": "suggestWidgetHasFocusedSuggestion && suggestWidgetVisible && textInputFocus"
+    },
 ]

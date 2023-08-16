@@ -8,8 +8,8 @@
   "window.commandCenter": true,
   "window.title": "${rootName}",
   "workbench.layoutControl.enabled": false,
-  "workbench.preferredLightColorTheme": "GitHub Light Default",
-  "workbench.preferredDarkColorTheme": "GitHub Dark Default",
+  "workbench.preferredLightColorTheme": "Default Light Modern",
+  "workbench.preferredDarkColorTheme": "Default Dark Modern",
   "window.autoDetectColorScheme": true,
   "editor.minimap.renderCharacters": false,
   "editor.minimap.enabled": false,
@@ -17,14 +17,17 @@
 
   // Behavior
   "editor.acceptSuggestionOnCommitCharacter": false,
+  "editor.guides.bracketPairs": "active",
   "editor.linkedEditing": true,
   "editor.mouseWheelZoom": true,
   "editor.tabCompletion": "onlySnippets",
   "editor.suggest.snippetsPreventQuickSuggestions": false,
   "editor.suggest.localityBonus": true,
   "editor.quickSuggestions": {
-    "other": "inline",
-    "strings": "inline"
+    // "other": "inline",
+    "strings": "on",
+    // "strings": "inline"
+    "comments": "on"
   },
   "diffEditor.diffAlgorithm": "advanced",
   // "diffEditor.experimental.useVersion2": true,
@@ -89,7 +92,7 @@
     "editorOverviewRuler.infoForeground": "#0000", // hide spelling mistakes from overview ruler
     "editorOverviewRuler.warningForeground": "#0000",
     "minimap.warningHighlight": "#0000",
-    "editorIndentGuide.background": "#0000" // hide non-active indent guides
+    "editorIndentGuide.background1": "#0000" // hide non-active indent guides
   },
   // "workbench.editor.decorations.colors": false,
   // "workbench.editor.decorations.badges": false,
@@ -100,6 +103,7 @@
   "typescript.inlayHints.parameterNames.enabled": "all",
 
   // Plugins
+  "eslint.rules.customizations": [{ "rule": "*", "severity": "warn" }],
   "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
@@ -116,19 +120,9 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "python.formatting.provider": "black",
-  "cSpell.enableFiletypes": [
-    "shellscript",
-    "xml",
-    "blueprint-gtk"
-  ],
+  "cSpell.enableFiletypes": ["shellscript", "xml", "blueprint-gtk"],
   "cSpell.language": "en,de",
-  "cSpell.userWords": [
-    "declarables",
-    "edusharing",
-    "Lübbemeier",
-    "nestjs",
-    "postgres"
-  ],
+  "cSpell.userWords": ["declarables", "edusharing", "Lübbemeier", "nestjs", "postgres"],
   "cSpell.showCommandsInEditorContextMenu": false,
   "editor.cursorBlinking": "solid",
   "vim.handleKeys": {
@@ -209,8 +203,4 @@
   "php.format.rules.callParametersNewLineAfterLeftParen": true,
 
   // Temp
-  "diffEditor.ignoreTrimWhitespace": false,
-  "window.zoomLevel": 1,
-  "workbench.colorTheme": "Fleety",
-
 }
