@@ -83,6 +83,7 @@
   "extensions.ignoreRecommendations": true,
   "outline.showFunctions": false,
   "outline.showVariables": false,
+  "redhat.telemetry.enabled": false,
   "workbench.tree.indent": 20,
   "workbench.tree.renderIndentGuides": "none",
   "editor.semanticTokenColorCustomizations": {
@@ -201,6 +202,7 @@
   ],
   "playwright.reuseBrowser": true,
   "php.format.rules.callParametersNewLineAfterLeftParen": true,
+  "typst-lsp.exportPdf": "never",
   
   // Temp
   "window.zoomLevel": 1,
