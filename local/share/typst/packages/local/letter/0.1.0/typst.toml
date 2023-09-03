@@ -7,3 +7,4 @@ authors = [
 ]
 license = "GPLv3"
 description = "Letter template"
+exclude = [ "/examples" ]
