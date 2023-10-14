@@ -4,11 +4,9 @@
   "name": "PaperWM",
   "settings-schema": "org.gnome.shell.extensions.paperwm",
   "shell-version": [
-    "42",
-    "43",
-    "44"
+    "45"
   ],
   "url": "https://github.com/paperwm/PaperWM",
   "uuid": "paperwm@paperwm.github.com",
-  "version": 21
+  "version": 39
 }
