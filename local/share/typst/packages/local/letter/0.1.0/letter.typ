@@ -114,6 +114,14 @@
   let render-date(date) = {
     align(right, {
       if type(date) == "datetime" {
+        show "January": "Januar"
+        show "February": "Februar"
+        show "March": "März"
+        show "May": "Mai"
+        show "June": "Juni"
+        show "July": "Juli"
+        show "October": "Oktober"
+        show "December": "Dezember"
         date.display("[day padding:none]. [month repr:long] [year]")
       } else {
         date
