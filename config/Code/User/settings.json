@@ -1,12 +1,13 @@
 {
   // Window
-  "editor.fontFamily": "IntelOne Mono",
+  "editor.fontFamily": "Intel One Mono",
   "editor.fontSize": 13,
   "editor.lineHeight": 1.67,
   // "terminal.integrated.fontWeight": "500",
   "window.menuBarVisibility": "toggle",
   "window.commandCenter": true,
   "window.title": "${rootName}",
+  "window.titleBarStyle": "custom",
   "workbench.layoutControl.enabled": false,
   "workbench.preferredLightColorTheme": "Default Light Modern",
   "workbench.preferredDarkColorTheme": "Default Dark Modern",
@@ -21,6 +22,7 @@
   "editor.linkedEditing": true,
   "editor.mouseWheelZoom": true,
   "editor.tabCompletion": "onlySnippets",
+  "editor.occurrencesHighlight": "multiFile",
   "editor.suggest.snippetsPreventQuickSuggestions": false,
   "editor.suggest.localityBonus": true,
   "editor.quickSuggestions": {
@@ -40,10 +42,12 @@
   "workbench.editor.openPositioning": "last",
   "workbench.editor.revealIfOpen": true,
   "workbench.startupEditor": "none",
+  "workbench.tree.enableStickyScroll": true,
   "files.associations": {
     "profile": "shellscript"
   },
   "editor.inlayHints.enabled": "offUnlessPressed",
+  "terminal.integrated.stickyScroll.enabled": true,
   "terminal.integrated.persistentSessionReviveProcess": "never",
   "terminal.integrated.profiles.linux": {
     "bash": {
