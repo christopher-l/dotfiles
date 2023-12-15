@@ -1,6 +1,0 @@
-i3-wm.i3xrocks.config: /home/chris/.config/regolith/i3xrocks/config
-
-! -- This points to the root Xresource file.
-#include "/home/chris/.config/regolith/styles/adwaita/root"
-! #include "/etc/regolith/styles/cahuella/root"
-

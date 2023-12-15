@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-exclude=("README.md" "scripts")
+exclude=("README.md")
 
 dryrun=false
 

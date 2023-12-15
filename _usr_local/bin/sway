@@ -1,9 +1,0 @@
-#!/usr/bin/env bash
-
-PROFILE_FILE="$HOME/.config/sway/profile"
-
-if test -f $PROFILE_FILE; then
-    source $PROFILE_FILE
-fi
-
-/usr/bin/sway

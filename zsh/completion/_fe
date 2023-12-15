@@ -1,7 +1,0 @@
-#compdef fe
-
-function _fe {
-    _command
-}
-
-_fe "$@"

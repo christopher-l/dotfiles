@@ -1,34 +1,8 @@
-These are my personal **dotfiles** I use for my machines. I am not responsible
-for any torn out hair, eye damage, brain damage or other damage whatsoever
-caused by looking at or using the files. Now feel free to look at or use the
-files.
-
-## License
-Basically do what you like.
-
-Occasionally I borrowed some files or snippets myself. I tried to always
-reference the source. Look up the respective Github / whatever pages if you want
-to use those.
-
-## Vim plugins
-If you want to clone all Vim plugins in this repository issue
-```
-git submodule update --init
-```
-
-To checkout the current master branch, you can do
-```
-git submodule init
-git submodule foreach git checkout master
-git submodule foreach git pull
-```
+My personal **dotfiles**.
 
 ## deploy.sh
-I wrote a basic [bash script](./deploy.sh) that will somewhat intelligently
-deploy symlinks into your home directory. You probably don't want to use it as
-it is on my files but it can be used on any dotfiles folder, just leave out the
-preceding dot on the first level; e.g.  `~/.vim/colors/my_fancy_colorscheme.vim`
-becomes `dotfiles/vim/colors/my_fancy_colorscheme.vim`.
+A basic [bash script](./deploy.sh) that will somewhat intelligently
+deploy symlinks into your home directory. 
 
 ```
 Usage: ./deploy.sh [-n] TARGET...
@@ -40,7 +14,4 @@ Existing files or or symlinks (to files or directories) will not be
 touched, but directories will be linked recursively, if the directory
 already exists in home.
 This script and files starting with an underscore will be ignored.
-
-In order to deploy all files issue
-        ./deploy.sh *
 ```

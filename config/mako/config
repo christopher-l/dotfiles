@@ -1,8 +1,0 @@
-anchor=top-center
-
-on-notify=exec ~/.config/waybar/scripts/mako.sh on-notify $id
-on-button-left=exec makoctl invoke -n $id; makoctl dismiss -n $id; ~/.config/waybar/scripts/mako.sh on-dismiss $id
-on-button-right=exec makoctl dismiss -n $id; ~/.config/waybar/scripts/mako.sh on-dismiss $id
-
-[mode=do-not-disturb]
-invisible=1

@@ -1,9 +1,0 @@
-[Unit]
-Description=Backup Docker
-
-[Service]
-Type=simple
-Restart=on-failure
-Nice=19
-IOSchedulingClass=idle
-ExecStart=/home/chris/docker/backup.sh /home/chris/Backup/vortex/docker.tar.gz

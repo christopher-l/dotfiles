@@ -1,8 +1,0 @@
-profile {
-    output "Unknown HP Z27 CN40020FGP" mode 3840x2160 scale 1.39 position 0,0
-    output "Dell Inc. DELL U2515H 9X2VY4B50PCL" mode 2560x1440 position 2761,113
-}
-
-profile {
-    output "Unknown HP Z27 CN40020FGP" mode 3840x2160 scale 1.39 position 0,0
-}

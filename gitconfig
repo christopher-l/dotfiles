@@ -1,9 +1,0 @@
-[user]
-	name = Christopher Lübbemeier
-	email = christopher.luebbemeier@gmail.com
-[color]
-	ui = auto
-[push]
-	default = simple
-[core]
-	pager = less -+XF
