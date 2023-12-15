@@ -33,6 +33,7 @@ function main() (
         --exclude=node_modules
         --exclude=.angular
         --exclude=".Trash-*"
+        --exclude=/mnt/wd-raid/Backup
         --exclude=/mnt/wd-raid/Incoming
         --exclude=/mnt/wd-raid/Video
         --delete
@@ -51,7 +52,6 @@ function main() (
         args+=(
             -P
             --info=progress2
-            --exclude=/mnt/wd-raid/Backup
             --exclude=/mnt/wd-raid/Music
             --exclude=/mnt/wd-raid/VMs
         )
