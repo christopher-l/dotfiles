@@ -1,0 +1,10 @@
+[package]
+name = "letter"
+version = "0.1.0"
+entrypoint = "letter.typ"
+authors = [
+  "Christopher Lübbemeier",
+]
+license = "GPLv3"
+description = "Letter template"
+exclude = [ "/examples" ]

@@ -1,0 +1,18 @@
+{
+    // Window
+    "window.title": "${rootName}",
+    "window.titleBarStyle": "custom",
+    "window.zoomLevel": 1,
+    // Style
+    "editor.minimap.renderCharacters": false,
+    // Behavior
+    "editor.occurrencesHighlight": "multiFile",
+    "editor.stickyScroll.enabled": true,
+    "terminal.external.linuxExec": "kgx",
+    "workbench.editor.revealIfOpen": true,
+    "workbench.tree.enableStickyScroll": true,
+    // Don't show again
+    "explorer.confirmDelete": false,
+    "explorer.confirmDragAndDrop": false,
+    "git.autofetch": true,
+}
