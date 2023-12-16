@@ -1,0 +1,10 @@
+[Unit]
+Description=Weekly Backup to Vortex
+
+[Timer]
+OnCalendar=Mon 10:00
+Persistent=true
+Unit=backup.service
+
+[Install]
+WantedBy=timers.target

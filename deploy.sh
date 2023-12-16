@@ -1,74 +1,97 @@
 #!/usr/bin/env bash
 
-exclude=("README.md")
+set -e
 
-dryrun=false
+function print_usage_and_exit (
+    echo "Usage: $0 host/script"
+    exit 1
+)
 
-function print_usage () {
-    echo "Usage: $0 [-n] TARGET..."
-    echo "Create a symbolic link to each TARGET in your home directory."
-    echo ""
-    echo "  -n:  only print files to be linked without actually doing anything"
-    echo ""
-    echo "Existing files or or symlinks (to files or directories) will not be"
-    echo "touched, but directories will be linked recursively, if the directory"
-    echo "already exists in home."
-    echo "This script and files starting with an underscore will be ignored."
-    echo ""
-    echo "In order to deploy all files issue"
-    echo "        $0 *"
-    echo ""
-}
+if [ $# -ne 1 ]; then
+    print_usage_and_exit
+fi
 
-function create_symlink () {
-    if [[ -e "$HOME/.$1" ]] ; then
-        if [[ -h "$HOME/.$1" ]] ; then
-            printf "\033[0;32m"
-            echo "$HOME/.$1: symlink exists"
-            printf "\033[0m"
-        elif [[ -f "$HOME/.$1" ]] ; then
-            printf "\033[0;31m"
-            echo "$HOME/.$1: file exists"
-            printf "\033[0m"
-        else
-            for arg in "$1"/* ; do
-                create_symlink "$arg"
-            done
-        fi
+
+host=$(echo $1 | cut -d '/' -f 1)
+script=$(echo $1 | cut -d '/' -f 2)
+
+function run_as_root (
+    # echo "$@"
+    if [ "$host" = $(hostname) ]; then
+        sudo "$@"
     else
-        printf "\033[1;34m"
-        echo "$HOME/.$1 --> $1"
-        printf "\033[0m"
-        if ! $dryrun ; then
-            ln -rs "$1" "$HOME/.$1"
-        fi
+        ssh root@"$host" "${@@Q}"
     fi
-}
+)
 
-if [[ $# -le 0 ]] ; then
-    print_usage
-    exit
-fi
+function run_script (
+    if [ "$host" = $(hostname) ]; then
+        sudo "$1"
+    else
+        ssh "root@$host" "bash -s" -- < "$1"
+    fi
+)
 
-if [[ "$1" = "-n" ]] ; then
-    dryrun=true
-    shift
-fi
+function copy_file (
+    path="$1"
+    file="$2"
+    if [ "$host" = $(hostname) ]; then
+        sudo cp "$file" "/$path"
+    else
+        scp "$file" root@"$host":"/$path" > /dev/null
+    fi
+)
 
-declare -A exclude_map
-for file in "${exclude[@]}" ; do
-    exclude_map[$file]=1
-done
+function install (
+    if [ "$host" = $(hostname) ]; then
+        echo "Installing locally..."
+    else
+        echo "Installing remotely..."
+    fi
+    install_dir
+    if [ -f install.sh ]; then
+        run_script ./install.sh
+    fi
+)
 
-for arg in "$@" ; do
-    if [[ "$arg" != _* && "$0" != *"$arg" && ! ${exclude_map[$arg]} ]]
-    then
-        if [[ -e "$arg" ]] ; then
-            create_symlink "$arg"
+function install_dir (
+    path="$1"
+    GLOBIGNORE=".:.."
+    if ! run_as_root test -d "/$path"; then
+        echo mkdir "/$path"
+        run_as_root mkdir "/$path"
+        echo "Created directory /$path"
+    fi
+    for f in "$path"*; do
+        if [ -f "$f" ]; then
+            # Ignore files on root level
+            if [ -n "$path" ]; then
+                install_file "$f" "$path"
+            fi
+        elif [ -d "$f" ]; then
+            install_dir "$f/"
         else
-            echo "$arg: file not found"
-            print_usage
-            exit
+            echo "Could not install file $f in $path"
+            exit 1
         fi
-    fi
-done
+    done
+)
+
+function install_file (
+    file="$1"
+    path="$2"
+    copy_file "$path" "$file"
+    echo "Installed file /$file"
+)
+
+function uninstall (
+    echo uninstall
+)
+
+function main (
+    cd "$host" || print_usage_and_exit
+    cd "$script" || print_usage_and_exit
+    install
+)
+
+main
