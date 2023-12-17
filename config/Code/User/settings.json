@@ -16,4 +16,5 @@
     "explorer.confirmDragAndDrop": false,
     "extensions.ignoreRecommendations": true,
     "git.autofetch": true,
+    "git.confirmSync": false,
 }
