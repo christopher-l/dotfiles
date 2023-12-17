@@ -4,6 +4,7 @@
     "window.titleBarStyle": "custom",
     "window.zoomLevel": 1,
     // Style
+    "editor.fontFamily": "Source Code Pro",
     "editor.minimap.renderCharacters": false,
     // Behavior
     "editor.occurrencesHighlight": "multiFile",
