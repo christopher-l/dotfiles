@@ -1,0 +1,12 @@
+[Desktop Entry]
+Version=1.0
+Name=Chromium Proxy Profile
+GenericName=Web Browser
+Comment=Access the Internet
+Exec=/usr/bin/chromium --user-data-dir=".config/chromium-proxy" --proxy-server=socks://127.0.0.1:9100 --proxy-bypass-list='<-loopback>' %U
+StartupWMClass=chromium (.config/chromium-proxy)
+StartupNotify=true
+Terminal=false
+Icon=chromium
+Type=Application
+Categories=Network;WebBrowser;

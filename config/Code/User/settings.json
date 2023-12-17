@@ -14,5 +14,6 @@
     // Don't show again
     "explorer.confirmDelete": false,
     "explorer.confirmDragAndDrop": false,
+    "extensions.ignoreRecommendations": true,
     "git.autofetch": true,
 }
