@@ -1,0 +1,12 @@
+[Desktop Entry]
+Version=1.0
+Name=Chromium Dev
+GenericName=Web Browser
+Comment=Access the Internet
+Exec=/usr/bin/chromium --user-data-dir=.config/chromium-dev
+StartupWMClass=chromium (.config/chromium-dev)
+StartupNotify=true
+Terminal=false
+Icon=chromium
+Type=Application
+Categories=Network;WebBrowser;

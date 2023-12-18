@@ -112,7 +112,7 @@ Icon=chromium
 Type=Application
 Categories=Network;WebBrowser;
 MimeType=application/pdf;application/rdf+xml;application/rss+xml;application/xhtml+xml;application/xhtml_xml;application/xml;image/gif;image/jpeg;image/png;image/webp;text/html;text/xml;x-scheme-handler/http;x-scheme-handler/https;
-Actions=new-window;new-private-window;proxy;
+Actions=new-window;new-private-window;dev;proxy;
 
 [Desktop Action new-window]
 Name=New Window
@@ -220,6 +220,10 @@ Name[zh_CN]=新建隐身窗口
 Name[zh_TW]=新增無痕式視窗
 Exec=/usr/bin/chromium --incognito
 
+[Desktop Action dev]
+Name=Dev
+Exec=/usr/bin/chromium --user-data-dir=.config/chromium-dev
+
 [Desktop Action proxy]
 Name=Proxy
-Exec=/usr/bin/chromium --user-data-dir=".config/chromium-proxy" --proxy-server=socks://127.0.0.1:9100 --proxy-bypass-list='<-loopback>'
+Exec=/usr/bin/chromium --user-data-dir=.config/chromium-proxy --proxy-server=socks://127.0.0.1:9100 --proxy-bypass-list='<-loopback>'
