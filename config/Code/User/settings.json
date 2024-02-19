@@ -1,5 +1,6 @@
 {
   // Window
+  "window.autoDetectColorScheme": true,
   "window.title": "${rootName}",
   "window.titleBarStyle": "custom",
   "window.zoomLevel": 1,
@@ -7,6 +8,7 @@
   "editor.fontFamily": "Source Code Pro",
   "editor.minimap.renderCharacters": false,
   // Behavior
+  "editor.formatOnSave": true,
   "editor.occurrencesHighlight": "multiFile",
   "editor.stickyScroll.enabled": true,
   "terminal.external.linuxExec": "kgx",
@@ -29,5 +31,5 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   // Plugins
-  "svelte.enable-ts-plugin": true,
+  "svelte.enable-ts-plugin": true
 }
