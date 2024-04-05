@@ -35,7 +35,7 @@ Comment=Community-driven port of the Windows application “KeePass Password Saf
 Comment[da]=Fællesskabsdrevet port af Windows-programmet “KeePass Password Safe”
 Comment[et]=Kogukonna arendatav port Windowsi programmist KeePass Password Safe
 Comment[ru]=Разработанный сообществом порт Windows-приложения KeePass Password Safe
-Exec=sh -c "secret-tool lookup application keepassxc database personal | keepassxc --pw-stdin /home/chris/Documents/Sync/App\ Data/Personal.kdbx"
+Exec=sh -c 'secret-tool lookup application keepassxc database personal | keepassxc --pw-stdin "/home/chris/Documents/Sync/App Data/Personal.kdbx"'
 TryExec=keepassxc
 Icon=keepassxc
 StartupWMClass=keepassxc
@@ -47,8 +47,3 @@ Categories=Utility;Security;Qt;
 MimeType=application/x-keepass2;
 SingleMainWindow=true
 X-GNOME-SingleWindow=true
-Actions=empty;
-
-[Desktop Action empty]
-Name=Empty
-Exec=keepassxc %f
