@@ -6,16 +6,13 @@
 set -e
 
 print_usage_and_exit() (
-    echo "Usage: $0 file-type keep-original input-file command command-arguments ... [command [command-arguments ..] ]"
+    echo "Usage: $0 file-type keep-original input-file mode languages"
     echo ""
     echo "file-type: application/pdf"
     echo "keep-original: true | false"
-    echo
-    echo "Commands:"
-    echo "  - high-contrast <text | text-recycle>"
-    echo "  - ocr <languages>"
-    echo "      Languages: \"+\"-separated list, e.g., deu+eng"
-    echo "                 Install additional languages with \"tesseract-data-<lang>\" packages."
+    echo "mode: none | text | text-gray | text-recycle"
+    echo "languages: \"+\"-separated list, e.g., deu+eng"
+    echo "           Install additional languages with \"tesseract-data-<lang>\" packages."
     exit 1
 )
 
@@ -26,26 +23,19 @@ fi
 FILE_TYPE="$1"
 KEEP_ORIGINAL="$2"
 ORIGINAL_FILE="$3"
-shift 3
+MODE="$4"
+LANGUAGES="$5"
 
 function main() (
     file="$ORIGINAL_FILE"
-    while [ -n "$1" ]; do
+    for stage in "contrast" "ocr"; do
         out_file=$(mktemp -u --suffix=.pdf)
-        command="$1"
-        shift 1
-        case "$command" in
-        high-contrast)
-            high_contrast "$file" "$out_file" "$1"
-            shift 1
+        case "$stage" in
+        contrast)
+            contrast "$file" "$out_file" "$MODE"
             ;;
         ocr)
-            ocr "$file" "$out_file" "$1"
-            shift 1
-            ;;
-        *)
-            echo "Not a valid command: $command"
-            print_usage_and_exit
+            ocr "$file" "$out_file" "$LANGUAGES"
             ;;
         esac
         if [[ "$ORIGINAL_FILE" != "$file" ]]; then
@@ -68,35 +58,40 @@ function main() (
 #
 # - arg 1: in file
 # - arg 2: out file
-# - arg 3: preset: 'text' | 'text-gray' | 'text-recycle'
-function high_contrast() (
-    echo "high_contrast $1 $2 $3"
+# - arg 3: preset: 'none' | 'text' | 'text-gray' | 'text-recycle'
+function contrast() (
+    echo "=== CONTRAST $3"
     args=(
         -density 300 # dpi
-        # FIXME: We should be compressing the image when this is the last filter, but in case we
-        # apply `ocrmypdf` afterwards, it will do its own compression.
+        # Compression options.
+        # 
+        # Not needed since we apply `ocrmypdf` afterwards and it will do its own compression.
         #
         # -compress jpeg            # image compression type
         # -quality 80               # image compression quality
     )
     case "$3" in
+    none)
+        cp "$1" "$2"
+        return
+        ;;
     text)
-        args+=(
+        convert_args=(
             -brightness-contrast 0x30 # increase brightness by 0 and contrast by 30
         )
         ;;
     text-gray)
-        args+=(
+        convert_args=(
             -brightness-contrast 0x30 # increase brightness by 0 and contrast by 30
             -set colorspace Gray
         )
         ;;
     text-recycle)
-        args+=(
+        convert_args=(
             -channel Y                 # apply the following only to the yellow channel
             -brightness-contrast 3x0   # increase brightness by 3 and contrast by 0
             +channel                   # apply the following to all channels
-            -brightness-contrast 5x50 # increase brightness by 10 and contrast by 30
+            -brightness-contrast 5x50  # increase brightness by 10 and contrast by 30
             # -contrast-stretch 5%x90%   # black out at most 5% and white out at most 90% of pixels
         )
         ;;
@@ -106,8 +101,8 @@ function high_contrast() (
         ;;
     esac
 
-    convert "${args[@]}" "$1" "$2"
-    # Remove the title tag after image magick (convert) set it to the file name.
+    magick "${args[@]}" "$1" "${convert_args[@]}" "$2"
+    # Remove the title tag after image magick set it to the file name.
     exiftool -Title="" -overwrite_original "$2"
 )
 
@@ -117,8 +112,13 @@ function high_contrast() (
 # - arg 2: out file
 # - arg 3: language, e.g., "eng+deu"
 function ocr() (
-    echo "ocr $1 $2 $3"
-    ocrmypdf -l "$3" "$1" "$2"   
+    echo "=== OCR $3"
+    args=(
+        --output-type pdf # fix failing PDF/A output
+        --optimize 3      # lossy JPEG and JPEG2000 optimizations
+        -l "$3"           # languages
+    )
+    ocrmypdf "${args[@]}" "$1" "$2"   
 )
 
 main $@
