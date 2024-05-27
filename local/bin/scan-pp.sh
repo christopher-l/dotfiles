@@ -91,7 +91,7 @@ function contrast() (
             -channel Y                 # apply the following only to the yellow channel
             -brightness-contrast 3x0   # increase brightness by 3 and contrast by 0
             +channel                   # apply the following to all channels
-            -brightness-contrast 5x50  # increase brightness by 10 and contrast by 30
+            -brightness-contrast 5x50  # increase brightness by 5 and contrast by 50
             # -contrast-stretch 5%x90%   # black out at most 5% and white out at most 90% of pixels
         )
         ;;
@@ -114,9 +114,10 @@ function contrast() (
 function ocr() (
     echo "=== OCR $3"
     args=(
-        --output-type pdf # fix failing PDF/A output
-        --optimize 3      # lossy JPEG and JPEG2000 optimizations
-        -l "$3"           # languages
+        # This fixes the "output file is not PDF/A" error and enables strong
+        # compression.
+        --force-ocr
+        --language "$3"
     )
     ocrmypdf "${args[@]}" "$1" "$2"   
 )
