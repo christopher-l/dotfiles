@@ -14,6 +14,8 @@ args=(
     # --fsync
     --include=/home
     --include=$HOME
+    --include=$HOME/'Backup/***'
+    --include=$HOME/'Containers/***'
     --include=$HOME/'Documents/***'
     --include=$HOME/'Pictures/***'
     --include=/mnt
