@@ -6,11 +6,11 @@
 set -e
 
 print_usage_and_exit() (
-    echo "Usage: $0 file-type keep-original input-file mode languages"
+    echo "Usage: $0 file-type keep-original input-file \"mode languages\""
     echo ""
     echo "file-type: application/pdf"
     echo "keep-original: true | false"
-    echo "mode: none | text | text-gray | text-recycle"
+    echo "mode: none | plain | plain-gray | recycle"
     echo "languages: \"+\"-separated list, e.g., deu+eng"
     echo "           Install additional languages with \"tesseract-data-<lang>\" packages."
     exit 1
@@ -23,8 +23,8 @@ fi
 FILE_TYPE="$1"
 KEEP_ORIGINAL="$2"
 ORIGINAL_FILE="$3"
-MODE="$4"
-LANGUAGES="$5"
+MODE=$(echo $4 | cut -d " " -f 1)
+LANGUAGES=$(echo $4 | cut -d " " -f 2)
 
 function main() (
     file="$ORIGINAL_FILE"
@@ -58,7 +58,7 @@ function main() (
 #
 # - arg 1: in file
 # - arg 2: out file
-# - arg 3: preset: 'none' | 'text' | 'text-gray' | 'text-recycle'
+# - arg 3: preset: 'none' | 'plain' | 'plain-gray' | 'recycle'
 function contrast() (
     echo "=== CONTRAST $3"
     args=(
@@ -75,18 +75,18 @@ function contrast() (
         cp "$1" "$2"
         return
         ;;
-    text)
+    plain)
         convert_args=(
             -brightness-contrast 0x30 # increase brightness by 0 and contrast by 30
         )
         ;;
-    text-gray)
+    plain-gray)
         convert_args=(
             -brightness-contrast 0x30 # increase brightness by 0 and contrast by 30
             -set colorspace Gray
         )
         ;;
-    text-recycle)
+    recycle)
         convert_args=(
             -channel Y                 # apply the following only to the yellow channel
             -brightness-contrast 3x0   # increase brightness by 3 and contrast by 0
