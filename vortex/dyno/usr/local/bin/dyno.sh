@@ -7,7 +7,7 @@ set -e
 # TOKEN=XXXXXXXXXXXXXXX
 source /root/dyno-token
 
-ipv4=$(curl -4 --no-progress-meter ifconfig.me)
+ipv4=$(curl -4 --no-progress-meter --fail ifconfig.me)
 ipv6="$(ip -json -6 addr show scope global | jq -r '.[0].addr_info[0].local')"
 
 echo "Updating addresses..."
