@@ -6,9 +6,14 @@
   "window.zoomLevel": 1,
   // Style
   "editor.fontFamily": "Source Code Pro",
+  "editor.minimap.enabled": false,
   "editor.minimap.renderCharacters": false,
+  "editor.scrollbar.verticalScrollbarSize": 40,
+  "workbench.preferredDarkColorTheme": "GitHub Dark Default",
+  "workbench.preferredLightColorTheme": "GitHub Light Default",
   // Behavior
   "editor.formatOnSave": true,
+  "editor.hover.enabled": false,
   "editor.occurrencesHighlight": "multiFile",
   "editor.stickyScroll.enabled": true,
   "terminal.integrated.defaultProfile.linux": "fish",
