@@ -1,0 +1,10 @@
+[Unit]
+Description=Daily containers backup
+
+[Timer]
+OnCalendar=daily
+Persistent=true
+Unit=backup-containers.service
+
+[Install]
+WantedBy=timers.target
