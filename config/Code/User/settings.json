@@ -36,6 +36,10 @@
   "[typescript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
+  "[svelte]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
   // Plugins
-  "svelte.enable-ts-plugin": true
+  "svelte.enable-ts-plugin": true,
+  "typst-lsp.experimentalFormatterMode": "on"
 }
