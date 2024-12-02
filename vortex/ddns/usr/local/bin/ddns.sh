@@ -28,7 +28,7 @@ function update() (
 # Run update when the IPv6 address changes.
 ip mon addr | while read line; do
     ipv6=$(get_ipv6)
-    if [ "$ipv6" != "null" ] && [ "$ipv6" != "$prev_ipv6" ]; then
+    if [ "$ipv6" != "null" ] && [[ "$ipv6" != fd00:* ]] && [ "$ipv6" != "$prev_ipv6" ]; then
         update
     fi
     prev_ipv6="$ipv6"
