@@ -39,7 +39,12 @@
   "[svelte]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
+  "[scss]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
   // Plugins
   "svelte.enable-ts-plugin": true,
-  "typst-lsp.experimentalFormatterMode": "on"
+  "typst-lsp.experimentalFormatterMode": "on",
+  // Temp
+  "diffEditor.experimental.showMoves": true
 }
