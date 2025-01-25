@@ -1,5 +1,6 @@
 {
   // Window
+  "chat.commandCenter.enabled": false,
   "window.autoDetectColorScheme": true,
   "window.title": "${rootName}",
   "window.titleBarStyle": "custom",
