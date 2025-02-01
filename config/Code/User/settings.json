@@ -28,6 +28,9 @@
   "git.autofetch": true,
   "git.confirmSync": false,
   // File rules
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
   "[json]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
@@ -45,7 +48,7 @@
   },
   // Plugins
   "svelte.enable-ts-plugin": true,
-  "typst-lsp.experimentalFormatterMode": "on",
   // Temp
-  "diffEditor.experimental.showMoves": true
+  "diffEditor.experimental.showMoves": true,
+  "diffEditor.ignoreTrimWhitespace": true
 }
