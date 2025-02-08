@@ -48,6 +48,7 @@
   },
   // Plugins
   "svelte.enable-ts-plugin": true,
+  "cSpell.language": "en,de",
   // Temp
   "diffEditor.experimental.showMoves": true,
   "diffEditor.ignoreTrimWhitespace": true
