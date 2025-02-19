@@ -49,6 +49,7 @@
   // Plugins
   "svelte.enable-ts-plugin": true,
   "cSpell.language": "en,de",
+  "tinymist.formatterMode": "typstyle",
   // Temp
   "diffEditor.experimental.showMoves": true,
   "diffEditor.ignoreTrimWhitespace": true

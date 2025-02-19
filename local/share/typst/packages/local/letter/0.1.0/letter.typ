@@ -174,7 +174,7 @@
   v(1.5em)
   block(breakable: false, {
     closing
-    v(1.25cm)
+    v(1.5cm)
     sender.name
   })
 
