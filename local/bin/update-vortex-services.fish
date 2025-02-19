@@ -3,7 +3,7 @@
 echo "Pruning docker..."
 ssh vortex docker system prune --all --volumes --force; or return
 
-set services miniflux hedgedoc paperless-ngx nocodb
+set services miniflux hedgedoc paperless-ngx
 
 for service in $services
     echo ""
