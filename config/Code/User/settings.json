@@ -1,9 +1,10 @@
 {
   // Window
+  "workbench.layoutControl.enabled": false,
   "chat.commandCenter.enabled": false,
   "window.autoDetectColorScheme": true,
+  "window.menuBarVisibility": "toggle",
   "window.title": "${rootName}",
-  "window.titleBarStyle": "custom",
   "window.zoomLevel": 1,
   // Style
   "editor.fontFamily": "Source Code Pro",
@@ -52,5 +53,11 @@
   "tinymist.formatterMode": "typstyle",
   // Temp
   "diffEditor.experimental.showMoves": true,
-  "diffEditor.ignoreTrimWhitespace": true
+  "diffEditor.ignoreTrimWhitespace": true,
+  "[typst]": {
+    "editor.wordSeparators": "`~!@#$%^&*()=+[{]}\\|;:'\",.<>/?"
+  },
+  "[typst-code]": {
+    "editor.wordSeparators": "`~!@#$%^&*()=+[{]}\\|;:'\",.<>/?"
+  }
 }
