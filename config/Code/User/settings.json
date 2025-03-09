@@ -19,7 +19,7 @@
   "editor.occurrencesHighlight": "multiFile",
   "editor.stickyScroll.enabled": true,
   "terminal.integrated.defaultProfile.linux": "fish",
-  "terminal.external.linuxExec": "kgx",
+  "terminal.external.linuxExec": "ghostty",
   "workbench.editor.revealIfOpen": true,
   "workbench.tree.enableStickyScroll": true,
   // Don't show again
