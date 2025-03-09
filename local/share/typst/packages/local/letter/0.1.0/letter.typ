@@ -19,7 +19,7 @@
   // List of enclosures, if any.
   enclosures: none,
   // The letter's content.
-  body
+  body,
 ) = {
   let page-margin = (
     top: 26mm,
@@ -31,26 +31,26 @@
   let sans-font = "Noto Sans"
 
   let render-indicator-lines(fold_marks: (), show_puncher_mark: false) = {
-      for mark in fold_marks {
-          place(
-              dy: mark - page-margin.top,
-              dx: 3.5mm - page-margin.x,
-              line(
-                  length: 0.2cm, 
-                  stroke: 0.2pt
-              )
-          )
-      }
-      if show_puncher_mark {
-          place(
-              dy: 50% - 0.5 * page-margin.top + 0.5 * page-margin.bottom,
-              dx: 3.5mm - page-margin.x,
-              line(
-                  length: 0.4cm, 
-                  stroke: 0.2pt
-              )
-          )
-      }
+    for mark in fold_marks {
+      place(
+        dy: mark - page-margin.top,
+        dx: 3.5mm - page-margin.x,
+        line(
+          length: 0.2cm,
+          stroke: 0.2pt,
+        ),
+      )
+    }
+    if show_puncher_mark {
+      place(
+        dy: 50% - 0.5 * page-margin.top + 0.5 * page-margin.bottom,
+        dx: 3.5mm - page-margin.x,
+        line(
+          length: 0.4cm,
+          stroke: 0.2pt,
+        ),
+      )
+    }
   }
 
   let render-sender(sender) = {
@@ -58,21 +58,21 @@
       inset: 0pt,
       stroke: none,
       {
-          sender.name
-          linebreak()
-          sender.address.join([\ ])
-          if "phone" in sender [
-            \ Telefon: #link("tel:" + sender.phone.replace(" ", ""))[#sender.phone]
-          ]
-          if "email" in sender [
-            \ E-Mail: #link("mailto:" + sender.email)
-          ]
-      }
+        sender.name
+        linebreak()
+        sender.address.join([\ ])
+        if "phone" in sender [
+          \ Telefon: #link("tel:" + sender.phone.replace(" ", ""))[#sender.phone]
+        ]
+        if "email" in sender [
+          \ E-Mail: #link("mailto:" + sender.email)
+        ]
+      },
     )
     place(
       dy: 8.6mm - page-margin.top,
       dx: 20mm - page-margin.x,
-      sender_rect
+      sender_rect,
     )
   }
 
@@ -84,13 +84,13 @@
       rect(
         inset: (x: 0pt, top: 0pt, bottom: 4pt),
         stroke: (bottom: 0.4pt),
-        text(size: 7pt, font: sans-font)[#sender.name, #sender.address.join(", ")]
-      )
+        text(size: 7pt, font: sans-font)[#sender.name, #sender.address.join(", ")],
+      ),
     )
     place(
       dy: 48mm - page-margin.top,
       dx: 20mm - page-margin.x,
-      return_to_rect
+      return_to_rect,
     )
   }
 
@@ -102,32 +102,35 @@
       stroke: none,
       align(horizon)[
         #recipient
-      ]
+      ],
     )
     place(
       dy: 52mm - page-margin.top,
       dx: 20mm - page-margin.x,
-      recipient_rect
+      recipient_rect,
     )
   }
 
   let render-date(date) = {
-    align(right, {
-      if type(date) == "datetime" {
-        show "January": "Januar"
-        show "February": "Februar"
-        show "March": "März"
-        show "May": "Mai"
-        show "June": "Juni"
-        show "July": "Juli"
-        show "October": "Oktober"
-        show "December": "Dezember"
-        date.display("[day padding:none]. [month repr:long] [year]")
-      } else {
-        date
-      }
-      v(1em)
-    })
+    align(
+      right,
+      {
+        if type(date) == "datetime" {
+          show "January": "Januar"
+          show "February": "Februar"
+          show "March": "März"
+          show "May": "Mai"
+          show "June": "Juni"
+          show "July": "Juli"
+          show "October": "Oktober"
+          show "December": "Dezember"
+          date.display("[day padding:none]. [month repr:long] [year]")
+        } else {
+          date
+        }
+        v(1em)
+      },
+    )
   }
 
   // Settings.
@@ -142,12 +145,12 @@
           Seite #counter(page).display()
         ]
       })
-    }
+    },
   )
   set block(spacing: 1.5em)
   set text(
     lang: "de",
-    font: body-font
+    font: body-font,
   )
 
   // Preamble. Each function uses absolute placement.
@@ -171,19 +174,27 @@
   body
 
   // Closing and name.
-  v(1.5em)
-  block(breakable: false, {
-    closing
-    v(1.5cm)
-    sender.name
-  })
+  if closing != none {
+    v(1.5em)
+    block(
+      breakable: false,
+      {
+        closing
+        v(1.5cm)
+        sender.name
+      },
+    )
+  }
 
   // Enclosures.
   if enclosures != none {
     v(1.5em)
-    block(breakable: false, {
-      heading(level: 3)[Anlagen]
-      list(marker: "-", ..enclosures)
-    })
+    block(
+      breakable: false,
+      {
+        heading(level: 3)[Anlagen]
+        list(marker: "-", ..enclosures)
+      },
+    )
   }
 }
