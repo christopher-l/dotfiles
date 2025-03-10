@@ -115,7 +115,7 @@
     align(
       right,
       {
-        if type(date) == "datetime" {
+        if type(date) == datetime {
           show "January": "Januar"
           show "February": "Februar"
           show "March": "März"
@@ -137,14 +137,12 @@
   set document(author: sender.name, title: subject)
   set page(
     margin: page-margin,
-    footer: {
+    footer: context {
       set align(center)
       // Display the page number starting with page 2
-      locate(loc => {
-        if counter(page).at(loc).at(0) > 1 [
-          Seite #counter(page).display()
-        ]
-      })
+      if here().page() > 1 [
+        Seite #counter(page).display()
+      ]
     },
   )
   set block(spacing: 1.5em)
