@@ -6,6 +6,10 @@
 // Currently supports German only.
 
 #let letter(
+  // The font to be used for the letter.
+  body-font: "Libertinus Serif",
+  // The font to be used in the return-to notice.
+  sans-font: "Noto Sans",
   // The letter's sender, which is display at the top of the page.
   sender: none,
   // The letter's recipient, which is displayed close to the top.
@@ -26,9 +30,6 @@
     bottom: 40mm,
     x: 26mm,
   )
-
-  let body-font = "Linux Libertine"
-  let sans-font = "Noto Sans"
 
   let render-indicator-lines(fold_marks: (), show_puncher_mark: false) = {
     for mark in fold_marks {
