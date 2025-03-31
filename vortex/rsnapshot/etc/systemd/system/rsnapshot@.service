@@ -1,0 +1,10 @@
+[Unit]
+Description=rsnapshot (%I) backup
+Requires=mnt-hdd.mount
+After=mnt-hdd.mount
+
+[Service]
+Type=simple
+Nice=19
+IOSchedulingClass=idle
+ExecStart=/usr/bin/rsnapshot %I

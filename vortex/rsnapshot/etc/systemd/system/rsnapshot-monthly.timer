@@ -1,0 +1,10 @@
+[Unit]
+Description=rsnapshot monthly backup
+
+[Timer]
+OnCalendar=*-*-01 13:56
+Persistent=true
+Unit=rsnapshot@monthly.service
+
+[Install]
+WantedBy=timers.target

@@ -1,0 +1,10 @@
+[Unit]
+Description=rsnapshot biannual backup
+
+[Timer]
+OnCalendar=*-01,07-01 13:54
+Persistent=true
+Unit=rsnapshot@biannual.service
+
+[Install]
+WantedBy=timers.target
