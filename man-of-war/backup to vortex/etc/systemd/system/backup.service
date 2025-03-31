@@ -1,0 +1,13 @@
+[Unit]
+Description=Backup to Vortex
+After=network-online.target
+Wants=network-online.target
+StartLimitIntervalSec=300
+StartLimitBurst=3
+
+[Service]
+Type=simple
+Restart=on-failure
+Nice=19
+IOSchedulingClass=idle
+ExecStart=/usr/local/bin/backup.sh
