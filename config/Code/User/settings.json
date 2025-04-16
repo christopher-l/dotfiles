@@ -7,12 +7,12 @@
   "window.title": "${rootName}",
   "window.zoomLevel": 1,
   // Style
-  "editor.fontFamily": "Source Code Pro",
+  "editor.fontFamily": "Adwaita Mono",
   "editor.minimap.enabled": false,
   "editor.minimap.renderCharacters": false,
   "editor.scrollbar.verticalScrollbarSize": 40,
-  "workbench.preferredDarkColorTheme": "GitHub Dark Default",
-  "workbench.preferredLightColorTheme": "GitHub Light Default",
+  "workbench.preferredDarkColorTheme": "GitHub Dark Colorblind (Beta)",
+  "workbench.preferredLightColorTheme": "GitHub Light Colorblind (Beta)",
   // Behavior
   "editor.formatOnSave": true,
   "editor.hover.enabled": false,
