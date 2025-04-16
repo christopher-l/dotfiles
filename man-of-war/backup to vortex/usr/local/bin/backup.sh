@@ -15,6 +15,7 @@ function main() (
         --exclude=.cache
         --exclude=.local/share/containers
         --exclude=.local/share/Trash
+        --exclude=Downloads
         --exclude=node_modules
         --exclude=.angular
         --exclude=".Trash-*"
