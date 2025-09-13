@@ -1,0 +1,19 @@
+hedgedoc.e6.freeddns.org {
+	reverse_proxy localhost:3000
+}
+
+miniflux.e6.freeddns.org {
+	reverse_proxy localhost:3010
+}
+
+paperless.e6.freeddns.org {
+	reverse_proxy localhost:3020
+}
+
+webdav.e6.freeddns.org {
+	reverse_proxy localhost:3030
+}
+
+download.e6.freeddns.org {
+	reverse_proxy localhost:3040
+}
