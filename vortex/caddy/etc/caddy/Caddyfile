@@ -17,3 +17,14 @@ webdav.e6.freeddns.org {
 download.e6.freeddns.org {
 	reverse_proxy localhost:3040
 }
+
+vortex {
+	tls internal
+	route / {
+		respond "Hello, world!"
+	}
+	route /paperless/* {
+		reverse_proxy localhost:3100
+	}
+	error 404
+}
