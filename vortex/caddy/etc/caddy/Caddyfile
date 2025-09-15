@@ -20,11 +20,11 @@ download.e6.freeddns.org {
 
 vortex {
 	tls internal
-	route / {
-		respond "Hello, world!"
+	route {
+		@denied not remote_ip private_ranges
+		abort @denied
+		respond / "Hello, world!"
+		reverse_proxy /paperless/* localhost:3100
+		error 404
 	}
-	route /paperless/* {
-		reverse_proxy localhost:3100
-	}
-	error 404
 }
