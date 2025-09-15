@@ -15,6 +15,7 @@ function main() (
         --exclude=/mnt/wd-raid/Backup
         --exclude=/mnt/wd-raid/Incoming
         --exclude=/mnt/wd-raid/Video
+        --exclude=/home/chris/Backup
         --exclude=.cache
         --exclude=.local/share/containers
         --exclude=.local/share/Trash

@@ -12,6 +12,7 @@ function main() (
         --exclude=/tmp
         --exclude=/media
         --exclude=/var/cache/
+        --exclude=/home/chris/Backup
         --exclude=.cache
         --exclude=.local/share/containers
         --exclude=.local/share/Trash
