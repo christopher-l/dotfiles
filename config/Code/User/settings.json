@@ -22,6 +22,9 @@
   "terminal.external.linuxExec": "ghostty",
   "workbench.editor.revealIfOpen": true,
   "workbench.tree.enableStickyScroll": true,
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": "explicit"
+  },
   // Don't show again
   "explorer.confirmDelete": false,
   "explorer.confirmDragAndDrop": false,
