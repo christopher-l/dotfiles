@@ -50,9 +50,17 @@
   "[scss]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
   // Plugins
   "svelte.enable-ts-plugin": true,
   "cSpell.language": "en,de",
+  "cSpell.showInRuler": false,
+  "cSpell.useCustomDecorations": true,
   "tinymist.formatterMode": "typstyle",
   // Temp
   "diffEditor.experimental.showMoves": true,
