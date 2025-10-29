@@ -18,6 +18,10 @@ download.e6.freeddns.org {
 	reverse_proxy localhost:3040
 }
 
+vaultwarden.e6.freeddns.org {
+	reverse_proxy localhost:3050
+}
+
 vortex {
 	tls internal
 	route {
