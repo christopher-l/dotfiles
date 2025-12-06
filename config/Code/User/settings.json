@@ -6,6 +6,7 @@
   "window.menuBarVisibility": "toggle",
   "window.title": "${rootName}",
   "window.zoomLevel": 1,
+  "workbench.secondarySideBar.defaultVisibility": "hidden",
   // Style
   "editor.fontFamily": "Adwaita Mono",
   "editor.minimap.enabled": false,
