@@ -22,6 +22,10 @@ vaultwarden.e6.freeddns.org {
 	reverse_proxy localhost:3050
 }
 
+silverbullet.e6.freeddns.org {
+	reverse_proxy localhost:3060
+}
+
 vortex {
 	tls internal
 	route {
@@ -29,6 +33,7 @@ vortex {
 		abort @denied
 		respond / "Hello, world!"
 		reverse_proxy /paperless/* localhost:3100
+		reverse_proxy /files/* localhost:3110
 		error 404
 	}
 }
