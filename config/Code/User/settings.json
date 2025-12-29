@@ -16,11 +16,11 @@
   "workbench.preferredLightColorTheme": "GitHub Light Colorblind (Beta)",
   // Behavior
   "editor.formatOnSave": true,
-  "editor.hover.enabled": false,
+  "editor.hover.enabled": "off",
   "editor.occurrencesHighlight": "multiFile",
   "editor.stickyScroll.enabled": true,
   "terminal.integrated.defaultProfile.linux": "fish",
-  "terminal.external.linuxExec": "ghostty",
+  "terminal.external.linuxExec": "kgx",
   "workbench.editor.revealIfOpen": true,
   "workbench.tree.enableStickyScroll": true,
   "editor.codeActionsOnSave": {
