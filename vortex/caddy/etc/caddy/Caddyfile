@@ -26,6 +26,10 @@ silverbullet.e6.freeddns.org {
 	reverse_proxy localhost:3060
 }
 
+filebrowser.e6.freeddns.org {
+	reverse_proxy localhost:3070
+}
+
 vortex {
 	tls internal
 	route {
