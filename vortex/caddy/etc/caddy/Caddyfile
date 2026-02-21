@@ -1,0 +1,3 @@
+miniflux.e6.freeddns.org {
+	reverse_proxy localhost:3010
+}
