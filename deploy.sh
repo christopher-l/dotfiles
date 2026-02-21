@@ -20,7 +20,7 @@ function run_as_root (
     if [ "$host" = $(hostname) ]; then
         sudo "$@"
     else
-        ssh root@"$host" "${@@Q}"
+        ssh $host sudo "${@@Q}"
     fi
 )
 
@@ -28,7 +28,7 @@ function run_script (
     if [ "$host" = $(hostname) ]; then
         sudo "$1"
     else
-        ssh "root@$host" "bash -s" -- < "$1"
+        ssh $host sudo "bash -s" -- < "$1"
     fi
 )
 
@@ -38,7 +38,7 @@ function copy_file (
     if [ "$host" = $(hostname) ]; then
         sudo cp "$file" "/$path"
     else
-        scp "$file" root@"$host":"/$path" > /dev/null
+        rsync --rsync-path="sudo rsync" "$file" $host:"/$path"
     fi
 )
 
