@@ -1,3 +1,7 @@
 miniflux.e6.freeddns.org {
 	reverse_proxy localhost:3010
 }
+
+hedgedoc.e6.freeddns.org {
+	reverse_proxy localhost:3020
+}
