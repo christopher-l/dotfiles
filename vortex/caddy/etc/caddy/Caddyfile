@@ -5,3 +5,13 @@ miniflux.e6.freeddns.org {
 hedgedoc.e6.freeddns.org {
 	reverse_proxy localhost:3020
 }
+
+paperless.local.e6.freeddns.org {
+	@denied not remote_ip private_ranges
+	abort @denied
+	reverse_proxy localhost:3030
+}
+
+paperless.e6.freeddns.org {
+	reverse_proxy localhost:3040
+}
