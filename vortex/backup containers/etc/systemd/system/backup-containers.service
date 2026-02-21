@@ -1,9 +1,0 @@
-[Unit]
-Description=Backup Containers
-
-[Service]
-Type=simple
-Restart=on-failure
-Nice=19
-IOSchedulingClass=idle
-ExecStart=/home/chris/Docker/backup.sh
