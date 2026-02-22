@@ -15,3 +15,9 @@ paperless.local.e6.freeddns.org {
 paperless.e6.freeddns.org {
 	reverse_proxy localhost:3040
 }
+
+syncthing.local.e6.freeddns.org {
+	@denied not remote_ip private_ranges
+	abort @denied
+	reverse_proxy localhost:3050
+}
