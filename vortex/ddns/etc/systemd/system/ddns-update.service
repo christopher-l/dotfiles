@@ -1,0 +1,9 @@
+[Unit]
+Description=Update DDNS addresses
+StartLimitIntervalSec=10s
+StartLimitBurst=1
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/ddns-update.sh
+Restart=on-failure

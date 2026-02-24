@@ -1,0 +1,12 @@
+[Unit]
+Description=Update DDNS addresses on IP changes
+StartLimitIntervalSec=10s
+StartLimitBurst=1
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/ddns-monitor.sh
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
