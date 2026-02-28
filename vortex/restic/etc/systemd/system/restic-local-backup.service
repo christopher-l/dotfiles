@@ -1,0 +1,12 @@
+[Unit]
+Description=Local filesystem backups using restic
+
+[Service]
+User=restic
+Group=restic
+Nice=19
+IOSchedulingClass=idle
+ExecStart=/home/restic/bin/restic --exclude={/dev,/media,/mnt,/proc,/run,/sys,/tmp,/var/tmp} backup /
+LoadCredentialEncrypted=restic-password-local.cred:/home/restic/restic-password-local.cred
+Environment=RESTIC_REPOSITORY=/mnt/hdd/backup
+Environment=RESTIC_PASSWORD_FILE=%d/restic-password-local.cred
