@@ -28,7 +28,9 @@ function run_script (
     if [ "$host" = $(hostname) ]; then
         sudo "$1"
     else
-        ssh $host sudo "bash -s" -- < "$1"
+        ssh $host 'cat >/tmp/install.sh' < "$1"
+        ssh -t $host sudo bash /tmp/install.sh
+        ssh $host rm /tmp/install.sh
     fi
 )
 
