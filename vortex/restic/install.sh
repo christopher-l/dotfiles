@@ -28,3 +28,4 @@ if [ ! -f ~restic/restic-password-local.cred ]; then
 fi
 
 systemctl daemon-reload
+systemctl enable --now restic-local.timer
