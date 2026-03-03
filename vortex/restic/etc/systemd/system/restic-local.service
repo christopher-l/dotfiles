@@ -9,7 +9,7 @@ IOSchedulingClass=idle
 ExecStart=/usr/bin/bash -ce '\
     echo "Removing old snapshots..."; \
     /home/restic/bin/restic forget --prune \
-        --keep-within 7d \
+        --keep-within 14d \
         --keep-within-weekly 1m \
         --keep-within-monthly 1y \
         --keep-within-yearly 5y; \
