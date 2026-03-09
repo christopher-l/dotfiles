@@ -1,5 +1,5 @@
 [Unit]
-Description=Daily timer for backup scripts for Docker deployments
+Description=Daily backup scripts for Docker deployments
 
 [Timer]
 OnCalendar=2:00:00

@@ -1,10 +1,9 @@
 [Unit]
-Description=Weekly schedule backup routine for local restic repository
+Description=Weekly restic backups to local hard drive
 
 [Timer]
 OnCalendar=Sun 14:00:00
 Persistent=true
-Unit=restic-local.service
 
 [Install]
 WantedBy=timers.target

@@ -1,0 +1,11 @@
+[Unit]
+Description=Restic backups to Google Drive
+
+[Service]
+User=restic
+Group=restic
+Nice=19
+IOSchedulingClass=idle
+ExecStart=/usr/local/bin/restic-gdrive.sh
+Environment=RESTIC_REPOSITORY=rclone:gdrive:Backup
+Environment=RESTIC_PASSWORD_FILE=/home/restic/restic-password-gdrive

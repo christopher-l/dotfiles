@@ -1,0 +1,9 @@
+[Unit]
+Description=Daily restic backups to Google Drive
+
+[Timer]
+OnCalendar=2:10:00
+Persistent=true
+
+[Install]
+WantedBy=timers.target

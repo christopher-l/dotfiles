@@ -1,5 +1,5 @@
 [Unit]
-Description=Run backup scripts for Docker deployments
+Description=Backup scripts for Docker deployments
 
 [Service]
 Nice=19

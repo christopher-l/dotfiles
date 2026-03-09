@@ -27,5 +27,25 @@ if [ ! -f ~restic/restic-password-local.cred ]; then
     unset password
 fi
 
+if ! sudo -u restic rclone config show gdrive: &> /dev/null; then
+    sudo -u restic rclone config create gdrive drive --all \
+        scope=drive \
+        service_account_file= \
+        config_fs_advanced=false \
+        config_is_local=false \
+        team_drive=
+fi
+
+if [ ! -f ~restic/restic-password-gdrive ]; then
+    echo -n "Password for Google-Drive backup repository: "
+    read password
+    if [ -n "$password" ]; then
+        echo "$password" > ~restic/restic-password-gdrive
+        chmod 600 ~restic/restic-password-gdrive
+    fi
+    unset password
+fi
+
 systemctl daemon-reload
 systemctl enable --now restic-local.timer
+systemctl enable --now restic-gdrive.timer

@@ -1,23 +1,12 @@
 [Unit]
-Description=Backup routine for local restic repository
+Description=Restic backups to local hard drive
 
 [Service]
 User=restic
 Group=restic
 Nice=19
 IOSchedulingClass=idle
-ExecStart=/usr/bin/bash -ce '\
-    echo "Removing old snapshots..."; \
-    /home/restic/bin/restic forget --prune \
-        --keep-within 14d \
-        --keep-within-weekly 1m \
-        --keep-within-monthly 1y \
-        --keep-within-yearly 5y; \
-    echo "Backing up local filesystem..."; \
-    /home/restic/bin/restic backup / --exclude={/dev,/media,/mnt,/proc,/run,/sys,/tmp,/var/tmp}; \
-    echo "Checking repository..."; \
-    /home/restic/bin/restic check; \
-'
+ExecStart=/usr/local/bin/restic-local.sh
 LoadCredentialEncrypted=restic-password-local.cred:/home/restic/restic-password-local.cred
 Environment=RESTIC_REPOSITORY=/mnt/hdd/backup
 Environment=RESTIC_PASSWORD_FILE=%d/restic-password-local.cred
