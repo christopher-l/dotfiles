@@ -1,0 +1,8 @@
+[Unit]
+Description=Daily timer for backup scripts for Docker deployments
+
+[Timer]
+OnCalendar=2:00:00
+
+[Install]
+WantedBy=timers.target
