@@ -18,11 +18,12 @@ if [ ! -f ~restic/bin/restic ]; then
     setcap cap_dac_read_search=+ep ~restic/bin/restic
 fi
 
-if [ ! -f ~restic/restic-password-local.cred ]; then
-    echo -n "Provide the password for the local backup repository: "
+if [ ! -f ~restic/restic-password-local ]; then
+    echo -n "Password for local backup repository: "
     read password
     if [ -n "$password" ]; then
-        echo "$password" | systemd-creds encrypt - ~restic/restic-password-local.cred
+        echo "$password" > ~restic/restic-password-local
+        chmod 600 ~restic/restic-password-local
     fi
     unset password
 fi
