@@ -50,3 +50,4 @@ fi
 systemctl daemon-reload
 systemctl enable --now restic-local.timer
 systemctl enable --now restic-gdrive.timer
+systemctl enable --now restic-self-update.timer
