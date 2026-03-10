@@ -2,6 +2,11 @@
 
 set -euo pipefail
 
+if systemctl is-active --quiet backup-docker; then
+    echo "Error: backup-docker.service is running"
+    exit 1
+fi
+
 echo "Removing old snapshots..."
 /home/restic/bin/restic forget --prune \
     --keep-within 14d \
