@@ -1,3 +1,9 @@
+restic.local.e6.freeddns.org {
+	@denied not remote_ip private_ranges
+	abort @denied
+	reverse_proxy localhost:3001
+}
+
 miniflux.e6.freeddns.org {
 	reverse_proxy localhost:3010
 }
