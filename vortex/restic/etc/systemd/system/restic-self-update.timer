@@ -1,9 +1,0 @@
-[Unit]
-Description=Weekly restic self-update
-
-[Timer]
-OnCalendar=Sun 5:00:00
-Persistent=true
-
-[Install]
-WantedBy=timers.target

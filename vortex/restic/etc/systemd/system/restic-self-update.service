@@ -1,5 +1,0 @@
-[Unit]
-Description=Restic self-update
-
-[Service]
-ExecStart=/usr/local/bin/restic-self-update.sh

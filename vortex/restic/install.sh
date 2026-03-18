@@ -2,20 +2,9 @@
 
 set -e
 
-# Adapted from https://restic.readthedocs.io/en/stable/080_examples.html#backing-up-your-system-without-running-restic-as-root
-
 if ! id restic &> /dev/null; then
     echo "Creating user: restic..."
     useradd --system --create-home --shell /sbin/nologin restic
-    mkdir ~restic/bin
-fi
-
-if [ ! -f ~restic/bin/restic ]; then
-    echo "Downloading restic..."
-    curl -L --fail https://github.com/restic/restic/releases/download/v0.18.1/restic_0.18.1_linux_arm64.bz2 | bunzip2 > ~restic/bin/restic
-    chown root:restic ~restic/bin/restic
-    chmod 750 ~restic/bin/restic
-    setcap cap_dac_read_search=+ep ~restic/bin/restic
 fi
 
 if [ ! -f ~restic/restic-password-local ]; then
@@ -61,5 +50,4 @@ fi
 systemctl daemon-reload
 systemctl enable --now restic-local.timer
 systemctl enable --now restic-gdrive.timer
-systemctl enable --now restic-self-update.timer
 systemctl enable --now restic-rest-server.service

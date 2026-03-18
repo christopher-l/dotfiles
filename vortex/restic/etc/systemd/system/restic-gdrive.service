@@ -4,6 +4,7 @@ Description=Restic backups to Google Drive
 [Service]
 User=restic
 Group=restic
+AmbientCapabilities=CAP_DAC_READ_SEARCH
 Nice=19
 IOSchedulingClass=idle
 ExecStart=/usr/local/bin/restic-gdrive.sh
