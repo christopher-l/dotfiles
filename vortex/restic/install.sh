@@ -23,6 +23,7 @@ if [ ! -f ~restic/restic-password-local ]; then
     read password
     if [ -n "$password" ]; then
         echo "$password" > ~restic/restic-password-local
+        chown restic:restic ~restic/restic-password-local
         chmod 600 ~restic/restic-password-local
     fi
     unset password
@@ -42,9 +43,19 @@ if [ ! -f ~restic/restic-password-gdrive ]; then
     read password
     if [ -n "$password" ]; then
         echo "$password" > ~restic/restic-password-gdrive
+        chown restic:restic ~restic/restic-password-gdrive
         chmod 600 ~restic/restic-password-gdrive
     fi
     unset password
+fi
+
+if ! grep -q chris /etc/restic-rest-server/users.htpasswd; then
+    echo -n "Password for REST server: "
+    read password
+    if [ -n "$password" ]; then
+        echo "$password" | htpasswd -B -c -i /etc/restic-rest-server/users.htpasswd chris
+        chown root:restic /etc/restic-rest-server/users.htpasswd
+    fi
 fi
 
 systemctl daemon-reload

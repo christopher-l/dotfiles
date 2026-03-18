@@ -1,0 +1,6 @@
+LISTEN = 127.0.0.1:3001
+BACKUP_DIR = /mnt/hdd/backup
+ARGS = "\
+  --append-only \
+  --htpasswd-file /etc/restic-rest-server/users.htpasswd \
+"
