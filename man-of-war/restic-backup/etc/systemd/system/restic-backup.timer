@@ -1,0 +1,10 @@
+[Unit]
+Description=Weekly backup system
+
+[Timer]
+OnCalendar=Mon 11:00
+Persistent=true
+Unit=backup.service
+
+[Install]
+WantedBy=timers.target

@@ -1,0 +1,17 @@
+[Unit]
+Description=Backup system
+After=network-online.target
+Wants=network-online.target
+StartLimitIntervalSec=300
+StartLimitBurst=3
+
+[Service]
+Type=simple
+User=restic
+Group=restic
+AmbientCapabilities=CAP_DAC_READ_SEARCH
+Restart=on-failure
+Nice=19
+IOSchedulingClass=idle
+ExecStart=/usr/local/bin/restic-backup.sh
+EnvironmentFile=/root/restic.env
