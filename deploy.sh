@@ -49,6 +49,7 @@ function install (
         echo "Installing locally..."
     else
         echo "Installing remotely..."
+        ssh -t $host sudo -v
     fi
     install_dir
     if [ -f install.sh ]; then
