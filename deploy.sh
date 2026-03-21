@@ -11,58 +11,40 @@ if [ $# -ne 1 ]; then
     print_usage_and_exit
 fi
 
+path=$(dirname "$1")/$(basename "$1")
+host=$(echo $1 | cut -d '/' -f 1 -s)
 
-host=$(echo $1 | cut -d '/' -f 1)
-script=$(echo $1 | cut -d '/' -f 2)
-
-function run_as_root (
-    # echo "$@"
-    if [ "$host" = $(hostname) ]; then
-        sudo "$@"
+function main (
+    if [ -z "$host" ]; then
+        cd "$path"
+        install
+    elif [ "$host" = $(hostname) ]; then
+        echo "Installing locally..."
+        cd "$path" || print_usage_and_exit
+        install
     else
-        ssh $host sudo "${@@Q}"
-    fi
-)
-
-function run_script (
-    if [ "$host" = $(hostname) ]; then
-        sudo "$1"
-    else
-        ssh $host 'cat >/tmp/install.sh' < "$1"
-        ssh -t $host sudo bash /tmp/install.sh
-        ssh $host rm /tmp/install.sh
-    fi
-)
-
-function copy_file (
-    path="$1"
-    file="$2"
-    if [ "$host" = $(hostname) ]; then
-        sudo cp "$file" "/$path"
-    else
-        rsync --rsync-path="sudo rsync" "$file" $host:"/$path"
+        echo "Installing remotely..."
+        tmpDir=/tmp/setup.$(cat /dev/urandom | tr -cd 'a-zA-Z0-9' | head -c 10)
+        echo "Copying to remote dir: $tmpDir"
+        rsync -re ssh deploy.sh $path $host:$tmpDir/
+        echo "Deploying..."
+        ssh -t $host "cd $tmpDir; ./deploy.sh $(basename $path); errCode=\$?; rm -r $tmpDir; exit \$errCode"
     fi
 )
 
 function install (
-    if [ "$host" = $(hostname) ]; then
-        echo "Installing locally..."
-    else
-        echo "Installing remotely..."
-        ssh -t $host sudo -v
-    fi
     install_dir
     if [ -f install.sh ]; then
-        run_script ./install.sh
+        sudo ./install.sh
     fi
 )
 
 function install_dir (
     path="$1"
     GLOBIGNORE=".:.."
-    if ! run_as_root test -d "/$path"; then
+    if ! sudo test -d "/$path"; then
         echo mkdir "/$path"
-        run_as_root mkdir "/$path"
+        sudo mkdir "/$path"
         echo "Created directory /$path"
     fi
     for f in "$path"*; do
@@ -83,18 +65,8 @@ function install_dir (
 function install_file (
     file="$1"
     path="$2"
-    copy_file "$path" "$file"
+    sudo cp "$file" "/$path"
     echo "Installed file /$file"
-)
-
-function uninstall (
-    echo uninstall
-)
-
-function main (
-    cd "$host" || print_usage_and_exit
-    cd "$script" || print_usage_and_exit
-    install
 )
 
 main
