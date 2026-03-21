@@ -20,5 +20,5 @@ if [ ! -f /root/restic.env ]; then
     unset password
 fi
 
-systemctl enable restic-backup.timer
+systemctl enable --now restic-backup.timer
 systemctl daemon-reload
