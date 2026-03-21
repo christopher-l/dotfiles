@@ -2,6 +2,8 @@
 Description=Backup scripts for Docker deployments
 
 [Service]
+User=chris
+Group=backup-docker
 Nice=19
 IOSchedulingClass=idle
 ExecStart=/home/chris/Docker/backup.sh
