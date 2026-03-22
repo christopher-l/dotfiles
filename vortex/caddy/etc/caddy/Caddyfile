@@ -31,3 +31,9 @@ syncthing.local.e6.freeddns.org {
 webdav.e6.freeddns.org {
 	reverse_proxy localhost:3060
 }
+
+files.local.e6.freeddns.org {
+	@denied not remote_ip private_ranges
+	abort @denied
+	reverse_proxy localhost:3070
+}
