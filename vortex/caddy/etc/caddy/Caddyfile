@@ -37,3 +37,7 @@ files.local.e6.freeddns.org {
 	abort @denied
 	reverse_proxy localhost:3070
 }
+
+download.e6.freeddns.org {
+	reverse_proxy localhost:3080
+}
