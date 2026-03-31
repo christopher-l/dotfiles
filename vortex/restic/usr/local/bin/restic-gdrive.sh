@@ -16,6 +16,7 @@ restic forget --prune \
 echo "Creating backup..."
 restic backup /home/chris/Docker \
     --exclude='/home/chris/Docker/*/data' \
+    --exclude='/home/chris/Docker/syncthing/media/Backup' \
     --exclude='/home/chris/Docker/syncthing/media/Pictures' \
     --exclude='/home/chris/Docker/syncthing/media/Media'
 
