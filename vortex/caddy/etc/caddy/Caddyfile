@@ -41,3 +41,7 @@ files.local.e6.freeddns.org {
 download.e6.freeddns.org {
 	reverse_proxy localhost:3080
 }
+
+logseq.e6.freeddns.org {
+	reverse_proxy localhost:3090
+}
