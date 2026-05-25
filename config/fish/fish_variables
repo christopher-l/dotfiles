@@ -1,8 +1,0 @@
-# This file contains fish universal variable definitions.
-# VERSION: 3.0
-SETUVAR --export EDITOR:vim
-SETUVAR --export --path GOPATH:/home/chris/\x2elocal/share/go
-SETUVAR --export PNPM_HOME:/home/chris/\x2elocal/share/pnpm
-SETUVAR __fish_initialized:4300
-SETUVAR fish_greeting:
-SETUVAR fish_user_paths:/home/chris/\x2elocal/share/pnpm\x1e/home/chris/\x2elocal/bin
